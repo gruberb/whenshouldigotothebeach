@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 - 2026-08-08
+
+### Changed
+
+- Ended ECCC bulletins ("SEVERE THUNDERSTORM ENDED") are no longer shown;
+  they are all-clear notices, not active safety information.
+
 ## 1.1.0 - 2026-08-08
 
 ### Added

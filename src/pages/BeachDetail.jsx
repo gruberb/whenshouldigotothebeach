@@ -298,8 +298,9 @@ function BeachDetail() {
       )
       .filter(Boolean),
   );
+  // Ended bulletins are all-clear notices, not active safety information.
   const noticeWarnings = data.warnings.filter(
-    (warning) => !inlineWarnings.has(warning),
+    (warning) => warning.type !== "ended" && !inlineWarnings.has(warning),
   );
 
   return (
@@ -354,13 +355,7 @@ function BeachDetail() {
         {noticeWarnings.map((warning) => (
           <Notice
             key={warning.description}
-            kind={
-              warning.type === "warning"
-                ? "Warning"
-                : warning.type === "ended"
-                  ? "Ended"
-                  : "Watch"
-            }
+            kind={warning.type === "warning" ? "Warning" : "Watch"}
             url={warning.url}
           >
             {warning.description}
