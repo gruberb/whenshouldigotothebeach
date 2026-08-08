@@ -1,0 +1,13 @@
+# Manual overrides for closures, water advisories, and notices that no adapter
+# covers yet. Every entry needs a source and an expiry; expired entries are
+# dropped by the pipeline. Types: closure | water-advisory | informational.
+#
+# - beach_id: rissers
+#   type: informational
+#   title: Parking area temporarily restricted
+#   message: Use the southern parking area.
+#   source: Nova Scotia Parks
+#   starts_at: 2026-08-08T10:00:00-03:00
+#   expires_at: 2026-08-09T20:00:00-03:00
+
+[]

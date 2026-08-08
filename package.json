@@ -1,0 +1,36 @@
+{
+  "name": "whenshouldigotothebeach",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp dist/index.html dist/404.html",
+    "preview": "vite preview",
+    "data": "tsx scripts/build-data.ts",
+    "validate": "tsx scripts/validate.ts",
+    "test": "vitest run",
+    "lint": "eslint src scripts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/suncalc": "^1.9.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "fast-xml-parser": "^4.4.1",
+    "postcss": "^8.4.39",
+    "suncalc": "^1.9.0",
+    "tailwindcss": "^3.4.6",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4",
+    "vitest": "^2.0.3",
+    "yaml": "^2.4.5",
+    "zod": "^3.23.8"
+  }
+}

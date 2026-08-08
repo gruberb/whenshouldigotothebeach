@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# generated data (produced by npm run data, built fresh in CI)
+/public/data
+
+# local agent config
+/.claude
+
+# misc
+.DS_Store
+*.log

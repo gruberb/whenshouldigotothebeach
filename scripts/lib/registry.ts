@@ -1,0 +1,161 @@
+import { readFileSync } from "node:fs";
+import { parse } from "yaml";
+import { z } from "zod";
+import type { BeachConfig, ManualOverride, Thresholds } from "./types.js";
+
+const beachSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  name: z.string().min(1),
+  municipality: z.string().min(1),
+  location: z.object({
+    latitude: z.number().min(43).max(45.5),
+    longitude: z.number().min(-66.5).max(-63),
+    timezone: z.literal("America/Halifax"),
+  }),
+  classification: z.object({
+    surface: z.string(),
+    exposure: z.enum([
+      "sheltered-bay",
+      "semi-exposed",
+      "open-atlantic",
+      "estuary",
+      "tidal-flat",
+    ]),
+    shore_bearing_degrees: z.number().min(0).max(359),
+    tide_effect: z.enum([
+      "neutral",
+      "more-sand-at-low",
+      "warmer-incoming-after-low",
+      "reduced-access-at-high",
+      "unknown",
+    ]),
+  }),
+  weather: z.object({
+    site_code: z.string().regex(/^s\d{7}$/),
+    site_latitude: z.number(),
+    site_longitude: z.number(),
+    site_name: z.string(),
+    province: z.string().length(2),
+  }),
+  tide: z.object({
+    station_code: z.string().regex(/^\d{5}$/),
+    station_latitude: z.number(),
+    station_longitude: z.number(),
+    station_id: z.string().min(10),
+    station_name: z.string(),
+    confidence: z.enum(["on-site", "nearby", "regional"]),
+  }),
+  water: z
+    .object({
+      buoy_id: z.string().regex(/^\d{7}$/),
+      buoy_name: z.string(),
+      buoy_latitude: z.number(),
+      buoy_longitude: z.number(),
+    })
+    .optional(),
+  // Amenities are copied from the beach's official page, never assumed;
+  // absent fields mean "not stated", not "not available".
+  amenities: z
+    .object({
+      washrooms: z.boolean().optional(),
+      food: z.boolean().optional(),
+      note: z.string().optional(),
+    })
+    .optional(),
+  source_urls: z.object({
+    official_page: z.string().url(),
+  }),
+  coverage: z.object({
+    status: z.string(),
+    reviewed_at: z.union([z.string(), z.date()]),
+  }),
+});
+
+// Override timestamps must carry an explicit offset: an offset-less value is
+// parsed in the runner's local timezone, which differs between a dev machine
+// in Halifax and CI in UTC, silently shifting closure windows by hours.
+const offsetTimestamp = z
+  .string()
+  .regex(
+    /(Z|[+-]\d{2}:\d{2})$/,
+    "timestamp must include an explicit UTC offset (Z or +-hh:mm)",
+  );
+
+const overrideSchema = z.object({
+  beach_id: z.string(),
+  type: z.enum(["closure", "water-advisory", "informational"]),
+  title: z.string().min(1),
+  message: z.string().min(1),
+  source: z.string().min(1),
+  starts_at: offsetTimestamp,
+  expires_at: offsetTimestamp,
+});
+
+export function loadBeaches(path: string): BeachConfig[] {
+  const raw = parse(readFileSync(path, "utf8"));
+  const beaches = z.array(beachSchema).parse(raw);
+  const ids = new Set<string>();
+  for (const beach of beaches) {
+    if (ids.has(beach.id)) throw new Error(`Duplicate beach id: ${beach.id}`);
+    ids.add(beach.id);
+  }
+  return beaches as unknown as BeachConfig[];
+}
+
+export function loadThresholds(path: string): Thresholds {
+  const raw = parse(readFileSync(path, "utf8"));
+  const schema = z.object({
+    weights: z.object({
+      precipitation: z.number().positive(),
+      wind: z.number().positive(),
+      temperature: z.number().positive(),
+      fog: z.number().positive(),
+      sky: z.number().positive(),
+      tide: z.number().positive(),
+    }),
+    temperature_c: z.object({
+      ideal_min: z.number(),
+      ideal_max: z.number(),
+      ok_min: z.number(),
+      ok_max: z.number(),
+      poor_min: z.number(),
+      poor_max: z.number(),
+    }),
+    wind_kmh: z.object({
+      calm_max: z.number(),
+      ok_max: z.number(),
+      windy_max: z.number(),
+      gust_factor: z.number(),
+    }),
+    precipitation_pop: z.object({
+      low_max: z.number(),
+      high_max: z.number(),
+    }),
+    ratings: z.object({
+      good_min: z.number(),
+      ok_min: z.number(),
+      meh_min: z.number(),
+    }),
+    window: z.object({
+      min_hours: z.number().int().positive(),
+    }),
+    staleness: z.object({
+      valid_minutes: z.number().int().positive(),
+    }),
+  });
+  return schema.parse(raw);
+}
+
+export function loadOverrides(path: string, now: Date): ManualOverride[] {
+  const raw = parse(readFileSync(path, "utf8"));
+  if (raw === null || (Array.isArray(raw) && raw.length === 0)) return [];
+  const overrides = z.array(overrideSchema).parse(raw);
+  return overrides.filter((entry) => {
+    const starts = new Date(entry.starts_at);
+    const expires = new Date(entry.expires_at);
+    if (Number.isNaN(starts.getTime()) || Number.isNaN(expires.getTime())) {
+      throw new Error(`Override "${entry.title}" has invalid timestamps`);
+    }
+    return starts <= now && now <= expires;
+  });
+}

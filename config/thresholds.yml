@@ -1,0 +1,39 @@
+# Scoring calibration. Component scores are 0..1, combined with these weights.
+# Sea state is not modelled in v1; its weight is folded into sky and tide.
+
+weights:
+  precipitation: 30
+  wind: 20
+  temperature: 15
+  fog: 15
+  sky: 12
+  tide: 8
+
+temperature_c:
+  ideal_min: 18
+  ideal_max: 27
+  ok_min: 14
+  ok_max: 31
+  poor_min: 12
+  poor_max: 33
+
+wind_kmh:
+  calm_max: 15
+  ok_max: 25
+  windy_max: 35
+  gust_factor: 0.75
+
+precipitation_pop:
+  low_max: 30
+  high_max: 60
+
+ratings:
+  good_min: 72
+  ok_min: 55
+  meh_min: 40
+
+window:
+  min_hours: 2
+
+staleness:
+  valid_minutes: 150

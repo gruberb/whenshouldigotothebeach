@@ -1,0 +1,431 @@
+# South Shore beach registry.
+#
+# Station assignments are manual and reviewed, never auto-picked by distance:
+# coastline geometry makes the nearest station a poor proxy in bays and estuaries.
+# shore_bearing_degrees is the compass direction from the sand toward open water,
+# used to classify forecast wind as onshore / offshore / cross-shore.
+# tide_effect values are beach-specific, documented behaviours only.
+
+- id: queensland
+  name: Queensland Beach
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6345
+    longitude: -64.0278
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 160
+    tide_effect: neutral
+  weather:
+    site_code: s0000318
+    site_latitude: 44.65
+    site_longitude: -63.60
+    site_name: Halifax
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.659140
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: regional
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  amenities:
+    note: Supervised swimming July-August
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/queensland-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-07
+
+- id: hirtles
+  name: Hirtle's Beach
+  municipality: Municipality of the District of Lunenburg
+  location:
+    latitude: 44.2672
+    longitude: -64.2594
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: open-atlantic
+    shore_bearing_degrees: 140
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000440
+    site_latitude: 44.38
+    site_longitude: -64.32
+    site_name: Lunenburg
+    province: NS
+  tide:
+    station_code: "00455"
+    station_latitude: 44.375468
+    station_longitude: -64.307098
+    station_id: 5cebf1df3d0f4a073c4bbcb1
+    station_name: Lunenburg
+    confidence: regional
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  source_urls:
+    official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+  coverage:
+    status: full
+    reviewed_at: 2026-08-07
+
+- id: rissers
+  name: Rissers Beach
+  municipality: Municipality of the District of Lunenburg
+  location:
+    latitude: 44.2287
+    longitude: -64.4320
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 135
+    tide_effect: neutral
+  weather:
+    site_code: s0000440
+    site_latitude: 44.38
+    site_longitude: -64.32
+    site_name: Lunenburg
+    province: NS
+  tide:
+    station_code: "00452"
+    station_latitude: 44.289312
+    station_longitude: -64.345007
+    station_id: 5cebf1e03d0f4a073c4bbe8d
+    station_name: Riverport
+    confidence: nearby
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  amenities:
+    washrooms: true
+    note: Flush toilets, showers and change house; supervised swimming at Little Rissers July-August
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/rissers-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-07
+
+- id: summerville
+  name: Summerville Beach
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 43.9505
+    longitude: -64.8189
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 140
+    tide_effect: neutral
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00435"
+    station_latitude: 43.921621
+    station_longitude: -64.841138
+    station_id: 5cebf1df3d0f4a073c4bbcad
+    station_name: Port Mouton
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/summerville-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-07
+
+- id: sandhills
+  name: Sand Hills Beach
+  municipality: Municipality of the District of Barrington
+  location:
+    latitude: 43.5324
+    longitude: -65.5518
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: tidal-flat
+    shore_bearing_degrees: 180
+    tide_effect: warmer-incoming-after-low
+  weather:
+    site_code: s0000110
+    site_latitude: 43.47
+    site_longitude: -65.57
+    site_name: Baccaro Point
+    province: NS
+  tide:
+    station_code: "00415"
+    station_latitude: 43.525632
+    station_longitude: -65.607207
+    station_id: 5cebf1df3d0f4a073c4bbca5
+    station_name: Barrington Passage
+    confidence: nearby
+  amenities:
+    note: Boardwalk access over the dunes
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/sand-hills-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-07
+
+- id: cleveland
+  name: Cleveland Beach
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6491
+    longitude: -63.9935
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 150
+    tide_effect: neutral
+  weather:
+    site_code: s0000318
+    site_latitude: 44.65
+    site_longitude: -63.60
+    site_name: Halifax
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.659140
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: regional
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  amenities:
+    note: Unsupervised; limited parking
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/cleveland-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: bayswater
+  name: Bayswater Beach
+  municipality: Municipality of the District of Chester
+  location:
+    latitude: 44.5027
+    longitude: -64.0677
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 100
+    tide_effect: neutral
+  weather:
+    site_code: s0000440
+    site_latitude: 44.38
+    site_longitude: -64.32
+    site_name: Lunenburg
+    province: NS
+  tide:
+    station_code: "00465"
+    station_latitude: 44.536383
+    station_longitude: -64.242787
+    station_id: 5dd30650e0fdc4b9b4be6d40
+    station_name: Chester
+    confidence: regional
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  amenities:
+    washrooms: true
+    note: Change rooms and toilets; barbecue grills; supervised July-August
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/bayswater-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: crescent
+  name: Crescent Beach
+  municipality: Municipality of the District of Lunenburg
+  location:
+    latitude: 44.2381
+    longitude: -64.4142
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 140
+    tide_effect: neutral
+  weather:
+    site_code: s0000440
+    site_latitude: 44.38
+    site_longitude: -64.32
+    site_name: Lunenburg
+    province: NS
+  tide:
+    station_code: "00452"
+    station_latitude: 44.289312
+    station_longitude: -64.345007
+    station_id: 5cebf1e03d0f4a073c4bbe8d
+    station_name: Riverport
+    confidence: nearby
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  source_urls:
+    official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: cherryhill
+  name: Cherry Hill Beach
+  municipality: Municipality of the District of Lunenburg
+  location:
+    latitude: 44.1443
+    longitude: -64.5024
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 160
+    tide_effect: neutral
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00440"
+    station_latitude: 44.048996
+    station_longitude: -64.694420
+    station_id: 5cebf1df3d0f4a073c4bbcaf
+    station_name: Liverpool
+    confidence: regional
+  source_urls:
+    official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: beachmeadows
+  name: Beach Meadows Beach
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 44.056860
+    longitude: -64.640154
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 160
+    tide_effect: neutral
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00440"
+    station_latitude: 44.048996
+    station_longitude: -64.694420
+    station_id: 5cebf1df3d0f4a073c4bbcaf
+    station_name: Liverpool
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Playground, picnic area and change rooms; wheelchair accessible
+  source_urls:
+    official_page: https://www.regionofqueens.com/parks-trails-recreation/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: carters
+  name: Carters Beach
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 43.9086
+    longitude: -64.8233
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 100
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00435"
+    station_latitude: 43.921621
+    station_longitude: -64.841138
+    station_id: 5cebf1df3d0f4a073c4bbcad
+    station_name: Port Mouton
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/carters-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: sanddollar
+  name: Sand Dollar Beach
+  municipality: Municipality of the District of Lunenburg
+  location:
+    latitude: 44.3022
+    longitude: -64.2977
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 140
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000440
+    site_latitude: 44.38
+    site_longitude: -64.32
+    site_name: Lunenburg
+    province: NS
+  tide:
+    station_code: "00452"
+    station_latitude: 44.289312
+    station_longitude: -64.345007
+    station_id: 5cebf1e03d0f4a073c4bbe8d
+    station_name: Riverport
+    confidence: nearby
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  amenities:
+    note: Boardwalk to the beach; very limited parking (roughly seven cars)
+  source_urls:
+    official_page: https://www.ehcanadatravel.com/nova-scotia/lunenburg/parks-places/6159-sand-dollar-beach.html
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
