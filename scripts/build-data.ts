@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { fetchTides, unavailableTides } from "./lib/chs.js";
 import { fetchLatestCitypage } from "./lib/eccc.js";
 import { haversineKm } from "./lib/geo.js";
+import { fetchFoodPois, nearestFood, type FoodPoi } from "./lib/nearby.js";
 import { fetchBuoySeaSurfaceTemp, unavailableWater } from "./lib/water.js";
 import { buildReasons } from "./lib/reasons.js";
 import { loadBeaches, loadOverrides, loadThresholds } from "./lib/registry.js";
@@ -144,6 +145,20 @@ async function main() {
     }
   }
 
+  // One Overpass query covers every beach; nearby food is supporting
+  // information and a failed fetch never blocks the build.
+  let foodPois: FoodPoi[] = [];
+  try {
+    console.log("Fetching nearby food places from OpenStreetMap");
+    foodPois = await fetchFoodPois();
+    console.log(`Found ${foodPois.length} named food places in the region`);
+  } catch (error) {
+    console.warn(
+      "Nearby food fetch failed, continuing without:",
+      error instanceof Error ? error.message : error,
+    );
+  }
+
   mkdirSync(join(dataDir, "beach"), { recursive: true });
 
   const validUntil = new Date(
@@ -252,6 +267,11 @@ async function main() {
         samples: tides.samples,
       },
       water,
+      nearbyFood: nearestFood(
+        beach.location.latitude,
+        beach.location.longitude,
+        foodPois,
+      ),
       weatherSource: {
         siteCode: weather.siteCode,
         siteName: beach.weather.site_name,

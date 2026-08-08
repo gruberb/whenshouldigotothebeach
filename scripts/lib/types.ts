@@ -168,6 +168,12 @@ export interface TideData {
   samples: TideSample[];
 }
 
+export interface NearbyFood {
+  name: string;
+  kind: string;
+  distanceKm: number;
+}
+
 export interface WaterTemperature {
   sourceKind: "observed-buoy" | "unavailable";
   valueC: number | null;
@@ -260,6 +266,7 @@ export interface BeachOutput {
     samples: TideSample[];
   };
   water: WaterTemperature;
+  nearbyFood: NearbyFood[];
   weatherSource: {
     siteCode: string;
     siteName: string;

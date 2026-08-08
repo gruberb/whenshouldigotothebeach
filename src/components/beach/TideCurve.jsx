@@ -14,8 +14,9 @@ const BOT = HEIGHT - PAD_BOTTOM;
 const HOUR = 3600_000;
 
 // Predicted tide curve with a real time axis: hour ticks every six hours,
-// dashed day boundaries with day labels, and heights on each high/low.
-function TideCurve({ tides, now = new Date() }) {
+// day labels, and heights on each high/low. bestTide marks the events that
+// suit this beach (square markers) so the preference reads at a glance.
+function TideCurve({ tides, now = new Date(), bestTide = null }) {
   if (tides.sourceKind !== "predicted" || tides.samples.length < 2) {
     return (
       <p className="text-sm text-neutral-500">
@@ -75,7 +76,7 @@ function TideCurve({ tides, now = new Date() }) {
   return (
     <svg
       viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-      className="w-full block"
+      className="w-full block min-w-[560px]"
       role="img"
       aria-label={`Predicted tide heights at ${tides.stationName} with hour and day axis`}
     >
@@ -184,18 +185,34 @@ function TideCurve({ tides, now = new Date() }) {
         const below = ey + 17;
         const labelY =
           event.type === "high" ? ey - 10 : below > BOT - 6 ? ey - 10 : below;
+        const isBest = bestTide !== null && event.type === bestTide;
+        const markerTitle = `${event.type === "high" ? "High" : "Low"} tide ${formatTime(event.time)} · ${event.heightM.toFixed(1)} m${isBest ? " · usually the best tide here" : ""}`;
         return (
           <g key={event.time}>
-            <circle
-              cx={ex}
-              cy={ey}
-              r="4"
-              fill="#232532"
-              stroke="#d2cefd"
-              strokeWidth="1.5"
-            >
-              <title>{`${event.type === "high" ? "High" : "Low"} tide ${formatTime(event.time)} · ${event.heightM.toFixed(1)} m`}</title>
-            </circle>
+            {isBest ? (
+              <rect
+                x={ex - 4}
+                y={ey - 4}
+                width="8"
+                height="8"
+                fill="#b5abfc"
+                stroke="#161826"
+                strokeWidth="1.5"
+              >
+                <title>{markerTitle}</title>
+              </rect>
+            ) : (
+              <circle
+                cx={ex}
+                cy={ey}
+                r="4"
+                fill="#232532"
+                stroke="#d2cefd"
+                strokeWidth="1.5"
+              >
+                <title>{markerTitle}</title>
+              </circle>
+            )}
             <text
               x={labelX}
               y={labelY}

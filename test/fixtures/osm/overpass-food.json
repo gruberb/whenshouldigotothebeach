@@ -1,0 +1,421 @@
+{
+ "version": 0.6,
+ "generator": "Overpass API 0.7.62.11 87bfad18",
+ "elements": [
+  {
+   "type": "node",
+   "id": 255291922,
+   "lat": 44.0454321,
+   "lon": -64.7234415,
+   "tags": {
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "brand:wikipedia": "en:Subway (restaurant)",
+    "cuisine": "sandwich",
+    "name": "Subway",
+    "takeaway": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 764391114,
+   "lat": 44.0465388,
+   "lon": -64.7228944,
+   "tags": {
+    "amenity": "fast_food",
+    "brand": "McDonald's",
+    "brand:wikidata": "Q38076",
+    "brand:wikipedia": "en:McDonald's",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "name": "McDonald's",
+    "takeaway": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 764391118,
+   "lat": 44.0459565,
+   "lon": -64.721768,
+   "tags": {
+    "amenity": "cafe",
+    "brand": "Tim Hortons",
+    "brand:wikidata": "Q175106",
+    "brand:wikipedia": "en:Tim Hortons",
+    "cuisine": "coffee_shop",
+    "drive_through": "yes",
+    "name": "Tim Hortons",
+    "takeaway": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2924750934,
+   "lat": 44.0583091,
+   "lon": -64.6810309,
+   "tags": {
+    "amenity": "restaurant",
+    "cuisine": "regional",
+    "name": "Transcotia"
+   }
+  },
+  {
+   "type": "node",
+   "id": 2951139788,
+   "lat": 44.3763474,
+   "lon": -64.3104533,
+   "tags": {
+    "addr:city": "Lunenburg",
+    "addr:housenumber": "100",
+    "addr:postcode": "B0J 2C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Montague Street",
+    "amenity": "cafe",
+    "cuisine": "seafood;sandwich",
+    "name": "The Savvy Sailor",
+    "opening_hours": "Mo-Su 07:30-21:00",
+    "website": "https://thesavvysailor.ca/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4418073789,
+   "lat": 44.3774029,
+   "lon": -64.3098329,
+   "tags": {
+    "addr:city": "Lunenburg",
+    "addr:housenumber": "261",
+    "addr:postcode": "B0J 2C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Lincoln Street",
+    "amenity": "cafe",
+    "name": "Laughing Whale Coffee Roasters",
+    "phone": "+1 902 527 3154",
+    "website": "https://laughingwhalecoffee.com",
+    "wheelchair": "yes",
+    "wheelchair:description": "Ground-level entrance but no push-button wheelchair doors. A larger wheelchair may find the aisles narrow. The bathrooms and emergency exit were located up a wide, low incline ramp. Need key from front desk to access washrooms."
+   }
+  },
+  {
+   "type": "node",
+   "id": 4931813423,
+   "lat": 44.2944553,
+   "lon": -64.358014,
+   "tags": {
+    "addr:city": "LaHave",
+    "addr:postcode": "B0R 1C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Highway 331",
+    "check_date": "2023-06-14",
+    "email": "fairbanksgrocery@gmail.com",
+    "name": "LaHave Bakery",
+    "name:en": "LaHave Bakery",
+    "opening_hours": "Mo-Su 09:00-16:00",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+1-902-688-2908",
+    "shop": "bakery",
+    "website": "https://lahavebakery.com/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4936281422,
+   "lat": 44.3761726,
+   "lon": -64.324781,
+   "tags": {
+    "amenity": "cafe",
+    "brand": "Tim Hortons",
+    "brand:wikidata": "Q175106",
+    "brand:wikipedia": "en:Tim Hortons",
+    "cuisine": "coffee_shop",
+    "drive_through": "yes",
+    "name": "Tim Hortons",
+    "name:en": "Tim Hortons",
+    "takeaway": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 4937024837,
+   "lat": 44.3760134,
+   "lon": -64.312016,
+   "tags": {
+    "amenity": "restaurant",
+    "name": "The Old Fish Factory"
+   }
+  },
+  {
+   "type": "node",
+   "id": 5767121681,
+   "lat": 44.3764252,
+   "lon": -64.3090375,
+   "tags": {
+    "addr:city": "Lunenburg",
+    "addr:housenumber": "135",
+    "addr:postcode": "B0J 2C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Montague Street",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop;baked_goods",
+    "diet:gluten_free": "yes",
+    "diet:vegan": "yes",
+    "name": "No. 9",
+    "outdoor_seating": "yes",
+    "smoking": "no"
+   }
+  },
+  {
+   "type": "node",
+   "id": 8926252829,
+   "lat": 44.3763766,
+   "lon": -64.3087154,
+   "tags": {
+    "addr:city": "Lunenburg",
+    "addr:housenumber": "139",
+    "addr:postcode": "B0J 2C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Montague Street",
+    "amenity": "fast_food",
+    "cuisine": "mexican",
+    "name": "Rascals Run",
+    "phone": "+1 902-930-1833",
+    "website": "https://rascalsrun.ca/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 11751317949,
+   "lat": 44.0373746,
+   "lon": -64.7175702,
+   "tags": {
+    "addr:city": "Liverpool",
+    "addr:housenumber": "343",
+    "addr:postcode": "B0T 1K0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Main Street",
+    "amenity": "cafe",
+    "cuisine": "german;coffee_shop;cake;ice_cream",
+    "name": "Paul's German Cafe Bistro Restaurant",
+    "phone": "+1-902-350-0679",
+    "website": "https://www.sable-river-camp.com/caf\u00e9-bistro/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 13042281866,
+   "lat": 44.3762977,
+   "lon": -64.3098723,
+   "tags": {
+    "addr:housenumber": "116",
+    "addr:street": "Montague Street",
+    "amenity": "fast_food",
+    "name": "Subway"
+   }
+  },
+  {
+   "type": "node",
+   "id": 13814507697,
+   "lat": 44.3785732,
+   "lon": -64.3164603,
+   "tags": {
+    "amenity": "fast_food",
+    "name": "Hustle & Bustle Catering",
+    "opening_hours": "Mo-Fr 11:00-17:00; Sa-Su off",
+    "website": "https://www.facebook.com/hustlebustlecatering/"
+   }
+  },
+  {
+   "type": "node",
+   "id": 13814542914,
+   "lat": 44.3777707,
+   "lon": -64.3139846,
+   "tags": {
+    "amenity": "restaurant",
+    "cuisine": "indian;thai",
+    "name": "Scotia Curry",
+    "website": "https://scotiacurry.ca/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 689953283,
+   "center": {
+    "lat": 44.0585715,
+    "lon": -64.680767
+   },
+   "nodes": [
+    6472953451,
+    6472953452,
+    6472953453,
+    6472953454,
+    6472953455,
+    6472953456,
+    6472953457,
+    6472953458,
+    6472953451
+   ],
+   "tags": {
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Transcotia"
+   }
+  },
+  {
+   "type": "way",
+   "id": 720234847,
+   "center": {
+    "lat": 44.3762287,
+    "lon": -64.3093001
+   },
+   "nodes": [
+    6759684479,
+    6759684478,
+    6759684477,
+    6759684476,
+    6759684479
+   ],
+   "tags": {
+    "addr:city": "Lunenburg",
+    "addr:housenumber": "128",
+    "addr:postcode": "B0J 2C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Montague Street",
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Beach Pea Kitchen & Bar",
+    "phone": "+1-902-640-3474",
+    "website": "https://www.beachpeakitchen.com"
+   }
+  },
+  {
+   "type": "way",
+   "id": 720234848,
+   "center": {
+    "lat": 44.376243,
+    "lon": -64.3094367
+   },
+   "nodes": [
+    6759684483,
+    6759684482,
+    6759684481,
+    6759684480,
+    6759684483
+   ],
+   "tags": {
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Salt Shaker Deli & Inn",
+    "tourism": "hotel",
+    "website": "https://www.saltshakerdeli.com/",
+    "wikidata": "Q111886855"
+   }
+  },
+  {
+   "type": "way",
+   "id": 720234910,
+   "center": {
+    "lat": 44.3766054,
+    "lon": -64.3126665
+   },
+   "nodes": [
+    6759684783,
+    6759684786,
+    6759684785,
+    6759684788,
+    6759684787,
+    6759684784,
+    6759684781,
+    6759684780,
+    6759684779,
+    6759684782,
+    6759684783
+   ],
+   "tags": {
+    "addr:city": "Lunenburg",
+    "addr:housenumber": "50",
+    "addr:postcode": "B0J 2C0",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Montague Street",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "pizza",
+    "name": "J3 Pizza",
+    "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-20:00",
+    "phone": "+19026349999",
+    "website": "https://j3pizza.net/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 895080106,
+   "center": {
+    "lat": 44.3744956,
+    "lon": -64.3156101
+   },
+   "nodes": [
+    8320010072,
+    8320010073,
+    8320010074,
+    8320010075,
+    8320010072
+   ],
+   "tags": {
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Lightship Brewery"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1111239639,
+   "center": {
+    "lat": 44.3757925,
+    "lon": -64.3233385
+   },
+   "nodes": [
+    10168088528,
+    10168088579,
+    10168088564,
+    10168088520,
+    10168088528
+   ],
+   "tags": {
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "burger;fish_and_chips;american;regional;ice_cream",
+    "name": "Alex's Chill & Grill",
+    "opening_hours": "Tu-Sa 11:00-19:00",
+    "phone": "+1 902-640-2444",
+    "website": "https://www.facebook.com/mikizpittstoplunenburg/"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1180496327,
+   "center": {
+    "lat": 44.2538897,
+    "lon": -64.39621
+   },
+   "nodes": [
+    10963937900,
+    10963937901,
+    10963937902,
+    10963937903,
+    10963937900
+   ],
+   "tags": {
+    "addr:city": "West Dublin",
+    "addr:housenumber": "4645",
+    "addr:province": "Nova Scotia",
+    "addr:street": "Highway 331",
+    "building": "yes",
+    "name": "Ploughmans Lunch",
+    "opening_hours": "We-Su 09:00-16:00",
+    "shop": "bakery",
+    "website": "https://ploughmanslunch.ca/"
+   }
+  }
+ ]
+}

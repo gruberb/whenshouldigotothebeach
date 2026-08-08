@@ -98,6 +98,27 @@ export const VERDICT_META = {
 
 export const STALE_META = { label: "Data stale", tag: "tag-neutral" };
 
+// Registry tide_effect values, phrased for beachgoers. bestTide drives the
+// square markers on the tide curve; null means no tide preference to mark.
+export const TIDE_EFFECT_META = {
+  "more-sand-at-low": { label: "Best at low tide", bestTide: "low" },
+  "warmer-incoming-after-low": {
+    label: "Best after low tide",
+    bestTide: "low",
+  },
+  "reduced-access-at-high": {
+    label: "Limited access at high tide",
+    bestTide: "low",
+  },
+  neutral: { label: "Any tide", bestTide: null },
+  unknown: { label: "Any tide", bestTide: null },
+};
+
+export function surfaceLabel(surface) {
+  const text = surface.replaceAll("-", " ");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 export function compareBeaches(a, b) {
   const rankA = VERDICT_META[a.verdict]?.rank ?? 9;
   const rankB = VERDICT_META[b.verdict]?.rank ?? 9;

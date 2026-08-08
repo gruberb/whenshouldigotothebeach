@@ -1,10 +1,14 @@
-export async function fetchText(url: string, retries = 2): Promise<string> {
+export async function fetchText(
+  url: string,
+  retries = 2,
+  timeoutMs = 30_000,
+): Promise<string> {
   let lastError: unknown;
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const response = await fetch(url, {
         headers: { "User-Agent": "whenshouldigotothebeach.ca data pipeline" },
-        signal: AbortSignal.timeout(30_000),
+        signal: AbortSignal.timeout(timeoutMs),
       });
       if (!response.ok) {
         throw new Error(`HTTP ${response.status} for ${url}`);

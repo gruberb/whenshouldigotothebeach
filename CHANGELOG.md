@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.0.2 - 2026-08-08
+
+### Added
+
+- Surface and tide-preference tags on beach pages ("Sand", "Sand and
+  cobble", "Best at low tide", "Any tide"), sourced from the hand-reviewed
+  registry.
+- Square markers on the tide curve highlighting the events that suit each
+  beach, with a legend line.
+- Nearby food: the two closest named restaurants, cafes, bakeries, or
+  takeout spots per beach from OpenStreetMap, with straight-line distances.
+  Optional data; a failed fetch never blocks the build.
+
+### Changed
+
+- Tide chart keeps a legible minimum width on small screens and scrolls
+  horizontally instead of shrinking.
+- Removed the subtitle under the tide heading; station provenance lives in
+  Details and sources.
+
 ## 1.0.1 - 2026-08-08
 
 ### Added

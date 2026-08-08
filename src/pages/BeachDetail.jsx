@@ -13,6 +13,8 @@ import {
   formatWindow,
   isStale,
   STALE_META,
+  surfaceLabel,
+  TIDE_EFFECT_META,
   VERDICT_META,
 } from "../lib/format";
 
@@ -113,6 +115,8 @@ function BeachDetail() {
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(
     `${data.beach.name} Nova Scotia official page`,
   )}`;
+  const tideMeta =
+    TIDE_EFFECT_META[data.beach.tideEffect] ?? TIDE_EFFECT_META.neutral;
 
   return (
     <Layout right={backLink}>
@@ -163,6 +167,10 @@ function BeachDetail() {
           >
             Directions →
           </a>
+          <span className="tag tag-neutral">
+            {surfaceLabel(data.beach.surface)}
+          </span>
+          <span className="tag tag-neutral">{tideMeta.label}</span>
           {amenityTags.map((tag) => (
             <span key={tag} className="tag tag-neutral">
               {tag}
@@ -172,6 +180,14 @@ function BeachDetail() {
         {amenities.note && (
           <p className="text-[13px] text-neutral-500 mt-3 m-0 max-w-[560px]">
             {amenities.note}
+          </p>
+        )}
+        {data.nearbyFood?.length > 0 && (
+          <p className="text-[13px] text-neutral-500 mt-1.5 m-0 max-w-[560px]">
+            Food nearby:{" "}
+            {data.nearbyFood
+              .map((f) => `${f.name} (${f.kind}, ${f.distanceKm} km)`)
+              .join(" · ")}
           </p>
         )}
       </header>
@@ -237,14 +253,17 @@ function BeachDetail() {
       </section>
 
       <section className="mb-7">
-        <h3 className="font-display font-medium text-[15px] m-0 mb-0.5">
+        <h3 className="font-display font-medium text-[15px] m-0 mb-2.5">
           Tide · {data.tides.stationName} station
         </h3>
-        <p className="text-xs text-neutral-500 m-0 mb-2.5">
-          Astronomical prediction, {data.tides.distanceKm} km from the beach.
-          Not for navigation.
-        </p>
-        <TideCurve tides={data.tides} now={now} />
+        <div className="overflow-x-auto">
+          <TideCurve tides={data.tides} now={now} bestTide={tideMeta.bestTide} />
+        </div>
+        {tideMeta.bestTide && (
+          <p className="text-[11px] text-neutral-600 mt-1.5 m-0 tracking-[0.04em]">
+            Square markers = usually the best tide at this beach
+          </p>
+        )}
       </section>
 
       {data.outlook.length > 0 && (
@@ -287,6 +306,10 @@ function BeachDetail() {
             {data.water.sourceKind === "observed-buoy"
               ? `Water temperature: observed at the ${data.water.stationName} buoy (ECCC), ${data.water.distanceKm} km from the beach — a regional reading, not measured at this beach.`
               : "Water temperature: no buoy close enough to this beach for a meaningful reading."}
+          </p>
+          <p className="m-0">
+            Nearby food: OpenStreetMap contributors, straight-line distances
+            from the beach coordinates.
           </p>
           <p className="m-0">
             Beach profile: {data.beach.exposure}, {data.beach.surface}

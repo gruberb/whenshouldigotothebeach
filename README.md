@@ -19,6 +19,9 @@ stations show their distance from the sand.
   `avg_sea_sfc_temp_pst10mts`), display-only and never part of the score.
   Beaches without a buoy in defensible range show no reading rather than a
   misleading one.
+- Nearby food: named restaurants, cafes, bakeries, and takeout from
+  OpenStreetMap (Overpass), shown with straight-line distances. Data ©
+  OpenStreetMap contributors.
 - Beach knowledge: `config/beaches.yml`, a hand-reviewed registry of
   coordinates, station assignments, exposure, shore bearing, and documented
   tide behaviour per beach.

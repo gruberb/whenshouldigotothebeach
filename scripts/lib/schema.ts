@@ -104,6 +104,15 @@ export const beachOutputSchema = z.object({
     samples: z.array(z.object({ time: isoDate, heightM: z.number() })),
   }),
   water: waterTemperature,
+  nearbyFood: z
+    .array(
+      z.object({
+        name: z.string().min(1),
+        kind: z.string().min(1),
+        distanceKm: z.number().min(0),
+      }),
+    )
+    .max(3),
   weatherSource: z.object({
     siteCode: z.string(),
     siteName: z.string(),
