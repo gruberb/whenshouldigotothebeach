@@ -155,7 +155,7 @@ function BeachDetail() {
         </p>
         <ul className="text-[15px] text-neutral-400 mb-5 p-0 list-none grid gap-1">
           {data.summary.reasons.map((reason) => (
-            <li key={reason}>· {reason}</li>
+            <li key={reason.text}>· {reason.text}</li>
           ))}
         </ul>
         <div className="flex gap-2.5 items-center flex-wrap">

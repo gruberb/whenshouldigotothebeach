@@ -2,6 +2,7 @@ import type {
   BeachConfig,
   BestWindow,
   EcccWarning,
+  Reason,
   ScoredHour,
   TideData,
 } from "./types.js";
@@ -59,10 +60,18 @@ export function buildReasons(
   tides: TideData,
   warnings: EcccWarning[],
   generatedAt: Date,
-): string[] {
+): Reason[] {
   const timezone = beach.location.timezone;
   const daylight = hours.filter((h) => h.daylight);
-  if (daylight.length === 0) return ["No daylight hours in the forecast range"];
+  if (daylight.length === 0) {
+    return [
+      {
+        kind: "none",
+        text: "No daylight hours in the forecast range",
+        short: "no daylight",
+      },
+    ];
+  }
   const scope = window ? windowHours(hours, window) : daylight;
   const referenceDate = localDate(generatedAt.toISOString(), timezone);
   const timeLabel = (iso: string) =>
@@ -70,12 +79,17 @@ export function buildReasons(
       ? localTime(iso, timezone)
       : `${weekday(iso, timezone)} ${localTime(iso, timezone)}`;
 
-  const negatives: string[] = [];
-  const positives: string[] = [];
+  const negatives: Reason[] = [];
+  const positives: Reason[] = [];
 
   const thunderHours = daylight.filter((h) => h.gated);
   if (thunderHours.length > 0) {
-    negatives.push(`Thunderstorm risk around ${timeLabel(thunderHours[0].time)}`);
+    const label = timeLabel(thunderHours[0].time);
+    negatives.push({
+      kind: "thunder",
+      text: `Thunderstorm risk around ${label}`,
+      short: `storms ${label}`,
+    });
   }
 
   const dayMaxPop = Math.max(...daylight.map((h) => h.popPercent));
@@ -86,24 +100,49 @@ export function buildReasons(
       ? rainyDay.find((h) => Date.parse(h.time) >= windowEnd)
       : undefined;
   if (dayMaxPop <= 30 && thunderHours.length === 0 && rainyDay.length === 0) {
-    positives.push("Little to no rain expected");
+    positives.push({
+      kind: "dry",
+      text: "Little to no rain expected",
+      short: "dry",
+    });
   } else if (window && rainyDay.every((h) => Date.parse(h.time) >= (windowEnd ?? 0))) {
     if (rainyAfterWindow) {
-      negatives.push(
-        `Dry during the window, showers around ${timeLabel(rainyAfterWindow.time)}`,
-      );
+      const label = timeLabel(rainyAfterWindow.time);
+      negatives.push({
+        kind: "rain",
+        text: `Dry during the window, showers around ${label}`,
+        short: `showers ${label}`,
+      });
     }
   } else if (rainyDay.length > 0) {
-    negatives.push(`Showers possible around ${timeLabel(rainyDay[0].time)}`);
+    const label = timeLabel(rainyDay[0].time);
+    negatives.push({
+      kind: "rain",
+      text: `Showers possible around ${label}`,
+      short: `showers ${label}`,
+    });
   } else if (dayMaxPop > 60) {
-    negatives.push("Rain likely for most of the day");
+    negatives.push({
+      kind: "rain",
+      text: "Rain likely for most of the day",
+      short: "rain likely",
+    });
   }
 
   const foggy = daylight.filter((h) => /fog|mist/i.test(h.condition));
   if (foggy.length >= Math.max(2, daylight.length / 3)) {
-    negatives.push("Fog for much of the day");
+    negatives.push({
+      kind: "fog",
+      text: "Fog for much of the day",
+      short: "fog",
+    });
   } else if (foggy.length > 0) {
-    negatives.push(`Fog around ${timeLabel(foggy[0].time)}`);
+    const label = timeLabel(foggy[0].time);
+    negatives.push({
+      kind: "fog",
+      text: `Fog around ${label}`,
+      short: `fog ${label}`,
+    });
   }
 
   const avgWind =
@@ -115,37 +154,72 @@ export function buildReasons(
   const windLabel = commonDirection
     ? ` (${commonDirection} ~${Math.round(avgWind)} km/h)`
     : "";
+  const windShort = commonDirection
+    ? `${commonDirection} ${Math.round(avgWind)} km/h`
+    : `${Math.round(avgWind)} km/h`;
   if (avgWind > 28) {
-    negatives.push(`Windy${windLabel}`);
+    negatives.push({
+      kind: "wind",
+      text: `Windy${windLabel}`,
+      short: windShort,
+    });
   } else if (avgWind > 15) {
-    positives.push(`Breezy${windLabel}`);
+    positives.push({
+      kind: "wind",
+      text: `Breezy${windLabel}`,
+      short: windShort,
+    });
   } else {
-    positives.push("Light wind");
+    positives.push({ kind: "wind", text: "Light wind", short: "light wind" });
   }
   const offshore = scope.filter((h) => h.windRelation === "offshore").length;
   if (offshore > scope.length / 2) {
-    negatives.push("Offshore wind: keep inflatables off the water");
+    negatives.push({
+      kind: "offshore",
+      text: "Offshore wind: keep inflatables off the water",
+      short: "offshore wind",
+    });
   }
 
   const temps = scope
     .map((h) => h.temperatureC)
     .filter((t): t is number => t !== null);
   if (temps.length > 0) {
-    const peak = Math.max(...temps);
+    const peak = Math.round(Math.max(...temps));
     if (peak < 14) {
-      negatives.push(`Cold for the beach, around ${Math.round(peak)}°C`);
+      negatives.push({
+        kind: "temperature",
+        text: `Cold for the beach, around ${peak}°C`,
+        short: `${peak}°C`,
+      });
     } else if (peak >= 25) {
-      positives.push(`Warm, around ${Math.round(peak)}°C`);
+      positives.push({
+        kind: "temperature",
+        text: `Warm, around ${peak}°C`,
+        short: `${peak}°C`,
+      });
     } else if (peak >= 18) {
-      positives.push(`Pleasant, around ${Math.round(peak)}°C`);
+      positives.push({
+        kind: "temperature",
+        text: `Pleasant, around ${peak}°C`,
+        short: `${peak}°C`,
+      });
     } else {
-      positives.push(`Cool, around ${Math.round(peak)}°C`);
+      positives.push({
+        kind: "temperature",
+        text: `Cool, around ${peak}°C`,
+        short: `${peak}°C`,
+      });
     }
   }
 
   for (const warning of warnings) {
     if (/heat/i.test(warning.description)) {
-      negatives.push("Heat warning in effect: bring shade and water");
+      negatives.push({
+        kind: "heat",
+        text: "Heat warning in effect: bring shade and water",
+        short: "heat warning",
+      });
       break;
     }
   }
@@ -159,13 +233,19 @@ export function buildReasons(
         Date.parse(e.time) <= Date.parse(window.end) + 3600_000,
     );
     if (effect === "more-sand-at-low" && lowInWindow) {
-      positives.push(
-        `Low tide ${timeLabel(lowInWindow.time)} exposes more sand`,
-      );
+      const label = timeLabel(lowInWindow.time);
+      positives.push({
+        kind: "tide",
+        text: `Low tide ${label} exposes more sand`,
+        short: `low ${label}`,
+      });
     } else if (effect === "warmer-incoming-after-low" && lowInWindow) {
-      positives.push(
-        `Incoming tide after the ${timeLabel(lowInWindow.time)} low crosses sun-warmed flats`,
-      );
+      const label = timeLabel(lowInWindow.time);
+      positives.push({
+        kind: "tide",
+        text: `Incoming tide after the ${label} low crosses sun-warmed flats`,
+        short: `low ${label}`,
+      });
     }
   }
 

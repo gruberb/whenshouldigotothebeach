@@ -226,10 +226,28 @@ export interface SunTimes {
   sunset: string;
 }
 
+export type ReasonKind =
+  | "thunder"
+  | "rain"
+  | "dry"
+  | "fog"
+  | "wind"
+  | "offshore"
+  | "temperature"
+  | "heat"
+  | "tide"
+  | "none";
+
+export interface Reason {
+  kind: ReasonKind;
+  text: string;
+  short: string;
+}
+
 export interface BeachSummary {
   verdict: Verdict;
   bestWindow: BestWindow | null;
-  reasons: string[];
+  reasons: Reason[];
   confidence: "high" | "medium" | "low";
 }
 

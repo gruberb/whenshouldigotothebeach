@@ -10,17 +10,22 @@ const ENDPOINTS = [
   "https://overpass.kumi.systems/api/interpreter",
 ];
 
-// South Shore bounding box; one query per pipeline run covers every beach.
+// South Shore bounding box. Rural food often lives in general and convenience
+// stores (the Rose Bay General Store problem), so shops are included alongside
+// restaurants, cafes, and bakeries.
 const QUERY = `[out:json][timeout:90];
 (
   node["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](43.3,-66.0,44.9,-63.3);
   way["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](43.3,-66.0,44.9,-63.3);
-  node["shop"="bakery"]["name"](43.3,-66.0,44.9,-63.3);
-  way["shop"="bakery"]["name"](43.3,-66.0,44.9,-63.3);
+  node["shop"~"^(bakery|general|convenience|deli)$"]["name"](43.3,-66.0,44.9,-63.3);
+  way["shop"~"^(bakery|general|convenience|deli)$"]["name"](43.3,-66.0,44.9,-63.3);
 );
 out center;`;
 
-const MAX_DISTANCE_KM = 20;
+const VALHALLA = "https://valhalla1.openstreetmap.de/route";
+const MAX_CROW_KM = 25;
+const MAX_ROAD_KM = 20;
+const CANDIDATES_PER_BEACH = 10;
 
 export interface FoodPoi {
   name: string;
@@ -34,6 +39,9 @@ const KIND_LABELS: Record<string, string> = {
   cafe: "cafe",
   fast_food: "takeout",
   bakery: "bakery",
+  general: "store",
+  convenience: "store",
+  deli: "deli",
 };
 
 export function parseOverpassFood(json: string): FoodPoi[] {
@@ -45,7 +53,7 @@ export function parseOverpassFood(json: string): FoodPoi[] {
     const tags = element.tags ?? {};
     const name = tags.name;
     if (latitude === undefined || longitude === undefined || !name) continue;
-    const rawKind = tags.amenity ?? (tags.shop === "bakery" ? "bakery" : null);
+    const rawKind = tags.amenity ?? tags.shop ?? null;
     if (!rawKind || !(rawKind in KIND_LABELS)) continue;
     pois.push({
       name: String(name),
@@ -74,48 +82,99 @@ export async function fetchFoodPois(): Promise<FoodPoi[]> {
   throw lastError;
 }
 
-const snapshotSchema = z.object({
-  fetchedAt: z.string(),
-  source: z.string(),
-  pois: z
-    .array(
-      z.object({
-        name: z.string().min(1),
-        kind: z.string().min(1),
-        latitude: z.number(),
-        longitude: z.number(),
-      }),
-    )
-    .min(100),
-});
-
-// The committed snapshot is reference data like beaches.yml: required and
-// validated, refreshed by scripts/refresh-food.ts rather than at build time.
-export function loadFoodPois(path: string): FoodPoi[] {
-  return snapshotSchema.parse(JSON.parse(readFileSync(path, "utf8"))).pois;
+// Driving distance with ferries avoided: a bakery 5 km across the river is a
+// 40 km drive around it, and pretending otherwise misleads.
+export async function roadDistanceKm(
+  fromLat: number,
+  fromLon: number,
+  toLat: number,
+  toLon: number,
+): Promise<number | null> {
+  const body = JSON.stringify({
+    locations: [
+      { lat: fromLat, lon: fromLon },
+      { lat: toLat, lon: toLon },
+    ],
+    costing: "auto",
+    costing_options: { auto: { use_ferry: 0 } },
+    units: "kilometers",
+  });
+  try {
+    const response = await fetchText(
+      `${VALHALLA}?json=${encodeURIComponent(body)}`,
+      1,
+      30_000,
+    );
+    const trip = JSON.parse(response).trip;
+    if (!trip || trip.summary?.has_ferry) return null;
+    const km = trip.summary?.length;
+    return typeof km === "number" ? Math.round(km * 10) / 10 : null;
+  } catch {
+    return null;
+  }
 }
 
-// Nearest distinct places by straight-line distance. OSM often carries a node
-// and a way for the same venue, so deduplicate by name keeping the closer one.
-export function nearestFood(
+// Candidate places for road routing: nearest distinct names by straight line.
+// OSM often carries a node and a way for the same venue, so deduplicate by
+// name keeping the closer one.
+export function nearestCandidates(
+  latitude: number,
+  longitude: number,
+  pois: FoodPoi[],
+  limit = CANDIDATES_PER_BEACH,
+): (FoodPoi & { crowKm: number })[] {
+  const byName = new Map<string, FoodPoi & { crowKm: number }>();
+  for (const poi of pois) {
+    const crowKm = haversineKm(latitude, longitude, poi.latitude, poi.longitude);
+    if (crowKm > MAX_CROW_KM) continue;
+    const existing = byName.get(poi.name);
+    if (!existing || crowKm < existing.crowKm) {
+      byName.set(poi.name, { ...poi, crowKm });
+    }
+  }
+  return [...byName.values()]
+    .sort((a, b) => a.crowKm - b.crowKm)
+    .slice(0, limit);
+}
+
+export async function resolveNearbyFood(
   latitude: number,
   longitude: number,
   pois: FoodPoi[],
   limit = 2,
-): NearbyFood[] {
-  const byName = new Map<string, NearbyFood>();
-  for (const poi of pois) {
-    const distanceKm =
-      Math.round(
-        haversineKm(latitude, longitude, poi.latitude, poi.longitude) * 10,
-      ) / 10;
-    if (distanceKm > MAX_DISTANCE_KM) continue;
-    const existing = byName.get(poi.name);
-    if (!existing || distanceKm < existing.distanceKm) {
-      byName.set(poi.name, { name: poi.name, kind: poi.kind, distanceKm });
-    }
+): Promise<NearbyFood[]> {
+  const resolved: NearbyFood[] = [];
+  for (const candidate of nearestCandidates(latitude, longitude, pois)) {
+    const distanceKm = await roadDistanceKm(
+      latitude,
+      longitude,
+      candidate.latitude,
+      candidate.longitude,
+    );
+    if (distanceKm === null || distanceKm > MAX_ROAD_KM) continue;
+    resolved.push({ name: candidate.name, kind: candidate.kind, distanceKm });
+    await new Promise((r) => setTimeout(r, 600));
   }
-  return [...byName.values()]
-    .sort((a, b) => a.distanceKm - b.distanceKm)
-    .slice(0, limit);
+  return resolved.sort((a, b) => a.distanceKm - b.distanceKm).slice(0, limit);
+}
+
+const snapshotSchema = z.object({
+  fetchedAt: z.string(),
+  source: z.string(),
+  beaches: z.record(
+    z.string(),
+    z.array(
+      z.object({
+        name: z.string().min(1),
+        kind: z.string().min(1),
+        distanceKm: z.number().min(0),
+      }),
+    ),
+  ),
+});
+
+// The committed snapshot holds per-beach resolved lists with road distances;
+// scripts/refresh-food.ts rebuilds it weekly so builds stay offline-fast.
+export function loadFoodSnapshot(path: string): Record<string, NearbyFood[]> {
+  return snapshotSchema.parse(JSON.parse(readFileSync(path, "utf8"))).beaches;
 }

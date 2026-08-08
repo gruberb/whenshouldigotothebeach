@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { fetchTides, unavailableTides } from "./lib/chs.js";
 import { fetchLatestCitypage } from "./lib/eccc.js";
 import { haversineKm } from "./lib/geo.js";
-import { loadFoodPois, nearestFood } from "./lib/nearby.js";
+import { loadFoodSnapshot } from "./lib/nearby.js";
 import { fetchBuoySeaSurfaceTemp, unavailableWater } from "./lib/water.js";
 import { buildReasons } from "./lib/reasons.js";
 import { loadBeaches, loadOverrides, loadThresholds } from "./lib/registry.js";
@@ -145,7 +145,7 @@ async function main() {
     }
   }
 
-  const foodPois = loadFoodPois(join(root, "config", "nearby-food.json"));
+  const foodByBeach = loadFoodSnapshot(join(root, "config", "nearby-food.json"));
 
   mkdirSync(join(dataDir, "beach"), { recursive: true });
 
@@ -255,11 +255,7 @@ async function main() {
         samples: tides.samples,
       },
       water,
-      nearbyFood: nearestFood(
-        beach.location.latitude,
-        beach.location.longitude,
-        foodPois,
-      ),
+      nearbyFood: foodByBeach[beach.id] ?? [],
       weatherSource: {
         siteCode: weather.siteCode,
         siteName: beach.weather.site_name,
@@ -299,6 +295,8 @@ async function main() {
       id: beach.id,
       name: beach.name,
       municipality: beach.municipality,
+      latitude: beach.location.latitude,
+      longitude: beach.location.longitude,
       verdict,
       bestWindow: window,
       reasons,

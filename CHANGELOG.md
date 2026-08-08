@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.0.4 - 2026-08-08
+
+### Added
+
+- Green Bay Beach, the thirteenth beach in the registry.
+- Weather icons on homepage cards: reasons render as compact icon chips
+  driven by structured reason kinds from the pipeline; full sentences
+  remain on the beach pages and in chip tooltips.
+- Nearby food includes general stores, convenience stores, and delis
+  (rural staples like the Rose Bay General Store).
+
+### Changed
+
+- Nearby food distances are road distances with ferries avoided, routed
+  via Valhalla during the weekly snapshot refresh. Places more than 20 km
+  away by road are dropped.
+- Homepage cards drop the confidence line and tighten the spacing between
+  the window time and the conditions.
+
+### Fixed
+
+- Sand Dollar Beach no longer lists LaHave Bakery at a misleading 4.9 km
+  straight-line distance (41 km by road without the ferry); Rose Bay
+  General Store & Bistro, 0.6 km by road, now leads its list.
+
 ## 1.0.3 - 2026-08-08
 
 ### Changed

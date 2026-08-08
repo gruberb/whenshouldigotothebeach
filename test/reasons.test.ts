@@ -80,7 +80,8 @@ describe("buildReasons", () => {
       }),
     );
     const reasons = buildReasons(beach, hours, null, noTides, [], generatedAt);
-    expect(reasons[0]).toMatch(/fog/i);
+    expect(reasons[0].text).toMatch(/fog/i);
+    expect(reasons[0].kind).toBe("fog");
   });
 
   it("surfaces rain arriving right after a clean window", () => {
@@ -107,8 +108,9 @@ describe("buildReasons", () => {
       }),
     ];
     const reasons = buildReasons(beach, hours, window, noTides, [], generatedAt);
-    expect(reasons.join(" ")).toMatch(/showers around 12:00/i);
-    expect(reasons.join(" ")).not.toMatch(/little to no rain/i);
+    const text = reasons.map((r) => r.text).join(" ");
+    expect(text).toMatch(/showers around 12:00/i);
+    expect(text).not.toMatch(/little to no rain/i);
   });
 
   it("adds a weekday marker to times on another local day", () => {
@@ -130,12 +132,13 @@ describe("buildReasons", () => {
       avgScore: 85,
     };
     const reasons = buildReasons(beach, hours, window, noTides, [], generatedAt);
-    expect(reasons[0]).toMatch(/thunderstorm risk around SUN/i);
+    expect(reasons[0].text).toMatch(/thunderstorm risk around SUN/i);
+    expect(reasons[0].short).toMatch(/storms SUN/i);
   });
 
   it("only claims a rain-free day when the whole day is dry", () => {
     const hours = [hour("2026-08-08T13:00:00Z"), hour("2026-08-08T14:00:00Z")];
     const reasons = buildReasons(beach, hours, null, noTides, [], generatedAt);
-    expect(reasons.join(" ")).toMatch(/little to no rain/i);
+    expect(reasons.map((r) => r.text).join(" ")).toMatch(/little to no rain/i);
   });
 });

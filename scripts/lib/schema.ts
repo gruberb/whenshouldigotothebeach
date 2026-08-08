@@ -12,6 +12,23 @@ const verdict = z.enum([
   "HAZARDOUS",
 ]);
 
+const reason = z.object({
+  kind: z.enum([
+    "thunder",
+    "rain",
+    "dry",
+    "fog",
+    "wind",
+    "offshore",
+    "temperature",
+    "heat",
+    "tide",
+    "none",
+  ]),
+  text: z.string().min(1),
+  short: z.string().min(1),
+});
+
 const bestWindow = z.object({
   start: isoDate,
   end: isoDate,
@@ -78,7 +95,7 @@ export const beachOutputSchema = z.object({
   summary: z.object({
     verdict,
     bestWindow: bestWindow.nullable(),
-    reasons: z.array(z.string()).min(1).max(3),
+    reasons: z.array(reason).min(1).max(3),
     confidence: z.enum(["high", "medium", "low"]),
   }),
   hourly: z.array(scoredHour).min(12),
@@ -160,9 +177,11 @@ export const beachIndexSchema = z.object({
         id: z.string(),
         name: z.string(),
         municipality: z.string(),
+        latitude: z.number(),
+        longitude: z.number(),
         verdict,
         bestWindow: bestWindow.nullable(),
-        reasons: z.array(z.string()),
+        reasons: z.array(reason),
         confidence: z.enum(["high", "medium", "low"]),
         peakScore: z.number().min(0).max(100),
         firstHour: scoredHour.nullable(),
