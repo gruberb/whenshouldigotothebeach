@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.3 - 2026-08-08
+
+### Changed
+
+- Nearby food now comes from a committed OpenStreetMap snapshot
+  (config/nearby-food.json) instead of querying Overpass on every deploy.
+  The 1.0.2 deploys shipped empty food lists whenever the live query timed
+  out; the snapshot makes builds fast and deterministic. A weekly workflow
+  refreshes it, and npm run refresh:food does so on demand.
+
 ## 1.0.2 - 2026-08-08
 
 ### Added

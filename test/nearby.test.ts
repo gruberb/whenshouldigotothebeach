@@ -1,7 +1,11 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { nearestFood, parseOverpassFood } from "../scripts/lib/nearby.js";
+import {
+  loadFoodPois,
+  nearestFood,
+  parseOverpassFood,
+} from "../scripts/lib/nearby.js";
 
 const json = readFileSync(
   join(__dirname, "fixtures", "osm", "overpass-food.json"),
@@ -29,6 +33,15 @@ describe("parseOverpassFood", () => {
       ],
     });
     expect(parseOverpassFood(broken)).toEqual([]);
+  });
+});
+
+describe("loadFoodPois", () => {
+  it("loads and validates the committed snapshot", () => {
+    const pois = loadFoodPois(
+      join(__dirname, "..", "config", "nearby-food.json"),
+    );
+    expect(pois.length).toBeGreaterThanOrEqual(100);
   });
 });
 

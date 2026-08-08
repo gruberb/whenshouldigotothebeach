@@ -1,0 +1,5958 @@
+{
+ "fetchedAt": "2026-08-08T05:05:00Z",
+ "source": "OpenStreetMap via Overpass API (ODbL)",
+ "pois": [
+  {
+   "name": "100 Cha Baa Tai",
+   "kind": "restaurant",
+   "latitude": 44.6993846,
+   "longitude": -63.5870279
+  },
+  {
+   "name": "2 Doors Down",
+   "kind": "restaurant",
+   "latitude": 44.7051849,
+   "longitude": -63.5624616
+  },
+  {
+   "name": "24 Carrots Bakery",
+   "kind": "bakery",
+   "latitude": 44.6596472,
+   "longitude": -63.6068936
+  },
+  {
+   "name": "7 Peppers Grill",
+   "kind": "restaurant",
+   "latitude": 44.6462731,
+   "longitude": -63.5947597
+  },
+  {
+   "name": "720 Yans Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7702156,
+   "longitude": -63.6932274
+  },
+  {
+   "name": "9 + Nine",
+   "kind": "restaurant",
+   "latitude": 44.6708279,
+   "longitude": -63.6764045
+  },
+  {
+   "name": "a Pria",
+   "kind": "cafe",
+   "latitude": 44.6534274,
+   "longitude": -63.5910047
+  },
+  {
+   "name": "A Taste of India",
+   "kind": "takeout",
+   "latitude": 44.650261,
+   "longitude": -63.5768408
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.3843321,
+   "longitude": -64.5156105
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.6502772,
+   "longitude": -63.5766987
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.6531423,
+   "longitude": -63.6778335
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.6862125,
+   "longitude": -63.5595475
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.6967803,
+   "longitude": -63.6898831
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.7105175,
+   "longitude": -63.5684844
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.7265136,
+   "longitude": -63.7024937
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.7731366,
+   "longitude": -63.6929456
+  },
+  {
+   "name": "A&W",
+   "kind": "takeout",
+   "latitude": 44.8872146,
+   "longitude": -63.5150451
+  },
+  {
+   "name": "A+W",
+   "kind": "restaurant",
+   "latitude": 44.7499008,
+   "longitude": -63.6390968
+  },
+  {
+   "name": "Acadian Fish & Chips",
+   "kind": "takeout",
+   "latitude": 44.7336751,
+   "longitude": -63.7798832
+  },
+  {
+   "name": "aFrite",
+   "kind": "restaurant",
+   "latitude": 44.6434983,
+   "longitude": -63.5695124
+  },
+  {
+   "name": "Agricola Street Brasserie",
+   "kind": "restaurant",
+   "latitude": 44.6546474,
+   "longitude": -63.5927403
+  },
+  {
+   "name": "Alex Oh Sushi Rolls",
+   "kind": "restaurant",
+   "latitude": 44.644613,
+   "longitude": -63.5786251
+  },
+  {
+   "name": "Alex's Chill & Grill",
+   "kind": "restaurant",
+   "latitude": 44.3757925,
+   "longitude": -64.3233385
+  },
+  {
+   "name": "Alexandra's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6474767,
+   "longitude": -63.5755055
+  },
+  {
+   "name": "Alexandra's Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6591785,
+   "longitude": -63.6342457
+  },
+  {
+   "name": "Alexandra's Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6605746,
+   "longitude": -63.551258
+  },
+  {
+   "name": "Alexandra's Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6698738,
+   "longitude": -63.499317
+  },
+  {
+   "name": "Alexandras pizza",
+   "kind": "restaurant",
+   "latitude": 44.6103808,
+   "longitude": -63.6167751
+  },
+  {
+   "name": "Almonak",
+   "kind": "cafe",
+   "latitude": 44.6591222,
+   "longitude": -63.5965633
+  },
+  {
+   "name": "Alter Egos",
+   "kind": "cafe",
+   "latitude": 44.6531722,
+   "longitude": -63.5848534
+  },
+  {
+   "name": "AlyKat Restaurant & Lounge",
+   "kind": "restaurant",
+   "latitude": 43.6990684,
+   "longitude": -65.1127344
+  },
+  {
+   "name": "Andy’s Chicken-Scoop",
+   "kind": "takeout",
+   "latitude": 44.7405224,
+   "longitude": -63.3209355
+  },
+  {
+   "name": "Angelique French Bakery & Cafe",
+   "kind": "cafe",
+   "latitude": 44.6438595,
+   "longitude": -63.6019873
+  },
+  {
+   "name": "Annapolis Royal Summer Farmers Market",
+   "kind": "restaurant",
+   "latitude": 44.7454982,
+   "longitude": -65.5183925
+  },
+  {
+   "name": "Annie's Place Café & Catering",
+   "kind": "cafe",
+   "latitude": 44.6446448,
+   "longitude": -63.5784864
+  },
+  {
+   "name": "Antojo Tacos + Tequila",
+   "kind": "restaurant",
+   "latitude": 44.6466445,
+   "longitude": -63.5743906
+  },
+  {
+   "name": "Arby's",
+   "kind": "takeout",
+   "latitude": 44.3683765,
+   "longitude": -64.5265365
+  },
+  {
+   "name": "ARCH & PO",
+   "kind": "cafe",
+   "latitude": 44.745415,
+   "longitude": -65.5189741
+  },
+  {
+   "name": "Ardmore Tea Room",
+   "kind": "restaurant",
+   "latitude": 44.6438489,
+   "longitude": -63.6030091
+  },
+  {
+   "name": "Arirang",
+   "kind": "restaurant",
+   "latitude": 44.6725075,
+   "longitude": -63.6654796
+  },
+  {
+   "name": "Arirang Korean & Japanese",
+   "kind": "restaurant",
+   "latitude": 44.6727732,
+   "longitude": -63.6655064
+  },
+  {
+   "name": "Aroma Mocha",
+   "kind": "cafe",
+   "latitude": 44.8414196,
+   "longitude": -65.290815
+  },
+  {
+   "name": "As You Like It",
+   "kind": "restaurant",
+   "latitude": 44.6634859,
+   "longitude": -63.6543178
+  },
+  {
+   "name": "ASAP Mabuhay",
+   "kind": "restaurant",
+   "latitude": 44.6451538,
+   "longitude": -63.5740816
+  },
+  {
+   "name": "Asia Restaurant & Bar",
+   "kind": "restaurant",
+   "latitude": 44.6429653,
+   "longitude": -63.5685087
+  },
+  {
+   "name": "Au Liban",
+   "kind": "restaurant",
+   "latitude": 44.6437144,
+   "longitude": -63.5697309
+  },
+  {
+   "name": "Baan Thai",
+   "kind": "restaurant",
+   "latitude": 44.6449964,
+   "longitude": -63.5738972
+  },
+  {
+   "name": "Baba's Pizzeria",
+   "kind": "restaurant",
+   "latitude": 44.5795191,
+   "longitude": -63.637865
+  },
+  {
+   "name": "Bagel Montreal Style",
+   "kind": "bakery",
+   "latitude": 44.6702581,
+   "longitude": -63.5786397
+  },
+  {
+   "name": "Bai Wei Grill Bar",
+   "kind": "restaurant",
+   "latitude": 44.6367935,
+   "longitude": -63.5727915
+  },
+  {
+   "name": "Banh Mi A&B",
+   "kind": "restaurant",
+   "latitude": 44.6458731,
+   "longitude": -63.5951177
+  },
+  {
+   "name": "Bar Kismet",
+   "kind": "restaurant",
+   "latitude": 44.6575129,
+   "longitude": -63.5961889
+  },
+  {
+   "name": "BarBurrito",
+   "kind": "takeout",
+   "latitude": 44.6799545,
+   "longitude": -63.5395258
+  },
+  {
+   "name": "Barrios Kitchen & Bar",
+   "kind": "restaurant",
+   "latitude": 44.645668,
+   "longitude": -63.5731344
+  },
+  {
+   "name": "Baton Rouge",
+   "kind": "restaurant",
+   "latitude": 44.6502146,
+   "longitude": -63.573805
+  },
+  {
+   "name": "Battered Fish",
+   "kind": "takeout",
+   "latitude": 44.7764068,
+   "longitude": -63.6951377
+  },
+  {
+   "name": "Beach Pea Kitchen & Bar",
+   "kind": "restaurant",
+   "latitude": 44.3762287,
+   "longitude": -64.3093001
+  },
+  {
+   "name": "Beaver Bank Station",
+   "kind": "restaurant",
+   "latitude": 44.7957206,
+   "longitude": -63.6904399
+  },
+  {
+   "name": "BeaverTails",
+   "kind": "bakery",
+   "latitude": 44.6465805,
+   "longitude": -63.5698249
+  },
+  {
+   "name": "Ben & Florentine",
+   "kind": "restaurant",
+   "latitude": 44.699983,
+   "longitude": -63.6867371
+  },
+  {
+   "name": "Ben's Bakery",
+   "kind": "bakery",
+   "latitude": 44.6863953,
+   "longitude": -63.5190611
+  },
+  {
+   "name": "BenGong's Tea",
+   "kind": "cafe",
+   "latitude": 44.6440987,
+   "longitude": -63.6012969
+  },
+  {
+   "name": "Bento Sushi",
+   "kind": "takeout",
+   "latitude": 44.6374494,
+   "longitude": -63.59108
+  },
+  {
+   "name": "Best Choice Chinese Food",
+   "kind": "restaurant",
+   "latitude": 44.6599551,
+   "longitude": -63.6350574
+  },
+  {
+   "name": "Bi One",
+   "kind": "restaurant",
+   "latitude": 44.6350447,
+   "longitude": -63.5767215
+  },
+  {
+   "name": "Bicycle Thief",
+   "kind": "restaurant",
+   "latitude": 44.6435997,
+   "longitude": -63.5683874
+  },
+  {
+   "name": "Big Al's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6545946,
+   "longitude": -63.5873996
+  },
+  {
+   "name": "Big Red's",
+   "kind": "restaurant",
+   "latitude": 44.545485,
+   "longitude": -64.2422102
+  },
+  {
+   "name": "Bike and Bean",
+   "kind": "restaurant",
+   "latitude": 44.6940284,
+   "longitude": -63.8866878
+  },
+  {
+   "name": "Birch & Anchor",
+   "kind": "restaurant",
+   "latitude": 44.6833862,
+   "longitude": -63.6594891
+  },
+  {
+   "name": "Bird's Nest Cafe",
+   "kind": "cafe",
+   "latitude": 44.6451601,
+   "longitude": -63.5727976
+  },
+  {
+   "name": "Bistro East",
+   "kind": "restaurant",
+   "latitude": 44.7436317,
+   "longitude": -65.5193267
+  },
+  {
+   "name": "Blarney Stone Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.3129274,
+   "longitude": -64.5634183
+  },
+  {
+   "name": "Blarney Stone Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.3129338,
+   "longitude": -64.5634052
+  },
+  {
+   "name": "Blooming cafe",
+   "kind": "cafe",
+   "latitude": 44.6133388,
+   "longitude": -63.6174551
+  },
+  {
+   "name": "Blue Elephant Thai Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6983365,
+   "longitude": -63.685034
+  },
+  {
+   "name": "Blue Olive Greek Tavern",
+   "kind": "restaurant",
+   "latitude": 44.6457254,
+   "longitude": -63.595694
+  },
+  {
+   "name": "Bluenose II",
+   "kind": "restaurant",
+   "latitude": 44.649319,
+   "longitude": -63.5738875
+  },
+  {
+   "name": "Board room game cafe",
+   "kind": "cafe",
+   "latitude": 44.7149283,
+   "longitude": -63.6794657
+  },
+  {
+   "name": "Board Room Game Cafe",
+   "kind": "cafe",
+   "latitude": 44.6409011,
+   "longitude": -63.5711159
+  },
+  {
+   "name": "Boneheads BBQ",
+   "kind": "restaurant",
+   "latitude": 44.636363,
+   "longitude": -63.5695929
+  },
+  {
+   "name": "boomburger",
+   "kind": "takeout",
+   "latitude": 44.7009216,
+   "longitude": -63.688579
+  },
+  {
+   "name": "Booster Juice",
+   "kind": "takeout",
+   "latitude": 44.6576767,
+   "longitude": -63.6040977
+  },
+  {
+   "name": "Booster Juice",
+   "kind": "takeout",
+   "latitude": 44.661119,
+   "longitude": -63.6555632
+  },
+  {
+   "name": "Booster Juice",
+   "kind": "takeout",
+   "latitude": 44.7000559,
+   "longitude": -63.6872258
+  },
+  {
+   "name": "Booster Juice",
+   "kind": "takeout",
+   "latitude": 44.70298,
+   "longitude": -63.5633175
+  },
+  {
+   "name": "Boston Pizza",
+   "kind": "restaurant",
+   "latitude": 44.3992839,
+   "longitude": -64.5369567
+  },
+  {
+   "name": "Boston Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6494311,
+   "longitude": -63.5746509
+  },
+  {
+   "name": "Boston Pizza",
+   "kind": "restaurant",
+   "latitude": 44.649862,
+   "longitude": -63.6744954
+  },
+  {
+   "name": "Boston Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6711944,
+   "longitude": -63.5302506
+  },
+  {
+   "name": "Boston Pizza",
+   "kind": "restaurant",
+   "latitude": 44.7083434,
+   "longitude": -63.561877
+  },
+  {
+   "name": "Boston Pizza",
+   "kind": "restaurant",
+   "latitude": 44.770641,
+   "longitude": -63.690824
+  },
+  {
+   "name": "Bourbon St Grill",
+   "kind": "takeout",
+   "latitude": 44.6861854,
+   "longitude": -63.5597364
+  },
+  {
+   "name": "Bramble Cafe",
+   "kind": "cafe",
+   "latitude": 44.6588959,
+   "longitude": -63.5982572
+  },
+  {
+   "name": "Brawta Jamaican Jerk Hut",
+   "kind": "takeout",
+   "latitude": 44.6460688,
+   "longitude": -63.5694506
+  },
+  {
+   "name": "Brawta Jamaican Jerk Joint",
+   "kind": "restaurant",
+   "latitude": 44.6452346,
+   "longitude": -63.5743947
+  },
+  {
+   "name": "Brenton Grill & Wine bar",
+   "kind": "restaurant",
+   "latitude": 44.641343,
+   "longitude": -63.5786274
+  },
+  {
+   "name": "Brewdebaker's",
+   "kind": "restaurant",
+   "latitude": 44.6635051,
+   "longitude": -63.6573537
+  },
+  {
+   "name": "Brewster's Bar & Grill",
+   "kind": "restaurant",
+   "latitude": 44.7159238,
+   "longitude": -63.6764902
+  },
+  {
+   "name": "Brief Break",
+   "kind": "cafe",
+   "latitude": 44.6382749,
+   "longitude": -63.5876173
+  },
+  {
+   "name": "Broad Cove Cafe",
+   "kind": "cafe",
+   "latitude": 44.1822155,
+   "longitude": -64.4842981
+  },
+  {
+   "name": "Broth House",
+   "kind": "restaurant",
+   "latitude": 44.6460106,
+   "longitude": -63.5728794
+  },
+  {
+   "name": "Budapest Bisztro",
+   "kind": "restaurant",
+   "latitude": 44.6498581,
+   "longitude": -63.6515931
+  },
+  {
+   "name": "Burger King",
+   "kind": "takeout",
+   "latitude": 44.6512061,
+   "longitude": -63.6764517
+  },
+  {
+   "name": "Burger King",
+   "kind": "takeout",
+   "latitude": 44.6591897,
+   "longitude": -63.6036401
+  },
+  {
+   "name": "Burger King",
+   "kind": "takeout",
+   "latitude": 44.680089,
+   "longitude": -63.5369287
+  },
+  {
+   "name": "Burger King",
+   "kind": "takeout",
+   "latitude": 44.6983611,
+   "longitude": -63.5845405
+  },
+  {
+   "name": "Burger King",
+   "kind": "takeout",
+   "latitude": 44.7697346,
+   "longitude": -63.6878237
+  },
+  {
+   "name": "Burrito Jax",
+   "kind": "restaurant",
+   "latitude": 44.6452819,
+   "longitude": -63.5734885
+  },
+  {
+   "name": "Burrito Jax",
+   "kind": "takeout",
+   "latitude": 44.6595459,
+   "longitude": -63.6033328
+  },
+  {
+   "name": "Buta Ramen",
+   "kind": "restaurant",
+   "latitude": 44.6417349,
+   "longitude": -63.5709225
+  },
+  {
+   "name": "Buta Ramen",
+   "kind": "takeout",
+   "latitude": 44.7322072,
+   "longitude": -63.655383
+  },
+  {
+   "name": "Byblos Lebanese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6709579,
+   "longitude": -63.5264681
+  },
+  {
+   "name": "Byron",
+   "kind": "cafe",
+   "latitude": 44.653542,
+   "longitude": -63.5913381
+  },
+  {
+   "name": "Cabin Coffee",
+   "kind": "cafe",
+   "latitude": 44.6451233,
+   "longitude": -63.5716863
+  },
+  {
+   "name": "Cafe 98",
+   "kind": "cafe",
+   "latitude": 44.6660967,
+   "longitude": -63.5659428
+  },
+  {
+   "name": "Cafe Aroma Latino",
+   "kind": "restaurant",
+   "latitude": 44.6553036,
+   "longitude": -63.5937087
+  },
+  {
+   "name": "Cafe Chianti",
+   "kind": "restaurant",
+   "latitude": 44.6409029,
+   "longitude": -63.5706791
+  },
+  {
+   "name": "Café du Port",
+   "kind": "cafe",
+   "latitude": 44.6461592,
+   "longitude": -63.5734055
+  },
+  {
+   "name": "Café Good Luck",
+   "kind": "cafe",
+   "latitude": 44.6671832,
+   "longitude": -63.565053
+  },
+  {
+   "name": "Café l’Acadie",
+   "kind": "cafe",
+   "latitude": 44.5104522,
+   "longitude": -63.9358826
+  },
+  {
+   "name": "Café Lara",
+   "kind": "cafe",
+   "latitude": 44.6522491,
+   "longitude": -63.588846
+  },
+  {
+   "name": "Café Lara",
+   "kind": "cafe",
+   "latitude": 44.6595719,
+   "longitude": -63.603437
+  },
+  {
+   "name": "Café Lunette",
+   "kind": "cafe",
+   "latitude": 44.6487433,
+   "longitude": -63.5716121
+  },
+  {
+   "name": "Café Lunette",
+   "kind": "cafe",
+   "latitude": 44.6488755,
+   "longitude": -63.5716945
+  },
+  {
+   "name": "Cafe Marco Polo",
+   "kind": "cafe",
+   "latitude": 44.6643302,
+   "longitude": -63.5644001
+  },
+  {
+   "name": "Cafe Restaurant Compose",
+   "kind": "restaurant",
+   "latitude": 44.7445805,
+   "longitude": -65.5196436
+  },
+  {
+   "name": "Cafe Ristretto",
+   "kind": "cafe",
+   "latitude": 44.6435837,
+   "longitude": -63.5691553
+  },
+  {
+   "name": "Café Tayaiki 52",
+   "kind": "cafe",
+   "latitude": 44.6507013,
+   "longitude": -63.5786098
+  },
+  {
+   "name": "Caffe Lucca",
+   "kind": "cafe",
+   "latitude": 44.6463534,
+   "longitude": -63.5695986
+  },
+  {
+   "name": "Cannery Kitchen & Social",
+   "kind": "restaurant",
+   "latitude": 44.6468854,
+   "longitude": -63.57189
+  },
+  {
+   "name": "Canton Garden",
+   "kind": "restaurant",
+   "latitude": 44.6721568,
+   "longitude": -63.6652585
+  },
+  {
+   "name": "Capt. Kat's Lobster Shack",
+   "kind": "restaurant",
+   "latitude": 43.5211698,
+   "longitude": -65.6170102
+  },
+  {
+   "name": "Captain Sub",
+   "kind": "restaurant",
+   "latitude": 44.6607785,
+   "longitude": -63.6375812
+  },
+  {
+   "name": "Carousel Café",
+   "kind": "cafe",
+   "latitude": 44.7411997,
+   "longitude": -63.7464499
+  },
+  {
+   "name": "Castello Café",
+   "kind": "cafe",
+   "latitude": 44.6418274,
+   "longitude": -63.5669982
+  },
+  {
+   "name": "Cavicchi's meats",
+   "kind": "restaurant",
+   "latitude": 44.6944845,
+   "longitude": -63.887208
+  },
+  {
+   "name": "Cempoal de la Calavera Negra",
+   "kind": "cafe",
+   "latitude": 44.6524741,
+   "longitude": -63.5896261
+  },
+  {
+   "name": "Cha Baa Thai",
+   "kind": "restaurant",
+   "latitude": 44.6440175,
+   "longitude": -63.5770688
+  },
+  {
+   "name": "Cha Baa Thai",
+   "kind": "restaurant",
+   "latitude": 44.6596682,
+   "longitude": -63.6010839
+  },
+  {
+   "name": "Chabaa Thai",
+   "kind": "restaurant",
+   "latitude": 44.7312165,
+   "longitude": -63.6585735
+  },
+  {
+   "name": "Chaii Samosa",
+   "kind": "takeout",
+   "latitude": 44.6441792,
+   "longitude": -63.6010227
+  },
+  {
+   "name": "Chatime",
+   "kind": "cafe",
+   "latitude": 44.642195,
+   "longitude": -63.5787269
+  },
+  {
+   "name": "Chatime",
+   "kind": "cafe",
+   "latitude": 44.6494878,
+   "longitude": -63.6176198
+  },
+  {
+   "name": "Chatime",
+   "kind": "cafe",
+   "latitude": 44.7073345,
+   "longitude": -63.7099354
+  },
+  {
+   "name": "Cheelin Chinese Food",
+   "kind": "restaurant",
+   "latitude": 44.644336,
+   "longitude": -63.5704603
+  },
+  {
+   "name": "Cheese Curds and Habaneros",
+   "kind": "takeout",
+   "latitude": 44.6636539,
+   "longitude": -63.6558174
+  },
+  {
+   "name": "Cheese Curds Burgers",
+   "kind": "takeout",
+   "latitude": 44.648168,
+   "longitude": -63.545866
+  },
+  {
+   "name": "Cheese Curds Gourmet Burgers + Poutinerie",
+   "kind": "restaurant",
+   "latitude": 44.7695643,
+   "longitude": -63.6891505
+  },
+  {
+   "name": "Cheese Curds Gourmet Burgers and Poutinerie/Habaneros Modern Taco Bar",
+   "kind": "takeout",
+   "latitude": 44.7013559,
+   "longitude": -63.6782185
+  },
+  {
+   "name": "Chef Abod",
+   "kind": "restaurant",
+   "latitude": 44.6604084,
+   "longitude": -63.6060993
+  },
+  {
+   "name": "Chefs Menu",
+   "kind": "restaurant",
+   "latitude": 44.7664038,
+   "longitude": -63.6831775
+  },
+  {
+   "name": "Chicken Little Cafe & Dairy Bar",
+   "kind": "cafe",
+   "latitude": 44.7096358,
+   "longitude": -63.7093717
+  },
+  {
+   "name": "Chicken Little Cafe & Dairy Bar",
+   "kind": "restaurant",
+   "latitude": 44.7312735,
+   "longitude": -63.6576588
+  },
+  {
+   "name": "Chickenburger",
+   "kind": "takeout",
+   "latitude": 44.7316082,
+   "longitude": -63.6571659
+  },
+  {
+   "name": "Chinatown",
+   "kind": "restaurant",
+   "latitude": 44.6758788,
+   "longitude": -63.6476732
+  },
+  {
+   "name": "Chkn Chop",
+   "kind": "restaurant",
+   "latitude": 44.6543179,
+   "longitude": -63.595897
+  },
+  {
+   "name": "Cinnabon",
+   "kind": "takeout",
+   "latitude": 44.6864199,
+   "longitude": -63.5599168
+  },
+  {
+   "name": "Circa 1860 Kitchen + Public House",
+   "kind": "restaurant",
+   "latitude": 44.4493358,
+   "longitude": -64.3856842
+  },
+  {
+   "name": "Cisero's restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7438013,
+   "longitude": -63.3006443
+  },
+  {
+   "name": "City Shawarma",
+   "kind": "restaurant",
+   "latitude": 44.6721864,
+   "longitude": -63.6654265
+  },
+  {
+   "name": "Classic Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6450169,
+   "longitude": -63.573777
+  },
+  {
+   "name": "Coastal Curry",
+   "kind": "restaurant",
+   "latitude": 44.6463018,
+   "longitude": -63.5698777
+  },
+  {
+   "name": "COBS Bread",
+   "kind": "bakery",
+   "latitude": 44.7365513,
+   "longitude": -63.6565864
+  },
+  {
+   "name": "Coffee Pro",
+   "kind": "cafe",
+   "latitude": 44.7158812,
+   "longitude": -63.6768855
+  },
+  {
+   "name": "Connected Coffee",
+   "kind": "cafe",
+   "latitude": 44.8868789,
+   "longitude": -63.5146386
+  },
+  {
+   "name": "Cora",
+   "kind": "restaurant",
+   "latitude": 44.6434802,
+   "longitude": -63.5780659
+  },
+  {
+   "name": "Cora",
+   "kind": "restaurant",
+   "latitude": 44.6706436,
+   "longitude": -63.5257396
+  },
+  {
+   "name": "Cora",
+   "kind": "restaurant",
+   "latitude": 44.7077436,
+   "longitude": -63.5835649
+  },
+  {
+   "name": "Cora's",
+   "kind": "restaurant",
+   "latitude": 44.6639019,
+   "longitude": -63.6560373
+  },
+  {
+   "name": "Cora's",
+   "kind": "restaurant",
+   "latitude": 44.7303614,
+   "longitude": -63.6610008
+  },
+  {
+   "name": "Cortados Tasting Room",
+   "kind": "cafe",
+   "latitude": 44.7253206,
+   "longitude": -63.7029362
+  },
+  {
+   "name": "Costco Food Court",
+   "kind": "takeout",
+   "latitude": 44.6563987,
+   "longitude": -63.6759475
+  },
+  {
+   "name": "Costco Food Court",
+   "kind": "takeout",
+   "latitude": 44.7048091,
+   "longitude": -63.5665592
+  },
+  {
+   "name": "Cosy Snack Bar",
+   "kind": "cafe",
+   "latitude": 44.6532155,
+   "longitude": -63.6086807
+  },
+  {
+   "name": "Cottage Cafe",
+   "kind": "cafe",
+   "latitude": 44.6792202,
+   "longitude": -63.5524484
+  },
+  {
+   "name": "Country Nook Cafe",
+   "kind": "cafe",
+   "latitude": 44.7432024,
+   "longitude": -65.5189861
+  },
+  {
+   "name": "Cousins Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6654449,
+   "longitude": -63.61054
+  },
+  {
+   "name": "Creamy Rainbow Bakery and Cafe",
+   "kind": "cafe",
+   "latitude": 44.6434362,
+   "longitude": -63.5783698
+  },
+  {
+   "name": "Creative Cup Cafe",
+   "kind": "cafe",
+   "latitude": 44.6598913,
+   "longitude": -63.5949974
+  },
+  {
+   "name": "Crème",
+   "kind": "cafe",
+   "latitude": 44.6429409,
+   "longitude": -63.568344
+  },
+  {
+   "name": "Crepe Crepe Cafe",
+   "kind": "restaurant",
+   "latitude": 44.6373725,
+   "longitude": -63.5697718
+  },
+  {
+   "name": "Crow's Nest Hillsburn - Shore Road Seafood",
+   "kind": "restaurant",
+   "latitude": 44.8013049,
+   "longitude": -65.555727
+  },
+  {
+   "name": "Curry Express",
+   "kind": "restaurant",
+   "latitude": 44.3832024,
+   "longitude": -64.5172771
+  },
+  {
+   "name": "Curry Village",
+   "kind": "restaurant",
+   "latitude": 44.6443319,
+   "longitude": -63.5784752
+  },
+  {
+   "name": "Cut Contemporary Steak House & Urban Grill",
+   "kind": "restaurant",
+   "latitude": 44.6450709,
+   "longitude": -63.5705636
+  },
+  {
+   "name": "Da Zero Ristorante",
+   "kind": "restaurant",
+   "latitude": 44.6418038,
+   "longitude": -63.5805569
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.3797983,
+   "longitude": -64.5163493
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.6560307,
+   "longitude": -63.6314222
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.6823115,
+   "longitude": -63.5361953
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.6862242,
+   "longitude": -63.5597455
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.7056733,
+   "longitude": -63.5634308
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.7712156,
+   "longitude": -63.6944761
+  },
+  {
+   "name": "Dairy Queen",
+   "kind": "takeout",
+   "latitude": 44.8171513,
+   "longitude": -63.6110923
+  },
+  {
+   "name": "Dan's Ice Cream Shoppe",
+   "kind": "restaurant",
+   "latitude": 43.521703,
+   "longitude": -65.6167088
+  },
+  {
+   "name": "Darrell's",
+   "kind": "restaurant",
+   "latitude": 44.6378802,
+   "longitude": -63.5737799
+  },
+  {
+   "name": "Daryâ",
+   "kind": "restaurant",
+   "latitude": 44.6483492,
+   "longitude": -63.5703534
+  },
+  {
+   "name": "Dave's Lobster",
+   "kind": "takeout",
+   "latitude": 44.6463894,
+   "longitude": -63.5697391
+  },
+  {
+   "name": "de la dori",
+   "kind": "restaurant",
+   "latitude": 44.6489388,
+   "longitude": -63.5714586
+  },
+  {
+   "name": "Deck Restaurant and Convenience Store",
+   "kind": "restaurant",
+   "latitude": 44.5056249,
+   "longitude": -64.1216263
+  },
+  {
+   "name": "Dejan's European Bakery",
+   "kind": "bakery",
+   "latitude": 44.7080701,
+   "longitude": -63.6652857
+  },
+  {
+   "name": "Delectable Desserts",
+   "kind": "bakery",
+   "latitude": 44.6992402,
+   "longitude": -63.5795288
+  },
+  {
+   "name": "Delish Fine Foods",
+   "kind": "restaurant",
+   "latitude": 44.6898662,
+   "longitude": -63.8833354
+  },
+  {
+   "name": "Dennis Point Café & Restaurant",
+   "kind": "restaurant",
+   "latitude": 43.6178808,
+   "longitude": -65.788971
+  },
+  {
+   "name": "Denny's",
+   "kind": "restaurant",
+   "latitude": 44.7100597,
+   "longitude": -63.5668446
+  },
+  {
+   "name": "Dharma sushi",
+   "kind": "restaurant",
+   "latitude": 44.6453719,
+   "longitude": -63.5740661
+  },
+  {
+   "name": "Dilly Dally Coffee Cafe",
+   "kind": "cafe",
+   "latitude": 44.6464086,
+   "longitude": -63.5931645
+  },
+  {
+   "name": "Dockside",
+   "kind": "restaurant",
+   "latitude": 44.6237339,
+   "longitude": -65.7561903
+  },
+  {
+   "name": "Dodo's",
+   "kind": "takeout",
+   "latitude": 44.6578395,
+   "longitude": -63.6038716
+  },
+  {
+   "name": "Domino's",
+   "kind": "takeout",
+   "latitude": 44.6684786,
+   "longitude": -63.6077783
+  },
+  {
+   "name": "Domino's",
+   "kind": "takeout",
+   "latitude": 44.6711534,
+   "longitude": -63.6765319
+  },
+  {
+   "name": "Domino's",
+   "kind": "takeout",
+   "latitude": 44.680065,
+   "longitude": -63.5395209
+  },
+  {
+   "name": "Domino's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6468795,
+   "longitude": -63.5913446
+  },
+  {
+   "name": "Donnini's Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6562337,
+   "longitude": -63.592411
+  },
+  {
+   "name": "Dora Q - Japanese Cuisine",
+   "kind": "restaurant",
+   "latitude": 44.6421445,
+   "longitude": -63.5783876
+  },
+  {
+   "name": "Doraku",
+   "kind": "restaurant",
+   "latitude": 44.6663363,
+   "longitude": -63.5685743
+  },
+  {
+   "name": "Downtown Pizza",
+   "kind": "takeout",
+   "latitude": 44.6718664,
+   "longitude": -63.5799029
+  },
+  {
+   "name": "Drift",
+   "kind": "restaurant",
+   "latitude": 44.6482554,
+   "longitude": -63.57101
+  },
+  {
+   "name": "E-J‘s Grill",
+   "kind": "restaurant",
+   "latitude": 44.4415475,
+   "longitude": -65.1984761
+  },
+  {
+   "name": "East Cup Cafe",
+   "kind": "cafe",
+   "latitude": 44.646253,
+   "longitude": -63.5901561
+  },
+  {
+   "name": "East of Grafton Tavern",
+   "kind": "restaurant",
+   "latitude": 44.6455002,
+   "longitude": -63.5741365
+  },
+  {
+   "name": "East Side Mario's",
+   "kind": "restaurant",
+   "latitude": 44.6481824,
+   "longitude": -63.674362
+  },
+  {
+   "name": "East West",
+   "kind": "restaurant",
+   "latitude": 44.6971757,
+   "longitude": -63.495537
+  },
+  {
+   "name": "Ebb Tide Café",
+   "kind": "restaurant",
+   "latitude": 44.8828916,
+   "longitude": -65.1571574
+  },
+  {
+   "name": "EDNA",
+   "kind": "restaurant",
+   "latitude": 44.6514366,
+   "longitude": -63.5822809
+  },
+  {
+   "name": "Efendy Turkish & Mediterranean Grill",
+   "kind": "restaurant",
+   "latitude": 44.6443568,
+   "longitude": -63.5785043
+  },
+  {
+   "name": "Egg Roll King",
+   "kind": "restaurant",
+   "latitude": 44.3699384,
+   "longitude": -64.5268114
+  },
+  {
+   "name": "El Este Tacos",
+   "kind": "takeout",
+   "latitude": 44.6795567,
+   "longitude": -63.5836621
+  },
+  {
+   "name": "El Este Tacqueria",
+   "kind": "restaurant",
+   "latitude": 44.646325,
+   "longitude": -63.5737371
+  },
+  {
+   "name": "Ela Greek Taverna",
+   "kind": "restaurant",
+   "latitude": 44.7049428,
+   "longitude": -63.5616074
+  },
+  {
+   "name": "ela! Greek Taverna",
+   "kind": "restaurant",
+   "latitude": 44.6528656,
+   "longitude": -63.6783037
+  },
+  {
+   "name": "Eli + Trix",
+   "kind": "restaurant",
+   "latitude": 44.4485098,
+   "longitude": -64.3810872
+  },
+  {
+   "name": "Eliot & Vine",
+   "kind": "restaurant",
+   "latitude": 44.6507786,
+   "longitude": -63.5933642
+  },
+  {
+   "name": "Elle's Bistro",
+   "kind": "restaurant",
+   "latitude": 44.6469911,
+   "longitude": -63.5740354
+  },
+  {
+   "name": "Ellen's Korean BBQ",
+   "kind": "restaurant",
+   "latitude": 44.3798784,
+   "longitude": -64.5213206
+  },
+  {
+   "name": "Espresso 46",
+   "kind": "cafe",
+   "latitude": 44.6600708,
+   "longitude": -63.5972683
+  },
+  {
+   "name": "Esquire Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7079651,
+   "longitude": -63.6665116
+  },
+  {
+   "name": "Estia",
+   "kind": "restaurant",
+   "latitude": 44.6428438,
+   "longitude": -63.5773452
+  },
+  {
+   "name": "Everything Nice Cafe & Catering",
+   "kind": "cafe",
+   "latitude": 44.3839153,
+   "longitude": -64.5141182
+  },
+  {
+   "name": "Famous Curry Chicken",
+   "kind": "restaurant",
+   "latitude": 44.6548254,
+   "longitude": -63.5920323
+  },
+  {
+   "name": "Famous Town Pie Shop",
+   "kind": "cafe",
+   "latitude": 44.449702,
+   "longitude": -64.3819952
+  },
+  {
+   "name": "Fan's Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6850049,
+   "longitude": -63.5993788
+  },
+  {
+   "name": "Fancy Lebanese Bakery",
+   "kind": "bakery",
+   "latitude": 44.6552205,
+   "longitude": -63.5931245
+  },
+  {
+   "name": "Fancy Pants Cafe",
+   "kind": "cafe",
+   "latitude": 44.3808663,
+   "longitude": -64.5228256
+  },
+  {
+   "name": "Fancy Pants Express",
+   "kind": "cafe",
+   "latitude": 44.3858656,
+   "longitude": -64.5341196
+  },
+  {
+   "name": "Fattoush Mediterranean Grill",
+   "kind": "restaurant",
+   "latitude": 44.6575128,
+   "longitude": -63.6335785
+  },
+  {
+   "name": "Field Guide",
+   "kind": "restaurant",
+   "latitude": 44.6514698,
+   "longitude": -63.5828089
+  },
+  {
+   "name": "Fillings Bistro 32",
+   "kind": "cafe",
+   "latitude": 44.6385545,
+   "longitude": -63.5852824
+  },
+  {
+   "name": "First Sight Coffee & Bar",
+   "kind": "cafe",
+   "latitude": 44.6427496,
+   "longitude": -63.5786019
+  },
+  {
+   "name": "Five Fishermen",
+   "kind": "restaurant",
+   "latitude": 44.6478474,
+   "longitude": -63.5753833
+  },
+  {
+   "name": "Five Guys",
+   "kind": "takeout",
+   "latitude": 44.6464809,
+   "longitude": -63.5746807
+  },
+  {
+   "name": "Five Guys",
+   "kind": "takeout",
+   "latitude": 44.6520618,
+   "longitude": -63.6753437
+  },
+  {
+   "name": "Food Court of Spring Garden Place",
+   "kind": "cafe",
+   "latitude": 44.642463,
+   "longitude": -63.5780713
+  },
+  {
+   "name": "Foody Jojo Waffle & Sandwich",
+   "kind": "takeout",
+   "latitude": 44.6644147,
+   "longitude": -63.5698211
+  },
+  {
+   "name": "Foosing Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.8013459,
+   "longitude": -63.6879088
+  },
+  {
+   "name": "Founders House",
+   "kind": "restaurant",
+   "latitude": 44.7289847,
+   "longitude": -65.5269064
+  },
+  {
+   "name": "Fran's Fish n' Chips",
+   "kind": "takeout",
+   "latitude": 44.6657723,
+   "longitude": -63.5672263
+  },
+  {
+   "name": "Freedom",
+   "kind": "takeout",
+   "latitude": 44.6459607,
+   "longitude": -63.5695848
+  },
+  {
+   "name": "Freeman's Lil New York",
+   "kind": "restaurant",
+   "latitude": 44.6464483,
+   "longitude": -63.5930102
+  },
+  {
+   "name": "Freeman's Little New York",
+   "kind": "restaurant",
+   "latitude": 44.6588333,
+   "longitude": -63.6313705
+  },
+  {
+   "name": "Freeman's Little New York",
+   "kind": "restaurant",
+   "latitude": 44.7669863,
+   "longitude": -63.684132
+  },
+  {
+   "name": "Freshly Squeezed",
+   "kind": "takeout",
+   "latitude": 44.6425711,
+   "longitude": -63.5793245
+  },
+  {
+   "name": "Freshly Squeezed",
+   "kind": "takeout",
+   "latitude": 44.6494698,
+   "longitude": -63.6180664
+  },
+  {
+   "name": "Freshslice Pizza",
+   "kind": "takeout",
+   "latitude": 44.6424903,
+   "longitude": -63.5794835
+  },
+  {
+   "name": "Fries & Co.",
+   "kind": "restaurant",
+   "latitude": 44.6482616,
+   "longitude": -63.6047886
+  },
+  {
+   "name": "Fry Daddy's",
+   "kind": "restaurant",
+   "latitude": 44.7943155,
+   "longitude": -63.7232053
+  },
+  {
+   "name": "Fujiyama",
+   "kind": "restaurant",
+   "latitude": 44.6449794,
+   "longitude": -63.5739813
+  },
+  {
+   "name": "Fundy Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6235795,
+   "longitude": -65.7561606
+  },
+  {
+   "name": "G-Street Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6540205,
+   "longitude": -63.5865456
+  },
+  {
+   "name": "Gahan House",
+   "kind": "restaurant",
+   "latitude": 44.6461775,
+   "longitude": -63.5746163
+  },
+  {
+   "name": "Gangnam",
+   "kind": "restaurant",
+   "latitude": 44.6412191,
+   "longitude": -63.5708295
+  },
+  {
+   "name": "Garden View Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6826559,
+   "longitude": -63.535217
+  },
+  {
+   "name": "Genji Sushi",
+   "kind": "restaurant",
+   "latitude": 44.6724426,
+   "longitude": -63.5814193
+  },
+  {
+   "name": "George's Bubble Tea",
+   "kind": "cafe",
+   "latitude": 44.6359736,
+   "longitude": -63.5704941
+  },
+  {
+   "name": "German Bakery Sachsen Cafe & Restaurant",
+   "kind": "cafe",
+   "latitude": 44.7425423,
+   "longitude": -65.5166052
+  },
+  {
+   "name": "Gingerbread Haus Bakery",
+   "kind": "restaurant",
+   "latitude": 44.6378921,
+   "longitude": -63.5734219
+  },
+  {
+   "name": "Gio",
+   "kind": "restaurant",
+   "latitude": 44.647084,
+   "longitude": -63.5760623
+  },
+  {
+   "name": "Glitter Bean Cafe",
+   "kind": "cafe",
+   "latitude": 44.6407905,
+   "longitude": -63.5847421
+  },
+  {
+   "name": "Golda's Cafe",
+   "kind": "cafe",
+   "latitude": 44.6004327,
+   "longitude": -63.6774656
+  },
+  {
+   "name": "Grawood",
+   "kind": "restaurant",
+   "latitude": 44.6369203,
+   "longitude": -63.5889416
+  },
+  {
+   "name": "Great British Bale Shop",
+   "kind": "bakery",
+   "latitude": 44.6483859,
+   "longitude": -63.6765393
+  },
+  {
+   "name": "Great Wall Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6470783,
+   "longitude": -63.5716528
+  },
+  {
+   "name": "Greco Pizza",
+   "kind": "takeout",
+   "latitude": 44.6508443,
+   "longitude": -63.4839731
+  },
+  {
+   "name": "Greco Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6608114,
+   "longitude": -63.6375636
+  },
+  {
+   "name": "Green Café",
+   "kind": "cafe",
+   "latitude": 44.6371364,
+   "longitude": -63.5882811
+  },
+  {
+   "name": "Grill Way & Catering",
+   "kind": "restaurant",
+   "latitude": 44.7099561,
+   "longitude": -63.6688051
+  },
+  {
+   "name": "Grille Works",
+   "kind": "takeout",
+   "latitude": 44.6359135,
+   "longitude": -63.5937334
+  },
+  {
+   "name": "Ground Zero",
+   "kind": "cafe",
+   "latitude": 44.6374285,
+   "longitude": -63.5870782
+  },
+  {
+   "name": "Grounded Espresso Bar",
+   "kind": "cafe",
+   "latitude": 44.6504041,
+   "longitude": -63.572506
+  },
+  {
+   "name": "Habanero’s Modern Taco Bar",
+   "kind": "restaurant",
+   "latitude": 44.6434661,
+   "longitude": -63.580026
+  },
+  {
+   "name": "Habernaro's",
+   "kind": "takeout",
+   "latitude": 44.6482796,
+   "longitude": -63.5459277
+  },
+  {
+   "name": "Halal Basha Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6360043,
+   "longitude": -63.5703776
+  },
+  {
+   "name": "Halifax Bread Factory",
+   "kind": "bakery",
+   "latitude": 44.7039127,
+   "longitude": -63.6107665
+  },
+  {
+   "name": "Halifax Citadel Coffee Bar",
+   "kind": "cafe",
+   "latitude": 44.6474356,
+   "longitude": -63.5805232
+  },
+  {
+   "name": "Halifax Grill n Chill",
+   "kind": "restaurant",
+   "latitude": 44.6445124,
+   "longitude": -63.5925328
+  },
+  {
+   "name": "Halisi Cafe",
+   "kind": "cafe",
+   "latitude": 44.7955364,
+   "longitude": -63.7296766
+  },
+  {
+   "name": "Hamachi Kita",
+   "kind": "restaurant",
+   "latitude": 44.662,
+   "longitude": -63.5995068
+  },
+  {
+   "name": "Hamachi Mura",
+   "kind": "restaurant",
+   "latitude": 44.7017281,
+   "longitude": -63.6778549
+  },
+  {
+   "name": "Happy Sushi",
+   "kind": "restaurant",
+   "latitude": 44.6978892,
+   "longitude": -63.6856079
+  },
+  {
+   "name": "Harbour City Bar & Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6507735,
+   "longitude": -63.576857
+  },
+  {
+   "name": "HARVEST",
+   "kind": "restaurant",
+   "latitude": 44.6457102,
+   "longitude": -63.5753391
+  },
+  {
+   "name": "Harvest Bedford",
+   "kind": "restaurant",
+   "latitude": 44.7150905,
+   "longitude": -63.6794038
+  },
+  {
+   "name": "Harvey's",
+   "kind": "takeout",
+   "latitude": 44.399439,
+   "longitude": -64.5356251
+  },
+  {
+   "name": "Harvey's",
+   "kind": "takeout",
+   "latitude": 44.654864,
+   "longitude": -63.6772576
+  },
+  {
+   "name": "Harvey's",
+   "kind": "takeout",
+   "latitude": 44.6617868,
+   "longitude": -63.6131422
+  },
+  {
+   "name": "Harvey's",
+   "kind": "takeout",
+   "latitude": 44.6811841,
+   "longitude": -63.5413454
+  },
+  {
+   "name": "Harvey's/Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.681321,
+   "longitude": -63.5413405
+  },
+  {
+   "name": "Hearth Room Café (Ross Farm)",
+   "kind": "cafe",
+   "latitude": 44.7264193,
+   "longitude": -64.4564526
+  },
+  {
+   "name": "Heartwood",
+   "kind": "restaurant",
+   "latitude": 44.6543713,
+   "longitude": -63.5924809
+  },
+  {
+   "name": "Heartwood Bakery and Cafe",
+   "kind": "restaurant",
+   "latitude": 44.6453012,
+   "longitude": -63.5972448
+  },
+  {
+   "name": "Heng Fung",
+   "kind": "restaurant",
+   "latitude": 44.6725568,
+   "longitude": -63.5824494
+  },
+  {
+   "name": "Henry House",
+   "kind": "restaurant",
+   "latitude": 44.6403598,
+   "longitude": -63.5707921
+  },
+  {
+   "name": "Heppy's Pie Lady",
+   "kind": "restaurant",
+   "latitude": 44.6378295,
+   "longitude": -63.6198701
+  },
+  {
+   "name": "Herring Cove Quickway",
+   "kind": "restaurant",
+   "latitude": 44.5709798,
+   "longitude": -63.5590446
+  },
+  {
+   "name": "Highwayman",
+   "kind": "restaurant",
+   "latitude": 44.646948,
+   "longitude": -63.5737653
+  },
+  {
+   "name": "HimYum Pizza",
+   "kind": "takeout",
+   "latitude": 44.6594201,
+   "longitude": -63.5944003
+  },
+  {
+   "name": "Hong's Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.7679341,
+   "longitude": -63.6854469
+  },
+  {
+   "name": "Hop Sing Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.613747,
+   "longitude": -63.6158761
+  },
+  {
+   "name": "Horticulture Hall",
+   "kind": "cafe",
+   "latitude": 44.6422254,
+   "longitude": -63.5818115
+  },
+  {
+   "name": "House of Mei Mei",
+   "kind": "restaurant",
+   "latitude": 44.6774768,
+   "longitude": -63.649677
+  },
+  {
+   "name": "House of Wong",
+   "kind": "restaurant",
+   "latitude": 44.6257966,
+   "longitude": -65.7565022
+  },
+  {
+   "name": "Hubbards Cove Coffee Ltd.",
+   "kind": "cafe",
+   "latitude": 44.6385144,
+   "longitude": -64.0615146
+  },
+  {
+   "name": "Humani-T",
+   "kind": "cafe",
+   "latitude": 44.641394,
+   "longitude": -63.5791301
+  },
+  {
+   "name": "Humble Pie Kitchen",
+   "kind": "takeout",
+   "latitude": 44.6664814,
+   "longitude": -63.5684134
+  },
+  {
+   "name": "Hungry Bowl",
+   "kind": "takeout",
+   "latitude": 44.651843,
+   "longitude": -63.5881188
+  },
+  {
+   "name": "Hustle & Bustle Catering",
+   "kind": "takeout",
+   "latitude": 44.3785732,
+   "longitude": -64.3164603
+  },
+  {
+   "name": "Hyderabad Nawabs",
+   "kind": "restaurant",
+   "latitude": 44.6640431,
+   "longitude": -63.658609
+  },
+  {
+   "name": "I love Pho",
+   "kind": "restaurant",
+   "latitude": 44.7067666,
+   "longitude": -63.6649565
+  },
+  {
+   "name": "I Love Sushi",
+   "kind": "restaurant",
+   "latitude": 44.6449217,
+   "longitude": -63.5737509
+  },
+  {
+   "name": "IHOP",
+   "kind": "restaurant",
+   "latitude": 44.6961224,
+   "longitude": -63.6894031
+  },
+  {
+   "name": "Il Mercato",
+   "kind": "restaurant",
+   "latitude": 44.7333624,
+   "longitude": -63.6541526
+  },
+  {
+   "name": "Imperfections",
+   "kind": "cafe",
+   "latitude": 44.5390664,
+   "longitude": -64.2397859
+  },
+  {
+   "name": "in spring asian fusion cuisine",
+   "kind": "restaurant",
+   "latitude": 44.6450034,
+   "longitude": -63.5720541
+  },
+  {
+   "name": "India Paradise",
+   "kind": "restaurant",
+   "latitude": 44.6450843,
+   "longitude": -63.5727518
+  },
+  {
+   "name": "Indochine Banh Mi",
+   "kind": "restaurant",
+   "latitude": 44.6433259,
+   "longitude": -63.5799066
+  },
+  {
+   "name": "Islandview Family Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.5319226,
+   "longitude": -64.3100879
+  },
+  {
+   "name": "Izzy's Bagel Co",
+   "kind": "cafe",
+   "latitude": 44.7224312,
+   "longitude": -63.6710782
+  },
+  {
+   "name": "J3 Pizza",
+   "kind": "restaurant",
+   "latitude": 44.3766054,
+   "longitude": -64.3126665
+  },
+  {
+   "name": "Jac's Burgers & Shakes",
+   "kind": "restaurant",
+   "latitude": 44.3790451,
+   "longitude": -64.5205702
+  },
+  {
+   "name": "Jack Astor's",
+   "kind": "restaurant",
+   "latitude": 44.6474652,
+   "longitude": -63.6739011
+  },
+  {
+   "name": "Jack Astor's",
+   "kind": "restaurant",
+   "latitude": 44.7078342,
+   "longitude": -63.5622513
+  },
+  {
+   "name": "Jacky's Cafe",
+   "kind": "restaurant",
+   "latitude": 44.6411498,
+   "longitude": -63.5869241
+  },
+  {
+   "name": "Jade Dragon",
+   "kind": "restaurant",
+   "latitude": 44.7379214,
+   "longitude": -63.6564726
+  },
+  {
+   "name": "Jamai's Pizza",
+   "kind": "cafe",
+   "latitude": 44.5513329,
+   "longitude": -64.2484894
+  },
+  {
+   "name": "Jane's Next Door",
+   "kind": "cafe",
+   "latitude": 44.6514642,
+   "longitude": -63.5823305
+  },
+  {
+   "name": "Jasmine Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7683829,
+   "longitude": -63.6875987
+  },
+  {
+   "name": "Java Blend",
+   "kind": "cafe",
+   "latitude": 44.6543644,
+   "longitude": -63.5954922
+  },
+  {
+   "name": "Java Blend Coffee Roasters",
+   "kind": "cafe",
+   "latitude": 44.6465721,
+   "longitude": -63.5718992
+  },
+  {
+   "name": "Jekyll & Hyde",
+   "kind": "restaurant",
+   "latitude": 44.6619373,
+   "longitude": -63.5975472
+  },
+  {
+   "name": "Jenny's Place",
+   "kind": "restaurant",
+   "latitude": 44.6653121,
+   "longitude": -63.6158169
+  },
+  {
+   "name": "Jerry's Diner",
+   "kind": "restaurant",
+   "latitude": 44.3846706,
+   "longitude": -64.5147352
+  },
+  {
+   "name": "Jessies Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6824608,
+   "longitude": -63.5358512
+  },
+  {
+   "name": "Jessy's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6728239,
+   "longitude": -63.6655131
+  },
+  {
+   "name": "Jessy's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6988914,
+   "longitude": -63.6029547
+  },
+  {
+   "name": "Jessys Pizza",
+   "kind": "takeout",
+   "latitude": 44.6542659,
+   "longitude": -63.5959663
+  },
+  {
+   "name": "Jim's Family Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6770421,
+   "longitude": -63.6486006
+  },
+  {
+   "name": "Jincheng Chinese Cuisine",
+   "kind": "restaurant",
+   "latitude": 44.6442962,
+   "longitude": -63.578459
+  },
+  {
+   "name": "John's Lunch",
+   "kind": "restaurant",
+   "latitude": 44.6505515,
+   "longitude": -63.5469552
+  },
+  {
+   "name": "Johnny's Snack Bar",
+   "kind": "restaurant",
+   "latitude": 44.6544735,
+   "longitude": -63.6021573
+  },
+  {
+   "name": "Johny's UFO Burger Shack",
+   "kind": "takeout",
+   "latitude": 44.645266,
+   "longitude": -63.5735853
+  },
+  {
+   "name": "Jugo Juice",
+   "kind": "takeout",
+   "latitude": 44.6862627,
+   "longitude": -63.5596186
+  },
+  {
+   "name": "Jukai",
+   "kind": "restaurant",
+   "latitude": 44.6475955,
+   "longitude": -63.5741036
+  },
+  {
+   "name": "JUKAI Japanese & Thai",
+   "kind": "restaurant",
+   "latitude": 44.6636393,
+   "longitude": -63.563266
+  },
+  {
+   "name": "Jungle Jim's",
+   "kind": "restaurant",
+   "latitude": 44.6472728,
+   "longitude": -63.6751397
+  },
+  {
+   "name": "Kajohn Thai",
+   "kind": "restaurant",
+   "latitude": 44.6579151,
+   "longitude": -63.6037856
+  },
+  {
+   "name": "Kam-moon",
+   "kind": "cafe",
+   "latitude": 44.6508966,
+   "longitude": -63.5786989
+  },
+  {
+   "name": "Kanpai Izakaya",
+   "kind": "restaurant",
+   "latitude": 44.643748,
+   "longitude": -63.5781805
+  },
+  {
+   "name": "Kebab Kitchen",
+   "kind": "takeout",
+   "latitude": 44.6504241,
+   "longitude": -63.5763607
+  },
+  {
+   "name": "Kebab Kitchen",
+   "kind": "takeout",
+   "latitude": 44.697431,
+   "longitude": -63.6013846
+  },
+  {
+   "name": "Kee Heong Cantonese Dim Sum",
+   "kind": "restaurant",
+   "latitude": 44.768757,
+   "longitude": -63.6857485
+  },
+  {
+   "name": "Kempster's Cookhouse",
+   "kind": "restaurant",
+   "latitude": 44.6624897,
+   "longitude": -63.6185513
+  },
+  {
+   "name": "Kenny's Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6835077,
+   "longitude": -63.6744367
+  },
+  {
+   "name": "KFC",
+   "kind": "takeout",
+   "latitude": 44.3696509,
+   "longitude": -64.5273212
+  },
+  {
+   "name": "KFC",
+   "kind": "takeout",
+   "latitude": 44.6447676,
+   "longitude": -63.5987253
+  },
+  {
+   "name": "KFC",
+   "kind": "takeout",
+   "latitude": 44.6595597,
+   "longitude": -63.63484
+  },
+  {
+   "name": "KFC",
+   "kind": "takeout",
+   "latitude": 44.6810789,
+   "longitude": -63.5376842
+  },
+  {
+   "name": "KFC",
+   "kind": "takeout",
+   "latitude": 44.6861604,
+   "longitude": -63.5597145
+  },
+  {
+   "name": "KFC",
+   "kind": "takeout",
+   "latitude": 44.770671,
+   "longitude": -63.6896324
+  },
+  {
+   "name": "King of Donair",
+   "kind": "takeout",
+   "latitude": 44.6442359,
+   "longitude": -63.60084
+  },
+  {
+   "name": "King of Donair",
+   "kind": "takeout",
+   "latitude": 44.6609181,
+   "longitude": -63.6559812
+  },
+  {
+   "name": "King of Donair",
+   "kind": "takeout",
+   "latitude": 44.6852045,
+   "longitude": -63.5994425
+  },
+  {
+   "name": "King of Donair",
+   "kind": "takeout",
+   "latitude": 44.7697162,
+   "longitude": -63.6897044
+  },
+  {
+   "name": "King Town Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7599825,
+   "longitude": -63.6588507
+  },
+  {
+   "name": "Kit Kat Pizza",
+   "kind": "takeout",
+   "latitude": 44.6541892,
+   "longitude": -63.5867627
+  },
+  {
+   "name": "Kiyoto Sushi",
+   "kind": "restaurant",
+   "latitude": 44.6571965,
+   "longitude": -63.6059685
+  },
+  {
+   "name": "Ko's Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.3761426,
+   "longitude": -64.5169247
+  },
+  {
+   "name": "Kofuku Japanese and Thai",
+   "kind": "restaurant",
+   "latitude": 44.6568607,
+   "longitude": -63.5982411
+  },
+  {
+   "name": "Korca Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6580157,
+   "longitude": -63.597003
+  },
+  {
+   "name": "Koroni's pizzeria & mediterranean",
+   "kind": "restaurant",
+   "latitude": 44.7267142,
+   "longitude": -63.6663978
+  },
+  {
+   "name": "Krave Burger",
+   "kind": "restaurant",
+   "latitude": 44.6423641,
+   "longitude": -63.5790632
+  },
+  {
+   "name": "Krave Burger",
+   "kind": "takeout",
+   "latitude": 44.6490903,
+   "longitude": -63.5463217
+  },
+  {
+   "name": "La Casetta",
+   "kind": "restaurant",
+   "latitude": 44.3769759,
+   "longitude": -64.518129
+  },
+  {
+   "name": "La Cucina Cafe Pizzeria and Spaghetti House",
+   "kind": "restaurant",
+   "latitude": 44.7052636,
+   "longitude": -63.5624113
+  },
+  {
+   "name": "La Familia Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6710883,
+   "longitude": -63.4952308
+  },
+  {
+   "name": "La Frasca Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6425427,
+   "longitude": -63.5783925
+  },
+  {
+   "name": "La Have Bakery & Cafe",
+   "kind": "bakery",
+   "latitude": 44.4494064,
+   "longitude": -64.3818654
+  },
+  {
+   "name": "La Piazza Ristorante",
+   "kind": "restaurant",
+   "latitude": 44.6484111,
+   "longitude": -63.6031174
+  },
+  {
+   "name": "La pizza perfetta",
+   "kind": "restaurant",
+   "latitude": 44.5391238,
+   "longitude": -64.2391264
+  },
+  {
+   "name": "La Vendéenne",
+   "kind": "bakery",
+   "latitude": 44.4492788,
+   "longitude": -64.4109165
+  },
+  {
+   "name": "Labour Day Picnic Café",
+   "kind": "cafe",
+   "latitude": 44.6438591,
+   "longitude": -63.9095373
+  },
+  {
+   "name": "Lady Hammond Grill",
+   "kind": "restaurant",
+   "latitude": 44.6654482,
+   "longitude": -63.6141693
+  },
+  {
+   "name": "LaHave Bakery",
+   "kind": "bakery",
+   "latitude": 44.2944553,
+   "longitude": -64.358014
+  },
+  {
+   "name": "Latitude 44°",
+   "kind": "restaurant",
+   "latitude": 44.6446817,
+   "longitude": -63.571568
+  },
+  {
+   "name": "Laughing Whale Coffee Roasters",
+   "kind": "cafe",
+   "latitude": 44.3774029,
+   "longitude": -64.3098329
+  },
+  {
+   "name": "Layers",
+   "kind": "bakery",
+   "latitude": 44.6411863,
+   "longitude": -63.5711914
+  },
+  {
+   "name": "Layla's Mediterranean Cuisine",
+   "kind": "restaurant",
+   "latitude": 44.6706788,
+   "longitude": -63.6764459
+  },
+  {
+   "name": "Le Bistro by Liz",
+   "kind": "restaurant",
+   "latitude": 44.6409192,
+   "longitude": -63.5785016
+  },
+  {
+   "name": "le french fix",
+   "kind": "cafe",
+   "latitude": 44.6470939,
+   "longitude": -63.5749696
+  },
+  {
+   "name": "Leicester's Deli",
+   "kind": "takeout",
+   "latitude": 44.6455361,
+   "longitude": -63.5974365
+  },
+  {
+   "name": "Lemon Tree",
+   "kind": "restaurant",
+   "latitude": 44.7095901,
+   "longitude": -63.6681198
+  },
+  {
+   "name": "Leo's Pizza",
+   "kind": "takeout",
+   "latitude": 44.7390183,
+   "longitude": -63.6549869
+  },
+  {
+   "name": "Levantic Bakery",
+   "kind": "cafe",
+   "latitude": 44.7165687,
+   "longitude": -63.7071995
+  },
+  {
+   "name": "LF Bakery",
+   "kind": "bakery",
+   "latitude": 44.651549,
+   "longitude": -63.5824835
+  },
+  {
+   "name": "Lightship Brewery",
+   "kind": "restaurant",
+   "latitude": 44.3744956,
+   "longitude": -64.3156101
+  },
+  {
+   "name": "Lion's Head Tavern",
+   "kind": "restaurant",
+   "latitude": 44.6595066,
+   "longitude": -63.6017815
+  },
+  {
+   "name": "Little Caesars",
+   "kind": "takeout",
+   "latitude": 44.6834674,
+   "longitude": -63.6757798
+  },
+  {
+   "name": "Local Public House",
+   "kind": "restaurant",
+   "latitude": 44.3777625,
+   "longitude": -64.5158714
+  },
+  {
+   "name": "Lockside Canteen",
+   "kind": "takeout",
+   "latitude": 44.7019589,
+   "longitude": -63.5538261
+  },
+  {
+   "name": "Lola Café",
+   "kind": "cafe",
+   "latitude": 44.7413791,
+   "longitude": -65.50823
+  },
+  {
+   "name": "Long Dragon Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7800888,
+   "longitude": -63.6986443
+  },
+  {
+   "name": "Look Ho Ho",
+   "kind": "restaurant",
+   "latitude": 44.6545,
+   "longitude": -63.6106983
+  },
+  {
+   "name": "Loong 7 Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6657429,
+   "longitude": -63.6110286
+  },
+  {
+   "name": "Lot Six Bar & Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6467359,
+   "longitude": -63.5743817
+  },
+  {
+   "name": "Lou Pécou",
+   "kind": "restaurant",
+   "latitude": 44.6525176,
+   "longitude": -63.5868271
+  },
+  {
+   "name": "Lovers Pizza",
+   "kind": "takeout",
+   "latitude": 44.6485244,
+   "longitude": -63.6042356
+  },
+  {
+   "name": "Lucy's Hydrostone Cafe",
+   "kind": "cafe",
+   "latitude": 44.6623281,
+   "longitude": -63.599038
+  },
+  {
+   "name": "Magic Wok",
+   "kind": "restaurant",
+   "latitude": 44.3770705,
+   "longitude": -64.5152081
+  },
+  {
+   "name": "Main Gate Galley",
+   "kind": "restaurant",
+   "latitude": 44.6523436,
+   "longitude": -65.6293411
+  },
+  {
+   "name": "Makhani",
+   "kind": "restaurant",
+   "latitude": 44.7322581,
+   "longitude": -63.6553167
+  },
+  {
+   "name": "Mama Gratti’s Deli & Market",
+   "kind": "takeout",
+   "latitude": 44.65026,
+   "longitude": -63.576232
+  },
+  {
+   "name": "Mama Sophia's",
+   "kind": "restaurant",
+   "latitude": 44.8416523,
+   "longitude": -65.2902544
+  },
+  {
+   "name": "Man Bean",
+   "kind": "restaurant",
+   "latitude": 44.6415734,
+   "longitude": -63.5713995
+  },
+  {
+   "name": "Manchu Wok",
+   "kind": "takeout",
+   "latitude": 44.6861831,
+   "longitude": -63.5595458
+  },
+  {
+   "name": "Manhattan Pizza",
+   "kind": "takeout",
+   "latitude": 44.6350272,
+   "longitude": -63.576596
+  },
+  {
+   "name": "Mappatura Bistro",
+   "kind": "restaurant",
+   "latitude": 44.6413898,
+   "longitude": -63.5842285
+  },
+  {
+   "name": "Marigold Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.6469163,
+   "longitude": -63.5737494
+  },
+  {
+   "name": "Martha's Pizza ||",
+   "kind": "restaurant",
+   "latitude": 44.706984,
+   "longitude": -63.6652588
+  },
+  {
+   "name": "Martino's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6760389,
+   "longitude": -63.587193
+  },
+  {
+   "name": "Mary Brown's",
+   "kind": "takeout",
+   "latitude": 44.6594399,
+   "longitude": -63.6325921
+  },
+  {
+   "name": "Mary Brown's",
+   "kind": "takeout",
+   "latitude": 44.6802029,
+   "longitude": -63.5395465
+  },
+  {
+   "name": "Mary Brown's",
+   "kind": "takeout",
+   "latitude": 44.7743938,
+   "longitude": -63.6928426
+  },
+  {
+   "name": "Mary‘s African Cuisine",
+   "kind": "cafe",
+   "latitude": 44.6473798,
+   "longitude": -63.5739943
+  },
+  {
+   "name": "Masala Delight",
+   "kind": "restaurant",
+   "latitude": 44.6360604,
+   "longitude": -63.5701117
+  },
+  {
+   "name": "Mashawee Mediterranean Grill",
+   "kind": "restaurant",
+   "latitude": 44.6433208,
+   "longitude": -63.5782761
+  },
+  {
+   "name": "Mateus Bistro",
+   "kind": "restaurant",
+   "latitude": 44.4487428,
+   "longitude": -64.3812637
+  },
+  {
+   "name": "May Garden",
+   "kind": "restaurant",
+   "latitude": 44.666901,
+   "longitude": -63.5648104
+  },
+  {
+   "name": "May Garden",
+   "kind": "restaurant",
+   "latitude": 44.7159619,
+   "longitude": -63.67604
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.0465388,
+   "longitude": -64.7228944
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.3688628,
+   "longitude": -64.5266554
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.4008311,
+   "longitude": -64.5329651
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6005668,
+   "longitude": -65.7703861
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6146605,
+   "longitude": -63.616394
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6426012,
+   "longitude": -63.5791223
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.644883,
+   "longitude": -63.5985622
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6471045,
+   "longitude": -63.6197262
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6479245,
+   "longitude": -63.5440682
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6490669,
+   "longitude": -63.6760453
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6503302,
+   "longitude": -63.5765655
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6617091,
+   "longitude": -63.6137377
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6621783,
+   "longitude": -63.6558795
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6705501,
+   "longitude": -63.5317956
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6715747,
+   "longitude": -63.5759849
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6818172,
+   "longitude": -63.5376538
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6972983,
+   "longitude": -63.5688119
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6983497,
+   "longitude": -63.6056795
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.6999082,
+   "longitude": -63.6877233
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.7027776,
+   "longitude": -63.8592644
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.7085494,
+   "longitude": -63.5635913
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.7307913,
+   "longitude": -63.6598265
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.7523595,
+   "longitude": -63.6434585
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.7666826,
+   "longitude": -63.6819931
+  },
+  {
+   "name": "McDonald's",
+   "kind": "takeout",
+   "latitude": 44.8175144,
+   "longitude": -63.6121662
+  },
+  {
+   "name": "McKelvie's",
+   "kind": "restaurant",
+   "latitude": 44.6476249,
+   "longitude": -63.5718951
+  },
+  {
+   "name": "MediTerra",
+   "kind": "restaurant",
+   "latitude": 44.7562033,
+   "longitude": -63.6613286
+  },
+  {
+   "name": "Metro Pizza",
+   "kind": "takeout",
+   "latitude": 44.6654241,
+   "longitude": -63.6112609
+  },
+  {
+   "name": "Mexi's",
+   "kind": "restaurant",
+   "latitude": 44.6546281,
+   "longitude": -63.6772505
+  },
+  {
+   "name": "Mezza",
+   "kind": "takeout",
+   "latitude": 44.6453457,
+   "longitude": -63.5732433
+  },
+  {
+   "name": "Mezza Lebanese Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.7001422,
+   "longitude": -63.6872928
+  },
+  {
+   "name": "Mezza Lebanese Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.7711348,
+   "longitude": -63.6943764
+  },
+  {
+   "name": "Michelle Ashley's Bakery",
+   "kind": "bakery",
+   "latitude": 44.6627492,
+   "longitude": -63.6017337
+  },
+  {
+   "name": "Midtown Tavern and Lounge",
+   "kind": "restaurant",
+   "latitude": 44.6476968,
+   "longitude": -63.5760411
+  },
+  {
+   "name": "Mile et Buerre",
+   "kind": "cafe",
+   "latitude": 44.6552099,
+   "longitude": -63.6005629
+  },
+  {
+   "name": "Mirchi Tandoor",
+   "kind": "restaurant",
+   "latitude": 44.6450092,
+   "longitude": -63.5738315
+  },
+  {
+   "name": "Misita K-food",
+   "kind": "restaurant",
+   "latitude": 44.6464158,
+   "longitude": -63.5699032
+  },
+  {
+   "name": "Mizu Sushi",
+   "kind": "restaurant",
+   "latitude": 44.6522184,
+   "longitude": -63.675478
+  },
+  {
+   "name": "Mizu Sushi",
+   "kind": "restaurant",
+   "latitude": 44.6707172,
+   "longitude": -63.5254221
+  },
+  {
+   "name": "Modern Orchid",
+   "kind": "restaurant",
+   "latitude": 44.7074814,
+   "longitude": -63.7100382
+  },
+  {
+   "name": "Montana's",
+   "kind": "restaurant",
+   "latitude": 44.6493116,
+   "longitude": -63.6747789
+  },
+  {
+   "name": "Montana's",
+   "kind": "restaurant",
+   "latitude": 44.6507984,
+   "longitude": -63.6752378
+  },
+  {
+   "name": "Montana's",
+   "kind": "restaurant",
+   "latitude": 44.7072438,
+   "longitude": -63.5625081
+  },
+  {
+   "name": "Morris East",
+   "kind": "restaurant",
+   "latitude": 44.6414835,
+   "longitude": -63.5717753
+  },
+  {
+   "name": "Morris East",
+   "kind": "restaurant",
+   "latitude": 44.7010072,
+   "longitude": -63.685816
+  },
+  {
+   "name": "Morris Street East",
+   "kind": "restaurant",
+   "latitude": 44.6461247,
+   "longitude": -63.5933354
+  },
+  {
+   "name": "Mother's Pizza",
+   "kind": "takeout",
+   "latitude": 44.660548,
+   "longitude": -63.6010434
+  },
+  {
+   "name": "Moxie's",
+   "kind": "restaurant",
+   "latitude": 44.6462176,
+   "longitude": -63.5745573
+  },
+  {
+   "name": "Moxie's",
+   "kind": "restaurant",
+   "latitude": 44.6474522,
+   "longitude": -63.6730374
+  },
+  {
+   "name": "Moxie's Classic Grill",
+   "kind": "restaurant",
+   "latitude": 44.7008478,
+   "longitude": -63.5656211
+  },
+  {
+   "name": "Mr P's Bakery",
+   "kind": "bakery",
+   "latitude": 44.6131234,
+   "longitude": -63.6166602
+  },
+  {
+   "name": "Mr. Chang's Chinese Food Emporium",
+   "kind": "restaurant",
+   "latitude": 44.640683,
+   "longitude": -63.5758693
+  },
+  {
+   "name": "Mrs. Fields",
+   "kind": "takeout",
+   "latitude": 44.6863214,
+   "longitude": -63.5594376
+  },
+  {
+   "name": "Murphy's The Cable Wharf",
+   "kind": "restaurant",
+   "latitude": 44.6493141,
+   "longitude": -63.5705241
+  },
+  {
+   "name": "My Cha & Plate",
+   "kind": "cafe",
+   "latitude": 44.6443606,
+   "longitude": -63.5805532
+  },
+  {
+   "name": "Myrtle and Rosie's Café",
+   "kind": "cafe",
+   "latitude": 44.5760851,
+   "longitude": -65.6392344
+  },
+  {
+   "name": "Mystic",
+   "kind": "restaurant",
+   "latitude": 44.6487056,
+   "longitude": -63.5706628
+  },
+  {
+   "name": "Narrow Espresso",
+   "kind": "cafe",
+   "latitude": 44.6379083,
+   "longitude": -63.5736478
+  },
+  {
+   "name": "Natural Karaoke",
+   "kind": "restaurant",
+   "latitude": 44.6423797,
+   "longitude": -63.5790252
+  },
+  {
+   "name": "Nayya Pizza & Grill",
+   "kind": "takeout",
+   "latitude": 44.654352,
+   "longitude": -63.5961596
+  },
+  {
+   "name": "Nena's Breakfast House",
+   "kind": "restaurant",
+   "latitude": 44.6762149,
+   "longitude": -63.5874524
+  },
+  {
+   "name": "New Asia",
+   "kind": "restaurant",
+   "latitude": 44.6413221,
+   "longitude": -63.5697903
+  },
+  {
+   "name": "New Scotland Yard Emporium",
+   "kind": "cafe",
+   "latitude": 44.6651895,
+   "longitude": -63.5673277
+  },
+  {
+   "name": "New Wing Wah",
+   "kind": "restaurant",
+   "latitude": 44.6140516,
+   "longitude": -63.6167057
+  },
+  {
+   "name": "New York Fries",
+   "kind": "takeout",
+   "latitude": 44.6861467,
+   "longitude": -63.559558
+  },
+  {
+   "name": "Niche Supper Club Lounge",
+   "kind": "restaurant",
+   "latitude": 44.6443282,
+   "longitude": -63.5722408
+  },
+  {
+   "name": "No. 9",
+   "kind": "cafe",
+   "latitude": 44.3764252,
+   "longitude": -64.3090375
+  },
+  {
+   "name": "Noggins Coburg",
+   "kind": "cafe",
+   "latitude": 44.6392378,
+   "longitude": -63.5899863
+  },
+  {
+   "name": "North End Baking Co.",
+   "kind": "cafe",
+   "latitude": 44.6634027,
+   "longitude": -63.610079
+  },
+  {
+   "name": "Novalea Kitchen & Market",
+   "kind": "restaurant",
+   "latitude": 44.6679218,
+   "longitude": -63.6074188
+  },
+  {
+   "name": "off the Grill",
+   "kind": "restaurant",
+   "latitude": 44.6475193,
+   "longitude": -63.5455223
+  },
+  {
+   "name": "On The Hook",
+   "kind": "restaurant",
+   "latitude": 44.3832498,
+   "longitude": -64.5173454
+  },
+  {
+   "name": "Open Book Coffee",
+   "kind": "cafe",
+   "latitude": 44.6617435,
+   "longitude": -63.6199939
+  },
+  {
+   "name": "Orange Julius",
+   "kind": "takeout",
+   "latitude": 44.6862045,
+   "longitude": -63.5597398
+  },
+  {
+   "name": "Ori Foods",
+   "kind": "cafe",
+   "latitude": 44.6758232,
+   "longitude": -63.586128
+  },
+  {
+   "name": "Osmow's",
+   "kind": "takeout",
+   "latitude": 44.6483992,
+   "longitude": -63.6755531
+  },
+  {
+   "name": "Osmow's",
+   "kind": "takeout",
+   "latitude": 44.6589086,
+   "longitude": -63.604692
+  },
+  {
+   "name": "Palm Tree Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.6455225,
+   "longitude": -63.5963832
+  },
+  {
+   "name": "Pane e Circo",
+   "kind": "bakery",
+   "latitude": 44.6435457,
+   "longitude": -63.5688051
+  },
+  {
+   "name": "Pane e Circo",
+   "kind": "cafe",
+   "latitude": 44.6436218,
+   "longitude": -63.576112
+  },
+  {
+   "name": "Papa John's",
+   "kind": "takeout",
+   "latitude": 44.6708087,
+   "longitude": -63.5262669
+  },
+  {
+   "name": "Papa Mario's Pizza",
+   "kind": "takeout",
+   "latitude": 44.7222082,
+   "longitude": -63.6706498
+  },
+  {
+   "name": "Passage Pizza",
+   "kind": "takeout",
+   "latitude": 44.6112106,
+   "longitude": -63.4939781
+  },
+  {
+   "name": "Patrons Golf & Lounge",
+   "kind": "restaurant",
+   "latitude": 44.7018823,
+   "longitude": -63.6877677
+  },
+  {
+   "name": "Patwari Pizza & Indian Curry House",
+   "kind": "restaurant",
+   "latitude": 44.7987475,
+   "longitude": -63.6880776
+  },
+  {
+   "name": "Paul's German Cafe Bistro Restaurant",
+   "kind": "cafe",
+   "latitude": 44.0373746,
+   "longitude": -64.7175702
+  },
+  {
+   "name": "Pavia Gallery Espresso Bar and Cafe",
+   "kind": "cafe",
+   "latitude": 44.5702307,
+   "longitude": -63.5685481
+  },
+  {
+   "name": "Pazzo Ristorante & Enoteca",
+   "kind": "restaurant",
+   "latitude": 44.6454757,
+   "longitude": -63.5733929
+  },
+  {
+   "name": "Pearles in Paradise",
+   "kind": "takeout",
+   "latitude": 44.8586183,
+   "longitude": -65.2408255
+  },
+  {
+   "name": "Pepperka",
+   "kind": "restaurant",
+   "latitude": 44.706439,
+   "longitude": -63.5900881
+  },
+  {
+   "name": "Peter's Pizzeria",
+   "kind": "takeout",
+   "latitude": 44.635649,
+   "longitude": -63.5708996
+  },
+  {
+   "name": "PG Cafe and Grill",
+   "kind": "restaurant",
+   "latitude": 44.6415158,
+   "longitude": -63.5698976
+  },
+  {
+   "name": "Philthy Philly's",
+   "kind": "takeout",
+   "latitude": 44.6445416,
+   "longitude": -63.6007782
+  },
+  {
+   "name": "Phở Hoang Minh",
+   "kind": "restaurant",
+   "latitude": 44.6718602,
+   "longitude": -63.5796673
+  },
+  {
+   "name": "Piatto",
+   "kind": "restaurant",
+   "latitude": 44.6352365,
+   "longitude": -63.5768773
+  },
+  {
+   "name": "Piece of Cake Bakery and Cafe",
+   "kind": "cafe",
+   "latitude": 44.6435038,
+   "longitude": -63.5690026
+  },
+  {
+   "name": "Pine House Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6425486,
+   "longitude": -63.5780217
+  },
+  {
+   "name": "Pita Pit",
+   "kind": "takeout",
+   "latitude": 44.6433384,
+   "longitude": -63.5762527
+  },
+  {
+   "name": "Pita Pit",
+   "kind": "takeout",
+   "latitude": 44.6983763,
+   "longitude": -63.6850968
+  },
+  {
+   "name": "Pita Pit",
+   "kind": "takeout",
+   "latitude": 44.7000607,
+   "longitude": -63.6070429
+  },
+  {
+   "name": "Pizza Co.",
+   "kind": "restaurant",
+   "latitude": 44.6959714,
+   "longitude": -63.6897499
+  },
+  {
+   "name": "Pizza Delight",
+   "kind": "restaurant",
+   "latitude": 44.3699681,
+   "longitude": -64.5243397
+  },
+  {
+   "name": "Pizza Delight",
+   "kind": "restaurant",
+   "latitude": 44.6423934,
+   "longitude": -63.5789723
+  },
+  {
+   "name": "Pizza Delight",
+   "kind": "restaurant",
+   "latitude": 44.6521609,
+   "longitude": -63.6771053
+  },
+  {
+   "name": "Pizza Girls",
+   "kind": "restaurant",
+   "latitude": 44.6450279,
+   "longitude": -63.5746745
+  },
+  {
+   "name": "Pizza Girls",
+   "kind": "takeout",
+   "latitude": 44.7148373,
+   "longitude": -63.6793039
+  },
+  {
+   "name": "Pizza Girls",
+   "kind": "takeout",
+   "latitude": 44.7660278,
+   "longitude": -63.682534
+  },
+  {
+   "name": "Pizza Girls",
+   "kind": "takeout",
+   "latitude": 44.7747394,
+   "longitude": -63.6932071
+  },
+  {
+   "name": "Pizza Hut",
+   "kind": "restaurant",
+   "latitude": 44.6571385,
+   "longitude": -63.6699343
+  },
+  {
+   "name": "Pizza Hut",
+   "kind": "restaurant",
+   "latitude": 44.6698036,
+   "longitude": -63.5398359
+  },
+  {
+   "name": "Pizza Hut Delivery",
+   "kind": "takeout",
+   "latitude": 44.644709,
+   "longitude": -63.5986846
+  },
+  {
+   "name": "Pizza Hut Delivery",
+   "kind": "takeout",
+   "latitude": 44.770983,
+   "longitude": -63.6941917
+  },
+  {
+   "name": "Pizza Land",
+   "kind": "takeout",
+   "latitude": 44.6641843,
+   "longitude": -63.6586143
+  },
+  {
+   "name": "Pizza Pizza",
+   "kind": "takeout",
+   "latitude": 44.635925,
+   "longitude": -63.5937575
+  },
+  {
+   "name": "Pizza Pizza",
+   "kind": "takeout",
+   "latitude": 44.6452392,
+   "longitude": -63.5737132
+  },
+  {
+   "name": "Pizza Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6462842,
+   "longitude": -63.6182394
+  },
+  {
+   "name": "Pizza Pizza",
+   "kind": "takeout",
+   "latitude": 44.6977758,
+   "longitude": -63.6858761
+  },
+  {
+   "name": "Pizza Pizza",
+   "kind": "takeout",
+   "latitude": 44.741185,
+   "longitude": -63.7465775
+  },
+  {
+   "name": "Pizza Tomaso",
+   "kind": "takeout",
+   "latitude": 44.6780073,
+   "longitude": -63.6502295
+  },
+  {
+   "name": "Pizza town",
+   "kind": "takeout",
+   "latitude": 44.6584904,
+   "longitude": -63.6034022
+  },
+  {
+   "name": "Pizza Town",
+   "kind": "takeout",
+   "latitude": 44.6971472,
+   "longitude": -63.5815139
+  },
+  {
+   "name": "Pizza.Co",
+   "kind": "restaurant",
+   "latitude": 44.654757,
+   "longitude": -63.6308473
+  },
+  {
+   "name": "Pizzadelic",
+   "kind": "restaurant",
+   "latitude": 44.670226,
+   "longitude": -63.6633405
+  },
+  {
+   "name": "Pizzadelic",
+   "kind": "takeout",
+   "latitude": 44.8176119,
+   "longitude": -63.6102283
+  },
+  {
+   "name": "Pizzatown",
+   "kind": "takeout",
+   "latitude": 44.3802689,
+   "longitude": -64.5171759
+  },
+  {
+   "name": "Pleasant Street Diner",
+   "kind": "restaurant",
+   "latitude": 44.6609126,
+   "longitude": -63.5514939
+  },
+  {
+   "name": "Ploughmans Lunch",
+   "kind": "bakery",
+   "latitude": 44.2538897,
+   "longitude": -64.39621
+  },
+  {
+   "name": "Popeyes",
+   "kind": "takeout",
+   "latitude": 44.6957357,
+   "longitude": -63.6903384
+  },
+  {
+   "name": "Popeyes",
+   "kind": "takeout",
+   "latitude": 44.7765737,
+   "longitude": -63.695055
+  },
+  {
+   "name": "Portland Street Creperie",
+   "kind": "restaurant",
+   "latitude": 44.6653413,
+   "longitude": -63.5671447
+  },
+  {
+   "name": "Press Gang",
+   "kind": "restaurant",
+   "latitude": 44.6470972,
+   "longitude": -63.5742214
+  },
+  {
+   "name": "Presto Tea",
+   "kind": "cafe",
+   "latitude": 44.6425797,
+   "longitude": -63.5792822
+  },
+  {
+   "name": "Pretzel Maker",
+   "kind": "takeout",
+   "latitude": 44.6863468,
+   "longitude": -63.5593784
+  },
+  {
+   "name": "Pretzelmaker",
+   "kind": "bakery",
+   "latitude": 44.648805,
+   "longitude": -63.6188375
+  },
+  {
+   "name": "Primal Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.6419358,
+   "longitude": -63.5783056
+  },
+  {
+   "name": "Public",
+   "kind": "cafe",
+   "latitude": 44.6439922,
+   "longitude": -63.5803718
+  },
+  {
+   "name": "Pür & Simple",
+   "kind": "restaurant",
+   "latitude": 44.6578081,
+   "longitude": -63.6044816
+  },
+  {
+   "name": "Pür & Simple",
+   "kind": "restaurant",
+   "latitude": 44.706295,
+   "longitude": -63.5617826
+  },
+  {
+   "name": "Quesada",
+   "kind": "restaurant",
+   "latitude": 44.7331042,
+   "longitude": -63.6545623
+  },
+  {
+   "name": "Quiznos",
+   "kind": "takeout",
+   "latitude": 44.7061633,
+   "longitude": -63.5631706
+  },
+  {
+   "name": "Radish Chicken",
+   "kind": "takeout",
+   "latitude": 44.6576753,
+   "longitude": -63.6042662
+  },
+  {
+   "name": "Randy's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6525447,
+   "longitude": -63.5897248
+  },
+  {
+   "name": "Randy's Pizza",
+   "kind": "takeout",
+   "latitude": 44.7691688,
+   "longitude": -63.6869873
+  },
+  {
+   "name": "Rasa: Flavours of India",
+   "kind": "restaurant",
+   "latitude": 44.6440116,
+   "longitude": -63.5776128
+  },
+  {
+   "name": "Rascals Burrito Bar",
+   "kind": "restaurant",
+   "latitude": 44.3799703,
+   "longitude": -64.5213869
+  },
+  {
+   "name": "Rascals Run",
+   "kind": "takeout",
+   "latitude": 44.3763766,
+   "longitude": -64.3087154
+  },
+  {
+   "name": "Real Fake Meats",
+   "kind": "restaurant",
+   "latitude": 44.6537634,
+   "longitude": -63.5861784
+  },
+  {
+   "name": "Rebecca's Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.4557732,
+   "longitude": -64.3788329
+  },
+  {
+   "name": "Recardo‘s Pizza",
+   "kind": "takeout",
+   "latitude": 44.6248083,
+   "longitude": -65.7569363
+  },
+  {
+   "name": "Recardos Restaurant",
+   "kind": "takeout",
+   "latitude": 44.6609419,
+   "longitude": -63.9000814
+  },
+  {
+   "name": "Relish Gourmet Burgers",
+   "kind": "restaurant",
+   "latitude": 44.6468622,
+   "longitude": -63.591412
+  },
+  {
+   "name": "Resto Urban Dining",
+   "kind": "restaurant",
+   "latitude": 44.7317407,
+   "longitude": -63.6583747
+  },
+  {
+   "name": "Revana Pizza",
+   "kind": "takeout",
+   "latitude": 44.6649407,
+   "longitude": -63.5675812
+  },
+  {
+   "name": "Rhubarb",
+   "kind": "restaurant",
+   "latitude": 44.520819,
+   "longitude": -63.9364155
+  },
+  {
+   "name": "Rinaldo’s",
+   "kind": "restaurant",
+   "latitude": 44.6499368,
+   "longitude": -63.5953188
+  },
+  {
+   "name": "Ristorante Amano",
+   "kind": "restaurant",
+   "latitude": 44.6438005,
+   "longitude": -63.5692496
+  },
+  {
+   "name": "Robin's Donuts",
+   "kind": "takeout",
+   "latitude": 44.3906643,
+   "longitude": -64.5236616
+  },
+  {
+   "name": "Robin's Donuts",
+   "kind": "takeout",
+   "latitude": 44.7753909,
+   "longitude": -63.6943438
+  },
+  {
+   "name": "Rosie's Burgers",
+   "kind": "takeout",
+   "latitude": 44.6448981,
+   "longitude": -63.5742335
+  },
+  {
+   "name": "Royal Nova Scotia Yacht Squadron",
+   "kind": "restaurant",
+   "latitude": 44.6213857,
+   "longitude": -63.5820198
+  },
+  {
+   "name": "Rudy's",
+   "kind": "cafe",
+   "latitude": 44.6472275,
+   "longitude": -63.5730902
+  },
+  {
+   "name": "Rush Hour Pizza",
+   "kind": "takeout",
+   "latitude": 44.6602249,
+   "longitude": -63.6193696
+  },
+  {
+   "name": "Ryer Lobsters",
+   "kind": "restaurant",
+   "latitude": 44.5152442,
+   "longitude": -63.9349795
+  },
+  {
+   "name": "Saffron Multi Cuisine Indian Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6724271,
+   "longitude": -63.6654785
+  },
+  {
+   "name": "Saj House",
+   "kind": "takeout",
+   "latitude": 44.6591285,
+   "longitude": -63.6324079
+  },
+  {
+   "name": "Saj House",
+   "kind": "restaurant",
+   "latitude": 44.7075522,
+   "longitude": -63.710101
+  },
+  {
+   "name": "Salt & Ash",
+   "kind": "restaurant",
+   "latitude": 44.6488324,
+   "longitude": -63.5711143
+  },
+  {
+   "name": "Salt + Sol",
+   "kind": "takeout",
+   "latitude": 44.6464606,
+   "longitude": -63.5699267
+  },
+  {
+   "name": "Salt Shaker Deli & Inn",
+   "kind": "restaurant",
+   "latitude": 44.376243,
+   "longitude": -64.3094367
+  },
+  {
+   "name": "Salvatore's Pizzaiolo Trattoria",
+   "kind": "restaurant",
+   "latitude": 44.6619547,
+   "longitude": -63.5995374
+  },
+  {
+   "name": "Sam's Seafood",
+   "kind": "takeout",
+   "latitude": 44.6989306,
+   "longitude": -63.5638136
+  },
+  {
+   "name": "Sams",
+   "kind": "restaurant",
+   "latitude": 44.6810398,
+   "longitude": -63.5409864
+  },
+  {
+   "name": "Sapori",
+   "kind": "restaurant",
+   "latitude": 44.6488478,
+   "longitude": -63.5714679
+  },
+  {
+   "name": "Scotia Curry",
+   "kind": "restaurant",
+   "latitude": 44.3777707,
+   "longitude": -64.3139846
+  },
+  {
+   "name": "Scotia Curry",
+   "kind": "restaurant",
+   "latitude": 44.6443338,
+   "longitude": -64.0441487
+  },
+  {
+   "name": "Sea Side Seafoods",
+   "kind": "restaurant",
+   "latitude": 43.9521964,
+   "longitude": -64.7817185
+  },
+  {
+   "name": "Sea Smoke",
+   "kind": "restaurant",
+   "latitude": 44.6441723,
+   "longitude": -63.5684761
+  },
+  {
+   "name": "Seaport Social",
+   "kind": "restaurant",
+   "latitude": 44.6401821,
+   "longitude": -63.5684465
+  },
+  {
+   "name": "Seaside Shanty",
+   "kind": "restaurant",
+   "latitude": 44.5673862,
+   "longitude": -64.3069463
+  },
+  {
+   "name": "Seasons at Atlantica",
+   "kind": "restaurant",
+   "latitude": 44.6469423,
+   "longitude": -63.590871
+  },
+  {
+   "name": "Second Cup",
+   "kind": "cafe",
+   "latitude": 44.6373736,
+   "longitude": -63.5910458
+  },
+  {
+   "name": "Second Cup",
+   "kind": "cafe",
+   "latitude": 44.6463138,
+   "longitude": -63.6740875
+  },
+  {
+   "name": "Second Cup",
+   "kind": "cafe",
+   "latitude": 44.6715181,
+   "longitude": -63.524278
+  },
+  {
+   "name": "Second Cup",
+   "kind": "cafe",
+   "latitude": 44.6991881,
+   "longitude": -63.5638562
+  },
+  {
+   "name": "Second Cup",
+   "kind": "cafe",
+   "latitude": 44.7320592,
+   "longitude": -63.6558312
+  },
+  {
+   "name": "Selby's Bunker Coffee and gifts",
+   "kind": "cafe",
+   "latitude": 44.6719355,
+   "longitude": -63.4865707
+  },
+  {
+   "name": "Seoa’s chicken",
+   "kind": "restaurant",
+   "latitude": 44.7098293,
+   "longitude": -63.6685691
+  },
+  {
+   "name": "Seoul Korean Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7074074,
+   "longitude": -63.7099845
+  },
+  {
+   "name": "Seven Bays",
+   "kind": "cafe",
+   "latitude": 44.6510319,
+   "longitude": -63.5815318
+  },
+  {
+   "name": "Shandiz Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6553564,
+   "longitude": -63.5933692
+  },
+  {
+   "name": "Shaw‘s Landing",
+   "kind": "restaurant",
+   "latitude": 44.4993715,
+   "longitude": -63.8802356
+  },
+  {
+   "name": "Sheila's Too",
+   "kind": "takeout",
+   "latitude": 44.6377568,
+   "longitude": -64.0650721
+  },
+  {
+   "name": "Sheila's Too",
+   "kind": "takeout",
+   "latitude": 44.6377611,
+   "longitude": -64.0650697
+  },
+  {
+   "name": "Shengs Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6574437,
+   "longitude": -63.6696875
+  },
+  {
+   "name": "Shiraz",
+   "kind": "restaurant",
+   "latitude": 44.6410521,
+   "longitude": -63.5696482
+  },
+  {
+   "name": "Shore Club",
+   "kind": "restaurant",
+   "latitude": 44.6338216,
+   "longitude": -64.0573316
+  },
+  {
+   "name": "Shoreline Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6252395,
+   "longitude": -65.7563632
+  },
+  {
+   "name": "Shuck Seafood + Raw Bar",
+   "kind": "restaurant",
+   "latitude": 44.6451057,
+   "longitude": -63.5706116
+  },
+  {
+   "name": "Sicilian Pizza",
+   "kind": "takeout",
+   "latitude": 44.6451471,
+   "longitude": -63.5742665
+  },
+  {
+   "name": "Sicilian Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6598796,
+   "longitude": -63.6350002
+  },
+  {
+   "name": "Silver Dragon Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6578195,
+   "longitude": -63.5992778
+  },
+  {
+   "name": "Sisiboo Cafe",
+   "kind": "cafe",
+   "latitude": 44.7437819,
+   "longitude": -65.5195312
+  },
+  {
+   "name": "Sissiboo Coffee",
+   "kind": "cafe",
+   "latitude": 44.5765363,
+   "longitude": -65.6389228
+  },
+  {
+   "name": "Sketti and Ball",
+   "kind": "restaurant",
+   "latitude": 44.6456085,
+   "longitude": -63.5742008
+  },
+  {
+   "name": "smiling goat",
+   "kind": "cafe",
+   "latitude": 44.6431371,
+   "longitude": -63.5798582
+  },
+  {
+   "name": "Smiling Goat",
+   "kind": "cafe",
+   "latitude": 44.6435899,
+   "longitude": -63.5691959
+  },
+  {
+   "name": "Smitty's",
+   "kind": "restaurant",
+   "latitude": 44.6576674,
+   "longitude": -63.6696982
+  },
+  {
+   "name": "Smitty's",
+   "kind": "restaurant",
+   "latitude": 44.6821173,
+   "longitude": -63.5406531
+  },
+  {
+   "name": "Smoke's Poutinerie",
+   "kind": "takeout",
+   "latitude": 44.6449865,
+   "longitude": -63.5739394
+  },
+  {
+   "name": "Smoke's Poutinerie",
+   "kind": "takeout",
+   "latitude": 44.6460485,
+   "longitude": -63.5696898
+  },
+  {
+   "name": "Snappy Tomato's Pizzeria",
+   "kind": "takeout",
+   "latitude": 44.641671,
+   "longitude": -63.5711036
+  },
+  {
+   "name": "Sniggily Wiggily's Beer N' Booze Concreatery",
+   "kind": "restaurant",
+   "latitude": 44.6466777,
+   "longitude": -63.5743905
+  },
+  {
+   "name": "Song's Korean Food",
+   "kind": "restaurant",
+   "latitude": 44.6455701,
+   "longitude": -63.5972866
+  },
+  {
+   "name": "Spirit of the Maritimes",
+   "kind": "restaurant",
+   "latitude": 44.8886064,
+   "longitude": -63.5154724
+  },
+  {
+   "name": "Springhouse Market",
+   "kind": "restaurant",
+   "latitude": 44.6538212,
+   "longitude": -63.5862609
+  },
+  {
+   "name": "St. Louis Bar & Grill",
+   "kind": "restaurant",
+   "latitude": 44.6714145,
+   "longitude": -63.5386737
+  },
+  {
+   "name": "Staff of Life Bakery and Cafe",
+   "kind": "cafe",
+   "latitude": 44.6465372,
+   "longitude": -63.5925523
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6144454,
+   "longitude": -63.6153701
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6372607,
+   "longitude": -63.6694863
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6392626,
+   "longitude": -63.5836516
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6426319,
+   "longitude": -63.5780257
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6491211,
+   "longitude": -63.6179288
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6501512,
+   "longitude": -63.5764814
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6509462,
+   "longitude": -63.573187
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6539196,
+   "longitude": -63.6742018
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6579552,
+   "longitude": -63.6274669
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6592458,
+   "longitude": -63.6705598
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6615387,
+   "longitude": -63.5994391
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6629657,
+   "longitude": -63.6572475
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6703156,
+   "longitude": -63.5230198
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6714431,
+   "longitude": -63.5385638
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.6893344,
+   "longitude": -63.5608386
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.7002029,
+   "longitude": -63.6071241
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.7013347,
+   "longitude": -63.6783382
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.7060534,
+   "longitude": -63.5632276
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.7734931,
+   "longitude": -63.6912908
+  },
+  {
+   "name": "Starbucks",
+   "kind": "cafe",
+   "latitude": 44.7755648,
+   "longitude": -63.6959661
+  },
+  {
+   "name": "Station 1 Lebanese Kitchen",
+   "kind": "restaurant",
+   "latitude": 44.6794757,
+   "longitude": -63.5390886
+  },
+  {
+   "name": "Steak and Stein",
+   "kind": "restaurant",
+   "latitude": 44.6706218,
+   "longitude": -63.52894
+  },
+  {
+   "name": "Steve-o-Renos",
+   "kind": "cafe",
+   "latitude": 44.6441997,
+   "longitude": -63.5754255
+  },
+  {
+   "name": "Stone Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6645325,
+   "longitude": -63.5683416
+  },
+  {
+   "name": "Stories",
+   "kind": "restaurant",
+   "latitude": 44.6417498,
+   "longitude": -63.570794
+  },
+  {
+   "name": "Stubborn Goat",
+   "kind": "restaurant",
+   "latitude": 44.6466242,
+   "longitude": -63.5694673
+  },
+  {
+   "name": "Studio East",
+   "kind": "restaurant",
+   "latitude": 44.6535028,
+   "longitude": -63.5910998
+  },
+  {
+   "name": "Studio East Food+Drink",
+   "kind": "restaurant",
+   "latitude": 44.650792,
+   "longitude": -63.5931604
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.0454321,
+   "longitude": -64.7234415
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.3704944,
+   "longitude": -64.5256312
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.3762977,
+   "longitude": -64.3098723
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.3804148,
+   "longitude": -64.5172734
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.5462645,
+   "longitude": -64.2365605
+  },
+  {
+   "name": "Subway",
+   "kind": "restaurant",
+   "latitude": 44.6121005,
+   "longitude": -63.4900172
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6130166,
+   "longitude": -63.6167772
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6248788,
+   "longitude": -65.7569316
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6375086,
+   "longitude": -63.5908768
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6379631,
+   "longitude": -63.5734673
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.639769,
+   "longitude": -63.6251277
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6408285,
+   "longitude": -63.5865661
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6425545,
+   "longitude": -63.5793768
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.646367,
+   "longitude": -63.5742188
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6480883,
+   "longitude": -63.5458236
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6502768,
+   "longitude": -63.5768416
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6526781,
+   "longitude": -63.6774136
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6555316,
+   "longitude": -63.6268639
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6556472,
+   "longitude": -63.5297423
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6591806,
+   "longitude": -63.6010101
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6593658,
+   "longitude": -63.6327805
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.661604,
+   "longitude": -63.6567985
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6628147,
+   "longitude": -63.6212582
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6651017,
+   "longitude": -63.5674189
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6703811,
+   "longitude": -63.5231915
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6723649,
+   "longitude": -63.4867093
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6803939,
+   "longitude": -63.5415901
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6835012,
+   "longitude": -63.6747207
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6861198,
+   "longitude": -63.5595904
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6980135,
+   "longitude": -63.6050448
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6990538,
+   "longitude": -63.5638436
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.6998569,
+   "longitude": -63.5879009
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.7041643,
+   "longitude": -63.857045
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.7159042,
+   "longitude": -63.6767212
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.7304528,
+   "longitude": -63.6607433
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.7321751,
+   "longitude": -63.6554288
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.7495043,
+   "longitude": -63.6402346
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.7606418,
+   "longitude": -63.6592756
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.8182275,
+   "longitude": -63.6126846
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.8822205,
+   "longitude": -63.5208632
+  },
+  {
+   "name": "Subway",
+   "kind": "takeout",
+   "latitude": 44.8872272,
+   "longitude": -63.5149005
+  },
+  {
+   "name": "Suda Table",
+   "kind": "cafe",
+   "latitude": 44.6597002,
+   "longitude": -63.5954106
+  },
+  {
+   "name": "Sully & Porter",
+   "kind": "cafe",
+   "latitude": 44.6534548,
+   "longitude": -63.6082845
+  },
+  {
+   "name": "Summit Cafe",
+   "kind": "cafe",
+   "latitude": 44.6465471,
+   "longitude": -63.570249
+  },
+  {
+   "name": "Sunnyside Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7326739,
+   "longitude": -63.6570574
+  },
+  {
+   "name": "Sunnyside Too",
+   "kind": "restaurant",
+   "latitude": 44.7327776,
+   "longitude": -63.6569458
+  },
+  {
+   "name": "Sushi 101",
+   "kind": "restaurant",
+   "latitude": 44.6698781,
+   "longitude": -63.4992519
+  },
+  {
+   "name": "Sushi Bay",
+   "kind": "restaurant",
+   "latitude": 44.3796615,
+   "longitude": -64.5154596
+  },
+  {
+   "name": "Sushi Cove",
+   "kind": "restaurant",
+   "latitude": 44.6133138,
+   "longitude": -63.6173864
+  },
+  {
+   "name": "Sushi Jet",
+   "kind": "restaurant",
+   "latitude": 44.6438051,
+   "longitude": -63.5802741
+  },
+  {
+   "name": "Sushi Jet",
+   "kind": "restaurant",
+   "latitude": 44.6714505,
+   "longitude": -63.540549
+  },
+  {
+   "name": "Sushi Kawa",
+   "kind": "restaurant",
+   "latitude": 44.7244609,
+   "longitude": -63.7035319
+  },
+  {
+   "name": "Sushi Maru",
+   "kind": "restaurant",
+   "latitude": 44.7302629,
+   "longitude": -63.6612385
+  },
+  {
+   "name": "Sushi Nami Royale",
+   "kind": "restaurant",
+   "latitude": 44.642454,
+   "longitude": -63.575743
+  },
+  {
+   "name": "Sushi Nami Royale",
+   "kind": "restaurant",
+   "latitude": 44.6501339,
+   "longitude": -63.6768184
+  },
+  {
+   "name": "Sushi Nami Royale",
+   "kind": "restaurant",
+   "latitude": 44.7054786,
+   "longitude": -63.5623048
+  },
+  {
+   "name": "Sushi Nami Royale",
+   "kind": "restaurant",
+   "latitude": 44.710766,
+   "longitude": -63.6704207
+  },
+  {
+   "name": "Sushi Shige",
+   "kind": "restaurant",
+   "latitude": 44.6583934,
+   "longitude": -63.5971732
+  },
+  {
+   "name": "Sushi You & Me",
+   "kind": "takeout",
+   "latitude": 44.6504814,
+   "longitude": -63.5767336
+  },
+  {
+   "name": "Sushify",
+   "kind": "restaurant",
+   "latitude": 44.372275,
+   "longitude": -64.5594522
+  },
+  {
+   "name": "Susie's shortbreads",
+   "kind": "bakery",
+   "latitude": 44.6547928,
+   "longitude": -63.67728
+  },
+  {
+   "name": "Suzuki Japanese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6443817,
+   "longitude": -63.5785219
+  },
+  {
+   "name": "Swaad Sagaa Indian Cuisine Incorporated",
+   "kind": "restaurant",
+   "latitude": 44.6604501,
+   "longitude": -63.6008768
+  },
+  {
+   "name": "Swanky Burger",
+   "kind": "restaurant",
+   "latitude": 44.6489644,
+   "longitude": -63.5714087
+  },
+  {
+   "name": "Sweet & Sassy",
+   "kind": "restaurant",
+   "latitude": 44.669405,
+   "longitude": -63.608641
+  },
+  {
+   "name": "Sweet Hereafter",
+   "kind": "restaurant",
+   "latitude": 44.6460431,
+   "longitude": -63.5944764
+  },
+  {
+   "name": "Sweets & Snacks",
+   "kind": "takeout",
+   "latitude": 44.6458023,
+   "longitude": -63.5954854
+  },
+  {
+   "name": "Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.3993125,
+   "longitude": -64.5358182
+  },
+  {
+   "name": "Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.6584183,
+   "longitude": -63.6697926
+  },
+  {
+   "name": "Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.6620104,
+   "longitude": -63.6121589
+  },
+  {
+   "name": "Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.6814423,
+   "longitude": -63.5413509
+  },
+  {
+   "name": "Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.706541,
+   "longitude": -63.5628812
+  },
+  {
+   "name": "Swiss Chalet",
+   "kind": "restaurant",
+   "latitude": 44.735315,
+   "longitude": -63.656839
+  },
+  {
+   "name": "Swiss Chalet/Harveys",
+   "kind": "restaurant",
+   "latitude": 44.3993674,
+   "longitude": -64.5356733
+  },
+  {
+   "name": "Sydney Street Pub and Cafe",
+   "kind": "restaurant",
+   "latitude": 44.6243602,
+   "longitude": -65.757658
+  },
+  {
+   "name": "Syriana Market Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6612416,
+   "longitude": -63.6181489
+  },
+  {
+   "name": "Szechuan Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7160412,
+   "longitude": -63.678631
+  },
+  {
+   "name": "Taipan Express",
+   "kind": "restaurant",
+   "latitude": 44.6457119,
+   "longitude": -63.5742394
+  },
+  {
+   "name": "Tako Loco",
+   "kind": "restaurant",
+   "latitude": 44.6636761,
+   "longitude": -63.603206
+  },
+  {
+   "name": "Tako Sushi & Ramen",
+   "kind": "restaurant",
+   "latitude": 44.6709403,
+   "longitude": -63.676433
+  },
+  {
+   "name": "Talay Thai",
+   "kind": "restaurant",
+   "latitude": 44.6419091,
+   "longitude": -63.5701971
+  },
+  {
+   "name": "Talya's Taverna",
+   "kind": "bakery",
+   "latitude": 44.7746014,
+   "longitude": -63.6930784
+  },
+  {
+   "name": "Tanners AllStar Deli & Grill",
+   "kind": "restaurant",
+   "latitude": 44.6132685,
+   "longitude": -63.6177637
+  },
+  {
+   "name": "Tanoor",
+   "kind": "restaurant",
+   "latitude": 44.7086466,
+   "longitude": -63.6663131
+  },
+  {
+   "name": "Tarek's Cafe",
+   "kind": "takeout",
+   "latitude": 44.6592561,
+   "longitude": -63.60091
+  },
+  {
+   "name": "Tart & Soul",
+   "kind": "cafe",
+   "latitude": 44.6379382,
+   "longitude": -63.59659
+  },
+  {
+   "name": "Tastee Freeze",
+   "kind": "restaurant",
+   "latitude": 44.3513997,
+   "longitude": -64.5393093
+  },
+  {
+   "name": "Tempo food+drink",
+   "kind": "cafe",
+   "latitude": 44.6493756,
+   "longitude": -63.5748779
+  },
+  {
+   "name": "Terra Cafe",
+   "kind": "cafe",
+   "latitude": 44.6443241,
+   "longitude": -63.5700517
+  },
+  {
+   "name": "Thaï Express",
+   "kind": "takeout",
+   "latitude": 44.6861048,
+   "longitude": -63.5596331
+  },
+  {
+   "name": "Thaï Express",
+   "kind": "takeout",
+   "latitude": 44.7058235,
+   "longitude": -63.5633261
+  },
+  {
+   "name": "Thai Ivory",
+   "kind": "restaurant",
+   "latitude": 44.7324035,
+   "longitude": -63.6552761
+  },
+  {
+   "name": "THE 5K CAFE",
+   "kind": "cafe",
+   "latitude": 44.6387839,
+   "longitude": -63.6614843
+  },
+  {
+   "name": "The Armview Restaurant & Lounge",
+   "kind": "restaurant",
+   "latitude": 44.6423184,
+   "longitude": -63.619645
+  },
+  {
+   "name": "The Auction House",
+   "kind": "restaurant",
+   "latitude": 44.6477615,
+   "longitude": -63.5752979
+  },
+  {
+   "name": "The Barn",
+   "kind": "cafe",
+   "latitude": 44.3844028,
+   "longitude": -64.5355661
+  },
+  {
+   "name": "The Barn, Coffee and Social House",
+   "kind": "cafe",
+   "latitude": 44.4491881,
+   "longitude": -64.3845565
+  },
+  {
+   "name": "The Barrington",
+   "kind": "restaurant",
+   "latitude": 44.6466671,
+   "longitude": -63.5738926
+  },
+  {
+   "name": "the Bedford Basin Market",
+   "kind": "cafe",
+   "latitude": 44.6842373,
+   "longitude": -63.6602354
+  },
+  {
+   "name": "The Big Wedge",
+   "kind": "takeout",
+   "latitude": 44.6667788,
+   "longitude": -63.6073503
+  },
+  {
+   "name": "The Black Sheep",
+   "kind": "restaurant",
+   "latitude": 44.644315,
+   "longitude": -63.5702236
+  },
+  {
+   "name": "The Bonfire",
+   "kind": "restaurant",
+   "latitude": 44.6510236,
+   "longitude": -63.5926956
+  },
+  {
+   "name": "The Bread Lounge",
+   "kind": "cafe",
+   "latitude": 44.6444064,
+   "longitude": -63.5721493
+  },
+  {
+   "name": "The Bread Lounge",
+   "kind": "cafe",
+   "latitude": 44.6594277,
+   "longitude": -63.6014076
+  },
+  {
+   "name": "The Brooklyn Warehouse",
+   "kind": "restaurant",
+   "latitude": 44.6542812,
+   "longitude": -63.602447
+  },
+  {
+   "name": "The Brown Hound",
+   "kind": "restaurant",
+   "latitude": 44.6438615,
+   "longitude": -63.570652
+  },
+  {
+   "name": "The Carleton",
+   "kind": "restaurant",
+   "latitude": 44.6469957,
+   "longitude": -63.5744878
+  },
+  {
+   "name": "The Cheeky Neighbour Diner",
+   "kind": "restaurant",
+   "latitude": 44.6468216,
+   "longitude": -63.591301
+  },
+  {
+   "name": "The Crow's Nest",
+   "kind": "restaurant",
+   "latitude": 44.6238368,
+   "longitude": -65.7563794
+  },
+  {
+   "name": "The Daily Grind",
+   "kind": "cafe",
+   "latitude": 44.6525877,
+   "longitude": -63.5839974
+  },
+  {
+   "name": "The Empanada Shop",
+   "kind": "takeout",
+   "latitude": 44.6449797,
+   "longitude": -63.5723281
+  },
+  {
+   "name": "The European Pantry",
+   "kind": "bakery",
+   "latitude": 44.6478651,
+   "longitude": -63.6053361
+  },
+  {
+   "name": "The Finer Diner",
+   "kind": "cafe",
+   "latitude": 44.5688148,
+   "longitude": -63.9229124
+  },
+  {
+   "name": "The Fog Company",
+   "kind": "bakery",
+   "latitude": 44.6482106,
+   "longitude": -63.5706926
+  },
+  {
+   "name": "The Forth Pull",
+   "kind": "cafe",
+   "latitude": 44.6534325,
+   "longitude": -63.5898284
+  },
+  {
+   "name": "The Gold Bean Café",
+   "kind": "cafe",
+   "latitude": 44.5537698,
+   "longitude": -64.3261051
+  },
+  {
+   "name": "The Golden Bakery",
+   "kind": "bakery",
+   "latitude": 44.7280596,
+   "longitude": -63.6652565
+  },
+  {
+   "name": "The Grill",
+   "kind": "restaurant",
+   "latitude": 43.9541435,
+   "longitude": -64.8131736
+  },
+  {
+   "name": "The Grounds Cafe by Drift Coffee",
+   "kind": "cafe",
+   "latitude": 44.6445869,
+   "longitude": -63.5798041
+  },
+  {
+   "name": "The Halifax Club",
+   "kind": "restaurant",
+   "latitude": 44.647128,
+   "longitude": -63.5727297
+  },
+  {
+   "name": "The happy plate",
+   "kind": "takeout",
+   "latitude": 44.659463,
+   "longitude": -63.6324566
+  },
+  {
+   "name": "The Helm Pie Bakery",
+   "kind": "bakery",
+   "latitude": 44.7963255,
+   "longitude": -63.7296805
+  },
+  {
+   "name": "The Hidden Gem Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.8755912,
+   "longitude": -63.5349922
+  },
+  {
+   "name": "The Hollow Log Café",
+   "kind": "restaurant",
+   "latitude": 44.3770329,
+   "longitude": -65.0337173
+  },
+  {
+   "name": "The Hungry Hut",
+   "kind": "restaurant",
+   "latitude": 44.6694694,
+   "longitude": -63.5653522
+  },
+  {
+   "name": "The Hungry Traveler Cafe",
+   "kind": "cafe",
+   "latitude": 44.4056647,
+   "longitude": -64.344526
+  },
+  {
+   "name": "The Imperial Bombay",
+   "kind": "cafe",
+   "latitude": 44.6501441,
+   "longitude": -63.5783375
+  },
+  {
+   "name": "The Juice Press",
+   "kind": "restaurant",
+   "latitude": 44.6436167,
+   "longitude": -63.5691234
+  },
+  {
+   "name": "The Keg",
+   "kind": "restaurant",
+   "latitude": 44.6468007,
+   "longitude": -63.5762502
+  },
+  {
+   "name": "The Keg",
+   "kind": "restaurant",
+   "latitude": 44.7090622,
+   "longitude": -63.565571
+  },
+  {
+   "name": "The Kiwi Café",
+   "kind": "cafe",
+   "latitude": 44.5381293,
+   "longitude": -64.2406366
+  },
+  {
+   "name": "The Loaded Ladle",
+   "kind": "restaurant",
+   "latitude": 44.6366486,
+   "longitude": -63.5890814
+  },
+  {
+   "name": "The Mellow Mug",
+   "kind": "cafe",
+   "latitude": 44.7008185,
+   "longitude": -63.6887611
+  },
+  {
+   "name": "The Mercantile Social",
+   "kind": "restaurant",
+   "latitude": 44.6461024,
+   "longitude": -63.5718696
+  },
+  {
+   "name": "The Middle Spoon Desserterie & Bar",
+   "kind": "restaurant",
+   "latitude": 44.6455518,
+   "longitude": -63.5730614
+  },
+  {
+   "name": "The Naked Oyster",
+   "kind": "restaurant",
+   "latitude": 44.448984,
+   "longitude": -64.3796472
+  },
+  {
+   "name": "The Nook",
+   "kind": "cafe",
+   "latitude": 44.6520726,
+   "longitude": -63.5836081
+  },
+  {
+   "name": "The Old Fish Factory",
+   "kind": "restaurant",
+   "latitude": 44.3760134,
+   "longitude": -64.312016
+  },
+  {
+   "name": "The Orient",
+   "kind": "restaurant",
+   "latitude": 44.6763423,
+   "longitude": -63.6480044
+  },
+  {
+   "name": "The Original Sams Pizza",
+   "kind": "takeout",
+   "latitude": 44.7076513,
+   "longitude": -63.7101562
+  },
+  {
+   "name": "The Osney",
+   "kind": "cafe",
+   "latitude": 44.6542964,
+   "longitude": -63.5926032
+  },
+  {
+   "name": "The Ostrich Club",
+   "kind": "restaurant",
+   "latitude": 44.6621107,
+   "longitude": -63.599355
+  },
+  {
+   "name": "The Pink Piano Café & Lounge",
+   "kind": "cafe",
+   "latitude": 44.7684502,
+   "longitude": -63.6852035
+  },
+  {
+   "name": "The Rope Loft",
+   "kind": "restaurant",
+   "latitude": 44.5387785,
+   "longitude": -64.2381293
+  },
+  {
+   "name": "The Rustic Crust",
+   "kind": "restaurant",
+   "latitude": 44.6889035,
+   "longitude": -63.8786036
+  },
+  {
+   "name": "The salt banker",
+   "kind": "restaurant",
+   "latitude": 43.4458645,
+   "longitude": -65.6331831
+  },
+  {
+   "name": "The Savary Plate Eatery & Pizzeria",
+   "kind": "restaurant",
+   "latitude": 44.6377891,
+   "longitude": -64.0707146
+  },
+  {
+   "name": "The Savvy Sailor",
+   "kind": "cafe",
+   "latitude": 44.3763474,
+   "longitude": -64.3104533
+  },
+  {
+   "name": "The Sou’Wester",
+   "kind": "restaurant",
+   "latitude": 44.4923196,
+   "longitude": -63.9174689
+  },
+  {
+   "name": "The Submarine",
+   "kind": "takeout",
+   "latitude": 44.6356458,
+   "longitude": -63.5706013
+  },
+  {
+   "name": "The Vines",
+   "kind": "restaurant",
+   "latitude": 44.694612,
+   "longitude": -63.4963304
+  },
+  {
+   "name": "The Whiskey Teller",
+   "kind": "restaurant",
+   "latitude": 44.74534,
+   "longitude": -65.5187274
+  },
+  {
+   "name": "The Wooden Door Bistro",
+   "kind": "restaurant",
+   "latitude": 44.8755682,
+   "longitude": -63.5348153
+  },
+  {
+   "name": "The Wooden Monkey",
+   "kind": "restaurant",
+   "latitude": 44.6638696,
+   "longitude": -63.5694585
+  },
+  {
+   "name": "Tim Horton's Express",
+   "kind": "cafe",
+   "latitude": 44.6599094,
+   "longitude": -63.5944664
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 43.7775441,
+   "longitude": -65.3397889
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.0459565,
+   "longitude": -64.721768
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.3707434,
+   "longitude": -64.5273529
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.3761726,
+   "longitude": -64.324781
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.3795426,
+   "longitude": -64.5158082
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.393287,
+   "longitude": -64.5296705
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.4500087,
+   "longitude": -64.3808756
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.5467627,
+   "longitude": -64.2343092
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6000393,
+   "longitude": -65.7707377
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6123009,
+   "longitude": -63.493314
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6126665,
+   "longitude": -63.6169352
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6238023,
+   "longitude": -63.5100961
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6258128,
+   "longitude": -63.6172917
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.631035,
+   "longitude": -63.6315997
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6360123,
+   "longitude": -63.5937803
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6362321,
+   "longitude": -63.6688149
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6368097,
+   "longitude": -63.5894317
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6370296,
+   "longitude": -63.5691076
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6430992,
+   "longitude": -63.5773335
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6442549,
+   "longitude": -63.6017843
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6456281,
+   "longitude": -63.5881137
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6460868,
+   "longitude": -63.7139546
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6475932,
+   "longitude": -63.6220776
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6491148,
+   "longitude": -63.5722361
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6499555,
+   "longitude": -63.5459295
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6502558,
+   "longitude": -63.5763241
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.652525,
+   "longitude": -63.6138969
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6541536,
+   "longitude": -63.6782059
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6549934,
+   "longitude": -63.5285158
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6573265,
+   "longitude": -63.6325849
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6578267,
+   "longitude": -63.4908928
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6586714,
+   "longitude": -63.6023132
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6589435,
+   "longitude": -63.6018547
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6617571,
+   "longitude": -63.6557219
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.663983,
+   "longitude": -63.5690829
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6649039,
+   "longitude": -63.6120093
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6683127,
+   "longitude": -63.5621389
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6712918,
+   "longitude": -63.5262669
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6719425,
+   "longitude": -63.5805253
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6737365,
+   "longitude": -63.4915976
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.674829,
+   "longitude": -63.6477076
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6810632,
+   "longitude": -63.5431275
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.682774,
+   "longitude": -63.5365771
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6847868,
+   "longitude": -63.6751362
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6862383,
+   "longitude": -63.5595722
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6867969,
+   "longitude": -63.8759938
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6909505,
+   "longitude": -63.5852299
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6938643,
+   "longitude": -63.5002176
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6953118,
+   "longitude": -63.496395
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6974058,
+   "longitude": -63.6046115
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6975054,
+   "longitude": -63.5470962
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6985892,
+   "longitude": -63.5861225
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.6991994,
+   "longitude": -63.686973
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7048951,
+   "longitude": -63.85734
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7073691,
+   "longitude": -63.6085912
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7076743,
+   "longitude": -63.5636307
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.710182,
+   "longitude": -63.5686039
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7142967,
+   "longitude": -63.6785182
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7239866,
+   "longitude": -63.7361135
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7248075,
+   "longitude": -63.735477
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7393943,
+   "longitude": -63.6549893
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7494092,
+   "longitude": -63.6417784
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7603654,
+   "longitude": -63.6574677
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7694833,
+   "longitude": -63.6874337
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7694892,
+   "longitude": -63.687435
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7776084,
+   "longitude": -63.6708784
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.7833949,
+   "longitude": -63.6922946
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.794435,
+   "longitude": -63.7238682
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.8177085,
+   "longitude": -63.6112959
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.8457412,
+   "longitude": -65.2688311
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.8793187,
+   "longitude": -63.5230671
+  },
+  {
+   "name": "Tim Hortons",
+   "kind": "cafe",
+   "latitude": 44.8866779,
+   "longitude": -63.5145996
+  },
+  {
+   "name": "Tim Hortons Express",
+   "kind": "cafe",
+   "latitude": 44.8886266,
+   "longitude": -63.5160297
+  },
+  {
+   "name": "TimHortons",
+   "kind": "takeout",
+   "latitude": 44.6205739,
+   "longitude": -63.6646344
+  },
+  {
+   "name": "Tokyo Roll",
+   "kind": "restaurant",
+   "latitude": 44.6459738,
+   "longitude": -63.5743702
+  },
+  {
+   "name": "Tom's Family Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.7684082,
+   "longitude": -63.6849689
+  },
+  {
+   "name": "Tom's Lobster Shack",
+   "kind": "takeout",
+   "latitude": 44.4932397,
+   "longitude": -63.9147814
+  },
+  {
+   "name": "Tomavinos Pizzeria",
+   "kind": "restaurant",
+   "latitude": 44.6409385,
+   "longitude": -63.5661965
+  },
+  {
+   "name": "Tony's Pizza",
+   "kind": "takeout",
+   "latitude": 44.6509105,
+   "longitude": -63.592636
+  },
+  {
+   "name": "Tony's World Famous Pizza & Donair",
+   "kind": "takeout",
+   "latitude": 44.6460928,
+   "longitude": -63.5696296
+  },
+  {
+   "name": "Topio's Pizzeria",
+   "kind": "takeout",
+   "latitude": 44.6388904,
+   "longitude": -63.5907085
+  },
+  {
+   "name": "Toridori",
+   "kind": "restaurant",
+   "latitude": 44.6487825,
+   "longitude": -63.5713379
+  },
+  {
+   "name": "Transcotia",
+   "kind": "restaurant",
+   "latitude": 44.0583091,
+   "longitude": -64.6810309
+  },
+  {
+   "name": "Transcotia",
+   "kind": "restaurant",
+   "latitude": 44.0585715,
+   "longitude": -64.680767
+  },
+  {
+   "name": "Transit Café",
+   "kind": "cafe",
+   "latitude": 44.6602558,
+   "longitude": -63.5955638
+  },
+  {
+   "name": "Trattoria Vesso",
+   "kind": "restaurant",
+   "latitude": 44.6419974,
+   "longitude": -63.5698409
+  },
+  {
+   "name": "Treats",
+   "kind": "cafe",
+   "latitude": 44.6440327,
+   "longitude": -63.5791576
+  },
+  {
+   "name": "Trellis Café",
+   "kind": "restaurant",
+   "latitude": 44.6378282,
+   "longitude": -64.0673652
+  },
+  {
+   "name": "Trident Booksellers and Cafe",
+   "kind": "cafe",
+   "latitude": 44.6413597,
+   "longitude": -63.5698193
+  },
+  {
+   "name": "True North Diner",
+   "kind": "restaurant",
+   "latitude": 44.738163,
+   "longitude": -63.6559249
+  },
+  {
+   "name": "Truly Tasty",
+   "kind": "restaurant",
+   "latitude": 44.6455933,
+   "longitude": -63.5961417
+  },
+  {
+   "name": "Tucker Lake Pizza",
+   "kind": "restaurant",
+   "latitude": 44.8370223,
+   "longitude": -63.6796618
+  },
+  {
+   "name": "Turbo Chicken Burger and Milkshakes",
+   "kind": "takeout",
+   "latitude": 44.6444554,
+   "longitude": -63.6015366
+  },
+  {
+   "name": "Turkish Delight",
+   "kind": "restaurant",
+   "latitude": 44.6423597,
+   "longitude": -63.579113
+  },
+  {
+   "name": "Turkuaz",
+   "kind": "restaurant",
+   "latitude": 44.7106382,
+   "longitude": -63.6700933
+  },
+  {
+   "name": "Two if By Sea",
+   "kind": "cafe",
+   "latitude": 44.6670086,
+   "longitude": -63.5678815
+  },
+  {
+   "name": "Uncommon Grounds",
+   "kind": "cafe",
+   "latitude": 44.635591,
+   "longitude": -63.5767645
+  },
+  {
+   "name": "Uniacke Pizza",
+   "kind": "takeout",
+   "latitude": 44.8559038,
+   "longitude": -63.8039644
+  },
+  {
+   "name": "Vandal Doughnuts",
+   "kind": "takeout",
+   "latitude": 44.6429559,
+   "longitude": -63.5682536
+  },
+  {
+   "name": "Vandal Doughnuts",
+   "kind": "takeout",
+   "latitude": 44.6540905,
+   "longitude": -63.5866343
+  },
+  {
+   "name": "Vernon’s Thunderbird Diner",
+   "kind": "restaurant",
+   "latitude": 44.7332285,
+   "longitude": -63.7853846
+  },
+  {
+   "name": "Vero Pizza",
+   "kind": "takeout",
+   "latitude": 44.6490114,
+   "longitude": -63.5462339
+  },
+  {
+   "name": "Villa Madina",
+   "kind": "takeout",
+   "latitude": 44.6861156,
+   "longitude": -63.5596759
+  },
+  {
+   "name": "Vittles cafe",
+   "kind": "cafe",
+   "latitude": 44.7365773,
+   "longitude": -64.4571783
+  },
+  {
+   "name": "Waegwoltic Dining Room",
+   "kind": "restaurant",
+   "latitude": 44.6368177,
+   "longitude": -63.6019263
+  },
+  {
+   "name": "Wasabi Asian Cuisine",
+   "kind": "restaurant",
+   "latitude": 44.7670868,
+   "longitude": -63.6843408
+  },
+  {
+   "name": "Wasabi Grill & Noodle",
+   "kind": "restaurant",
+   "latitude": 44.6861358,
+   "longitude": -63.559698
+  },
+  {
+   "name": "Wasabi House",
+   "kind": "restaurant",
+   "latitude": 44.6446278,
+   "longitude": -63.6005057
+  },
+  {
+   "name": "Water Polo",
+   "kind": "restaurant",
+   "latitude": 44.6430289,
+   "longitude": -63.5679484
+  },
+  {
+   "name": "Waterfront Warehouse",
+   "kind": "restaurant",
+   "latitude": 44.6458363,
+   "longitude": -63.5699353
+  },
+  {
+   "name": "Waves Seafood & Grill",
+   "kind": "restaurant",
+   "latitude": 44.3802287,
+   "longitude": -64.517105
+  },
+  {
+   "name": "Way2Roll",
+   "kind": "takeout",
+   "latitude": 44.6420953,
+   "longitude": -63.5786781
+  },
+  {
+   "name": "Weagles' Bakery",
+   "kind": "bakery",
+   "latitude": 44.380099,
+   "longitude": -64.5227752
+  },
+  {
+   "name": "Weird Harbour",
+   "kind": "cafe",
+   "latitude": 44.6465946,
+   "longitude": -63.5738387
+  },
+  {
+   "name": "Wellington Bakery",
+   "kind": "bakery",
+   "latitude": 44.8574759,
+   "longitude": -63.6147014
+  },
+  {
+   "name": "Wellington pizza & seafood",
+   "kind": "takeout",
+   "latitude": 44.8569502,
+   "longitude": -63.6148204
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.3792905,
+   "longitude": -64.517606
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6365829,
+   "longitude": -63.6680361
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6462188,
+   "longitude": -63.5953072
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6618224,
+   "longitude": -63.6167769
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6711773,
+   "longitude": -63.5788755
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6715253,
+   "longitude": -63.5325344
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6738491,
+   "longitude": -63.4916031
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.6985299,
+   "longitude": -63.5859987
+  },
+  {
+   "name": "Wendy's",
+   "kind": "takeout",
+   "latitude": 44.7717528,
+   "longitude": -63.6921264
+  },
+  {
+   "name": "West Enders",
+   "kind": "cafe",
+   "latitude": 44.6442958,
+   "longitude": -63.6006536
+  },
+  {
+   "name": "Westcliff Restaurant & Convenience",
+   "kind": "takeout",
+   "latitude": 44.6548452,
+   "longitude": -63.6101479
+  },
+  {
+   "name": "White Lotus",
+   "kind": "restaurant",
+   "latitude": 44.3806616,
+   "longitude": -64.5177896
+  },
+  {
+   "name": "White Sails Bakery & Deli",
+   "kind": "cafe",
+   "latitude": 44.6651989,
+   "longitude": -63.895134
+  },
+  {
+   "name": "Wild Leek Food & Juice Bar",
+   "kind": "cafe",
+   "latitude": 44.6495005,
+   "longitude": -63.5946382
+  },
+  {
+   "name": "Willman's Fish & Chips",
+   "kind": "restaurant",
+   "latitude": 44.6623203,
+   "longitude": -63.6010858
+  },
+  {
+   "name": "Windsor Street Diner",
+   "kind": "restaurant",
+   "latitude": 44.6495724,
+   "longitude": -63.5947241
+  },
+  {
+   "name": "Wing 'n It",
+   "kind": "takeout",
+   "latitude": 44.6999012,
+   "longitude": -63.6866746
+  },
+  {
+   "name": "Wired Monk",
+   "kind": "cafe",
+   "latitude": 44.6422097,
+   "longitude": -63.5699724
+  },
+  {
+   "name": "Wok Box",
+   "kind": "takeout",
+   "latitude": 44.6989891,
+   "longitude": -63.5638212
+  },
+  {
+   "name": "Wok by the Bay",
+   "kind": "restaurant",
+   "latitude": 44.6238944,
+   "longitude": -65.7567603
+  },
+  {
+   "name": "Wong",
+   "kind": "restaurant",
+   "latitude": 44.7407859,
+   "longitude": -65.5161836
+  },
+  {
+   "name": "Wong's Palace Chinese Restaurant",
+   "kind": "restaurant",
+   "latitude": 44.6706097,
+   "longitude": -63.5260079
+  },
+  {
+   "name": "Wooden Monkey",
+   "kind": "restaurant",
+   "latitude": 44.6470762,
+   "longitude": -63.5753031
+  },
+  {
+   "name": "World Tea House",
+   "kind": "cafe",
+   "latitude": 44.6458504,
+   "longitude": -63.5743125
+  },
+  {
+   "name": "Xena's Bread and Butter",
+   "kind": "cafe",
+   "latitude": 44.6507641,
+   "longitude": -63.5791382
+  },
+  {
+   "name": "Yeah Yeah’s Pizza",
+   "kind": "restaurant",
+   "latitude": 44.6537042,
+   "longitude": -63.6086658
+  },
+  {
+   "name": "You Like It Chinese",
+   "kind": "restaurant",
+   "latitude": 44.6863954,
+   "longitude": -63.5219243
+  },
+  {
+   "name": "Yum Yum",
+   "kind": "restaurant",
+   "latitude": 44.6762874,
+   "longitude": -63.587748
+  },
+  {
+   "name": "Zoca",
+   "kind": "takeout",
+   "latitude": 44.6359097,
+   "longitude": -63.5937569
+  }
+ ]
+}

@@ -8,6 +8,7 @@
     "build": "vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview",
     "data": "tsx scripts/build-data.ts",
+    "refresh:food": "tsx scripts/refresh-food.ts",
     "validate": "tsx scripts/validate.ts",
     "test": "vitest run",
     "lint": "eslint src scripts"

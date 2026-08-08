@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { z } from "zod";
 import { fetchText } from "./fetch.js";
 import { haversineKm } from "./geo.js";
 import type { NearbyFood } from "./types.js";
@@ -70,6 +72,27 @@ export async function fetchFoodPois(): Promise<FoodPoi[]> {
     }
   }
   throw lastError;
+}
+
+const snapshotSchema = z.object({
+  fetchedAt: z.string(),
+  source: z.string(),
+  pois: z
+    .array(
+      z.object({
+        name: z.string().min(1),
+        kind: z.string().min(1),
+        latitude: z.number(),
+        longitude: z.number(),
+      }),
+    )
+    .min(100),
+});
+
+// The committed snapshot is reference data like beaches.yml: required and
+// validated, refreshed by scripts/refresh-food.ts rather than at build time.
+export function loadFoodPois(path: string): FoodPoi[] {
+  return snapshotSchema.parse(JSON.parse(readFileSync(path, "utf8"))).pois;
 }
 
 // Nearest distinct places by straight-line distance. OSM often carries a node
