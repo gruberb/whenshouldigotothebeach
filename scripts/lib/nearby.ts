@@ -13,12 +13,12 @@ const ENDPOINTS = [
 // South Shore bounding box. Rural food often lives in general and convenience
 // stores (the Rose Bay General Store problem), so shops are included alongside
 // restaurants, cafes, and bakeries.
-const QUERY = `[out:json][timeout:90];
+const QUERY = `[out:json][timeout:240];
 (
-  node["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](43.3,-66.0,44.9,-63.3);
-  way["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](43.3,-66.0,44.9,-63.3);
-  node["shop"~"^(bakery|general|convenience|deli)$"]["name"](43.3,-66.0,44.9,-63.3);
-  way["shop"~"^(bakery|general|convenience|deli)$"]["name"](43.3,-66.0,44.9,-63.3);
+  node["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](43.3,-66.6,47.2,-59.4);
+  way["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](43.3,-66.6,47.2,-59.4);
+  node["shop"~"^(bakery|general|convenience|deli)$"]["name"](43.3,-66.6,47.2,-59.4);
+  way["shop"~"^(bakery|general|convenience|deli)$"]["name"](43.3,-66.6,47.2,-59.4);
 );
 out center;`;
 
@@ -72,7 +72,7 @@ export async function fetchFoodPois(): Promise<FoodPoi[]> {
       const body = await fetchText(
         `${endpoint}?data=${encodeURIComponent(QUERY)}`,
         0,
-        120_000,
+        300_000,
       );
       return parseOverpassFood(body);
     } catch (error) {

@@ -8,6 +8,7 @@
 
 - id: queensland
   name: Queensland Beach
+  region: south-shore
   municipality: Halifax Regional Municipality
   location:
     latitude: 44.6345
@@ -46,6 +47,7 @@
 
 - id: hirtles
   name: Hirtle's Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.2672
@@ -82,6 +84,7 @@
 
 - id: rissers
   name: Rissers Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.2287
@@ -121,6 +124,7 @@
 
 - id: summerville
   name: Summerville Beach
+  region: south-shore
   municipality: Region of Queens Municipality
   location:
     latitude: 43.9505
@@ -152,6 +156,7 @@
 
 - id: sandhills
   name: Sand Hills Beach
+  region: south-shore
   municipality: Municipality of the District of Barrington
   location:
     latitude: 43.5324
@@ -185,6 +190,7 @@
 
 - id: cleveland
   name: Cleveland Beach
+  region: south-shore
   municipality: Halifax Regional Municipality
   location:
     latitude: 44.6491
@@ -223,6 +229,7 @@
 
 - id: bayswater
   name: Bayswater Beach
+  region: south-shore
   municipality: Municipality of the District of Chester
   location:
     latitude: 44.5027
@@ -262,6 +269,7 @@
 
 - id: crescent
   name: Crescent Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.2381
@@ -298,6 +306,7 @@
 
 - id: cherryhill
   name: Cherry Hill Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.1443
@@ -329,6 +338,7 @@
 
 - id: beachmeadows
   name: Beach Meadows Beach
+  region: south-shore
   municipality: Region of Queens Municipality
   location:
     latitude: 44.056860
@@ -363,6 +373,7 @@
 
 - id: carters
   name: Carters Beach
+  region: south-shore
   municipality: Region of Queens Municipality
   location:
     latitude: 43.9086
@@ -394,6 +405,7 @@
 
 - id: sanddollar
   name: Sand Dollar Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.3022
@@ -432,6 +444,7 @@
 
 - id: greenbay
   name: Green Bay Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.2128
@@ -468,6 +481,7 @@
 
 - id: sperrys
   name: Sperry's Beach
+  region: south-shore
   municipality: Municipality of the District of Lunenburg
   location:
     latitude: 44.2255
@@ -500,6 +514,2052 @@
     note: Firm sand and shallow water at low tide; strong current in the channel toward Rissers; very limited parking
   source_urls:
     official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: eaglehead
+  name: Eagle Head Beach
+  region: south-shore
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 44.074506
+    longitude: -64.619361
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 195
+    tide_effect: neutral
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00440"
+    station_latitude: 44.048996
+    station_longitude: -64.694420
+    station_id: 5cebf1df3d0f4a073c4bbcaf
+    station_name: Liverpool
+    confidence: nearby
+  amenities:
+    note: No facilities; limited parking
+  source_urls:
+    official_page: https://www.regionofqueens.com/parks-trails-recreation/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: huntspoint
+  name: Hunts Point Beach
+  region: south-shore
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 43.952589
+    longitude: -64.767805
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 205
+    tide_effect: neutral
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00435"
+    station_latitude: 43.921621
+    station_longitude: -64.841138
+    station_id: 5cebf1df3d0f4a073c4bbcad
+    station_name: Port Mouton
+    confidence: nearby
+  amenities:
+    note: No facilities; limited parking
+  source_urls:
+    official_page: https://www.regionofqueens.com/parks-trails-recreation/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: sandybay
+  name: Sandy Bay Beach
+  region: south-shore
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 43.825605
+    longitude: -64.882937
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 150
+    tide_effect: neutral
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00435"
+    station_latitude: 43.921621
+    station_longitude: -64.841138
+    station_id: 5cebf1df3d0f4a073c4bbcad
+    station_name: Port Mouton
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Thomas Raddall Provincial Park; vault toilets, showers, change house and picnic areas
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/thomas-raddall
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: louishead
+  name: Louis Head Beach
+  region: south-shore
+  municipality: Municipality of the District of Shelburne
+  location:
+    latitude: 43.757380
+    longitude: -65.010934
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: estuary
+    shore_bearing_degrees: 210
+    tide_effect: warmer-incoming-after-low
+  weather:
+    site_code: s0000109
+    site_latitude: 43.76
+    site_longitude: -65.32
+    site_name: Shelburne
+    province: NS
+  tide:
+    station_code: "00430"
+    station_latitude: 43.701539
+    station_longitude: -65.107167
+    station_id: 5cebf1df3d0f4a073c4bbcab
+    station_name: Lockeport
+    confidence: nearby
+  source_urls:
+    official_page: https://visitshelburnecounty.ca/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: lockeport-crescent
+  name: Crescent Beach (Lockeport)
+  region: south-shore
+  municipality: Town of Lockeport
+  location:
+    latitude: 43.694428
+    longitude: -65.121817
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 155
+    tide_effect: neutral
+  weather:
+    site_code: s0000109
+    site_latitude: 43.76
+    site_longitude: -65.32
+    site_name: Shelburne
+    province: NS
+  tide:
+    station_code: "00430"
+    station_latitude: 43.701539
+    station_longitude: -65.107167
+    station_id: 5cebf1df3d0f4a073c4bbcab
+    station_name: Lockeport
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Crescent Beach Centre with washrooms, change rooms and showers
+  source_urls:
+    official_page: https://www.lockeport.ns.ca/index.php/tourism-recreation/crescent-beach-vic
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: roseway
+  name: Roseway Beach
+  region: south-shore
+  municipality: Municipality of the District of Shelburne
+  location:
+    latitude: 43.6017
+    longitude: -65.3496
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 200
+    tide_effect: neutral
+  weather:
+    site_code: s0000109
+    site_latitude: 43.76
+    site_longitude: -65.32
+    site_name: Shelburne
+    province: NS
+  tide:
+    station_code: "00423"
+    station_latitude: 43.563155
+    station_longitude: -65.363373
+    station_id: 5cebf1e03d0f4a073c4bbe87
+    station_name: Ingomar
+    confidence: nearby
+  source_urls:
+    official_page: https://visitshelburnecounty.ca/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: sandypoint
+  name: Sandy Point Beach
+  region: south-shore
+  municipality: Municipality of the District of Shelburne
+  location:
+    latitude: 43.691856
+    longitude: -65.323457
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: tidal-flat
+    shore_bearing_degrees: 170
+    tide_effect: reduced-access-at-high
+  weather:
+    site_code: s0000109
+    site_latitude: 43.76
+    site_longitude: -65.32
+    site_name: Shelburne
+    province: NS
+  tide:
+    station_code: "00426"
+    station_latitude: 43.695318
+    station_longitude: -65.324184
+    station_id: 5cebf1e03d0f4a073c4bbe89
+    station_name: Sandy Point
+    confidence: nearby
+  source_urls:
+    official_page: https://visitshelburnecounty.ca/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: stoneyisland
+  name: Stoney Island Beach
+  region: south-shore
+  municipality: Municipality of the District of Barrington
+  location:
+    latitude: 43.463583
+    longitude: -65.577334
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 145
+    tide_effect: neutral
+  weather:
+    site_code: s0000110
+    site_latitude: 43.47
+    site_longitude: -65.57
+    site_name: Baccaro Point
+    province: NS
+  tide:
+    station_code: "00420"
+    station_latitude: 43.505894
+    station_longitude: -65.469347
+    station_id: 5cebf1df3d0f4a073c4bbca7
+    station_name: Upper Port la Tour
+    confidence: nearby
+  source_urls:
+    official_page: https://barringtonmunicipality.com/Visiting-Us/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: thehawk
+  name: The Hawk Beach
+  region: south-shore
+  municipality: Municipality of the District of Barrington
+  location:
+    latitude: 43.415975
+    longitude: -65.614321
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 120
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000110
+    site_latitude: 43.47
+    site_longitude: -65.57
+    site_name: Baccaro Point
+    province: NS
+  tide:
+    station_code: "00405"
+    station_latitude: 43.444829
+    station_longitude: -65.634434
+    station_id: 5cebf1df3d0f4a073c4bbca1
+    station_name: Clarks Harbour
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Washroom on site during summer months
+  source_urls:
+    official_page: https://barringtonmunicipality.com/Visiting-Us/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: port-maitland
+  name: Port Maitland Beach
+  region: yarmouth-acadian-shores
+  municipality: Municipality of the District of Yarmouth
+  location:
+    latitude: 43.98716
+    longitude: -66.15272
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: semi-exposed
+    shore_bearing_degrees: 290
+    tide_effect: neutral
+  weather:
+    site_code: s0000649
+    site_latitude: 43.84
+    site_longitude: -66.12
+    site_name: Yarmouth
+    province: NS
+  tide:
+    station_code: "00360"
+    station_latitude: 43.985999
+    station_longitude: -66.159098
+    station_id: 5cebf1df3d0f4a073c4bbc86
+    station_name: Port Maitland
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Change houses and vault toilets; grassy picnic area; supervised swimming July-August
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/port-maitland-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: mavillette
+  name: Mavillette Beach
+  region: yarmouth-acadian-shores
+  municipality: Municipality of the District of Clare
+  location:
+    latitude: 44.08473
+    longitude: -66.19220
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 220
+    tide_effect: warmer-incoming-after-low
+  weather:
+    site_code: s0000649
+    site_latitude: 43.84
+    site_longitude: -66.12
+    site_name: Yarmouth
+    province: NS
+  tide:
+    station_code: "00355"
+    station_latitude: 44.193113
+    station_longitude: -66.166268
+    station_id: 5cebf1df3d0f4a073c4bbc84
+    station_name: Meteghan
+    confidence: nearby
+  amenities:
+    note: Change rooms; supervised swimming July-August; boardwalk access over the dunes; no picnic tables
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/mavillette-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: pembroke
+  name: Pembroke Beach
+  region: yarmouth-acadian-shores
+  municipality: Municipality of the District of Yarmouth
+  location:
+    latitude: 43.85930
+    longitude: -66.15601
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 275
+    tide_effect: neutral
+  weather:
+    site_code: s0000649
+    site_latitude: 43.84
+    site_longitude: -66.12
+    site_name: Yarmouth
+    province: NS
+  tide:
+    station_code: "00365"
+    station_latitude: 43.832311
+    station_longitude: -66.124968
+    station_id: 5cebf1df3d0f4a073c4bbc8d
+    station_name: Yarmouth
+    confidence: nearby
+  source_urls:
+    official_page: https://www.yarmouthandacadianshores.com/en/things-to-do/pembroke-beach/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: johns-cove
+  name: John's Cove Beach
+  region: yarmouth-acadian-shores
+  municipality: Municipality of the District of Yarmouth
+  location:
+    latitude: 43.80466
+    longitude: -66.14975
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 90
+    tide_effect: neutral
+  weather:
+    site_code: s0000649
+    site_latitude: 43.84
+    site_longitude: -66.12
+    site_name: Yarmouth
+    province: NS
+  tide:
+    station_code: "00365"
+    station_latitude: 43.832311
+    station_longitude: -66.124968
+    station_id: 5cebf1df3d0f4a073c4bbc8d
+    station_name: Yarmouth
+    confidence: nearby
+  source_urls:
+    official_page: https://www.yarmouthandacadianshores.com/en/things-to-do/johns-cove-beach/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: bartletts
+  name: Bartlett's Beach
+  region: yarmouth-acadian-shores
+  municipality: Municipality of the District of Yarmouth
+  location:
+    latitude: 44.00282
+    longitude: -66.15392
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 260
+    tide_effect: neutral
+  weather:
+    site_code: s0000649
+    site_latitude: 43.84
+    site_longitude: -66.12
+    site_name: Yarmouth
+    province: NS
+  tide:
+    station_code: "00360"
+    station_latitude: 43.985999
+    station_longitude: -66.159098
+    station_id: 5cebf1df3d0f4a073c4bbc86
+    station_name: Port Maitland
+    confidence: nearby
+  source_urls:
+    official_page: https://nsbeaches.com/beach/bartletts-beach/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: belliveau-cove
+  name: Belliveau Cove Municipal Park
+  region: yarmouth-acadian-shores
+  municipality: Municipality of the District of Clare
+  location:
+    latitude: 44.38770
+    longitude: -66.06201
+    timezone: America/Halifax
+  classification:
+    surface: shingle
+    exposure: sheltered-bay
+    shore_bearing_degrees: 315
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000365
+    site_latitude: 44.36
+    site_longitude: -66.10
+    site_name: Brier Island
+    province: NS
+  tide:
+    station_code: "00353"
+    station_latitude: 44.345634
+    station_longitude: -66.118497
+    station_id: 5cebf1df3d0f4a073c4bbc82
+    station_name: Church Point
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Public washrooms May-October; picnic tables; free parking; 5 km coastal walking trail
+  source_urls:
+    official_page: https://baiesaintemarie.com/en/see-and-do/outdoors/joseph-marie-dugas-municipal-park
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: evangeline
+  name: Evangeline Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Kings
+  location:
+    latitude: 45.1379
+    longitude: -64.3172
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: tidal-flat
+    shore_bearing_degrees: 20
+    tide_effect: warmer-incoming-after-low
+  weather:
+    site_code: s0000439
+    site_latitude: 45.08
+    site_longitude: -64.50
+    site_name: Kentville
+    province: NS
+  tide:
+    station_code: "00282"
+    station_latitude: 45.066886
+    station_longitude: -64.170122
+    station_id: 5cebf1df3d0f4a073c4bbc5e
+    station_name: Hantsport
+    confidence: nearby
+  source_urls:
+    official_page: https://www.countyofkings.ca/visitors/todo/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: blue-beach
+  name: Blue Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Kings
+  location:
+    latitude: 45.0994
+    longitude: -64.2153
+    timezone: America/Halifax
+  classification:
+    surface: cobble
+    exposure: estuary
+    shore_bearing_degrees: 45
+    tide_effect: neutral
+  weather:
+    site_code: s0000438
+    site_latitude: 44.99
+    site_longitude: -64.14
+    site_name: Windsor
+    province: NS
+  tide:
+    station_code: "00282"
+    station_latitude: 45.066886
+    station_longitude: -64.170122
+    station_id: 5cebf1df3d0f4a073c4bbc5e
+    station_name: Hantsport
+    confidence: nearby
+  source_urls:
+    official_page: https://www.countyofkings.ca/visitors/todo/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: kingsport
+  name: Kingsport Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Kings
+  location:
+    latitude: 45.1598
+    longitude: -64.3592
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: tidal-flat
+    shore_bearing_degrees: 90
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000439
+    site_latitude: 45.08
+    site_longitude: -64.50
+    site_name: Kentville
+    province: NS
+  tide:
+    station_code: "00290"
+    station_latitude: 45.304840
+    station_longitude: -64.349067
+    station_id: 5cebf1df3d0f4a073c4bbc60
+    station_name: Cape Blomidon
+    confidence: regional
+  amenities:
+    note: "Boat launch, boardwalk, seasonal canteen run by the Kingsport Community Association"
+  source_urls:
+    official_page: https://kingsport.ca/visit-kingsport/kingsport-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: blomidon
+  name: Blomidon Provincial Park
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Kings
+  location:
+    latitude: 45.2631
+    longitude: -64.3430
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: tidal-flat
+    shore_bearing_degrees: 110
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000439
+    site_latitude: 45.08
+    site_longitude: -64.50
+    site_name: Kentville
+    province: NS
+  tide:
+    station_code: "00290"
+    station_latitude: 45.304840
+    station_longitude: -64.349067
+    station_id: 5cebf1df3d0f4a073c4bbc60
+    station_name: Cape Blomidon
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: "Change house, picnic tables and water taps at the day-use beach area; campground washrooms with showers"
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/blomidon
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: scots-bay
+  name: Scots Bay Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Kings
+  location:
+    latitude: 45.3007
+    longitude: -64.3969
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: semi-exposed
+    shore_bearing_degrees: 310
+    tide_effect: neutral
+  weather:
+    site_code: s0000040
+    site_latitude: 45.41
+    site_longitude: -64.33
+    site_name: Parrsboro
+    province: NS
+  tide:
+    station_code: "00300"
+    station_latitude: 45.315444
+    station_longitude: -64.440747
+    station_id: 5cebf1df3d0f4a073c4bbc62
+    station_name: Scots Bay
+    confidence: nearby
+  source_urls:
+    official_page: https://www.countyofkings.ca/visitors/todo/beaches
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: margaretsville
+  name: Margaretsville Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Annapolis
+  location:
+    latitude: 45.0489
+    longitude: -65.0637
+    timezone: America/Halifax
+  classification:
+    surface: pebble
+    exposure: semi-exposed
+    shore_bearing_degrees: 330
+    tide_effect: neutral
+  weather:
+    site_code: s0000803
+    site_latitude: 44.97
+    site_longitude: -64.93
+    site_name: Greenwood
+    province: NS
+  tide:
+    station_code: "00315"
+    station_latitude: 45.048773
+    station_longitude: -65.062969
+    station_id: 5cebf1df3d0f4a073c4bbc68
+    station_name: Margaretsville
+    confidence: nearby
+  source_urls:
+    official_page: https://annapoliscounty.ca/community-development/parks-trails/367-outdoor-recreation-map
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: sandy-cove
+  name: Sandy Cove Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the District of Digby
+  location:
+    latitude: 44.4977
+    longitude: -66.0999
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 315
+    tide_effect: neutral
+  weather:
+    site_code: s0000365
+    site_latitude: 44.36
+    site_longitude: -66.10
+    site_name: Brier Island
+    province: NS
+  tide:
+    station_code: "00335"
+    station_latitude: 44.498851
+    station_longitude: -66.098584
+    station_id: 5cebf1df3d0f4a073c4bbc74
+    station_name: Sandy Cove
+    confidence: nearby
+  source_urls:
+    official_page: https://digbyarea.ca/plan-your-visit/digby-neck-and-islands/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: savary
+  name: Savary Provincial Park
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the District of Digby
+  location:
+    latitude: 44.5127
+    longitude: -65.9082
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: sheltered-bay
+    shore_bearing_degrees: 310
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000364
+    site_latitude: 44.62
+    site_longitude: -65.76
+    site_name: Digby
+    province: NS
+  tide:
+    station_code: "00336"
+    station_latitude: 44.487013
+    station_longitude: -66.084873
+    station_id: 5cebf1df3d0f4a073c4bbc76
+    station_name: East Sandy Cove
+    confidence: nearby
+  amenities:
+    note: "Picnic area"
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/savary
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: advocate
+  name: Advocate Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Cumberland
+  location:
+    latitude: 45.3519
+    longitude: -64.8310
+    timezone: America/Halifax
+  classification:
+    surface: cobble
+    exposure: semi-exposed
+    shore_bearing_degrees: 165
+    tide_effect: neutral
+  weather:
+    site_code: s0000040
+    site_latitude: 45.41
+    site_longitude: -64.33
+    site_name: Parrsboro
+    province: NS
+  tide:
+    station_code: "00235"
+    station_latitude: 45.345678
+    station_longitude: -64.816617
+    station_id: 5cebf1df3d0f4a073c4bbc48
+    station_name: West Advocate
+    confidence: nearby
+  source_urls:
+    official_page: https://www.fundygeopark.ca/cobequid-fault-at-west-advocate
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: partridge-island
+  name: Partridge Island Beach
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of the County of Cumberland
+  location:
+    latitude: 45.3703
+    longitude: -64.3329
+    timezone: America/Halifax
+  classification:
+    surface: gravel
+    exposure: semi-exposed
+    shore_bearing_degrees: 110
+    tide_effect: neutral
+  weather:
+    site_code: s0000040
+    site_latitude: 45.41
+    site_longitude: -64.33
+    site_name: Parrsboro
+    province: NS
+  tide:
+    station_code: "00255"
+    station_latitude: 45.389968
+    station_longitude: -64.318650
+    station_id: 5cebf1df3d0f4a073c4bbc54
+    station_name: Parrsboro
+    confidence: nearby
+  source_urls:
+    official_page: https://www.fundygeopark.ca/partridge-island
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: burntcoat-head
+  name: Burntcoat Head Park
+  region: bay-of-fundy-annapolis-valley
+  municipality: Municipality of East Hants
+  location:
+    latitude: 45.3109
+    longitude: -63.8075
+    timezone: America/Halifax
+  classification:
+    surface: mudflat
+    exposure: tidal-flat
+    shore_bearing_degrees: 350
+    tide_effect: reduced-access-at-high
+  weather:
+    site_code: s0000814
+    site_latitude: 45.38
+    site_longitude: -63.92
+    site_name: Economy
+    province: NS
+  tide:
+    station_code: "00270"
+    station_latitude: 45.311475
+    station_longitude: -63.805688
+    station_id: 5cebf1df3d0f4a073c4bbc58
+    station_name: Burntcoat Head
+    confidence: nearby
+  amenities:
+    note: "Staircase to the ocean floor, picnic areas; open seasonally mid-May to mid-October"
+  source_urls:
+    official_page: https://burntcoatheadpark.ca/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: heather
+  name: Heather Beach
+  region: northumberland-shore
+  municipality: Municipality of the County of Cumberland
+  location:
+    latitude: 45.8728
+    longitude: -63.7521
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 340
+    tide_effect: neutral
+  weather:
+    site_code: s0000812
+    site_latitude: 45.71
+    site_longitude: -63.29
+    site_name: Tatamagouche
+    province: NS
+  tide:
+    station_code: "01775"
+    station_latitude: 45.8483972
+    station_longitude: -63.663297
+    station_id: 5cebf1e33d0f4a073c4bc22f
+    station_name: Pugwash
+    confidence: nearby
+  amenities:
+    note: Supervised swimming July-August; limited parking
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/heather-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: northport
+  name: Northport Beach
+  region: northumberland-shore
+  municipality: Municipality of the County of Cumberland
+  location:
+    latitude: 45.9260
+    longitude: -63.8446
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 320
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000812
+    site_latitude: 45.71
+    site_longitude: -63.29
+    site_name: Tatamagouche
+    province: NS
+  tide:
+    station_code: "01780"
+    station_latitude: 45.997582
+    station_longitude: -64.007441
+    station_id: 5cebf1e33d0f4a073c4bc231
+    station_name: Tidnish
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Vault toilets, change house and covered picnic tables; beach access by stairs
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/northport-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: gulf-shore
+  name: Gulf Shore
+  region: northumberland-shore
+  municipality: Municipality of the County of Cumberland
+  location:
+    latitude: 45.8742
+    longitude: -63.6258
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 350
+    tide_effect: neutral
+  weather:
+    site_code: s0000812
+    site_latitude: 45.71
+    site_longitude: -63.29
+    site_name: Tatamagouche
+    province: NS
+  tide:
+    station_code: "01775"
+    station_latitude: 45.8483972
+    station_longitude: -63.663297
+    station_id: 5cebf1e33d0f4a073c4bc22f
+    station_name: Pugwash
+    confidence: nearby
+  amenities:
+    note: Picnic park overlooking the strait
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/gulf-shore
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: blue-sea
+  name: Blue Sea Beach
+  region: northumberland-shore
+  municipality: Municipality of the County of Cumberland
+  location:
+    latitude: 45.8037
+    longitude: -63.2983
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 245
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000812
+    site_latitude: 45.71
+    site_longitude: -63.29
+    site_name: Tatamagouche
+    province: NS
+  tide:
+    station_code: "01760"
+    station_latitude: 45.77520205
+    station_longitude: -63.2961563
+    station_id: 5cebf1e33d0f4a073c4bc22b
+    station_name: Malagash
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/blue-sea-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: rushtons
+  name: Rushtons Beach
+  region: northumberland-shore
+  municipality: Municipality of Pictou County
+  location:
+    latitude: 45.7563
+    longitude: -63.1216
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 335
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000812
+    site_latitude: 45.71
+    site_longitude: -63.29
+    site_name: Tatamagouche
+    province: NS
+  tide:
+    station_code: "01745"
+    station_latitude: 45.79447
+    station_longitude: -63.04467
+    station_id: 5cebf1e33d0f4a073c4bc229
+    station_name: Skinners Cove
+    confidence: nearby
+  amenities:
+    note: Boardwalk to the beach
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/rushtons-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: caribou-munroes
+  name: Caribou-Munroes Island
+  region: northumberland-shore
+  municipality: Municipality of Pictou County
+  location:
+    latitude: 45.7244
+    longitude: -62.6534
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 330
+    tide_effect: neutral
+  weather:
+    site_code: s0000090
+    site_latitude: 45.73
+    site_longitude: -62.70
+    site_name: Caribou
+    province: NS
+  tide:
+    station_code: "01640"
+    station_latitude: 45.73928
+    station_longitude: -62.688116
+    station_id: 5cebf1e33d0f4a073c4bc20d
+    station_name: Caribou
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Day-use area with parking, change house and unsupervised swimming; campground washrooms with showers
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/caribou-munroes-island
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: waterside
+  name: Waterside Beach
+  region: northumberland-shore
+  municipality: Municipality of Pictou County
+  location:
+    latitude: 45.7560
+    longitude: -62.7889
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 345
+    tide_effect: neutral
+  weather:
+    site_code: s0000090
+    site_latitude: 45.73
+    site_longitude: -62.70
+    site_name: Caribou
+    province: NS
+  tide:
+    station_code: "01640"
+    station_latitude: 45.73928
+    station_longitude: -62.688116
+    station_id: 5cebf1e33d0f4a073c4bc20d
+    station_name: Caribou
+    confidence: nearby
+  amenities:
+    note: Boardwalk access to the beach
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/waterside-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: melmerby
+  name: Melmerby Beach
+  region: northumberland-shore
+  municipality: Municipality of Pictou County
+  location:
+    latitude: 45.6580
+    longitude: -62.5308
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 30
+    tide_effect: neutral
+  weather:
+    site_code: s0000090
+    site_latitude: 45.73
+    site_longitude: -62.70
+    site_name: Caribou
+    province: NS
+  tide:
+    station_code: "01620"
+    station_latitude: 45.648764
+    station_longitude: -62.448885
+    station_id: 5cebf1e33d0f4a073c4bc207
+    station_name: Merigomish
+    confidence: nearby
+  amenities:
+    note: Supervised swimming July-August; abundant parking
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/melmerby-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: powells-point
+  name: Powells Point
+  region: northumberland-shore
+  municipality: Municipality of Pictou County
+  location:
+    latitude: 45.6522
+    longitude: -62.5643
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 40
+    tide_effect: neutral
+  weather:
+    site_code: s0000090
+    site_latitude: 45.73
+    site_longitude: -62.70
+    site_name: Caribou
+    province: NS
+  tide:
+    station_code: "01620"
+    station_latitude: 45.648764
+    station_longitude: -62.448885
+    station_id: 5cebf1e33d0f4a073c4bc207
+    station_name: Merigomish
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/powells-point
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: pomquet
+  name: Pomquet Beach
+  region: northumberland-shore
+  municipality: Municipality of the County of Antigonish
+  location:
+    latitude: 45.6452
+    longitude: -61.8070
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 320
+    tide_effect: neutral
+  weather:
+    site_code: s0000461
+    site_latitude: 45.62
+    site_longitude: -61.67
+    site_name: Tracadie
+    province: NS
+  tide:
+    station_code: "01590"
+    station_latitude: 45.672456
+    station_longitude: -61.907064
+    station_id: 5cebf1e33d0f4a073c4bc201
+    station_name: Antigonish Harbour
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Change house and vault toilet; boardwalk with beach access mat; supervised swimming July-August
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/pomquet-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: bayfield
+  name: Bayfield Beach
+  region: northumberland-shore
+  municipality: Municipality of the County of Antigonish
+  location:
+    latitude: 45.6412
+    longitude: -61.7585
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: semi-exposed
+    shore_bearing_degrees: 350
+    tide_effect: neutral
+  weather:
+    site_code: s0000461
+    site_latitude: 45.62
+    site_longitude: -61.67
+    site_name: Tracadie
+    province: NS
+  tide:
+    station_code: "01590"
+    station_latitude: 45.672456
+    station_longitude: -61.907064
+    station_id: 5cebf1e33d0f4a073c4bc201
+    station_name: Antigonish Harbour
+    confidence: nearby
+  amenities:
+    note: Supervised swimming on weekends
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/bayfield-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: crystal-crescent
+  name: Crystal Crescent Beach
+  region: halifax-metro
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.4593
+    longitude: -63.6197
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 110
+    tide_effect: neutral
+  weather:
+    site_code: s0000084
+    site_latitude: 44.67
+    site_longitude: -63.56
+    site_name: Halifax (Shearwater)
+    province: NS
+  tide:
+    station_code: "00488"
+    station_latitude: 44.478153
+    station_longitude: -63.599156
+    station_id: 5cebf1df3d0f4a073c4bbcb9
+    station_name: Sambro Harbour
+    confidence: nearby
+  amenities:
+    note: Boardwalks to the first two beaches
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/crystal-crescent-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: rainbow-haven
+  name: Rainbow Haven Beach
+  region: halifax-metro
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6501
+    longitude: -63.4139
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: open-atlantic
+    shore_bearing_degrees: 160
+    tide_effect: neutral
+  weather:
+    site_code: s0000084
+    site_latitude: 44.67
+    site_longitude: -63.56
+    site_name: Halifax (Shearwater)
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.65914
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Supervised swimming July-August (NS Lifesaving Society); change house and flush toilets during serviced season
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/rainbow-haven-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: silver-sands
+  name: Silver Sands Beach
+  region: halifax-metro
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6117
+    longitude: -63.4397
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: semi-exposed
+    shore_bearing_degrees: 140
+    tide_effect: neutral
+  weather:
+    site_code: s0000084
+    site_latitude: 44.67
+    site_longitude: -63.56
+    site_name: Halifax (Shearwater)
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.65914
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: Portable toilet on site; picnic tables and benches; dog-friendly
+  source_urls:
+    official_page: https://silversandspark.ca/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: maccormacks
+  name: MacCormacks Beach
+  region: halifax-metro
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6082
+    longitude: -63.4923
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 225
+    tide_effect: neutral
+  weather:
+    site_code: s0000084
+    site_latitude: 44.67
+    site_longitude: -63.56
+    site_name: Halifax (Shearwater)
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.65914
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: nearby
+  amenities:
+    note: Extensive boardwalk along the shore, adjacent to Fisherman's Cove
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/maccormacks-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: black-rock
+  name: Black Rock Beach
+  region: halifax-metro
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6242
+    longitude: -63.5642
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 110
+    tide_effect: neutral
+  weather:
+    site_code: s0000318
+    site_latitude: 44.65
+    site_longitude: -63.6
+    site_name: Halifax
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.65914
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: nearby
+  source_urls:
+    official_page: https://nsbeaches.com/beach/point-pleasant-park-beach/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: dingle
+  name: Dingle Beach
+  region: halifax-metro
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6291
+    longitude: -63.5956
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 50
+    tide_effect: neutral
+  weather:
+    site_code: s0000318
+    site_latitude: 44.65
+    site_longitude: -63.6
+    site_name: Halifax
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.65914
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: nearby
+  amenities:
+    note: Unsupervised; on-site parking at Sir Sandford Fleming Park
+  source_urls:
+    official_page: https://www.theswimguide.org/beach/5515
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: lawrencetown
+  name: Lawrencetown Beach
+  region: eastern-shore
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6441
+    longitude: -63.3353
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: open-atlantic
+    shore_bearing_degrees: 150
+    tide_effect: neutral
+  weather:
+    site_code: s0000084
+    site_latitude: 44.67
+    site_longitude: -63.56
+    site_name: Halifax (Shearwater)
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.659140
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: regional
+  amenities:
+    note: Supervised swimming July-August; strong rip currents are common
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/lawrencetown-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: martinique
+  name: Martinique Beach
+  region: eastern-shore
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.6901
+    longitude: -63.1067
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 155
+    tide_effect: neutral
+  weather:
+    site_code: s0000084
+    site_latitude: 44.67
+    site_longitude: -63.56
+    site_name: Halifax (Shearwater)
+    province: NS
+  tide:
+    station_code: "00490"
+    station_latitude: 44.659140
+    station_longitude: -63.583386
+    station_id: 5cebf1df3d0f4a073c4bbcbb
+    station_name: Halifax
+    confidence: regional
+  amenities:
+    note: Supervised swimming July-August; boardwalks and picnic areas behind the dunes
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/martinique-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: clamharbour
+  name: Clam Harbour Beach
+  region: eastern-shore
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.7222
+    longitude: -62.8855
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 205
+    tide_effect: neutral
+  weather:
+    site_code: s0000096
+    site_latitude: 44.82
+    site_longitude: -62.56
+    site_name: Beaver Island
+    province: NS
+  tide:
+    station_code: "00497"
+    station_latitude: 44.708858
+    station_longitude: -62.841551
+    station_id: 5cebf1e03d0f4a073c4bbe99
+    station_name: Little Harbour
+    confidence: nearby
+  amenities:
+    note: Picnic area in a field on the bluff above the beach
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/clam-harbour-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: taylorhead
+  name: Taylor Head (Psyche Cove) Beach
+  region: eastern-shore
+  municipality: Halifax Regional Municipality
+  location:
+    latitude: 44.8061
+    longitude: -62.5563
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 285
+    tide_effect: neutral
+  weather:
+    site_code: s0000096
+    site_latitude: 44.82
+    site_longitude: -62.56
+    site_name: Beaver Island
+    province: NS
+  tide:
+    station_code: "00509"
+    station_latitude: 44.837741
+    station_longitude: -62.614059
+    station_id: 5cebf1e03d0f4a073c4bbe9b
+    station_name: Spry Harbour
+    confidence: nearby
+  amenities:
+    note: Hiking trails and secluded beaches along 16 km of undeveloped coastline
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/taylor-head
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: torbay
+  name: Tor Bay Provincial Park Beach
+  region: eastern-shore
+  municipality: Municipality of the District of Guysborough
+  location:
+    latitude: 45.1860
+    longitude: -61.3545
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 130
+    tide_effect: neutral
+  weather:
+    site_code: s0000308
+    site_latitude: 45.34
+    site_longitude: -61.00
+    site_name: Hart Island
+    province: NS
+  tide:
+    station_code: "00540"
+    station_latitude: 45.217684
+    station_longitude: -61.373621
+    station_id: 5cebf1df3d0f4a073c4bbcd5
+    station_name: Larrys River
+    confidence: nearby
+  amenities:
+    note: Picnic area, boardwalks and interpretive displays
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/tor-bay
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: blackduckcove
+  name: Black Duck Cove Beach
+  region: eastern-shore
+  municipality: Municipality of the District of Guysborough
+  location:
+    latitude: 45.2762
+    longitude: -61.0312
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: sheltered-bay
+    shore_bearing_degrees: 155
+    tide_effect: neutral
+  weather:
+    site_code: s0000308
+    site_latitude: 45.34
+    site_longitude: -61.00
+    site_name: Hart Island
+    province: NS
+  tide:
+    station_code: "00555"
+    station_latitude: 45.338236
+    station_longitude: -60.995406
+    station_id: 5cebf1df3d0f4a073c4bbcdb
+    station_name: Canso Harbour
+    confidence: nearby
+  amenities:
+    note: Community-managed day-use park with a 3.5 km shoreline walking trail
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/black-duck-cove
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: portshoreham
+  name: Port Shoreham Beach
+  region: eastern-shore
+  municipality: Municipality of the District of Guysborough
+  location:
+    latitude: 45.4158
+    longitude: -61.4204
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: sheltered-bay
+    shore_bearing_degrees: 135
+    tide_effect: neutral
+  weather:
+    site_code: s0000464
+    site_latitude: 45.39
+    site_longitude: -61.50
+    site_name: Guysborough
+    province: NS
+  tide:
+    station_code: "00563"
+    station_latitude: 45.521378
+    station_longitude: -61.263584
+    station_id: 5cebf1e23d0f4a073c4bc10a
+    station_name: Sand Point
+    confidence: regional
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/port-shoreham-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: inverness
+  name: Inverness Beach
+  region: cape-breton
+  municipality: Municipality of the County of Inverness
+  location:
+    latitude: 46.2379
+    longitude: -61.3074
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 290
+    tide_effect: neutral
+  weather:
+    site_code: s0000405
+    site_latitude: 46.53
+    site_longitude: -61.06
+    site_name: Grand Étang
+    province: NS
+  tide:
+    station_code: "01550"
+    station_latitude: 46.300635
+    station_longitude: -61.257343
+    station_id: 5cebf1e33d0f4a073c4bc1f9
+    station_name: Broad Cove Marsh
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: "Change house, toilets, parking, boardwalk and canteen; supervised July-August 10am-6pm; beach wheelchairs and access mats bookable via the Inverness Visitor Centre."
+  source_urls:
+    official_page: https://novascotia.com/listing/inverness-beach/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: porthood
+  name: Port Hood Station Beach
+  region: cape-breton
+  municipality: Municipality of the County of Inverness
+  location:
+    latitude: 46.0016
+    longitude: -61.5327
+    timezone: America/Halifax
+  classification:
+    surface: sand-and-cobble
+    exposure: semi-exposed
+    shore_bearing_degrees: 250
+    tide_effect: neutral
+  weather:
+    site_code: s0000463
+    site_latitude: 45.86
+    site_longitude: -61.92
+    site_name: Cape George
+    province: NS
+  tide:
+    station_code: "01560"
+    station_latitude: 46.027909
+    station_longitude: -61.545014
+    station_id: 5cebf1e33d0f4a073c4bc1fb
+    station_name: Port Hood
+    confidence: nearby
+  amenities:
+    note: "Popular picnic spot; cobble beach adjacent to white sand beach."
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/port-hood-station
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: westmabou
+  name: West Mabou Beach
+  region: cape-breton
+  municipality: Municipality of the County of Inverness
+  location:
+    latitude: 46.0790
+    longitude: -61.4664
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 315
+    tide_effect: neutral
+  weather:
+    site_code: s0000405
+    site_latitude: 46.53
+    site_longitude: -61.06
+    site_name: Grand Étang
+    province: NS
+  tide:
+    station_code: "01560"
+    station_latitude: 46.027909
+    station_longitude: -61.545014
+    station_id: 5cebf1e33d0f4a073c4bc1fb
+    station_name: Port Hood
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/west-mabou-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: cabotslanding
+  name: Cabots Landing Beach
+  region: cape-breton
+  municipality: Municipality of Victoria County
+  location:
+    latitude: 46.9428
+    longitude: -60.4645
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 70
+    tide_effect: neutral
+  weather:
+    site_code: s0000433
+    site_latitude: 46.69
+    site_longitude: -60.37
+    site_name: Ingonish
+    province: NS
+  tide:
+    station_code: "00638"
+    station_latitude: 46.902499
+    station_longitude: -60.457949
+    station_id: 5cebf1e33d0f4a073c4bc12f
+    station_name: Dingwall
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/cabots-landing
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: ingonish
+  name: Ingonish Beach
+  region: cape-breton
+  municipality: Municipality of Victoria County
+  location:
+    latitude: 46.6495
+    longitude: -60.3904
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 95
+    tide_effect: neutral
+  weather:
+    site_code: s0000433
+    site_latitude: 46.69
+    site_longitude: -60.37
+    site_name: Ingonish
+    province: NS
+  tide:
+    station_code: "00630"
+    station_latitude: 46.629842
+    station_longitude: -60.389685
+    station_id: 5cebf1e33d0f4a073c4bc12d
+    station_name: Ingonish Beach
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: "Public washrooms with accessible stalls, picnic area, playground and tennis courts; surf guards on duty July-August; beach wheelchair and access mat reservable through Parks Canada."
+  source_urls:
+    official_page: https://parks.canada.ca/pn-np/ns/cbreton/activ/baignade-swimming
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: blackbrook
+  name: Black Brook Beach
+  region: cape-breton
+  municipality: Municipality of Victoria County
+  location:
+    latitude: 46.7746
+    longitude: -60.3305
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 115
+    tide_effect: neutral
+  weather:
+    site_code: s0000433
+    site_latitude: 46.69
+    site_longitude: -60.37
+    site_name: Ingonish
+    province: NS
+  tide:
+    station_code: "00635"
+    station_latitude: 46.806867
+    station_longitude: -60.320471
+    station_id: 5cebf1e13d0f4a073c4bbeac
+    station_name: Neils Harbour
+    confidence: nearby
+  amenities:
+    washrooms: true
+    note: "Washrooms, change rooms, kitchen shelter, playground and picnic area; no surf guards on duty."
+  source_urls:
+    official_page: https://parks.canada.ca/pn-np/ns/cbreton/activ/baignade-swimming
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: dominion
+  name: Dominion Beach
+  region: cape-breton
+  municipality: Cape Breton Regional Municipality
+  location:
+    latitude: 46.2207
+    longitude: -60.0402
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 25
+    tide_effect: neutral
+  weather:
+    site_code: s0000670
+    site_latitude: 46.13
+    site_longitude: -60.18
+    site_name: Sydney
+    province: NS
+  tide:
+    station_code: "00610"
+    station_latitude: 46.141358
+    station_longitude: -60.199803
+    station_id: 5cebf1e23d0f4a073c4bc11c
+    station_name: Sydney
+    confidence: regional
+  amenities:
+    note: "Supervised swimming July-August (STC); boardwalks provide beach access and protect the dunes."
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/dominion-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: miragut
+  name: Mira Gut Beach
+  region: cape-breton
+  municipality: Cape Breton Regional Municipality
+  location:
+    latitude: 46.0373
+    longitude: -59.9666
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 55
+    tide_effect: neutral
+  weather:
+    site_code: s0000670
+    site_latitude: 46.13
+    site_longitude: -60.18
+    site_name: Sydney
+    province: NS
+  tide:
+    station_code: "00600"
+    station_latitude: 45.916903
+    station_longitude: -59.971018
+    station_id: 5cebf1e23d0f4a073c4bc118
+    station_name: Louisbourg
+    confidence: regional
+  amenities:
+    note: "Municipal beach park with change houses and boardwalk; supervised July-August 10am-6pm (STC)."
+  source_urls:
+    official_page: https://novascotia.com/listing/mira-gut-beach/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: kennington
+  name: Kennington Cove Beach
+  region: cape-breton
+  municipality: Cape Breton Regional Municipality
+  location:
+    latitude: 45.8759
+    longitude: -60.0572
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 155
+    tide_effect: neutral
+  weather:
+    site_code: s0000020
+    site_latitude: 45.72
+    site_longitude: -60.26
+    site_name: Fourchu Head
+    province: NS
+  tide:
+    station_code: "00600"
+    station_latitude: 45.916903
+    station_longitude: -59.971018
+    station_id: 5cebf1e23d0f4a073c4bc118
+    station_name: Louisbourg
+    confidence: nearby
+  amenities:
+    note: "Unsupervised beach at the Fortress of Louisbourg National Historic Site."
+  source_urls:
+    official_page: https://parks.canada.ca/lhn-nhs/ns/louisbourg/activ/plage-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: pointmichaud
+  name: Point Michaud Beach
+  region: cape-breton
+  municipality: Municipality of the County of Richmond
+  location:
+    latitude: 45.5843
+    longitude: -60.6870
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: open-atlantic
+    shore_bearing_degrees: 160
+    tide_effect: neutral
+  weather:
+    site_code: s0000020
+    site_latitude: 45.72
+    site_longitude: -60.26
+    site_name: Fourchu Head
+    province: NS
+  tide:
+    station_code: "00587"
+    station_latitude: 45.652431
+    station_longitude: -60.869506
+    station_id: 5cebf1e23d0f4a073c4bc116
+    station_name: St Peters Bay
+    confidence: regional
+  amenities:
+    note: "Supervised swimming July-August (STC); some surfing opportunities."
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/point-michaud-beach
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08
+
+- id: pondville
+  name: Pondville Beach
+  region: cape-breton
+  municipality: Municipality of the County of Richmond
+  location:
+    latitude: 45.5383
+    longitude: -60.9779
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 110
+    tide_effect: neutral
+  weather:
+    site_code: s0000307
+    site_latitude: 45.66
+    site_longitude: -60.88
+    site_name: St. Peter's
+    province: NS
+  tide:
+    station_code: "00582"
+    station_latitude: 45.506907
+    station_longitude: -60.961596
+    station_id: 5cebf1e23d0f4a073c4bc112
+    station_name: Petit De Grat
+    confidence: nearby
+  source_urls:
+    official_page: https://parks.novascotia.ca/park/pondville-beach
   coverage:
     status: full
     reviewed_at: 2026-08-08

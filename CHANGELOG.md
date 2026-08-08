@@ -1,5 +1,45 @@
 # Changelog
 
+## 1.1.0 - 2026-08-08
+
+### Added
+
+- Province-wide coverage: 61 new beaches for 75 total, spanning all seven
+  coastal tourism regions from Yarmouth & Acadian Shores to Cape Breton.
+  Every entry is hand-reviewed: verified coordinates, an ECCC weather site
+  and CHS tide station assigned by coastline judgment, shore bearing, and
+  tide effects only where officially documented.
+- Region selector in the subheadline slot. "All regions" groups the list
+  into titled region sections with favourites pinned on top; a single
+  region shows the familiar flat ranked list. The choice sticks via URL
+  and browser storage, defaulting to South Shore.
+- Near me: tapping the crosshair asks the browser for location once,
+  pre-selects the nearest region, sorts beaches by distance with
+  "~N km away" hints, and drops a position dot on the map. Coordinates
+  never leave the browser.
+- Beach pages show their region next to the municipality.
+- Architecture documentation (docs/ARCHITECTURE.md): system and CI
+  diagrams, component map, and the full inventory of external services.
+
+### Changed
+
+- Weather warnings moved out of the banner row above the header. Reasons
+  that already state the warning (heat, thunderstorm risk) now link
+  directly to the ECCC bulletin; only bulletins not covered by a reason
+  render as notices beneath the title, so nothing is ever hidden.
+- Beach name labels on the map hide below zoom 9, keeping the province
+  view readable; zoom in and they return.
+- Map position is remembered per region, so switching regions refits the
+  bounds instead of restoring another region's view.
+- Nearby-food snapshot rebuilt for the whole coast.
+
+### Fixed
+
+- The map no longer renders empty or fitted to the whole world when the
+  page loads in a hidden or background tab; the initial fit now waits for
+  the container to have real dimensions.
+- Ended ECCC bulletins are tagged "Ended" instead of "Watch".
+
 ## 1.0.6 - 2026-08-08
 
 ### Added

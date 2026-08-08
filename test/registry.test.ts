@@ -2,7 +2,12 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { loadBeaches, loadOverrides, loadThresholds } from "../scripts/lib/registry.js";
+import {
+  loadBeaches,
+  loadOverrides,
+  loadThresholds,
+  REGION_IDS,
+} from "../scripts/lib/registry.js";
 
 const configDir = join(__dirname, "..", "config");
 
@@ -27,6 +32,19 @@ describe("beach registry", () => {
     for (const beach of beaches) {
       expect(Math.abs(beach.tide.station_latitude - beach.location.latitude)).toBeLessThan(0.6);
       expect(Math.abs(beach.weather.site_latitude - beach.location.latitude)).toBeLessThan(0.6);
+    }
+  });
+
+  it("assigns every beach a valid tourism region", () => {
+    for (const beach of beaches) {
+      expect(REGION_IDS).toContain(beach.region);
+    }
+  });
+
+  it("covers every tourism region", () => {
+    const covered = new Set(beaches.map((beach) => beach.region));
+    for (const region of REGION_IDS) {
+      expect(covered).toContain(region);
     }
   });
 

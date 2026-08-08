@@ -12,6 +12,7 @@ import {
   formatUpdatedAgo,
   formatWindow,
   isStale,
+  regionLabel,
   STALE_META,
   TIDE_EFFECT_META,
   VERDICT_META,
@@ -275,26 +276,38 @@ function BeachDetail() {
     },
   ].filter((tile) => tile.value !== "–");
 
+  // Warnings the reason line already spells out (heat, active thunderstorms)
+  // link inline instead of getting their own row; anything else still shows
+  // as a notice beneath the title, so no warning is ever hidden.
+  const heatWarning = data.warnings.find((warning) =>
+    /heat/i.test(warning.description),
+  );
+  const thunderWarning = data.warnings.find(
+    (warning) =>
+      /thunder/i.test(warning.description) &&
+      !/ended/i.test(warning.description),
+  );
+  const inlineWarnings = new Set(
+    data.summary.reasons
+      .map((reason) =>
+        reason.kind === "heat"
+          ? heatWarning
+          : reason.kind === "thunder"
+            ? thunderWarning
+            : null,
+      )
+      .filter(Boolean),
+  );
+  const noticeWarnings = data.warnings.filter(
+    (warning) => !inlineWarnings.has(warning),
+  );
+
   return (
-    <Layout right={backLink}>
+    <Layout
+      right={backLink}
+      subtitle={`${regionLabel(data.beach.region)} · ${data.beach.municipality}`}
+    >
       {stale && <StaleBanner generatedAt={data.generatedAt} />}
-
-      {data.warnings.map((warning) => (
-        <Notice
-          key={warning.description}
-          kind={warning.type === "warning" ? "Warning" : "Watch"}
-          url={warning.url}
-        >
-          {warning.description}
-        </Notice>
-      ))}
-
-      {data.advisories.map((advisory) => (
-        <Notice key={advisory.title} kind="Advisory">
-          {advisory.title} — {advisory.message}{" "}
-          <span className="text-neutral-500">({advisory.source})</span>
-        </Notice>
-      ))}
 
       <header className="mb-9">
         <p className="text-[11px] uppercase tracking-[0.14em] text-accent mb-2.5 m-0">
@@ -311,8 +324,54 @@ function BeachDetail() {
           {stale ? "—" : (windowLabel ?? "No good window")}
         </p>
         <p className="text-[15px] text-neutral-400 m-0 mb-4 max-w-[560px]">
-          {data.summary.reasons.map((reason) => reason.text).join(" · ")}
+          {data.summary.reasons.map((reason, index) => {
+            const warningUrl =
+              reason.kind === "heat"
+                ? heatWarning?.url
+                : reason.kind === "thunder"
+                  ? thunderWarning?.url
+                  : null;
+            return (
+              <React.Fragment key={`${reason.kind}-${index}`}>
+                {index > 0 && " · "}
+                {warningUrl ? (
+                  <a
+                    href={warningUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-neutral-400 hover:text-neutral-300 underline underline-offset-2"
+                  >
+                    {reason.text}
+                  </a>
+                ) : (
+                  reason.text
+                )}
+              </React.Fragment>
+            );
+          })}
         </p>
+
+        {noticeWarnings.map((warning) => (
+          <Notice
+            key={warning.description}
+            kind={
+              warning.type === "warning"
+                ? "Warning"
+                : warning.type === "ended"
+                  ? "Ended"
+                  : "Watch"
+            }
+            url={warning.url}
+          >
+            {warning.description}
+          </Notice>
+        ))}
+        {data.advisories.map((advisory) => (
+          <Notice key={advisory.title} kind="Advisory">
+            {advisory.title} — {advisory.message}{" "}
+            <span className="text-neutral-500">({advisory.source})</span>
+          </Notice>
+        ))}
         <div className="flex gap-2.5 items-center flex-wrap mb-6">
           <a
             className="btn btn-primary"

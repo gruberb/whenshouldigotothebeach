@@ -30,6 +30,7 @@ function BeachCard({
   now = new Date(),
   favourite = false,
   onToggleFavourite,
+  distanceKm = null,
 }) {
   const windowLabel = stale ? null : formatWindow(beach.bestWindow, generatedAt);
   const nextTide = (beach.tideEvents ?? []).find(
@@ -104,6 +105,9 @@ function BeachCard({
           </span>
           {beach.water?.sourceKind === "observed-buoy" && (
             <span>Water ~{Math.round(beach.water.valueC)}°C</span>
+          )}
+          {distanceKm !== null && (
+            <span className="ml-auto">~{Math.round(distanceKm)} km away</span>
           )}
         </div>
       </div>

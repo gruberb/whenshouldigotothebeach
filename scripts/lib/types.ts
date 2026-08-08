@@ -5,6 +5,15 @@ export type Exposure =
   | "estuary"
   | "tidal-flat";
 
+export type Region =
+  | "south-shore"
+  | "yarmouth-acadian-shores"
+  | "bay-of-fundy-annapolis-valley"
+  | "northumberland-shore"
+  | "halifax-metro"
+  | "eastern-shore"
+  | "cape-breton";
+
 export type TideEffect =
   | "neutral"
   | "more-sand-at-low"
@@ -15,6 +24,7 @@ export type TideEffect =
 export interface BeachConfig {
   id: string;
   name: string;
+  region: Region;
   municipality: string;
   location: {
     latitude: number;
@@ -256,6 +266,7 @@ export interface BeachOutput {
   beach: {
     id: string;
     name: string;
+    region: Region;
     municipality: string;
     exposure: Exposure;
     surface: string;

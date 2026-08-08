@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
-function Layout({ children, right }) {
+function Layout({ children, right, subtitle }) {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="max-w-[920px] mx-auto px-6 pt-7 w-full flex-1">
@@ -14,9 +14,9 @@ function Layout({ children, right }) {
             >
               When should I go to the beach?
             </Link>
-            <p className="text-[11px] uppercase tracking-[0.1em] text-neutral-500 mt-1.5 m-0">
-              South Shore · Nova Scotia
-            </p>
+            <div className="text-[11px] uppercase tracking-[0.1em] text-neutral-500 mt-1.5">
+              {subtitle ?? "Nova Scotia"}
+            </div>
           </div>
           {right}
         </nav>

@@ -123,6 +123,10 @@
         animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
+    .hide-beach-labels .leaflet-tooltip.beach-label {
+        display: none;
+    }
+
     /* Permanent beach name labels on the map. */
     .leaflet-tooltip.beach-label {
         background: color-mix(in srgb, var(--color-surface) 88%, transparent);

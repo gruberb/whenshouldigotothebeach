@@ -3,13 +3,24 @@ import { parse } from "yaml";
 import { z } from "zod";
 import type { BeachConfig, ManualOverride, Thresholds } from "./types.js";
 
+export const REGION_IDS = [
+  "south-shore",
+  "yarmouth-acadian-shores",
+  "bay-of-fundy-annapolis-valley",
+  "northumberland-shore",
+  "halifax-metro",
+  "eastern-shore",
+  "cape-breton",
+] as const;
+
 const beachSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
+  region: z.enum(REGION_IDS),
   municipality: z.string().min(1),
   location: z.object({
-    latitude: z.number().min(43).max(45.5),
-    longitude: z.number().min(-66.5).max(-63),
+    latitude: z.number().min(43).max(47.2),
+    longitude: z.number().min(-66.6).max(-59.4),
     timezone: z.literal("America/Halifax"),
   }),
   classification: z.object({

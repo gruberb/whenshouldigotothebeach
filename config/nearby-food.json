@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-08T11:39:37.965Z",
+ "fetchedAt": "2026-08-08T19:28:08.281Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -150,14 +150,652 @@
   ],
   "sperrys": [
    {
+    "name": "Petite Riviere General Store",
+    "kind": "store",
+    "distanceKm": 1.7
+   },
+   {
     "name": "Ploughmans Lunch",
     "kind": "bakery",
     "distanceKm": 7.3
+   }
+  ],
+  "eaglehead": [
+   {
+    "name": "Transcotia",
+    "kind": "restaurant",
+    "distanceKm": 5.6
    },
    {
-    "name": "Broad Cove Cafe",
+    "name": "McDonald's",
+    "kind": "takeout",
+    "distanceKm": 9.4
+   }
+  ],
+  "huntspoint": [
+   {
+    "name": "Hunts point market and cafe",
+    "kind": "store",
+    "distanceKm": 0.2
+   },
+   {
+    "name": "Sea Side Seafoods",
+    "kind": "restaurant",
+    "distanceKm": 1.2
+   }
+  ],
+  "sandybay": [],
+  "louishead": [
+   {
+    "name": "AlyKat Restaurant & Lounge",
+    "kind": "restaurant",
+    "distanceKm": 20
+   }
+  ],
+  "lockeport-crescent": [
+   {
+    "name": "AlyKat Restaurant & Lounge",
+    "kind": "restaurant",
+    "distanceKm": 1
+   }
+  ],
+  "roseway": [],
+  "sandypoint": [
+   {
+    "name": "Tim Hortons",
     "kind": "cafe",
+    "distanceKm": 11.1
+   }
+  ],
+  "stoneyisland": [
+   {
+    "name": "Red & White",
+    "kind": "store",
+    "distanceKm": 7.8
+   },
+   {
+    "name": "Capt. Kat's Lobster Shack",
+    "kind": "restaurant",
+    "distanceKm": 8.8
+   }
+  ],
+  "thehawk": [
+   {
+    "name": "Red & White",
+    "kind": "store",
+    "distanceKm": 4.6
+   },
+   {
+    "name": "The salt banker",
+    "kind": "restaurant",
+    "distanceKm": 4.7
+   }
+  ],
+  "port-maitland": [
+   {
+    "name": "Baileys Bakery Seafood & Grill",
+    "kind": "restaurant",
+    "distanceKm": 14
+   },
+   {
+    "name": "Cape View Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 14.2
+   }
+  ],
+  "mavillette": [
+   {
+    "name": "Cape View Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 0.6
+   },
+   {
+    "name": "Tim Hortons",
+    "kind": "cafe",
+    "distanceKm": 13.3
+   }
+  ],
+  "pembroke": [
+   {
+    "name": "The Dinner Plate",
+    "kind": "restaurant",
+    "distanceKm": 5.7
+   },
+   {
+    "name": "KFC",
+    "kind": "takeout",
+    "distanceKm": 6.1
+   }
+  ],
+  "johns-cove": [
+   {
+    "name": "Rudder's Seafood Restaurant & Brewery",
+    "kind": "restaurant",
+    "distanceKm": 10.9
+   },
+   {
+    "name": "Greco Pizza",
+    "kind": "restaurant",
+    "distanceKm": 11
+   }
+  ],
+  "bartletts": [
+   {
+    "name": "Cape View Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 11.1
+   },
+   {
+    "name": "Baileys Bakery Seafood & Grill",
+    "kind": "restaurant",
+    "distanceKm": 16.1
+   }
+  ],
+  "belliveau-cove": [
+   {
+    "name": "La Chuisine Robichaud",
+    "kind": "restaurant",
+    "distanceKm": 18.2
+   },
+   {
+    "name": "Kwikway",
+    "kind": "store",
+    "distanceKm": 19.1
+   }
+  ],
+  "evangeline": [
+   {
+    "name": "Longfellow Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 4.7
+   },
+   {
+    "name": "Grand Pré Convenience",
+    "kind": "store",
+    "distanceKm": 4.7
+   }
+  ],
+  "blue-beach": [
+   {
+    "name": "The Border Diner & Grill",
+    "kind": "restaurant",
+    "distanceKm": 4.6
+   },
+   {
+    "name": "Hantsport Pizzeria & Deli",
+    "kind": "restaurant",
+    "distanceKm": 5.8
+   }
+  ],
+  "kingsport": [
+   {
+    "name": "Tide’s In Canteen",
+    "kind": "restaurant",
+    "distanceKm": 0
+   },
+   {
+    "name": "Art Can Gallery Café",
+    "kind": "cafe",
+    "distanceKm": 5
+   }
+  ],
+  "blomidon": [
+   {
+    "name": "Art Can Gallery Café",
+    "kind": "cafe",
+    "distanceKm": 16
+   },
+   {
+    "name": "The Village Coffeehouse",
+    "kind": "cafe",
+    "distanceKm": 16
+   }
+  ],
+  "scots-bay": [
+   {
+    "name": "The Long Table Social Club",
+    "kind": "restaurant",
+    "distanceKm": 0.8
+   },
+   {
+    "name": "Look Off Family Camping Cafe",
+    "kind": "cafe",
+    "distanceKm": 12.1
+   }
+  ],
+  "margaretsville": [
+   {
+    "name": "Kwik Way",
+    "kind": "store",
+    "distanceKm": 13.2
+   },
+   {
+    "name": "Robin's Donuts",
+    "kind": "takeout",
+    "distanceKm": 14
+   }
+  ],
+  "sandy-cove": [],
+  "savary": [
+   {
+    "name": "Tim Hortons",
+    "kind": "cafe",
+    "distanceKm": 16.3
+   },
+   {
+    "name": "McDonald's",
+    "kind": "takeout",
+    "distanceKm": 16.3
+   }
+  ],
+  "advocate": [],
+  "partridge-island": [
+   {
+    "name": "Tim Hortons",
+    "kind": "cafe",
+    "distanceKm": 4.8
+   },
+   {
+    "name": "Harbour View Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 6.1
+   }
+  ],
+  "burntcoat-head": [
+   {
+    "name": "Robin's Donuts",
+    "kind": "takeout",
+    "distanceKm": 19.9
+   },
+   {
+    "name": "Snappers Bar & Grill",
+    "kind": "restaurant",
+    "distanceKm": 19.9
+   }
+  ],
+  "heather": [
+   {
+    "name": "Cafe/restaurant",
+    "kind": "restaurant",
+    "distanceKm": 12.1
+   },
+   {
+    "name": "Coast II Coast - Amherst Shore",
+    "kind": "store",
+    "distanceKm": 17
+   }
+  ],
+  "northport": [
+   {
+    "name": "Coast II Coast - Amherst Shore",
+    "kind": "store",
+    "distanceKm": 6.3
+   }
+  ],
+  "gulf-shore": [
+   {
+    "name": "Cafe/restaurant",
+    "kind": "restaurant",
+    "distanceKm": 5
+   }
+  ],
+  "blue-sea": [
+   {
+    "name": "McMahons",
+    "kind": "restaurant",
+    "distanceKm": 17
+   },
+   {
+    "name": "Wallace RiteStop",
+    "kind": "store",
+    "distanceKm": 17.2
+   }
+  ],
+  "rushtons": [
+   {
+    "name": "Yap's Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 6.7
+   },
+   {
+    "name": "Meh's Quik Mart",
+    "kind": "store",
+    "distanceKm": 6.7
+   }
+  ],
+  "caribou-munroes": [
+   {
+    "name": "Sharon's Place",
+    "kind": "restaurant",
+    "distanceKm": 8.6
+   },
+   {
+    "name": "Fat Tony's Bar & Grill",
+    "kind": "restaurant",
+    "distanceKm": 8.6
+   }
+  ],
+  "waterside": [
+   {
+    "name": "Shell",
+    "kind": "store",
+    "distanceKm": 10.2
+   },
+   {
+    "name": "Fat Tony's Bar & Grill",
+    "kind": "restaurant",
+    "distanceKm": 13.2
+   }
+  ],
+  "melmerby": [
+   {
+    "name": "Victoria Corner Market",
+    "kind": "store",
+    "distanceKm": 11.7
+   },
+   {
+    "name": "Express Yourself Café",
+    "kind": "cafe",
+    "distanceKm": 11.9
+   }
+  ],
+  "powells-point": [
+   {
+    "name": "Victoria Corner Market",
+    "kind": "store",
+    "distanceKm": 8.5
+   },
+   {
+    "name": "Express Yourself Café",
+    "kind": "cafe",
+    "distanceKm": 11.7
+   }
+  ],
+  "pomquet": [
+   {
+    "name": "Chez Deslauriers",
+    "kind": "restaurant",
+    "distanceKm": 5.4
+   },
+   {
+    "name": "Brosha's Short Stoppe Ltd",
+    "kind": "store",
+    "distanceKm": 12.6
+   }
+  ],
+  "bayfield": [
+   {
+    "name": "Bayside Travel Centre",
+    "kind": "store",
+    "distanceKm": 11.4
+   },
+   {
+    "name": "St Andrews Store",
+    "kind": "store",
+    "distanceKm": 16.1
+   }
+  ],
+  "crystal-crescent": [
+   {
+    "name": "Mishoo's Rite stop",
+    "kind": "store",
+    "distanceKm": 3.5
+   },
+   {
+    "name": "Baba's Pizzeria",
+    "kind": "restaurant",
+    "distanceKm": 16.2
+   }
+  ],
+  "rainbow-haven": [
+   {
+    "name": "Selby's Bunker Coffee and gifts",
+    "kind": "cafe",
+    "distanceKm": 7.9
+   },
+   {
+    "name": "Subway",
+    "kind": "takeout",
     "distanceKm": 8
+   }
+  ],
+  "silver-sands": [
+   {
+    "name": "Subway",
+    "kind": "restaurant",
+    "distanceKm": 5.9
+   },
+   {
+    "name": "Circle K",
+    "kind": "store",
+    "distanceKm": 5.9
+   }
+  ],
+  "maccormacks": [
+   {
+    "name": "Passage Pizza",
+    "kind": "takeout",
+    "distanceKm": 0.4
+   },
+   {
+    "name": "Tim Hortons",
+    "kind": "cafe",
+    "distanceKm": 0.6
+   }
+  ],
+  "black-rock": [
+   {
+    "name": "Point Pleasant Grocery",
+    "kind": "store",
+    "distanceKm": 1.2
+   },
+   {
+    "name": "Jerry's Kwik Way",
+    "kind": "store",
+    "distanceKm": 2.1
+   }
+  ],
+  "dingle": [
+   {
+    "name": "Tart & Soul",
+    "kind": "cafe",
+    "distanceKm": 5.5
+   },
+   {
+    "name": "Zoca",
+    "kind": "takeout",
+    "distanceKm": 5.9
+   }
+  ],
+  "lawrencetown": [
+   {
+    "name": "Seaforth Country Store",
+    "kind": "store",
+    "distanceKm": 9.3
+   },
+   {
+    "name": "Rose and Rooster Bakery",
+    "kind": "cafe",
+    "distanceKm": 10.3
+   }
+  ],
+  "martinique": [
+   {
+    "name": "Martinique Desserterie",
+    "kind": "bakery",
+    "distanceKm": 13.7
+   },
+   {
+    "name": "Noor's Mediterranean",
+    "kind": "restaurant",
+    "distanceKm": 13.7
+   }
+  ],
+  "clamharbour": [
+   {
+    "name": "The Lobster Shack Restaurant",
+    "kind": "restaurant",
+    "distanceKm": 18.7
+   }
+  ],
+  "taylorhead": [
+   {
+    "name": "The Marmalade Café & Coffee Bar",
+    "kind": "cafe",
+    "distanceKm": 18.4
+   }
+  ],
+  "torbay": [
+   {
+    "name": "Seawind Landing Country Inn",
+    "kind": "restaurant",
+    "distanceKm": 13.6
+   }
+  ],
+  "blackduckcove": [
+   {
+    "name": "Co-op Canso",
+    "kind": "store",
+    "distanceKm": 11.1
+   }
+  ],
+  "portshoreham": [
+   {
+    "name": "Hart‘s General Store",
+    "kind": "store",
+    "distanceKm": 7.8
+   },
+   {
+    "name": "Big G's Pizza",
+    "kind": "restaurant",
+    "distanceKm": 15.5
+   }
+  ],
+  "inverness": [
+   {
+    "name": "Whit's Public House",
+    "kind": "restaurant",
+    "distanceKm": 0.4
+   },
+   {
+    "name": "Downstreet Coffee",
+    "kind": "bakery",
+    "distanceKm": 0.9
+   }
+  ],
+  "porthood": [
+   {
+    "name": "Clove Hitch Bistro & Bar",
+    "kind": "restaurant",
+    "distanceKm": 0.8
+   },
+   {
+    "name": "Mabou River Inn",
+    "kind": "restaurant",
+    "distanceKm": 14.1
+   }
+  ],
+  "westmabou": [
+   {
+    "name": "Mabou River Inn",
+    "kind": "restaurant",
+    "distanceKm": 7.2
+   },
+   {
+    "name": "Clove Hitch Bistro & Bar",
+    "kind": "restaurant",
+    "distanceKm": 16.8
+   }
+  ],
+  "cabotslanding": [
+   {
+    "name": "Sea Shack Takeout",
+    "kind": "takeout",
+    "distanceKm": 7.8
+   },
+   {
+    "name": "Morrison's Restaurant and Museum",
+    "kind": "restaurant",
+    "distanceKm": 10.1
+   }
+  ],
+  "ingonish": [
+   {
+    "name": "Main Street Restaurant & Bakery",
+    "kind": "restaurant",
+    "distanceKm": 2
+   },
+   {
+    "name": "Andrew's Pizzeria",
+    "kind": "restaurant",
+    "distanceKm": 2.9
+   }
+  ],
+  "blackbrook": [
+   {
+    "name": "Chowder house",
+    "kind": "restaurant",
+    "distanceKm": 7.1
+   },
+   {
+    "name": "Chowder House Seafood",
+    "kind": "restaurant",
+    "distanceKm": 7.1
+   }
+  ],
+  "dominion": [
+   {
+    "name": "Needs",
+    "kind": "store",
+    "distanceKm": 1.4
+   },
+   {
+    "name": "Al's Dairy",
+    "kind": "store",
+    "distanceKm": 1.5
+   }
+  ],
+  "miragut": [
+   {
+    "name": "Mira River Market",
+    "kind": "store",
+    "distanceKm": 9.1
+   }
+  ],
+  "kennington": [
+   {
+    "name": "King's Bakery / Boulangerie du Roi",
+    "kind": "bakery",
+    "distanceKm": 7
+   },
+   {
+    "name": "Hôtel de la Marine",
+    "kind": "takeout",
+    "distanceKm": 8
+   }
+  ],
+  "pointmichaud": [
+   {
+    "name": "Jiggs",
+    "kind": "restaurant",
+    "distanceKm": 19.1
+   },
+   {
+    "name": "New Orleans Pizza",
+    "kind": "takeout",
+    "distanceKm": 19.7
+   }
+  ],
+  "pondville": [
+   {
+    "name": "La Goélette à Pépé Café",
+    "kind": "cafe",
+    "distanceKm": 5.8
+   },
+   {
+    "name": "The Island Nest",
+    "kind": "restaurant",
+    "distanceKm": 6.1
    }
   ]
  }

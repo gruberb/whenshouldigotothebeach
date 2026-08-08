@@ -1,13 +1,17 @@
 # When should I go to the beach?
 
-A no-nonsense dashboard for good beach times on Nova Scotia's South Shore.
-Sibling site of [isthelclcpoolopen.ca](https://isthelclcpoolopen.ca).
+A no-nonsense dashboard for good beach times on Nova Scotia's coast: 75
+saltwater beaches across all seven tourism regions, from Yarmouth to Cape
+Breton. Sibling site of [isthelclcpoolopen.ca](https://isthelclcpoolopen.ca).
 
 Each beach gets a plain verdict (GO NOW, GOOD LATER, MIXED, NOT GREAT), the
 best continuous window, two or three reasons, an hourly strip for the next 24
 hours, and tide context. Data provenance is always visible: forecasts are
 labelled as forecasts, tide predictions as astronomical predictions, and
 stations show their distance from the sand.
+
+For how the pieces fit together, see
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Data sources
 
@@ -20,8 +24,8 @@ stations show their distance from the sand.
   Beaches without a buoy in defensible range show no reading rather than a
   misleading one.
 - Nearby food: named restaurants, cafes, bakeries, and takeout from
-  OpenStreetMap (Overpass), shown with straight-line distances. Data ©
-  OpenStreetMap contributors.
+  OpenStreetMap (Overpass), shown with road distances (Valhalla routing,
+  ferries excluded). Data © OpenStreetMap contributors.
 - Beach knowledge: `config/beaches.yml`, a hand-reviewed registry of
   coordinates, station assignments, exposure, shore bearing, and documented
   tide behaviour per beach.

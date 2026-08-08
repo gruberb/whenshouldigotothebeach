@@ -219,6 +219,7 @@ async function main() {
       beach: {
         id: beach.id,
         name: beach.name,
+        region: beach.region,
         municipality: beach.municipality,
         exposure: beach.classification.exposure,
         surface: beach.classification.surface,
@@ -294,6 +295,7 @@ async function main() {
     indexEntries.push({
       id: beach.id,
       name: beach.name,
+      region: beach.region,
       municipality: beach.municipality,
       latitude: beach.location.latitude,
       longitude: beach.location.longitude,

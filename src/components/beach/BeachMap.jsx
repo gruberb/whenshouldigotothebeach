@@ -7,11 +7,9 @@ import { scoreColor } from "../../lib/format";
 const TILES = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 const ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
-const VIEW_KEY = "beach-map-view";
-
-function savedView() {
+function savedView(storageKey) {
   try {
-    const raw = sessionStorage.getItem(VIEW_KEY);
+    const raw = sessionStorage.getItem(storageKey);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (
@@ -35,11 +33,12 @@ function savedView() {
 // Markers reuse the hour-strip language: brighter accent = better peak score.
 // Names are permanent labels, a click goes straight to the beach page, and
 // the last map position is kept for the session so Back lands where you were.
-function BeachMap({ beaches, stale }) {
+function BeachMap({ beaches, stale, storageKey = "beach-map-view", userLocation = null }) {
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const layerRef = useRef(null);
+  const fitObserverRef = useRef(null);
 
   useEffect(() => {
     if (!mapRef.current) {
@@ -52,10 +51,21 @@ function BeachMap({ beaches, stale }) {
       L.tileLayer(TILES, { attribution: ATTRIBUTION, maxZoom: 17 }).addTo(
         mapRef.current,
       );
+      // Permanent name labels collide hopelessly at province zoom; a CSS
+      // class hides them until the view is close enough to read them apart.
+      mapRef.current._applyLabelVisibility = () => {
+        containerRef.current?.classList.toggle(
+          "hide-beach-labels",
+          mapRef.current.getZoom() < 9,
+        );
+      };
+      mapRef.current.on("zoomend", () =>
+        mapRef.current._applyLabelVisibility(),
+      );
       mapRef.current.on("moveend", () => {
         const center = mapRef.current.getCenter();
         sessionStorage.setItem(
-          VIEW_KEY,
+          mapRef.current._storageKey ?? storageKey,
           JSON.stringify({
             lat: center.lat,
             lng: center.lng,
@@ -65,6 +75,7 @@ function BeachMap({ beaches, stale }) {
       });
     }
 
+    mapRef.current._storageKey = storageKey;
     if (layerRef.current) {
       layerRef.current.remove();
       layerRef.current = null;
@@ -88,15 +99,36 @@ function BeachMap({ beaches, stale }) {
       marker.on("click", () => navigate(`/beach/${beach.id}`));
       group.addLayer(marker);
     }
+    if (userLocation) {
+      const dot = L.circleMarker([userLocation.lat, userLocation.lng], {
+        radius: 6,
+        color: "#161826",
+        weight: 1.5,
+        fillColor: "#f5f4ff",
+        fillOpacity: 1,
+      });
+      dot.bindTooltip("You", { direction: "top", offset: [0, -6] });
+      group.addLayer(dot);
+    }
     group.addTo(mapRef.current);
     layerRef.current = group;
 
-    // The container gets its height a frame after the lazy component mounts;
-    // sizing the map before that leaves it fitted to a zero-height box.
-    requestAnimationFrame(() => {
+    // The container can measure zero when the fit runs: the lazy chunk mounts
+    // a beat before layout, and hidden or background tabs resolve vh against a
+    // zero-size viewport. Fitting a zero-size map lands on a world view that
+    // never corrects itself. The observer fires once the box has real
+    // dimensions (including on the hidden-to-visible transition), fits, and
+    // unhooks.
+    fitObserverRef.current?.disconnect();
+    const observer = new ResizeObserver(() => {
+      if (!containerRef.current || containerRef.current.clientHeight === 0) {
+        return;
+      }
+      observer.disconnect();
+      if (fitObserverRef.current === observer) fitObserverRef.current = null;
       if (!mapRef.current) return;
       mapRef.current.invalidateSize();
-      const stored = savedView();
+      const stored = savedView(storageKey);
       if (stored) {
         mapRef.current.setView([stored.lat, stored.lng], stored.zoom, {
           animate: false,
@@ -104,11 +136,16 @@ function BeachMap({ beaches, stale }) {
       } else if (beaches.length > 0) {
         mapRef.current.fitBounds(group.getBounds().pad(0.25), { maxZoom: 10 });
       }
+      mapRef.current._applyLabelVisibility();
     });
-  }, [beaches, stale, navigate]);
+    fitObserverRef.current = observer;
+    observer.observe(containerRef.current);
+  }, [beaches, stale, navigate, storageKey, userLocation]);
 
   useEffect(
     () => () => {
+      fitObserverRef.current?.disconnect();
+      fitObserverRef.current = null;
       mapRef.current?.remove();
       mapRef.current = null;
     },
@@ -120,7 +157,7 @@ function BeachMap({ beaches, stale }) {
       ref={containerRef}
       className="card h-[55vh] md:h-[62vh] w-full overflow-hidden"
       role="region"
-      aria-label="Map of South Shore beaches colored by conditions"
+      aria-label="Map of Nova Scotia beaches colored by conditions"
     />
   );
 }

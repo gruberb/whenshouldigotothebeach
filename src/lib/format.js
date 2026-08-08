@@ -98,6 +98,41 @@ export const VERDICT_META = {
 
 export const STALE_META = { label: "Data stale", tag: "tag-neutral" };
 
+// Tourism regions in display order, west-to-east after the home region.
+export const REGION_ORDER = [
+  "south-shore",
+  "yarmouth-acadian-shores",
+  "bay-of-fundy-annapolis-valley",
+  "northumberland-shore",
+  "halifax-metro",
+  "eastern-shore",
+  "cape-breton",
+];
+
+export const REGION_META = {
+  "south-shore": "South Shore",
+  "yarmouth-acadian-shores": "Yarmouth & Acadian Shores",
+  "bay-of-fundy-annapolis-valley": "Bay of Fundy & Annapolis Valley",
+  "northumberland-shore": "Northumberland Shore",
+  "halifax-metro": "Halifax Metro",
+  "eastern-shore": "Eastern Shore",
+  "cape-breton": "Cape Breton",
+};
+
+export function regionLabel(id) {
+  return REGION_META[id] ?? id;
+}
+
+export function haversineKm(lat1, lon1, lat2, lon2) {
+  const toRad = (deg) => (deg * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(a));
+}
+
 // Registry tide_effect values, phrased for beachgoers. bestTide drives the
 // square markers on the tide curve; null means no tide preference to mark.
 export const TIDE_EFFECT_META = {

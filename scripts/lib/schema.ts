@@ -12,6 +12,16 @@ const verdict = z.enum([
   "HAZARDOUS",
 ]);
 
+const region = z.enum([
+  "south-shore",
+  "yarmouth-acadian-shores",
+  "bay-of-fundy-annapolis-valley",
+  "northumberland-shore",
+  "halifax-metro",
+  "eastern-shore",
+  "cape-breton",
+]);
+
 const reason = z.object({
   kind: z.enum([
     "thunder",
@@ -76,6 +86,7 @@ export const beachOutputSchema = z.object({
   beach: z.object({
     id: z.string(),
     name: z.string(),
+    region,
     municipality: z.string(),
     exposure: z.string(),
     surface: z.string(),
@@ -176,6 +187,7 @@ export const beachIndexSchema = z.object({
       z.object({
         id: z.string(),
         name: z.string(),
+        region,
         municipality: z.string(),
         latitude: z.number(),
         longitude: z.number(),
