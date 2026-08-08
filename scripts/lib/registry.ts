@@ -40,6 +40,9 @@ const beachSchema = z.object({
       "reduced-access-at-high",
       "unknown",
     ]),
+    // Same evidence bar as tide_effect: set only where a credible public
+    // source names the beach as a surf spot, never inferred from exposure.
+    surf: z.boolean().optional(),
   }),
   weather: z.object({
     site_code: z.string().regex(/^s\d{7}$/),
@@ -75,12 +78,21 @@ const beachSchema = z.object({
     .optional(),
   source_urls: z.object({
     official_page: z.string().url(),
+    // Required when classification.surf is set (enforced below): the public
+    // source that names the beach as a surf spot.
+    surf_page: z.string().url().optional(),
   }),
   coverage: z.object({
     status: z.string(),
     reviewed_at: z.union([z.string(), z.date()]),
   }),
-});
+}).refine(
+  (beach) => !beach.classification.surf || beach.source_urls.surf_page,
+  {
+    message: "classification.surf requires source_urls.surf_page",
+    path: ["source_urls", "surf_page"],
+  },
+);
 
 // Override timestamps must carry an explicit offset: an offset-less value is
 // parsed in the runner's local timezone, which differs between a dev machine

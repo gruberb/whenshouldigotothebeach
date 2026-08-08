@@ -58,6 +58,7 @@
     exposure: open-atlantic
     shore_bearing_degrees: 140
     tide_effect: more-sand-at-low
+    surf: true
   weather:
     site_code: s0000440
     site_latitude: 44.38
@@ -78,6 +79,7 @@
     buoy_longitude: -63.403
   source_urls:
     official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+    surf_page: https://www.surf-forecast.com/breaks/Hirdles
   coverage:
     status: full
     reviewed_at: 2026-08-07
@@ -135,6 +137,7 @@
     exposure: sheltered-bay
     shore_bearing_degrees: 140
     tide_effect: neutral
+    surf: true
   weather:
     site_code: s0000371
     site_latitude: 44.04
@@ -150,6 +153,7 @@
     confidence: nearby
   source_urls:
     official_page: https://parks.novascotia.ca/park/summerville-beach
+    surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
     reviewed_at: 2026-08-07
@@ -317,6 +321,7 @@
     exposure: open-atlantic
     shore_bearing_degrees: 160
     tide_effect: neutral
+    surf: true
   weather:
     site_code: s0000371
     site_latitude: 44.04
@@ -332,6 +337,7 @@
     confidence: regional
   source_urls:
     official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+    surf_page: https://www.surf-forecast.com/breaks/Cherry-Hill
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -867,6 +873,7 @@
     exposure: semi-exposed
     shore_bearing_degrees: 220
     tide_effect: warmer-incoming-after-low
+    surf: true
   weather:
     site_code: s0000649
     site_latitude: 43.84
@@ -884,6 +891,7 @@
     note: Change rooms; supervised swimming July-August; boardwalk access over the dunes; no picnic tables
   source_urls:
     official_page: https://parks.novascotia.ca/park/mavillette-beach
+    surf_page: https://surfns.com/contests
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1970,6 +1978,7 @@
     exposure: open-atlantic
     shore_bearing_degrees: 150
     tide_effect: neutral
+    surf: true
   weather:
     site_code: s0000084
     site_latitude: 44.67
@@ -1987,6 +1996,7 @@
     note: Supervised swimming July-August; strong rip currents are common
   source_urls:
     official_page: https://parks.novascotia.ca/park/lawrencetown-beach
+    surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2004,6 +2014,7 @@
     exposure: open-atlantic
     shore_bearing_degrees: 155
     tide_effect: neutral
+    surf: true
   weather:
     site_code: s0000084
     site_latitude: 44.67
@@ -2021,6 +2032,7 @@
     note: Supervised swimming July-August; boardwalks and picnic areas behind the dunes
   source_urls:
     official_page: https://parks.novascotia.ca/park/martinique-beach
+    surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2339,6 +2351,7 @@
     exposure: semi-exposed
     shore_bearing_degrees: 95
     tide_effect: neutral
+    surf: true
   weather:
     site_code: s0000433
     site_latitude: 46.69
@@ -2357,6 +2370,7 @@
     note: "Public washrooms with accessible stalls, picnic area, playground and tennis courts; surf guards on duty July-August; beach wheelchair and access mat reservable through Parks Canada."
   source_urls:
     official_page: https://parks.canada.ca/pn-np/ns/cbreton/activ/baignade-swimming
+    surf_page: https://www.surf-forecast.com/breaks/Ingonish-Beach
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2511,6 +2525,7 @@
     exposure: open-atlantic
     shore_bearing_degrees: 160
     tide_effect: neutral
+    surf: true
   weather:
     site_code: s0000020
     site_latitude: 45.72
@@ -2528,6 +2543,7 @@
     note: "Supervised swimming July-August (STC); some surfing opportunities."
   source_urls:
     official_page: https://parks.novascotia.ca/park/point-michaud-beach
+    surf_page: https://novascotia.com/listing/point-michaud-beach-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08

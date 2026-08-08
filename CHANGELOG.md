@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.2.0 - 2026-08-08
+
+### Added
+
+- Category filters beneath the search bar: Washrooms, Water temp (beaches
+  with a live buoy reading), and Surf. Chips compose with region, search,
+  and the map view, and live in the URL so filtered views can be shared.
+- Surf category: eight beaches are flagged as documented surf spots, each
+  requiring a public source in the registry (Tourism Nova Scotia names
+  Lawrencetown, Martinique, and Summerville; the Point Michaud provincial
+  park listing is tagged Surfing; Mavillette hosts a Surfing Association of
+  Nova Scotia contest; Ingonish, Cherry Hill, and Hirtle's appear in two
+  independent surf databases each). Surf beaches show a "Surf spot" tile on
+  their page. Expert-only reef breaks are deliberately excluded.
+
+### Changed
+
+- Homepage header redesigned: full-width title, a region picker with
+  per-region beach counts, a search field with icon and accent focus ring,
+  a boxed Near-me button, an icon List/Map segmented control, and pill
+  filter chips with icons.
+
 ## 1.1.1 - 2026-08-08
 
 ### Changed

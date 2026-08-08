@@ -6,6 +6,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import BeachCard from "../components/beach/BeachCard";
+import HomeHeader from "../components/common/HomeHeader";
 import Layout from "../components/common/Layout";
 import Loading from "../components/common/Loading";
 import StaleBanner from "../components/common/StaleBanner";
@@ -29,28 +30,26 @@ const BeachMap = lazy(() => import("../components/beach/BeachMap"));
 const REGION_STORAGE = "beach-region";
 const REGION_EXPLICIT = "region-explicit";
 
+// Category chips compose with region and search (AND semantics).
+const CATEGORY_FILTERS = [
+  {
+    id: "washrooms",
+    label: "Washrooms",
+    icon: "ph-toilet",
+    test: (b) => b.washrooms === true,
+  },
+  {
+    id: "water",
+    label: "Water temp",
+    icon: "ph-thermometer-simple",
+    test: (b) => b.water?.valueC != null,
+  },
+  { id: "surf", label: "Surf", icon: "ph-waves", test: (b) => b.surf === true },
+];
+
 function storedRegion() {
   const value = localStorage.getItem(REGION_STORAGE);
   return value === "all" || REGION_META[value] ? value : null;
-}
-
-function Crosshair({ active }) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      width="15"
-      height="15"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-      aria-hidden="true"
-    >
-      <circle cx="8" cy="8" r="4.5" />
-      <circle cx="8" cy="8" r="1" fill={active ? "currentColor" : "none"} />
-      <path d="M8 0.8v2.4M8 12.8v2.4M0.8 8h2.4M12.8 8h2.4" />
-    </svg>
-  );
 }
 
 function SectionHeading({ children }) {
@@ -104,12 +103,15 @@ function Home() {
     if (saved) window.scrollTo(0, Number(saved));
   }, [data, navigationType, location.key]);
 
-  // View, query, and region live in the URL so Back restores them; the last
-  // region choice is also remembered across visits.
+  // View, query, region, and category filters live in the URL so Back
+  // restores them; the last region choice is also remembered across visits.
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const view = searchParams.get("view") === "map" ? "map" : "list";
   const urlRegion = searchParams.get("region");
+  const activeFilters = (searchParams.get("only") ?? "")
+    .split(",")
+    .filter((id) => CATEGORY_FILTERS.some((f) => f.id === id));
   const region =
     urlRegion === "all" || REGION_META[urlRegion]
       ? urlRegion
@@ -197,11 +199,15 @@ function Home() {
       ? sorted
       : sorted.filter((beach) => beach.region === region);
   const needle = query.trim().toLowerCase();
-  const filtered = needle
+  const searched = needle
     ? inRegion.filter((beach) =>
         `${beach.name} ${beach.municipality}`.toLowerCase().includes(needle),
       )
     : inRegion;
+  const filtered = activeFilters.reduce(
+    (list, id) => list.filter(CATEGORY_FILTERS.find((f) => f.id === id).test),
+    searched,
+  );
 
   // Region sections apply on the All-regions list without location; a
   // proximity sort is the point of Near me, so it flattens the grouping.
@@ -232,74 +238,39 @@ function Home() {
     />
   );
 
-  const regionDropdown = (
-    <select
-      value={region}
-      onChange={(event) => chooseRegion(event.target.value)}
-      aria-label="Region"
-      className="bg-transparent text-[11px] uppercase tracking-[0.1em] text-neutral-400 hover:text-neutral-200 border-0 p-0 pr-4 cursor-pointer appearance-none"
-      style={{
-        backgroundImage:
-          "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0h8L4 5z' fill='%239397ab'/%3E%3C/svg%3E\")",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "right center",
-      }}
-    >
-      {presentRegions.map((id) => (
-        <option key={id} value={id}>
-          {regionLabel(id)}
-        </option>
-      ))}
-      <option value="all">All regions</option>
-    </select>
-  );
+  const regionOptions = [
+    ...presentRegions.map((id) => {
+      const count = data.beaches.filter((b) => b.region === id).length;
+      return { id, label: regionLabel(id), count: `${count} beaches` };
+    }),
+    { id: "all", label: "All regions", count: `${data.beaches.length} beaches` },
+  ];
 
   return (
-    <Layout subtitle={regionDropdown}>
-      {stale && <StaleBanner generatedAt={data.generatedAt} />}
-
-      <div className="flex gap-2.5 mb-4">
-        <input
-          type="search"
-          value={query}
-          onChange={(event) => update("q", event.target.value, "")}
-          placeholder="Search beaches…"
-          aria-label="Search beaches by name or municipality"
-          className="card flex-1 min-w-0 px-3.5 py-2 text-sm text-noct-text placeholder:text-neutral-600 border-0"
+    <Layout
+      header={
+        <HomeHeader
+          regions={regionOptions}
+          region={region}
+          onRegionChange={chooseRegion}
+          query={query}
+          onQueryChange={(value) => update("q", value, "")}
+          view={view}
+          onViewChange={(value) => update("view", value, "list")}
+          filterOptions={CATEGORY_FILTERS}
+          activeFilters={activeFilters}
+          onToggleFilter={(id) => {
+            const next = activeFilters.includes(id)
+              ? activeFilters.filter((f) => f !== id)
+              : [...activeFilters, id];
+            update("only", next.join(","), "");
+          }}
+          locateActive={Boolean(userLocation)}
+          onLocate={() => (userLocation ? clearLocation() : requestLocation())}
         />
-        <button
-          type="button"
-          aria-pressed={Boolean(userLocation)}
-          aria-label={
-            userLocation ? "Stop sorting by distance" : "Sort by distance to me"
-          }
-          title={userLocation ? "Sorting by distance" : "Near me"}
-          onClick={() => (userLocation ? clearLocation() : requestLocation())}
-          className={`btn shrink-0 ${userLocation ? "btn-primary" : "btn-secondary"}`}
-        >
-          <Crosshair active={Boolean(userLocation)} />
-        </button>
-        <div className="flex shrink-0" role="tablist" aria-label="View">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={view === "list"}
-            onClick={() => update("view", "list", "list")}
-            className={`btn rounded-r-none ${view === "list" ? "btn-primary" : "btn-secondary"}`}
-          >
-            List
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={view === "map"}
-            onClick={() => update("view", "map", "list")}
-            className={`btn rounded-l-none ${view === "map" ? "btn-primary" : "btn-secondary"}`}
-          >
-            Map
-          </button>
-        </div>
-      </div>
+      }
+    >
+      {stale && <StaleBanner generatedAt={data.generatedAt} />}
 
       {locationStatus === "denied" && (
         <p className="text-[12px] text-neutral-500 -mt-2 mb-3">
@@ -314,8 +285,12 @@ function Home() {
 
       {filtered.length === 0 && (
         <p className="text-sm text-neutral-500 py-6">
-          No beaches match{needle ? ` "${query.trim()}"` : ""} in{" "}
-          {region === "all" ? "any region" : regionLabel(region)}.
+          No beaches match{needle ? ` "${query.trim()}"` : ""}
+          {activeFilters.length > 0 &&
+            ` with ${activeFilters
+              .map((id) => CATEGORY_FILTERS.find((f) => f.id === id).label.toLowerCase())
+              .join(" + ")}`}{" "}
+          in {region === "all" ? "any region" : regionLabel(region)}.
         </p>
       )}
 

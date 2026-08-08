@@ -36,6 +36,7 @@ export interface BeachConfig {
     exposure: Exposure;
     shore_bearing_degrees: number;
     tide_effect: TideEffect;
+    surf?: boolean;
   };
   weather: {
     site_code: string;
@@ -65,6 +66,7 @@ export interface BeachConfig {
   };
   source_urls: {
     official_page: string;
+    surf_page?: string;
   };
   coverage: {
     status: string;
@@ -271,6 +273,7 @@ export interface BeachOutput {
     exposure: Exposure;
     surface: string;
     tideEffect: TideEffect;
+    surf: boolean;
     latitude: number;
     longitude: number;
     officialPage: string;

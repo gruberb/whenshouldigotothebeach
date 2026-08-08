@@ -48,6 +48,18 @@ describe("beach registry", () => {
     }
   });
 
+  it("flags surf beaches only with a documenting source", () => {
+    const surf = beaches.filter((b) => b.classification.surf);
+    expect(surf.length).toBeGreaterThanOrEqual(5);
+    for (const beach of surf) {
+      expect(beach.source_urls.surf_page).toMatch(/^https:\/\//);
+    }
+    const flagged = new Set(surf.map((b) => b.id));
+    for (const id of ["lawrencetown", "martinique", "pointmichaud"]) {
+      expect(flagged).toContain(id);
+    }
+  });
+
   it("keeps water buoy assignments optional and well-formed", () => {
     const withWater = beaches.filter((b) => b.water);
     expect(withWater.length).toBeGreaterThanOrEqual(1);

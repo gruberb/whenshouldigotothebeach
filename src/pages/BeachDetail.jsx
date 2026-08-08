@@ -108,6 +108,14 @@ function profileTiles(beach) {
   tiles.push({ ...exposure, title: "Exposure" });
   const tide = TIDE_TILE_META[beach.tideEffect];
   if (tide) tiles.push({ ...tide, title: "Tide effect" });
+  // Phosphor has no surfboard glyph; the board-stance figure is the
+  // closest readable stand-in next to the label.
+  if (beach.surf)
+    tiles.push({
+      icon: "ph-person-simple-snowboard",
+      label: "Surf spot",
+      title: "Surf",
+    });
   if (beach.amenities?.washrooms === true)
     tiles.push({ icon: "ph-toilet", label: "Washrooms", title: "Amenities" });
   if (beach.amenities?.food === true)
