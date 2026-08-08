@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Privacy-friendly analytics (self-hosted Plausible).
+
 ## 1.0.0 - 2026-08-08
 
 First release of whenshouldigotothebeach.ca.
