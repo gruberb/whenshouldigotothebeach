@@ -1,10 +1,16 @@
 # Changelog
 
-## Unreleased
+## 1.0.1 - 2026-08-08
 
 ### Added
 
 - Privacy-friendly analytics (self-hosted Plausible).
+
+### Changed
+
+- Header: larger wordmark with the region as a subheadline beneath it,
+  freeing horizontal space on small screens.
+- Removed the best-bet hero from the homepage; the ranked list now leads.
 
 ## 1.0.0 - 2026-08-08
 
