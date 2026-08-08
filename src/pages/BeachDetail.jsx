@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import HourStrip from "../components/beach/HourStrip";
 import TideCurve from "../components/beach/TideCurve";
 import Layout from "../components/common/Layout";
@@ -13,10 +13,110 @@ import {
   formatWindow,
   isStale,
   STALE_META,
-  surfaceLabel,
   TIDE_EFFECT_META,
   VERDICT_META,
 } from "../lib/format";
+
+function SectionLabel({ children, className = "" }) {
+  return (
+    <p
+      className={`text-[11px] uppercase tracking-[0.1em] text-neutral-500 m-0 mb-2 ${className}`}
+    >
+      {children}
+    </p>
+  );
+}
+
+function SquareTile({ icon, label, meta, title, href }) {
+  const inner = (
+    <>
+      <i className={`ph ${icon} text-[22px] text-accent-300`} />
+      <span className="text-[11.5px] text-neutral-300 leading-tight">
+        {label}
+      </span>
+      {meta && <span className="text-[10.5px] text-neutral-500">{meta}</span>}
+    </>
+  );
+  const cls =
+    "card flex flex-col items-center gap-2 text-center px-2.5 py-3.5 no-underline";
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className={`${cls} w-[172px]`}
+      >
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <div className={`${cls} w-[108px]`} title={title}>
+      {inner}
+    </div>
+  );
+}
+
+const SURFACE_META = {
+  sand: { icon: "ph-grains", label: "Sand" },
+  "sand-and-cobble": { icon: "ph-circles-three", label: "Sand & cobble" },
+  cobble: { icon: "ph-circles-three", label: "Cobble" },
+  rock: { icon: "ph-mountains", label: "Rocky" },
+};
+const EXPOSURE_META = {
+  "open-atlantic": { icon: "ph-waves", label: "Open Atlantic" },
+  "sheltered-bay": { icon: "ph-shield-check", label: "Sheltered bay" },
+  "semi-exposed": { icon: "ph-waves", label: "Semi-exposed" },
+  estuary: { icon: "ph-arrows-merge", label: "Estuary" },
+  "tidal-flat": { icon: "ph-arrows-out-line-horizontal", label: "Tidal flat" },
+};
+const TIDE_TILE_META = {
+  "more-sand-at-low": { icon: "ph-arrow-line-down", label: "Best at low tide" },
+  "warmer-incoming-after-low": {
+    icon: "ph-thermometer-simple",
+    label: "Warmer on incoming",
+  },
+  "reduced-access-at-high": {
+    icon: "ph-warning",
+    label: "Limited access at high tide",
+  },
+};
+const NEARBY_ICONS = {
+  restaurant: "ph-fork-knife",
+  store: "ph-storefront",
+  cafe: "ph-coffee",
+  bakery: "ph-bread",
+  takeout: "ph-hamburger",
+  deli: "ph-cheese",
+};
+
+function profileTiles(beach) {
+  const tiles = [];
+  const surface =
+    SURFACE_META[beach.surface] ?? {
+      icon: "ph-grains",
+      label: beach.surface.replaceAll("-", " "),
+    };
+  tiles.push({ ...surface, title: "Beach surface" });
+  const exposure =
+    EXPOSURE_META[beach.exposure] ?? {
+      icon: "ph-waves",
+      label: beach.exposure.replaceAll("-", " "),
+    };
+  tiles.push({ ...exposure, title: "Exposure" });
+  const tide = TIDE_TILE_META[beach.tideEffect];
+  if (tide) tiles.push({ ...tide, title: "Tide effect" });
+  if (beach.amenities?.washrooms === true)
+    tiles.push({ icon: "ph-toilet", label: "Washrooms", title: "Amenities" });
+  if (beach.amenities?.food === true)
+    tiles.push({
+      icon: "ph-fork-knife",
+      label: "Food nearby",
+      title: "Amenities",
+    });
+  return tiles;
+}
 
 function ConditionTile({ label, value, detail }) {
   return (
@@ -57,10 +157,20 @@ function BeachDetail() {
   const { beachId } = useParams();
   const { data, error, loading } = useBeachDetail(beachId);
   const now = useNow();
+  const navigate = useNavigate();
 
+  // Going back through history keeps the homepage's view, search, and scroll;
+  // a plain link to "/" would reset all of it. Direct landings (no in-app
+  // history) still fall back to the homepage.
   const backLink = (
     <Link
       to="/"
+      onClick={(event) => {
+        if (window.history.state?.idx > 0) {
+          event.preventDefault();
+          navigate(-1);
+        }
+      }}
       className="text-[13px] text-accent-300 hover:text-accent-200 no-underline"
     >
       ← All beaches
@@ -101,10 +211,11 @@ function BeachDetail() {
     (e) => Date.parse(e.time) > now.getTime(),
   );
   const amenities = data.beach.amenities ?? {};
-  const amenityTags = [
-    amenities.washrooms === true ? "Washrooms" : null,
-    amenities.food === true ? "Food nearby" : null,
-  ].filter(Boolean);
+  const nearby = (data.nearbyFood ?? []).map((place) => ({
+    ...place,
+    icon: NEARBY_ICONS[place.kind] ?? "ph-fork-knife",
+    mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${place.name} Nova Scotia`)}`,
+  }));
   const officialHost = (() => {
     try {
       return new URL(data.beach.officialPage).hostname.replace(/^www\./, "");
@@ -117,6 +228,52 @@ function BeachDetail() {
   )}`;
   const tideMeta =
     TIDE_EFFECT_META[data.beach.tideEffect] ?? TIDE_EFFECT_META.neutral;
+
+  const conditionTiles = [
+    {
+      label: "Air",
+      value:
+        currentHour && currentHour.temperatureC !== null
+          ? `${Math.round(currentHour.temperatureC)}°C`
+          : "–",
+      detail: currentHour?.condition,
+    },
+    {
+      label: "Water",
+      value:
+        data.water.sourceKind === "observed-buoy"
+          ? `~${Math.round(data.water.valueC)}°C`
+          : "–",
+      detail:
+        data.water.sourceKind === "observed-buoy"
+          ? `Buoy ${data.water.distanceKm} km away · ${formatUpdatedAgo(data.water.observedAt, now)}`
+          : "No measurement nearby",
+    },
+    {
+      label: "Wind",
+      value:
+        currentHour && currentHour.windKmh !== null
+          ? `${currentHour.windDirection ?? ""} ${Math.round(currentHour.windKmh)} km/h`.trim()
+          : "–",
+      detail: currentHour?.windRelation ?? undefined,
+    },
+    {
+      label: "Next tide",
+      value: nextTide
+        ? `${nextTide.type === "high" ? "High" : "Low"} ${formatTime(nextTide.time)}`
+        : "–",
+      detail: nextTide
+        ? `${nextTide.heightM.toFixed(1)} m predicted`
+        : undefined,
+    },
+    {
+      label: "Confidence",
+      value:
+        data.summary.confidence.charAt(0).toUpperCase() +
+        data.summary.confidence.slice(1),
+      detail: `Weather ${data.weatherSource.distanceKm} km away`,
+    },
+  ].filter((tile) => tile.value !== "–");
 
   return (
     <Layout right={backLink}>
@@ -141,7 +298,7 @@ function BeachDetail() {
 
       <header className="mb-9">
         <p className="text-[11px] uppercase tracking-[0.14em] text-accent mb-2.5 m-0">
-          {meta.label} · {data.beach.municipality}
+          {meta.label}
         </p>
         <h1 className="font-display font-medium text-3xl md:text-[38px] leading-tight m-0 mb-1.5">
           {data.beach.name}
@@ -153,12 +310,10 @@ function BeachDetail() {
         >
           {stale ? "—" : (windowLabel ?? "No good window")}
         </p>
-        <ul className="text-[15px] text-neutral-400 mb-5 p-0 list-none grid gap-1">
-          {data.summary.reasons.map((reason) => (
-            <li key={reason.text}>· {reason.text}</li>
-          ))}
-        </ul>
-        <div className="flex gap-2.5 items-center flex-wrap">
+        <p className="text-[15px] text-neutral-400 m-0 mb-4 max-w-[560px]">
+          {data.summary.reasons.map((reason) => reason.text).join(" · ")}
+        </p>
+        <div className="flex gap-2.5 items-center flex-wrap mb-6">
           <a
             className="btn btn-primary"
             href={`https://www.google.com/maps/dir/?api=1&destination=${data.beach.latitude},${data.beach.longitude}`}
@@ -167,82 +322,43 @@ function BeachDetail() {
           >
             Directions →
           </a>
-          <span className="tag tag-neutral">
-            {surfaceLabel(data.beach.surface)}
-          </span>
-          <span className="tag tag-neutral">{tideMeta.label}</span>
-          {amenityTags.map((tag) => (
-            <span key={tag} className="tag tag-neutral">
-              {tag}
-            </span>
+        </div>
+
+        <SectionLabel>The beach</SectionLabel>
+        <div className="flex gap-3 flex-wrap">
+          {profileTiles(data.beach).map((tile) => (
+            <SquareTile key={tile.label} {...tile} />
           ))}
         </div>
         {amenities.note && (
-          <p className="text-[13px] text-neutral-500 mt-3 m-0 max-w-[560px]">
+          <p className="text-[12.5px] text-neutral-500 mt-2.5 m-0 max-w-[560px]">
             {amenities.note}
           </p>
         )}
-        {data.nearbyFood?.length > 0 && (
-          <p className="text-[13px] text-neutral-500 mt-1.5 m-0 max-w-[560px]">
-            Food nearby:{" "}
-            {data.nearbyFood
-              .map((f) => `${f.name} (${f.kind}, ${f.distanceKm} km)`)
-              .join(" · ")}
-          </p>
+
+        {nearby.length > 0 && (
+          <>
+            <SectionLabel className="mt-4">Nearby</SectionLabel>
+            <div className="flex gap-3 flex-wrap">
+              {nearby.map((place) => (
+                <SquareTile
+                  key={place.name}
+                  icon={place.icon}
+                  label={place.name}
+                  meta={`${place.kind.charAt(0).toUpperCase() + place.kind.slice(1)} · ${place.distanceKm} km`}
+                  href={place.mapsUrl}
+                />
+              ))}
+            </div>
+          </>
         )}
       </header>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-7">
-        <ConditionTile
-          label="Air"
-          value={
-            currentHour?.temperatureC !== null && currentHour !== undefined
-              ? `${Math.round(currentHour.temperatureC)}°C`
-              : "–"
-          }
-          detail={currentHour?.condition}
-        />
-        <ConditionTile
-          label="Water"
-          value={
-            data.water.sourceKind === "observed-buoy"
-              ? `~${Math.round(data.water.valueC)}°C`
-              : "–"
-          }
-          detail={
-            data.water.sourceKind === "observed-buoy"
-              ? `Buoy ${data.water.distanceKm} km away · ${formatUpdatedAgo(data.water.observedAt, now)}`
-              : "No measurement nearby"
-          }
-        />
-        <ConditionTile
-          label="Wind"
-          value={
-            currentHour?.windKmh !== null && currentHour !== undefined
-              ? `${currentHour.windDirection ?? ""} ${Math.round(currentHour.windKmh)} km/h`.trim()
-              : "–"
-          }
-          detail={currentHour?.windRelation ?? undefined}
-        />
-        <ConditionTile
-          label="Next tide"
-          value={
-            nextTide
-              ? `${nextTide.type === "high" ? "High" : "Low"} ${formatTime(nextTide.time)}`
-              : "–"
-          }
-          detail={
-            nextTide ? `${nextTide.heightM.toFixed(1)} m predicted` : undefined
-          }
-        />
-        <ConditionTile
-          label="Confidence"
-          value={
-            data.summary.confidence.charAt(0).toUpperCase() +
-            data.summary.confidence.slice(1)
-          }
-          detail={`Weather ${data.weatherSource.distanceKm} km away`}
-        />
+      <SectionLabel>Conditions</SectionLabel>
+      <div className="grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-3 mb-7">
+        {conditionTiles.map((tile) => (
+          <ConditionTile key={tile.label} {...tile} />
+        ))}
       </div>
 
       <section className="mb-7">
@@ -300,7 +416,7 @@ function BeachDetail() {
             Tides: Canadian Hydrographic Service prediction, station{" "}
             {data.tides.stationName} ({data.tides.stationCode}),{" "}
             {data.tides.distanceKm} km away. Astronomical prediction, not a
-            live observation.
+            live observation. Not for navigation.
           </p>
           <p className="m-0">
             {data.water.sourceKind === "observed-buoy"
@@ -308,8 +424,8 @@ function BeachDetail() {
               : "Water temperature: no buoy close enough to this beach for a meaningful reading."}
           </p>
           <p className="m-0">
-            Nearby food: OpenStreetMap contributors, straight-line distances
-            from the beach coordinates.
+            Nearby food: OpenStreetMap contributors; road distances with
+            ferries avoided.
           </p>
           <p className="m-0">
             Beach profile: {data.beach.exposure}, {data.beach.surface}

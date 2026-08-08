@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.0.5 - 2026-08-08
+
+### Added
+
+- Search on the homepage, filtering by beach name or municipality.
+- Map view: dark Leaflet map with all beaches as accent markers (brighter =
+  better conditions), permanent name labels, and click-through to beach
+  pages. Loads lazily so the homepage stays light.
+- Favourites: a star on each card pins beaches to the top of the list,
+  stored in the browser. Starring animates the reorder via the View
+  Transitions API, with reduced-motion and older browsers falling back to
+  an instant reorder.
+
+### Changed
+
+- Beach pages redesigned: profile tiles with icons for surface, exposure,
+  tide preference, and amenities; nearby food as tappable cards linking to
+  the place on Google Maps; a Conditions section that hides tiles with no
+  value; reasons on one line under the window.
+- Back navigation now restores the homepage view (list or map), search
+  query, scroll position, and map position instead of resetting.
+- Header divider spacing tightened above the controls.
+
+### Fixed
+
+- Map tiles no longer render washed out: Leaflet's tile fade never
+  completed inside the lazily mounted container and left tiles at low
+  opacity.
+
 ## 1.0.4 - 2026-08-08
 
 ### Added

@@ -5,7 +5,32 @@ import HourStrip from "./HourStrip";
 import ReasonIcon from "./ReasonIcon";
 import VerdictBadge from "./VerdictBadge";
 
-function BeachCard({ beach, hourly, generatedAt, stale, now = new Date() }) {
+function Star({ filled }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      width="16"
+      height="16"
+      fill={filled ? "currentColor" : "none"}
+      stroke="currentColor"
+      strokeWidth="1.3"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M8 1.8 9.9 5.7l4.3.6-3.1 3 .7 4.2L8 11.5l-3.8 2 .7-4.2-3.1-3 4.3-.6z" />
+    </svg>
+  );
+}
+
+function BeachCard({
+  beach,
+  hourly,
+  generatedAt,
+  stale,
+  now = new Date(),
+  favourite = false,
+  onToggleFavourite,
+}) {
   const windowLabel = stale ? null : formatWindow(beach.bestWindow, generatedAt);
   const nextTide = (beach.tideEvents ?? []).find(
     (event) => Date.parse(event.time) > now.getTime(),
@@ -14,8 +39,32 @@ function BeachCard({ beach, hourly, generatedAt, stale, now = new Date() }) {
   return (
     <Link
       to={`/beach/${beach.id}`}
-      className="card block no-underline text-noct-text p-4 md:p-5 grid md:grid-cols-[250px_1fr] gap-3 md:gap-7 items-start"
+      style={{ viewTransitionName: `beach-${beach.id}` }}
+      className="card relative block no-underline text-noct-text p-4 md:p-5 grid md:grid-cols-[250px_1fr] gap-3 md:gap-7 items-start"
     >
+      {onToggleFavourite && (
+        <button
+          type="button"
+          aria-pressed={favourite}
+          aria-label={
+            favourite
+              ? `Remove ${beach.name} from favourites`
+              : `Add ${beach.name} to favourites`
+          }
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onToggleFavourite(beach.id);
+          }}
+          className={`absolute top-3 right-3 p-1.5 rounded-md ${
+            favourite
+              ? "text-accent-400"
+              : "text-neutral-600 hover:text-neutral-300"
+          }`}
+        >
+          <Star filled={favourite} />
+        </button>
+      )}
       <div className="flex flex-col gap-1.5 items-start">
         <VerdictBadge verdict={beach.verdict} stale={stale} />
         <h2 className="font-display font-medium text-xl mt-1.5 mb-0">

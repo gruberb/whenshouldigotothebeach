@@ -117,6 +117,54 @@
         background: color-mix(in srgb, var(--color-text) 7%, transparent);
     }
 
+    /* Card reordering (favourites) rides the View Transitions API. */
+    ::view-transition-group(*) {
+        animation-duration: 320ms;
+        animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Permanent beach name labels on the map. */
+    .leaflet-tooltip.beach-label {
+        background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+        color: var(--color-text);
+        border: 1px solid #3f424d;
+        border-radius: 6px;
+        padding: 2px 8px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 11px;
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    .leaflet-tooltip.beach-label::before {
+        display: none;
+    }
+
+    /* Leaflet popups on the Nocturne surface. */
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+        background: var(--color-surface);
+        color: var(--color-text);
+        box-shadow: 0 0 0 1px #3f424d, 0 6px 18px rgba(0, 0, 0, 0.55);
+    }
+
+    .leaflet-popup-content {
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .leaflet-popup-content a {
+        color: var(--color-accent);
+    }
+
+    /* Doubled class beats leaflet.css, which loads unlayered after this
+       sheet from the lazy map chunk. */
+    .leaflet-container.leaflet-container {
+        background: var(--color-bg);
+        font-family: "Inter", system-ui, sans-serif;
+    }
+
     /* Nocturne rule: fades to transparent at its ends, over 48px a side. */
     .rule {
         height: 1px;

@@ -20,7 +20,7 @@ function Layout({ children, right }) {
           </div>
           {right}
         </nav>
-        <div className="rule mb-9" />
+        <div className="rule mb-6" />
         <main>{children}</main>
         <Footer />
       </div>
