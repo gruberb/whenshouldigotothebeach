@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.6 - 2026-08-08
+
+### Added
+
+- Sperry's Beach (Petite Riviere), the fourteenth beach: estuary at the
+  river mouth across from Rissers, firm sand and shallow water at low tide,
+  with the channel-current hazard noted on the page.
+
+### Fixed
+
+- Nearby tiles fit two per row on narrow screens instead of wrapping.
+
 ## 1.0.5 - 2026-08-08
 
 ### Added

@@ -147,6 +147,18 @@
     "kind": "bakery",
     "distanceKm": 8.4
    }
+  ],
+  "sperrys": [
+   {
+    "name": "Ploughmans Lunch",
+    "kind": "bakery",
+    "distanceKm": 7.3
+   },
+   {
+    "name": "Broad Cove Cafe",
+    "kind": "cafe",
+    "distanceKm": 8
+   }
   ]
  }
 }

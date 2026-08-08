@@ -465,3 +465,41 @@
   coverage:
     status: full
     reviewed_at: 2026-08-08
+
+- id: sperrys
+  name: Sperry's Beach
+  municipality: Municipality of the District of Lunenburg
+  location:
+    latitude: 44.2255
+    longitude: -64.4364
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: estuary
+    shore_bearing_degrees: 150
+    tide_effect: more-sand-at-low
+  weather:
+    site_code: s0000440
+    site_latitude: 44.38
+    site_longitude: -64.32
+    site_name: Lunenburg
+    province: NS
+  tide:
+    station_code: "00452"
+    station_latitude: 44.289312
+    station_longitude: -64.345007
+    station_id: 5cebf1e03d0f4a073c4bbe8d
+    station_name: Riverport
+    confidence: nearby
+  water:
+    buoy_id: "4400258"
+    buoy_name: Halifax Harbour
+    buoy_latitude: 44.502
+    buoy_longitude: -63.403
+  amenities:
+    note: Firm sand and shallow water at low tide; strong current in the channel toward Rissers; very limited parking
+  source_urls:
+    official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+  coverage:
+    status: full
+    reviewed_at: 2026-08-08

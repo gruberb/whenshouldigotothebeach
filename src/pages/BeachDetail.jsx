@@ -45,7 +45,7 @@ function SquareTile({ icon, label, meta, title, href }) {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className={`${cls} w-[172px]`}
+        className={`${cls} w-[calc(50%-6px)] sm:w-[172px]`}
       >
         {inner}
       </a>
