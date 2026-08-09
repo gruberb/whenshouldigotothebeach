@@ -56,10 +56,23 @@ npm run dev        # vite dev server
 npm test           # scoring invariants, parsers, registry checks
 npm run validate   # schema-check generated data
 npm run build      # production build (dist/)
+npm run lint       # eslint: layering rules, react hooks, kebab-case files
+npm run check:buoys # are the water-temperature buoys reporting?
 ```
 
-`npm run data` needs network access; everything else works offline once data
-exists.
+`npm run data` and `npm run check:buoys` need network access; everything else
+works offline once data exists.
+
+Water temperature comes from ECCC moored buoys, which do go quiet.
+`npm run check:buoys` runs the pipeline's own fetch against every buoy in the
+registry and says whether a blank reading is ours or theirs, so the answer does
+not depend on reading the datamart by hand. It exits non-zero when any buoy has
+no usable reading, and takes an optional ISO timestamp to ask about a past
+moment:
+
+```
+npm run check:buoys 2026-08-08T15:00:00Z
+```
 
 ## Deployment
 

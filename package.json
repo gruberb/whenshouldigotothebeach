@@ -10,6 +10,7 @@
     "data": "tsx scripts/build-data.ts",
     "refresh:food": "tsx scripts/refresh-food.ts",
     "validate": "tsx scripts/validate.ts",
+    "check:buoys": "tsx scripts/check-buoys.ts",
     "test": "vitest run",
     "lint": "eslint src scripts test"
   },

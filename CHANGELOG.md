@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.4.2 - 2026-08-09
+
+### Added
+
+- `npm run check:buoys`, which answers whether a missing water temperature is
+  our fault or ECCC's. It takes the buoys from the registry rather than a
+  second list that can drift, and calls the data build's own fetch, so a pass
+  means the pipeline would get a reading too. The marine tree is reported
+  separately from individual buoys because the whole subtree disappears during
+  an outage, which is a different problem from one dead buoy. Exits non-zero
+  when any buoy has no usable reading, and accepts an optional ISO timestamp
+  to ask about a past moment.
+
+### Changed
+
+- README covers `npm run lint` and `npm run check:buoys`, and says plainly
+  that the buoy feed goes quiet sometimes and how to tell.
+
 ## 1.4.1 - 2026-08-09
 
 ### Fixed
