@@ -592,6 +592,46 @@
     status: full
     reviewed_at: 2026-08-08
 
+# The only entry whose shore is not freely walkable: the beach fronts a private
+# resort that gates access behind a paid day pass, and Region of Queens
+# Municipality does not list it among its public beaches. Kept because Tourism
+# Nova Scotia names it as a surf spot; the amenities note carries the catch.
+- id: whitepoint
+  name: White Point Beach
+  region: south-shore
+  municipality: Region of Queens Municipality
+  location:
+    latitude: 43.962407
+    longitude: -64.735499
+    timezone: America/Halifax
+  classification:
+    surface: sand
+    exposure: semi-exposed
+    shore_bearing_degrees: 120
+    tide_effect: neutral
+    surf: true
+  weather:
+    site_code: s0000371
+    site_latitude: 44.04
+    site_longitude: -64.72
+    site_name: Liverpool
+    province: NS
+  tide:
+    station_code: "00435"
+    station_latitude: 43.921621
+    station_longitude: -64.841138
+    station_id: 5cebf1df3d0f4a073c4bbcad
+    station_name: Port Mouton
+    confidence: nearby
+  amenities:
+    note: Resort-controlled access; paid day pass required for non-guests
+  source_urls:
+    official_page: https://novascotia.com/listing/white-point-beach-resort/
+    surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
+  coverage:
+    status: full
+    reviewed_at: 2026-08-09
+
 - id: sandybay
   name: Sandy Bay Beach
   region: south-shore
@@ -2139,6 +2179,10 @@
     status: full
     reviewed_at: 2026-08-08
 
+# Deliberately has no water block. The East Chedabucto Bay buoy is only 19.7 km
+# away, but this shore sits south of the bay mouth on the Atlantic side of the
+# Canso peninsula: bay surface temperature is not representative of open-coast
+# water here, and a stretched buoy reads as fact once it is on the page.
 - id: blackduckcove
   name: Black Duck Cove Beach
   region: eastern-shore
@@ -2199,6 +2243,11 @@
     station_id: 5cebf1e23d0f4a073c4bc10a
     station_name: Sand Point
     confidence: regional
+  water:
+    buoy_id: "4400489"
+    buoy_name: West Chedabucto Bay
+    buoy_latitude: 45.48687
+    buoy_longitude: -61.141
   source_urls:
     official_page: https://parks.novascotia.ca/park/port-shoreham-beach
   coverage:
@@ -2574,6 +2623,11 @@
     station_id: 5cebf1e23d0f4a073c4bc112
     station_name: Petit De Grat
     confidence: nearby
+  water:
+    buoy_id: "4400488"
+    buoy_name: East Chedabucto Bay
+    buoy_latitude: 45.445
+    buoy_longitude: -60.9538
   source_urls:
     official_page: https://parks.novascotia.ca/park/pondville-beach
   coverage:

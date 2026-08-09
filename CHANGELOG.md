@@ -1,5 +1,43 @@
 # Changelog
 
+## 1.4.0 - 2026-08-09
+
+### Added
+
+- White Point Beach (Queens County), the 76th beach and the ninth
+  documented surf spot, named as one by Tourism Nova Scotia. It is the only
+  entry whose shore is not freely walkable: the beach fronts a private
+  resort that gates access behind a paid day pass, and Region of Queens
+  Municipality does not list it among its public beaches. The listing says
+  so rather than leaving people to find out at the gate. Weather from
+  Liverpool (8.7 km), tides from Port Mouton (9.6 km), shore bearing taken
+  from the OpenStreetMap coastline normal.
+- Live water temperature for Pondville (East Chedabucto Bay buoy, 10.5 km)
+  and Port Shoreham (West Chedabucto Bay, 23.2 km). These are the first
+  readings from outside Halifax Harbour, extending observed water temp to
+  Richmond County and the east end of the Eastern Shore. Both buoys publish
+  the same SWOB-ML schema the existing reader already parses.
+
+### Fixed
+
+- An unreachable Datamart no longer reports itself as a missing forecast.
+  Directory listings in the citypage lookback were fetched with no retry
+  and every error swallowed into an empty result, so a throttled or
+  timed-out runner failed the build with "No citypage file for s0000318
+  within 12h lookback" while the file sat published on time. This sank the
+  1.3.0 deploy. Listings now retry once, a 404 is still read as "this hour
+  has not been published", and anything else is reported as what it is.
+- Requests no longer retry a definitive 4xx. The lookback walks hour
+  directories that routinely do not exist yet, so retrying their 404s spent
+  an extra request and a backoff on the normal path.
+
+### Changed
+
+- Black Duck Cove keeps its blank water reading, now with the reason
+  recorded in the registry. The East Chedabucto Bay buoy is only 19.7 km
+  away, but the beach sits south of the bay mouth on the Atlantic side of
+  the Canso peninsula, where bay surface temperature is not representative.
+
 ## 1.3.0 - 2026-08-09
 
 ### Fixed

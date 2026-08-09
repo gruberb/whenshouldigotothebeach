@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-08T19:28:08.281Z",
+ "fetchedAt": "2026-08-09T14:06:28.340Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -182,6 +182,18 @@
     "name": "Sea Side Seafoods",
     "kind": "restaurant",
     "distanceKm": 1.2
+   }
+  ],
+  "whitepoint": [
+   {
+    "name": "Hunts point market and cafe",
+    "kind": "store",
+    "distanceKm": 3.5
+   },
+   {
+    "name": "Sea Side Seafoods",
+    "kind": "restaurant",
+    "distanceKm": 4.5
    }
   ],
   "sandybay": [],

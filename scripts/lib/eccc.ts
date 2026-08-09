@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { fetchText } from "./fetch.js";
+import { HttpError, fetchText } from "./fetch.js";
 import type {
   CitypageData,
   DailyForecast,
@@ -38,37 +38,62 @@ function candidateHourDirs(province: string, now: Date): HourDir[] {
   return dirs;
 }
 
-const listingCache = new Map<string, string[]>();
-
-async function listDir(url: string): Promise<string[]> {
-  const cached = listingCache.get(url);
-  if (cached) return cached;
-  let files: string[] = [];
-  try {
-    const html = await fetchText(url, 0);
-    files = [...html.matchAll(/href="([^"?/][^"]*\.xml)"/g)].map((m) => m[1]);
-  } catch {
-    // Missing hour directories are normal early in the UTC day.
-  }
-  listingCache.set(url, files);
-  return files;
+interface Listing {
+  files: string[];
+  // True when the directory could not be read at all, as opposed to being
+  // read and found empty or absent. See fetchLatestCitypage for why the
+  // difference has to survive this far up.
+  unreachable: boolean;
 }
 
+const listingCache = new Map<string, Listing>();
+
+async function listDir(url: string): Promise<Listing> {
+  const cached = listingCache.get(url);
+  if (cached) return cached;
+  let listing: Listing;
+  try {
+    const html = await fetchText(url, 1);
+    listing = {
+      files: [...html.matchAll(/href="([^"?/][^"]*\.xml)"/g)].map((m) => m[1]),
+      unreachable: false,
+    };
+  } catch (error) {
+    // A 404 is routine: an hour directory does not exist until that hour
+    // starts. A timeout, a 5xx or a throttle is not, and must not be counted
+    // as evidence that the forecast is missing.
+    const absent = error instanceof HttpError && error.status === 404;
+    listing = { files: [], unreachable: !absent };
+  }
+  listingCache.set(url, listing);
+  return listing;
+}
 
 export async function fetchLatestCitypage(
   province: string,
   siteCode: string,
   now: Date = new Date(),
 ): Promise<CitypageData> {
-  for (const dir of candidateHourDirs(province, now)) {
-    const files = await listDir(dir.url);
-    const matches = files
+  const dirs = candidateHourDirs(province, now);
+  let unreachable = 0;
+  for (const dir of dirs) {
+    const listing = await listDir(dir.url);
+    if (listing.unreachable) unreachable++;
+    const matches = listing.files
       .filter((f) => f.endsWith(`_MSC_CitypageWeather_${siteCode}_en.xml`))
       .sort();
     if (matches.length === 0) continue;
     const fileUrl = dir.url + matches[matches.length - 1];
     const xml = await fetchText(fileUrl);
     return parseCitypage(xml, siteCode, fileUrl);
+  }
+  // Blaming the forecast for a transport failure sent a maintainer looking for
+  // a missing ECCC file that was in fact published on time.
+  if (unreachable > 0) {
+    throw new Error(
+      `Datamart unreachable for ${unreachable} of ${dirs.length} hour directories; ` +
+        `cannot tell whether a citypage file for ${siteCode} exists`,
+    );
   }
   throw new Error(
     `No citypage file for ${siteCode} within ${MAX_LOOKBACK_HOURS}h lookback`,
