@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.4.1 - 2026-08-09
+
+### Fixed
+
+- Buoy staleness errors named the wrong file. The rethrow compared against
+  `files[files.length - 1]` after an in-place `reverse()`, which is the
+  oldest file on the server, so the current ECCC marine outage logged
+  "Latest observation is 38h old" while the newest reading was 24h old. The
+  message now carries the buoy id and the real age.
+- The same walk kept fetching every older file after finding one past the
+  24-hour cutoff, though nothing behind it can be fresher. It now stops at
+  the first, which during an outage is one request per buoy instead of up
+  to 85.
+- A buoy that is publishing but has no sea surface temperature element no
+  longer reports as an absent feed. The two need different responses and
+  used to read the same in the log.
+
 ## 1.4.0 - 2026-08-09
 
 ### Added

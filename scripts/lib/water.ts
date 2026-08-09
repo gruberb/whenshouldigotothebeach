@@ -69,35 +69,62 @@ export async function fetchBuoySeaSurfaceTemp(
   buoyId: string,
   now: Date = new Date(),
 ): Promise<{ valueC: number; observedAt: string; stationName: string }> {
+  let staleAgeHours: number | null = null;
+  let lastParseError: Error | null = null;
+
   for (const dayOffset of [0, 1]) {
+    // Files are read newest first and yesterday is older than today, so once
+    // one is past the cutoff there is nothing fresher left to find.
+    if (staleAgeHours !== null) break;
+
     const day = new Date(now.getTime() - dayOffset * 24 * 3600 * 1000);
     const stamp = utcDateStamp(day);
     const dir = `${DATAMART}/${stamp}/WXO-DD/observations/swob-ml/marine/moored-buoys/${stamp}/${buoyId}/`;
-    let files: string[] = [];
+    let newestFirst: string[] = [];
     try {
       const html = await fetchText(dir, 0);
-      files = [...html.matchAll(/href="([^"?/][^"]*-swob\.xml)"/g)]
+      newestFirst = [...html.matchAll(/href="([^"?/][^"]*-swob\.xml)"/g)]
         .map((m) => m[1])
-        .sort();
+        .sort()
+        .reverse();
     } catch {
       continue;
     }
-    for (const file of files.reverse()) {
+
+    for (const file of newestFirst) {
       const xml = await fetchText(dir + file);
+      let observation;
       try {
-        const observation = parseSwobSeaSurfaceTemp(xml);
-        const ageHours =
-          (now.getTime() - Date.parse(observation.observedAt)) / 3600_000;
-        if (ageHours > MAX_OBSERVATION_AGE_HOURS) {
-          throw new Error(
-            `Latest observation is ${Math.round(ageHours)}h old`,
-          );
-        }
-        return observation;
+        observation = parseSwobSeaSurfaceTemp(xml);
       } catch (error) {
-        if (file === files[files.length - 1]) throw error;
+        // Buoys publish every ten minutes but populate sea surface temperature
+        // only in the top-of-hour file; the rest carry MSNG. Keep walking back.
+        lastParseError = error as Error;
+        continue;
       }
+      const ageHours =
+        (now.getTime() - Date.parse(observation.observedAt)) / 3600_000;
+      if (ageHours > MAX_OBSERVATION_AGE_HOURS) {
+        staleAgeHours = ageHours;
+        break;
+      }
+      return observation;
     }
+  }
+
+  // Each of these is a different problem for whoever reads the log: an upstream
+  // feed that stopped, a feed that is publishing without the element we need,
+  // or a buoy that is not there at all. The previous message reported the age
+  // of the oldest file on the server, which pointed at none of them.
+  if (staleAgeHours !== null) {
+    throw new Error(
+      `Latest observation for buoy ${buoyId} is ${Math.round(staleAgeHours)}h old`,
+    );
+  }
+  if (lastParseError) {
+    throw new Error(
+      `No usable SWOB observation for buoy ${buoyId}: ${lastParseError.message}`,
+    );
   }
   throw new Error(`No SWOB observations found for buoy ${buoyId}`);
 }
