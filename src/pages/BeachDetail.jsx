@@ -319,9 +319,11 @@ function BeachDetail() {
       {stale && <StaleBanner generatedAt={data.generatedAt} />}
 
       <header className="mb-9">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-accent mb-2.5 m-0">
-          {meta.label}
-        </p>
+        {!meta.quiet && (
+          <p className="text-[11px] uppercase tracking-[0.14em] text-accent mb-2.5 m-0">
+            {meta.label}
+          </p>
+        )}
         <h1 className="font-display font-medium text-3xl md:text-[38px] leading-tight m-0 mb-1.5">
           {data.beach.name}
         </h1>

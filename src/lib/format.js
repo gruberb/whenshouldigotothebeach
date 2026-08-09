@@ -19,13 +19,6 @@ export function formatHourLabel(iso) {
     .replace(/\D/g, "");
 }
 
-export function formatWeekday(iso) {
-  return new Intl.DateTimeFormat("en-CA", {
-    weekday: "short",
-    timeZone: TIMEZONE,
-  }).format(new Date(iso));
-}
-
 export function formatDayLabel(iso) {
   return new Intl.DateTimeFormat("en-CA", {
     weekday: "short",
@@ -61,14 +54,20 @@ export function localDateOf(iso) {
   }).format(new Date(iso));
 }
 
-// "6:00-12:00" for today, "SAT 6:00-12:00" once the window is on another day.
+// "Today 6:00-12:00", or "Monday 6:00-12:00" once the window is on another
+// day. The day is always named: the window itself is the headline, so it has
+// to say when without a verdict label backing it up.
 export function formatWindow(window, referenceIso) {
   if (!window) return null;
   const range = `${formatTime(window.start)}–${formatTime(window.end)}`;
   if (referenceIso && localDateOf(window.start) !== localDateOf(referenceIso)) {
-    return `${formatWeekday(window.start).toUpperCase()} ${range}`;
+    const weekday = new Intl.DateTimeFormat("en-CA", {
+      weekday: "long",
+      timeZone: TIMEZONE,
+    }).format(new Date(window.start));
+    return `${weekday} ${range}`;
   }
-  return range;
+  return `Today ${range}`;
 }
 
 export function formatUpdatedAgo(iso, now = new Date()) {
@@ -87,8 +86,10 @@ export function isStale(validUntil, now = new Date()) {
 // Nocturne is a mono palette: verdicts are ranked by tag treatment and copy,
 // not by hue. Outline = attention (best or hazard), tinted = wait, neutral = meh.
 export const VERDICT_META = {
-  GO_NOW: { label: "Go now", rank: 0, tag: "tag-outline" },
-  GOOD_LATER: { label: "Good later", rank: 1, tag: "tag-accent" },
+  // quiet: the dated window line already says everything the label would;
+  // only cautionary and safety verdicts keep a visible tag.
+  GO_NOW: { label: "Go now", rank: 0, tag: "tag-outline", quiet: true },
+  GOOD_LATER: { label: "Good later", rank: 1, tag: "tag-accent", quiet: true },
   MIXED: { label: "Mixed", rank: 2, tag: "tag-neutral" },
   NOT_GREAT: { label: "Not great", rank: 3, tag: "tag-neutral" },
   WATER_ADVISORY: { label: "Water advisory", rank: 4, tag: "tag-outline" },

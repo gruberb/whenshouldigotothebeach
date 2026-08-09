@@ -252,7 +252,7 @@ describe("findBestWindow", () => {
     expect(findBestWindow(hours, thresholds)).toBeNull();
   });
 
-  it("finds the highest-scoring contiguous good run", () => {
+  it("prefers the earliest good run over a later higher-scoring one", () => {
     const hours = [
       syntheticHour("2026-08-08T12:00:00Z", 75),
       syntheticHour("2026-08-08T13:00:00Z", 76),
@@ -262,8 +262,27 @@ describe("findBestWindow", () => {
     ];
     const window = findBestWindow(hours, thresholds);
     expect(window).not.toBeNull();
-    expect(window!.start).toBe("2026-08-08T15:00:00Z");
+    expect(window!.start).toBe("2026-08-08T12:00:00Z");
     expect(window!.quality).toBe("good");
+  });
+
+  it("does not let a peak cut off by the forecast horizon beat a full day", () => {
+    // Regression: a perfect Sunday (92-100 all day) lost to tomorrow's run,
+    // which the data horizon truncated to its two best morning hours; every
+    // South Shore beach then read GOOD_LATER "MON 06:00-08:00".
+    const today = Array.from({ length: 12 }, (_, i) =>
+      syntheticHour(
+        `2026-08-09T${String(11 + i).padStart(2, "0")}:00:00Z`,
+        i === 0 ? 73 : 92 + (i % 5),
+      ),
+    );
+    const truncatedTomorrow = [
+      syntheticHour("2026-08-10T09:00:00Z", 100),
+      syntheticHour("2026-08-10T10:00:00Z", 97),
+    ];
+    const window = findBestWindow([...today, ...truncatedTomorrow], thresholds);
+    expect(window!.start).toBe("2026-08-09T11:00:00Z");
+    expect(window!.end).toBe("2026-08-09T23:00:00.000Z");
   });
 
   it("ignores night and gated hours", () => {

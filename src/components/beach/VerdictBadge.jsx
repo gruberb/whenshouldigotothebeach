@@ -3,7 +3,7 @@ import { STALE_META, VERDICT_META } from "../../lib/format";
 
 function VerdictBadge({ verdict, stale }) {
   const meta = stale ? STALE_META : VERDICT_META[verdict];
-  if (!meta) return null;
+  if (!meta || meta.quiet) return null;
   return <span className={`tag ${meta.tag}`}>{meta.label}</span>;
 }
 

@@ -295,11 +295,12 @@ export function findBestWindow(
     const runs = contiguousRuns(hours, (h) => usable(h) && h.score >= minScore)
       .filter((run) => run.length >= t.window.min_hours);
     if (runs.length === 0) continue;
-    const best = runs.reduce((a, b) => {
-      const avgA = a.reduce((s, h) => s + h.score, 0) / a.length;
-      const avgB = b.reduce((s, h) => s + h.score, 0) / b.length;
-      return avgB > avgA ? b : a;
-    });
+    // Every run in this tier is already good enough to go, so the soonest
+    // one answers "when should I go". Picking the highest average instead
+    // favoured short peaks: the forecast horizon cuts tomorrow's run down
+    // to its best first hours, and that two-hour stub outranked a full
+    // 93-scoring day, flipping a perfect afternoon to GOOD_LATER.
+    const best = runs[0];
     const avgScore = Math.round(
       best.reduce((s, h) => s + h.score, 0) / best.length,
     );

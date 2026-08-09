@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.2.1 - 2026-08-09
+
+### Fixed
+
+- Best-window selection recommends the earliest good run instead of the
+  highest-average one. The forecast horizon truncates tomorrow morning to
+  its best few hours, and that stub used to outrank a full excellent day:
+  on a 93-scoring Sunday every South Shore beach read "Good later,
+  MON 06:00-08:00".
+
+### Changed
+
+- Windows name their day in full: "Today 08:00-21:00" or
+  "Monday 06:00-08:00" instead of a bare range or "MON".
+- The "Go now" and "Good later" tags are gone; the dated window line
+  already says it. Cautionary and safety tags (Mixed, Not great, water
+  advisories, closures, hazards, stale data) remain.
+
 ## 1.2.0 - 2026-08-08
 
 ### Added
