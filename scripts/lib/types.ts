@@ -1,11 +1,11 @@
-export type Exposure =
+type Exposure =
   | "sheltered-bay"
   | "semi-exposed"
   | "open-atlantic"
   | "estuary"
   | "tidal-flat";
 
-export type Region =
+type Region =
   | "south-shore"
   | "yarmouth-acadian-shores"
   | "bay-of-fundy-annapolis-valley"
@@ -14,7 +14,7 @@ export type Region =
   | "eastern-shore"
   | "cape-breton";
 
-export type TideEffect =
+type TideEffect =
   | "neutral"
   | "more-sand-at-low"
   | "warmer-incoming-after-low"
@@ -238,7 +238,7 @@ export interface SunTimes {
   sunset: string;
 }
 
-export type ReasonKind =
+type ReasonKind =
   | "thunder"
   | "rain"
   | "dry"
@@ -256,7 +256,7 @@ export interface Reason {
   short: string;
 }
 
-export interface BeachSummary {
+interface BeachSummary {
   verdict: Verdict;
   bestWindow: BestWindow | null;
   reasons: Reason[];
@@ -311,3 +311,10 @@ export interface BeachOutput {
   advisories: ManualOverride[];
   outlook: DailyForecast[];
 }
+
+// fast-xml-parser hands back plain objects whose shape varies per feed and per
+// element (attributes, "#text" nodes, single value vs array). The parsers pin
+// that down with asArray/toNumber/toText at the point of use; a declared shape
+// here would only be a guess that the feeds are free to break.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type XmlNode = any;

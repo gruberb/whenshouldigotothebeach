@@ -27,7 +27,7 @@ const MAX_CROW_KM = 25;
 const MAX_ROAD_KM = 20;
 const CANDIDATES_PER_BEACH = 10;
 
-export interface FoodPoi {
+interface FoodPoi {
   name: string;
   kind: string;
   latitude: number;
@@ -84,7 +84,7 @@ export async function fetchFoodPois(): Promise<FoodPoi[]> {
 
 // Driving distance with ferries avoided: a bakery 5 km across the river is a
 // 40 km drive around it, and pretending otherwise misleads.
-export async function roadDistanceKm(
+async function roadDistanceKm(
   fromLat: number,
   fromLon: number,
   toLat: number,

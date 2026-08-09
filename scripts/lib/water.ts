@@ -1,6 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import { fetchText } from "./fetch.js";
-import type { WaterTemperature } from "./types.js";
+import type { WaterTemperature, XmlNode } from "./types.js";
 
 const DATAMART = "https://dd.weather.gc.ca";
 const MAX_OBSERVATION_AGE_HOURS = 24;
@@ -21,8 +21,8 @@ function collectElements(node: unknown, out: Map<string, string>): void {
   for (const [key, value] of Object.entries(node as Record<string, unknown>)) {
     if (key === "element") {
       for (const el of Array.isArray(value) ? value : [value]) {
-        const name = (el as any)["@_name"];
-        const val = (el as any)["@_value"];
+        const name = (el as XmlNode)["@_name"];
+        const val = (el as XmlNode)["@_value"];
         if (name !== undefined && val !== undefined && !out.has(name)) {
           out.set(String(name), String(val));
         }

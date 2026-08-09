@@ -1,5 +1,46 @@
 # Changelog
 
+## 1.3.0 - 2026-08-09
+
+### Fixed
+
+- Detail pages could render a late response under the wrong beach.
+  Switching beaches started a new fetch without cancelling the previous
+  one, so a slow reply could land after navigation. Hook state now carries
+  the beach id it belongs to, which drops stale replies and also removes
+  the blanking render that ran on every id change.
+
+### Changed
+
+- Frontend restructured onto bulletproof-react layering: `app/` for
+  composition and routes, `features/beaches/` for everything specific to
+  the beach domain, and `components/`, `hooks/`, `lib/`, `utils/` for
+  domain-agnostic code. Imports flow one way, shared to features to app.
+  Files and folders are kebab-case, every cross-folder import goes through
+  the `@/` alias, and there are no barrel files so Vite can still
+  tree-shake.
+- Data fetching split into one module per request under
+  `features/beaches/api/`, each pairing the fetcher with the hook that
+  consumes it.
+- XML parser boundaries in the ECCC and buoy readers use a named `XmlNode`
+  type instead of scattered `any` casts. The feeds vary per element, so the
+  parsers still narrow through `asArray`/`toNumber`/`toText` at the point
+  of use.
+
+### Added
+
+- `npm run lint` works. The script was already there but ESLint had never
+  been a dependency. The flat config enforces the layer directions with
+  `no-restricted-imports`, kebab-case naming with `check-file`, and the
+  React hooks rules.
+
+### Removed
+
+- Dead code: an unused `surfaceLabel` helper, unread label fields on the
+  tide and verdict metadata, the orphaned `.tag-accent`, `.btn-secondary`
+  and Leaflet popup rules in `index.css`, and thirteen pipeline internals
+  that were exported but only ever used inside their own module.
+
 ## 1.2.1 - 2026-08-09
 
 ### Fixed

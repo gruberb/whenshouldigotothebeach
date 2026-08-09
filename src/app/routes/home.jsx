@@ -1,31 +1,27 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { flushSync } from "react-dom";
 import {
   useLocation,
   useNavigationType,
   useSearchParams,
 } from "react-router-dom";
-import BeachCard from "../components/beach/BeachCard";
-import HomeHeader from "../components/common/HomeHeader";
-import Layout from "../components/common/Layout";
-import Loading from "../components/common/Loading";
-import StaleBanner from "../components/common/StaleBanner";
-import { useBeachIndex } from "../hooks/useBeachData";
-import { useFavourites } from "../hooks/useFavourites";
-import { useNow } from "../hooks/useNow";
-import { useUserLocation } from "../hooks/useUserLocation";
-import {
-  compareBeaches,
-  formatTime,
-  haversineKm,
-  isStale,
-  REGION_META,
-  REGION_ORDER,
-  regionLabel,
-} from "../lib/format";
+import BeachCard from "@/features/beaches/components/beach-card";
+import HomeHeader from "@/features/beaches/components/home-header";
+import Layout from "@/components/layout";
+import Loading from "@/components/loading";
+import StaleBanner from "@/features/beaches/components/stale-banner";
+import { useBeaches } from "@/features/beaches/api/get-beaches";
+import { useFavourites } from "@/features/beaches/hooks/use-favourites";
+import { useNow } from "@/hooks/use-now";
+import { useUserLocation } from "@/hooks/use-user-location";
+import { REGION_META, REGION_ORDER, compareBeaches, regionLabel } from "@/features/beaches/utils/meta";
+import { formatTime, isStale } from "@/utils/format";
+import { haversineKm } from "@/utils/geo";
 
 // Leaflet only loads when someone opens the map view.
-const BeachMap = lazy(() => import("../components/beach/BeachMap"));
+const BeachMap = lazy(
+  () => import("@/features/beaches/components/beach-map"),
+);
 
 const REGION_STORAGE = "beach-region";
 const REGION_EXPLICIT = "region-explicit";
@@ -61,7 +57,7 @@ function SectionHeading({ children }) {
 }
 
 function Home() {
-  const { data, error, loading } = useBeachIndex();
+  const { data, error, loading } = useBeaches();
   const now = useNow();
   const location = useLocation();
   const navigationType = useNavigationType();

@@ -1,4 +1,3 @@
-import React from "react";
 
 // Minimal stroke icons in the Feather idiom, one per reason kind. Sized for
 // inline chips; color comes from the parent via currentColor.

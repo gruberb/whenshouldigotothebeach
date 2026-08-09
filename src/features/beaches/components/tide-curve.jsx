@@ -1,9 +1,4 @@
-import React from "react";
-import {
-  formatDayLabel,
-  formatTime,
-  localHourOf,
-} from "../../lib/format";
+import { formatDayLabel, formatTime, localHourOf } from "@/utils/format";
 
 const WIDTH = 640;
 const HEIGHT = 192;

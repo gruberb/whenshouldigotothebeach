@@ -65,11 +65,6 @@
         border-radius: 6px;
     }
 
-    .tag-accent {
-        background: #423a6a;
-        color: #f5f4ff;
-    }
-
     .tag-neutral {
         background: #3f424d;
         color: #f3f5fe;
@@ -109,14 +104,6 @@
         background: color-mix(in srgb, var(--color-accent) 22%, transparent);
     }
 
-    .btn-secondary {
-        border-color: var(--color-divider);
-    }
-
-    .btn-secondary:hover {
-        background: color-mix(in srgb, var(--color-text) 7%, transparent);
-    }
-
     /* Card reordering (favourites) rides the View Transitions API. */
     ::view-transition-group(*) {
         animation-duration: 320ms;
@@ -142,24 +129,6 @@
 
     .leaflet-tooltip.beach-label::before {
         display: none;
-    }
-
-    /* Leaflet popups on the Nocturne surface. */
-    .leaflet-popup-content-wrapper,
-    .leaflet-popup-tip {
-        background: var(--color-surface);
-        color: var(--color-text);
-        box-shadow: 0 0 0 1px #3f424d, 0 6px 18px rgba(0, 0, 0, 0.55);
-    }
-
-    .leaflet-popup-content {
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .leaflet-popup-content a {
-        color: var(--color-accent);
     }
 
     /* Doubled class beats leaflet.css, which loads unlayered after this

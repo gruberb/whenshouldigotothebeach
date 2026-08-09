@@ -1,22 +1,14 @@
-import React from "react";
+import { Fragment } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import HourStrip from "../components/beach/HourStrip";
-import TideCurve from "../components/beach/TideCurve";
-import Layout from "../components/common/Layout";
-import Loading from "../components/common/Loading";
-import StaleBanner from "../components/common/StaleBanner";
-import { useBeachDetail } from "../hooks/useBeachData";
-import { useNow } from "../hooks/useNow";
-import {
-  formatTime,
-  formatUpdatedAgo,
-  formatWindow,
-  isStale,
-  regionLabel,
-  STALE_META,
-  TIDE_EFFECT_META,
-  VERDICT_META,
-} from "../lib/format";
+import HourStrip from "@/features/beaches/components/hour-strip";
+import TideCurve from "@/features/beaches/components/tide-curve";
+import Layout from "@/components/layout";
+import Loading from "@/components/loading";
+import StaleBanner from "@/features/beaches/components/stale-banner";
+import { useBeach } from "@/features/beaches/api/get-beach";
+import { useNow } from "@/hooks/use-now";
+import { STALE_META, TIDE_EFFECT_META, VERDICT_META, regionLabel } from "@/features/beaches/utils/meta";
+import { formatTime, formatUpdatedAgo, formatWindow, isStale } from "@/utils/format";
 
 function SectionLabel({ children, className = "" }) {
   return (
@@ -164,7 +156,7 @@ function Notice({ kind, children, url }) {
 
 function BeachDetail() {
   const { beachId } = useParams();
-  const { data, error, loading } = useBeachDetail(beachId);
+  const { data, error, loading } = useBeach(beachId);
   const now = useNow();
   const navigate = useNavigate();
 
@@ -343,7 +335,7 @@ function BeachDetail() {
                   ? thunderWarning?.url
                   : null;
             return (
-              <React.Fragment key={`${reason.kind}-${index}`}>
+              <Fragment key={`${reason.kind}-${index}`}>
                 {index > 0 && " · "}
                 {warningUrl ? (
                   <a
@@ -357,7 +349,7 @@ function BeachDetail() {
                 ) : (
                   reason.text
                 )}
-              </React.Fragment>
+              </Fragment>
             );
           })}
         </p>

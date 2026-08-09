@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Homepage header: full-width title, region picker, search + locate +
 // List/Map segmented control, filter chips. Replaces Layout's compact nav on

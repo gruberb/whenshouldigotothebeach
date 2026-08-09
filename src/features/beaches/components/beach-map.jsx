@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { scoreColor } from "../../lib/format";
+import { scoreColor } from "@/features/beaches/utils/score-display";
 
 const TILES = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 const ATTRIBUTION =

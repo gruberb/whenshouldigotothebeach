@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { formatTime, formatWindow } from "../../lib/format";
-import HourStrip from "./HourStrip";
-import ReasonIcon from "./ReasonIcon";
-import VerdictBadge from "./VerdictBadge";
+import { formatTime, formatWindow } from "@/utils/format";
+import HourStrip from "@/features/beaches/components/hour-strip";
+import ReasonIcon from "@/features/beaches/components/reason-icon";
+import VerdictBadge from "@/features/beaches/components/verdict-badge";
 
 function Star({ filled }) {
   return (

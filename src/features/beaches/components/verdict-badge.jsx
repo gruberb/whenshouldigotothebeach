@@ -1,5 +1,4 @@
-import React from "react";
-import { STALE_META, VERDICT_META } from "../../lib/format";
+import { STALE_META, VERDICT_META } from "@/features/beaches/utils/meta";
 
 function VerdictBadge({ verdict, stale }) {
   const meta = stale ? STALE_META : VERDICT_META[verdict];

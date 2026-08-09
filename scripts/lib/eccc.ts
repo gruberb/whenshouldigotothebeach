@@ -5,6 +5,7 @@ import type {
   DailyForecast,
   EcccWarning,
   HourlyWeather,
+  XmlNode,
 } from "./types.js";
 
 const DATAMART = "https://dd.weather.gc.ca";
@@ -53,9 +54,6 @@ async function listDir(url: string): Promise<string[]> {
   return files;
 }
 
-export function clearListingCache(): void {
-  listingCache.clear();
-}
 
 export async function fetchLatestCitypage(
   province: string,
@@ -90,7 +88,7 @@ function asArray<T>(value: T | T[] | undefined): T[] {
 
 function toNumber(value: unknown): number | null {
   if (value === undefined || value === null) return null;
-  const text = typeof value === "object" ? (value as any)["#text"] : value;
+  const text = typeof value === "object" ? (value as XmlNode)["#text"] : value;
   if (text === undefined || text === null || text === "") return null;
   const num = Number(text);
   return Number.isFinite(num) ? num : null;
@@ -98,7 +96,7 @@ function toNumber(value: unknown): number | null {
 
 function toText(value: unknown): string {
   if (value === undefined || value === null) return "";
-  if (typeof value === "object") return String((value as any)["#text"] ?? "");
+  if (typeof value === "object") return String((value as XmlNode)["#text"] ?? "");
   return String(value);
 }
 
@@ -110,7 +108,7 @@ function compactUtcToIso(stamp: string): string {
 }
 
 function pickUtcTimestamp(dateTimes: unknown): string | null {
-  for (const dt of asArray<any>(dateTimes)) {
+  for (const dt of asArray<XmlNode>(dateTimes)) {
     if (dt["@_zone"] === "UTC" && dt.timeStamp) {
       return compactUtcToIso(String(dt.timeStamp));
     }
@@ -147,7 +145,7 @@ export function parseCitypage(
       Date.parse(rolledBack) <= Date.parse(xmlCreation) ? rolledBack : xmlCreation;
   }
 
-  const hourly: HourlyWeather[] = asArray<any>(hourlyGroup?.hourlyForecast).map(
+  const hourly: HourlyWeather[] = asArray<XmlNode>(hourlyGroup?.hourlyForecast).map(
     (entry) => ({
       time: compactUtcToIso(String(entry["@_dateTimeUTC"])),
       temperatureC: toNumber(entry.temperature),
@@ -167,7 +165,7 @@ export function parseCitypage(
     throw new Error(`No hourly forecast entries in ${sourceUrl}`);
   }
 
-  const warnings: EcccWarning[] = asArray<any>(site.warnings?.event).map(
+  const warnings: EcccWarning[] = asArray<XmlNode>(site.warnings?.event).map(
     (event) => ({
       type: String(event["@_type"] ?? "unknown"),
       colour: event["@_alertColourLevel"]
@@ -178,7 +176,7 @@ export function parseCitypage(
     }),
   );
 
-  const daily: DailyForecast[] = asArray<any>(site.forecastGroup?.forecast)
+  const daily: DailyForecast[] = asArray<XmlNode>(site.forecastGroup?.forecast)
     .slice(0, 4)
     .map((forecast) => ({
       name: toText(forecast.period?.["@_textForecastName"] ?? forecast.period),

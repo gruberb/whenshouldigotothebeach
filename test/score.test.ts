@@ -27,6 +27,7 @@ const beach: BeachConfig = {
   id: "test",
   name: "Test Beach",
   municipality: "Test",
+  region: "south-shore",
   location: { latitude: 44.2, longitude: -64.3, timezone: "America/Halifax" },
   classification: {
     surface: "sand",

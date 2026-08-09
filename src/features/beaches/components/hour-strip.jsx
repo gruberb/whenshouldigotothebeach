@@ -1,10 +1,5 @@
-import React from "react";
-import {
-  formatHourLabel,
-  formatTime,
-  NIGHT_FILL,
-  scoreColor,
-} from "../../lib/format";
+import { NIGHT_FILL, scoreColor } from "@/features/beaches/utils/score-display";
+import { formatHourLabel, formatTime } from "@/utils/format";
 
 function hourTitle(hour) {
   const parts = [

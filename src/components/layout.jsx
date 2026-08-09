@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "@/components/footer";
 
 // `header` swaps the compact linked-title nav for a page-owned header (the
 // homepage's full-size title block); detail pages keep the default.

@@ -24,7 +24,7 @@ function lerp(x: number, x0: number, x1: number, y0: number, y1: number): number
   return y0 + ((x - x0) / (x1 - x0)) * (y1 - y0);
 }
 
-export function isThunder(condition: string): boolean {
+function isThunder(condition: string): boolean {
   return /thunder/i.test(condition);
 }
 
@@ -111,7 +111,7 @@ export function fogScore(condition: string): number {
   return 1;
 }
 
-export function skyScore(condition: string): number {
+function skyScore(condition: string): number {
   const text = condition.toLowerCase();
   if (/mainly sunny|mainly clear/.test(text)) return 0.9;
   if (/sunny|clear/.test(text)) return 1;
@@ -134,7 +134,7 @@ export function windRelationFor(
   return "cross-shore";
 }
 
-export function tidePhaseAt(time: Date, tides: TideData): TidePhase | null {
+function tidePhaseAt(time: Date, tides: TideData): TidePhase | null {
   if (tides.events.length === 0) return null;
   const ts = time.getTime();
   let nearest: { event: (typeof tides.events)[0]; distance: number } | null = null;
@@ -185,7 +185,7 @@ export function sunTimesFor(
   });
 }
 
-export function isDaylight(hourStart: Date, sun: SunTimes[]): boolean {
+function isDaylight(hourStart: Date, sun: SunTimes[]): boolean {
   const midpoint = hourStart.getTime() + HOUR_MS / 2;
   return sun.some(
     (day) =>
@@ -193,7 +193,7 @@ export function isDaylight(hourStart: Date, sun: SunTimes[]): boolean {
   );
 }
 
-export interface ScoreContext {
+interface ScoreContext {
   beach: BeachConfig;
   thresholds: Thresholds;
   tides: TideData;
@@ -314,7 +314,7 @@ export function findBestWindow(
   return null;
 }
 
-export interface VerdictInput {
+interface VerdictInput {
   window: BestWindow | null;
   overrides: ManualOverride[];
   warnings: EcccWarning[];

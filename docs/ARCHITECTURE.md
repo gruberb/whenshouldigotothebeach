@@ -149,6 +149,24 @@ client-side on explicit tap and never leaves the browser. All times render
 in America/Halifax regardless of viewer timezone. Past `validUntil`, every
 page shows a DATA STALE banner.
 
+The tree follows the layering from
+[bulletproof-react](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md):
+imports flow one way only, shared -> features -> app.
+
+- `app/` owns composition: `app.jsx`, the route table in `router.jsx`, and
+  the route components under `app/routes/`.
+- `features/beaches/` holds everything specific to the beach domain, split
+  into `api/` (one file per request, each pairing the fetcher with the hook
+  that consumes it), `components/`, `hooks/`, and `utils/`.
+- `components/`, `hooks/`, `lib/`, `utils/` are domain-agnostic and must not
+  reach into a feature or the app layer.
+
+`eslint.config.js` enforces those directions with `no-restricted-imports`,
+which works because parent-relative imports are banned outright: every
+cross-folder import goes through the `@/` alias. Filenames and folders are
+kebab-case, checked by `check-file`. There are no barrel files; modules are
+imported directly so Vite can tree-shake.
+
 ## Data flow: one refresh cycle
 
 ```mermaid

@@ -1,5 +1,4 @@
-import React from "react";
-import { formatUpdatedAgo } from "../../lib/format";
+import { formatUpdatedAgo } from "@/utils/format";
 
 function StaleBanner({ generatedAt }) {
   return (
