@@ -12,6 +12,20 @@ export class HttpError extends Error {
   }
 }
 
+// undici reports every network-level failure as the same "fetch failed", with
+// the reason people actually need (ECONNRESET, ETIMEDOUT, DNS) hidden on
+// .cause. Logging the bare message turns a diagnosable outage into a shrug.
+export function describeError(error: unknown): string {
+  if (!(error instanceof Error)) return String(error);
+  const cause = (error as { cause?: unknown }).cause;
+  if (cause === undefined || cause === null) return error.message;
+  const detail =
+    cause instanceof Error
+      ? `${cause.name}: ${cause.message}`
+      : String(cause);
+  return `${error.message} (${detail})`;
+}
+
 export async function fetchText(
   url: string,
   retries = 2,

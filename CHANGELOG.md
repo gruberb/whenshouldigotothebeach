@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.3 - 2026-08-10
+
+### Fixed
+
+- The "Datamart unreachable" error now carries the reason. 1.4.0 stopped it
+  blaming a missing forecast for a transport failure, but still discarded the
+  failure itself, and undici reports every network-level fault as a bare
+  "fetch failed" with the cause hidden on `.cause`. A connection timeout, a
+  reset, a DNS failure and a throttle need different responses and were
+  indistinguishable in the log. Scheduled runs have been failing this way
+  roughly two times in five, each burning five minutes, with no way to tell
+  which of those it was.
+
 ## 1.4.2 - 2026-08-09
 
 ### Added

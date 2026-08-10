@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { HttpError, fetchText } from "./fetch.js";
+import { HttpError, describeError, fetchText } from "./fetch.js";
 import type {
   CitypageData,
   DailyForecast,
@@ -40,10 +40,11 @@ function candidateHourDirs(province: string, now: Date): HourDir[] {
 
 interface Listing {
   files: string[];
-  // True when the directory could not be read at all, as opposed to being
-  // read and found empty or absent. See fetchLatestCitypage for why the
-  // difference has to survive this far up.
-  unreachable: boolean;
+  // Set when the directory could not be read at all, as opposed to being read
+  // and found empty or absent. Carries the reason, not just the fact: a
+  // connection reset, a DNS failure and a throttle all present as an empty
+  // listing here and need entirely different responses.
+  unreachable: string | null;
 }
 
 const listingCache = new Map<string, Listing>();
@@ -56,14 +57,14 @@ async function listDir(url: string): Promise<Listing> {
     const html = await fetchText(url, 1);
     listing = {
       files: [...html.matchAll(/href="([^"?/][^"]*\.xml)"/g)].map((m) => m[1]),
-      unreachable: false,
+      unreachable: null,
     };
   } catch (error) {
     // A 404 is routine: an hour directory does not exist until that hour
     // starts. A timeout, a 5xx or a throttle is not, and must not be counted
     // as evidence that the forecast is missing.
     const absent = error instanceof HttpError && error.status === 404;
-    listing = { files: [], unreachable: !absent };
+    listing = { files: [], unreachable: absent ? null : describeError(error) };
   }
   listingCache.set(url, listing);
   return listing;
@@ -76,9 +77,13 @@ export async function fetchLatestCitypage(
 ): Promise<CitypageData> {
   const dirs = candidateHourDirs(province, now);
   let unreachable = 0;
+  let firstFailure: string | null = null;
   for (const dir of dirs) {
     const listing = await listDir(dir.url);
-    if (listing.unreachable) unreachable++;
+    if (listing.unreachable) {
+      unreachable++;
+      firstFailure ??= listing.unreachable;
+    }
     const matches = listing.files
       .filter((f) => f.endsWith(`_MSC_CitypageWeather_${siteCode}_en.xml`))
       .sort();
@@ -91,7 +96,8 @@ export async function fetchLatestCitypage(
   // a missing ECCC file that was in fact published on time.
   if (unreachable > 0) {
     throw new Error(
-      `Datamart unreachable for ${unreachable} of ${dirs.length} hour directories; ` +
+      `Datamart unreachable for ${unreachable} of ${dirs.length} hour directories ` +
+        `(first failure: ${firstFailure}); ` +
         `cannot tell whether a citypage file for ${siteCode} exists`,
     );
   }

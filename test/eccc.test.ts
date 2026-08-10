@@ -95,7 +95,28 @@ describe("fetchLatestCitypage transport failures", () => {
 
     await expect(
       fetchLatestCitypage("NS", "s0000318", new Date("2026-08-09T13:36:00Z")),
-    ).rejects.toThrow(/Datamart unreachable for 1 of 13 hour directories/);
+    ).rejects.toThrow(
+      /Datamart unreachable for 1 of 13 hour directories \(first failure: HTTP 503/,
+    );
+  });
+
+  // The failure that actually breaks CI is a connection-level one, which undici
+  // reports as a bare "fetch failed" with the real reason on .cause. Losing
+  // that leaves nothing to act on.
+  it("surfaces the underlying network cause, not just 'fetch failed'", async () => {
+    let downUrl: string | null = null;
+    globalThis.fetch = (async (input: RequestInfo | URL) => {
+      const url = String(input);
+      downUrl ??= url;
+      if (url !== downUrl) return new Response("not found", { status: 404 });
+      throw Object.assign(new TypeError("fetch failed"), {
+        cause: new Error("connect ETIMEDOUT 205.189.10.47:443"),
+      });
+    }) as typeof fetch;
+
+    await expect(
+      fetchLatestCitypage("NS", "s0000318", new Date("2026-08-05T13:36:00Z")),
+    ).rejects.toThrow(/fetch failed \(Error: connect ETIMEDOUT 205\.189\.10\.47:443\)/);
   });
 
   // A different day from the test above on purpose: listing results are cached
