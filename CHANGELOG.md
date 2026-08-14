@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.1 - 2026-08-14
+
+### Fixed
+
+- Beach cards now always show the forecast air-temperature range for the
+  recommended window, or the daylight range when there is no recommended
+  window. It no longer disappears when wind, rain, or tide fill the three
+  explanatory-reason slots, and remains distinct from observed water
+  temperature.
+
 ## 1.5.0 - 2026-08-14
 
 ### Added

@@ -21,6 +21,29 @@ function Star({ filled }) {
   );
 }
 
+function airTemperature(hours, bestWindow) {
+  const scope = bestWindow
+    ? hours.filter(
+        (hour) =>
+          Date.parse(hour.time) >= Date.parse(bestWindow.start) &&
+          Date.parse(hour.time) < Date.parse(bestWindow.end),
+      )
+    : hours.filter((hour) => hour.daylight);
+  const values = scope
+    .map((hour) => hour.temperatureC)
+    .filter((value) => value !== null);
+  if (values.length === 0) return null;
+
+  const low = Math.round(Math.min(...values));
+  const high = Math.round(Math.max(...values));
+  return {
+    label: low === high ? `${high}°C` : `${low}–${high}°C`,
+    title: bestWindow
+      ? "Forecast air temperature during the recommended window"
+      : "Forecast air temperature during daylight hours",
+  };
+}
+
 function BeachCard({
   beach,
   hourly,
@@ -36,6 +59,8 @@ function BeachCard({
   const nextTide = (beach.tideEvents ?? []).find(
     (event) => Date.parse(event.time) > now.getTime(),
   );
+  const temperature = airTemperature(hourly ?? [], beach.bestWindow);
+  const reasons = beach.reasons.filter((reason) => reason.kind !== "temperature");
 
   return (
     <Link
@@ -83,7 +108,7 @@ function BeachCard({
 
       <div className="flex flex-col gap-2.5 min-w-0">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-          {beach.reasons.map((reason) => (
+          {reasons.map((reason) => (
             <span
               key={reason.text}
               title={reason.text}
@@ -95,6 +120,17 @@ function BeachCard({
               {reason.short}
             </span>
           ))}
+          {temperature && (
+            <span
+              title={temperature.title}
+              className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
+            >
+              <span className="text-accent-400">
+                <ReasonIcon kind="temperature" />
+              </span>
+              {temperature.label}
+            </span>
+          )}
         </div>
         {hourly && <HourStrip hours={hourly} compact />}
         <div className="flex gap-4 text-[11px] uppercase tracking-[0.06em] text-neutral-500">
