@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.2 - 2026-08-14
+
+### Fixed
+
+- The seven-day selector is now a compact region-style dropdown on mobile,
+  eliminating the horizontal scrollbar on both the rankings and beach detail
+  pages. Tablet and desktop layouts retain the full row of day chips.
+
 ## 1.5.1 - 2026-08-14
 
 ### Fixed
