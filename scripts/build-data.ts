@@ -3,8 +3,19 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchTides, unavailableTides } from "./lib/chs.js";
 import { fetchLatestCitypage } from "./lib/eccc.js";
+import {
+  availableForecastDates,
+  confidenceForDay,
+  hoursForDate,
+  localDate,
+  overridesForDate,
+  precisionHoursForDay,
+  sampleForecastHours,
+  scoreableHoursForDate,
+} from "./lib/forecast-days.js";
 import { haversineKm } from "./lib/geo.js";
 import { loadFoodSnapshot } from "./lib/nearby.js";
+import { fetchGemForecasts } from "./lib/open-meteo.js";
 import { fetchBuoySeaSurfaceTemp, unavailableWater } from "./lib/water.js";
 import { buildReasons } from "./lib/reasons.js";
 import { loadBeaches, loadOverrides, loadThresholds } from "./lib/registry.js";
@@ -16,9 +27,9 @@ import {
   verdictFor,
 } from "./lib/score.js";
 import type {
-  BeachConfig,
   BeachOutput,
   CitypageData,
+  GemForecast,
   ScoredHour,
   TideData,
   WaterTemperature,
@@ -26,71 +37,74 @@ import type {
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = join(root, "public", "data");
+const HOUR_MS = 3600_000;
+const FORECAST_DAYS = 7;
+const TIMEZONE = "America/Halifax";
 
-const HOUR_MS = 3600 * 1000;
-
-function localDate(iso: string, timezone: string): string {
-  return new Intl.DateTimeFormat("en-CA", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    timeZone: timezone,
-  }).format(new Date(iso));
-}
-
-function confidenceFor(
-  beach: BeachConfig,
-  weather: CitypageData,
-  tides: TideData,
-  now: Date,
-): "high" | "medium" | "low" {
-  const issueAgeHours = Math.max(
-    0,
-    (now.getTime() - Date.parse(weather.issuedAtUtc)) / HOUR_MS,
+function roundedDistance(
+  from: { latitude: number; longitude: number },
+  to: { latitude: number; longitude: number },
+): number {
+  return (
+    Math.round(
+      haversineKm(from.latitude, from.longitude, to.latitude, to.longitude) * 10,
+    ) / 10
   );
-  const weatherDistanceKm = haversineKm(
-    beach.location.latitude,
-    beach.location.longitude,
-    beach.weather.site_latitude,
-    beach.weather.site_longitude,
-  );
-  const tideDistanceKm = haversineKm(
-    beach.location.latitude,
-    beach.location.longitude,
-    beach.tide.station_latitude,
-    beach.tide.station_longitude,
-  );
-  // ECCC re-issues the hourly forecast group roughly four times a day, so a
-  // several-hour-old issue time is normal operation, not staleness.
-  if (
-    issueAgeHours > 12 ||
-    weatherDistanceKm > 40 ||
-    tides.sourceKind === "unavailable"
-  ) {
-    return "low";
-  }
-  if (issueAgeHours <= 6 && weatherDistanceKm <= 20 && tideDistanceKm <= 12) {
-    return "high";
-  }
-  return "medium";
 }
 
 async function main() {
   const now = new Date();
   const beaches = loadBeaches(join(root, "config", "beaches.yml"));
   const thresholds = loadThresholds(join(root, "config", "thresholds.yml"));
-  const overrides = loadOverrides(join(root, "config", "manual-overrides.yml"), now);
 
-  const weatherBySite = new Map<string, CitypageData>();
+  // The official city forecast remains the source for active warnings and the
+  // written outlook. The seven-day score uses a consistent hourly GEM series.
+  const officialWeatherBySite = new Map<string, CitypageData>();
   for (const beach of beaches) {
     const key = `${beach.weather.province}/${beach.weather.site_code}`;
-    if (weatherBySite.has(key)) continue;
-    console.log(`Fetching weather for ${key} (${beach.weather.site_name})`);
-    weatherBySite.set(
+    if (officialWeatherBySite.has(key)) continue;
+    console.log(
+      `Fetching official forecast for ${key} (${beach.weather.site_name})`,
+    );
+    officialWeatherBySite.set(
       key,
       await fetchLatestCitypage(beach.weather.province, beach.weather.site_code, now),
     );
   }
+
+  console.log(`Fetching ${FORECAST_DAYS}-day Canadian GEM forecast for all beaches`);
+  const gemForecasts = await fetchGemForecasts(
+    beaches.map((beach) => ({
+      latitude: beach.location.latitude,
+      longitude: beach.location.longitude,
+    })),
+    FORECAST_DAYS,
+  );
+  const gemByBeach = new Map<string, GemForecast>(
+    beaches.map((beach, index) => [beach.id, gemForecasts[index]]),
+  );
+  const dates = availableForecastDates(
+    gemForecasts[0].hourly,
+    TIMEZONE,
+    now,
+    FORECAST_DAYS,
+  );
+  if (dates.length !== FORECAST_DAYS) {
+    throw new Error(
+      `Canadian GEM returned ${dates.length} selectable dates; expected ${FORECAST_DAYS}`,
+    );
+  }
+
+  const tideFrom = new Date(gemForecasts[0].hourly[0].time);
+  const tideTo = new Date(
+    Date.parse(gemForecasts[0].hourly[gemForecasts[0].hourly.length - 1].time) +
+      HOUR_MS,
+  );
+  const overrides = loadOverrides(
+    join(root, "config", "manual-overrides.yml"),
+    now,
+    tideTo,
+  );
 
   const tidesByStation = new Map<string, TideData>();
   for (const beach of beaches) {
@@ -104,8 +118,8 @@ async function main() {
           station_id,
           station_code,
           station_name,
-          new Date(now.getTime() - 12 * HOUR_MS),
-          new Date(now.getTime() + 36 * HOUR_MS),
+          tideFrom,
+          tideTo,
         ),
       );
     } catch (error) {
@@ -120,8 +134,8 @@ async function main() {
     }
   }
 
-  // Water temperature is supporting information only; a failed buoy fetch
-  // never blocks the build.
+  // Water temperature is a current supporting observation. A failed buoy
+  // fetch never blocks the weather forecast build.
   const waterByBuoy = new Map<
     string,
     { valueC: number; observedAt: string; stationName: string } | null
@@ -146,51 +160,88 @@ async function main() {
   }
 
   const foodByBeach = loadFoodSnapshot(join(root, "config", "nearby-food.json"));
-
   mkdirSync(join(dataDir, "beach"), { recursive: true });
+  mkdirSync(join(dataDir, "day"), { recursive: true });
 
   const validUntil = new Date(
     now.getTime() + thresholds.staleness.valid_minutes * 60_000,
   ).toISOString();
-  const indexEntries = [];
+  const indexEntriesByDate = new Map<string, unknown[]>(
+    dates.map((date) => [date, []]),
+  );
 
   for (const beach of beaches) {
-    const weather = weatherBySite.get(
+    const officialWeather = officialWeatherBySite.get(
       `${beach.weather.province}/${beach.weather.site_code}`,
     )!;
+    const gem = gemByBeach.get(beach.id)!;
     const tides = tidesByStation.get(beach.tide.station_id)!;
+    const weatherDistanceKm = roundedDistance(beach.location, gem);
+    const tideDistanceKm = roundedDistance(beach.location, {
+      latitude: beach.tide.station_latitude,
+      longitude: beach.tide.station_longitude,
+    });
+    const officialWeatherDistanceKm = roundedDistance(beach.location, {
+      latitude: beach.weather.site_latitude,
+      longitude: beach.weather.site_longitude,
+    });
 
-    const hours = weather.hourly.filter(
-      (h) => Date.parse(h.time) >= now.getTime() - HOUR_MS,
-    );
-    const dates = [
-      ...new Set(hours.map((h) => localDate(h.time, beach.location.timezone))),
-    ];
     const sun = sunTimesFor(
       dates,
       beach.location.latitude,
       beach.location.longitude,
     );
-
     const ctx = { beach, thresholds, tides, sun };
-    const scored: ScoredHour[] = hours.map((h) => scoreHour(h, ctx));
-    const window = findBestWindow(scored, thresholds);
-    const beachOverrides = overrides.filter((o) => o.beach_id === beach.id);
-    const verdict = verdictFor({
-      window,
-      overrides: beachOverrides,
-      warnings: weather.warnings,
-      generatedAt: now,
+    const scored: ScoredHour[] = gem.hourly.map((hour) => scoreHour(hour, ctx));
+    const beachOverrides = overrides.filter((entry) => entry.beach_id === beach.id);
+
+    const days = dates.map((date, dayOffset) => {
+      const completeDay = hoursForDate(scored, date, beach.location.timezone);
+      const precisionHours = precisionHoursForDay(dayOffset);
+      const hourly = sampleForecastHours(
+        scoreableHoursForDate(scored, date, beach.location.timezone, now),
+        precisionHours,
+      );
+      if (hourly.length === 0) {
+        throw new Error(`${beach.name} has no forecast hours for ${date}`);
+      }
+      const dayOverrides = overridesForDate(beachOverrides, completeDay);
+      const applicableWarnings = dayOffset === 0 ? officialWeather.warnings : [];
+      const window = findBestWindow(hourly, thresholds, precisionHours);
+      const reference = dayOffset === 0 ? now : new Date(hourly[0].time);
+      const reasons = buildReasons(
+        beach,
+        hourly,
+        window,
+        tides,
+        applicableWarnings,
+        reference,
+      );
+      const summary = {
+        verdict: verdictFor({
+          window,
+          overrides: dayOverrides,
+          warnings: applicableWarnings,
+          generatedAt: now,
+        }),
+        bestWindow: window,
+        reasons,
+        confidence: confidenceForDay(
+          dayOffset,
+          weatherDistanceKm,
+          tideDistanceKm,
+          tides,
+        ),
+      };
+      return {
+        date,
+        dayOffset,
+        precisionHours,
+        summary,
+        hourly,
+        advisories: dayOverrides,
+      };
     });
-    const reasons = buildReasons(
-      beach,
-      scored,
-      window,
-      tides,
-      weather.warnings,
-      now,
-    );
-    const confidence = confidenceFor(beach, weather, tides, now);
 
     let water: WaterTemperature = unavailableWater();
     if (beach.water) {
@@ -201,21 +252,16 @@ async function main() {
           valueC: observation.valueC,
           observedAt: observation.observedAt,
           stationName: beach.water.buoy_name,
-          distanceKm:
-            Math.round(
-              haversineKm(
-                beach.location.latitude,
-                beach.location.longitude,
-                beach.water.buoy_latitude,
-                beach.water.buoy_longitude,
-              ) * 10,
-            ) / 10,
+          distanceKm: roundedDistance(beach.location, {
+            latitude: beach.water.buoy_latitude,
+            longitude: beach.water.buoy_longitude,
+          }),
         };
       }
     }
 
     const output: BeachOutput = {
-      schemaVersion: 1,
+      schemaVersion: 2,
       beach: {
         id: beach.id,
         name: beach.name,
@@ -236,22 +282,13 @@ async function main() {
       },
       generatedAt: now.toISOString(),
       validUntil,
-      timezone: "America/Halifax",
-      summary: { verdict, bestWindow: window, reasons, confidence },
-      hourly: scored,
+      timezone: TIMEZONE,
+      days,
       sun,
       tides: {
         stationCode: tides.stationCode,
         stationName: tides.stationName,
-        distanceKm:
-          Math.round(
-            haversineKm(
-              beach.location.latitude,
-              beach.location.longitude,
-              beach.tide.station_latitude,
-              beach.tide.station_longitude,
-            ) * 10,
-          ) / 10,
+        distanceKm: tideDistanceKm,
         sourceKind: tides.sourceKind,
         events: tides.events,
         samples: tides.samples,
@@ -259,24 +296,25 @@ async function main() {
       water,
       nearbyFood: foodByBeach[beach.id] ?? [],
       weatherSource: {
-        siteCode: weather.siteCode,
-        siteName: beach.weather.site_name,
-        distanceKm:
-          Math.round(
-            haversineKm(
-              beach.location.latitude,
-              beach.location.longitude,
-              beach.weather.site_latitude,
-              beach.weather.site_longitude,
-            ) * 10,
-          ) / 10,
-        issuedAt: weather.issuedAtUtc,
-        fetchedAt: weather.fetchedAt,
-        kind: "forecast",
+        provider: "Open-Meteo",
+        model: "Canadian GEM seamless",
+        latitude: gem.latitude,
+        longitude: gem.longitude,
+        distanceKm: weatherDistanceKm,
+        fetchedAt: gem.fetchedAt,
+        kind: "model-forecast",
       },
-      warnings: weather.warnings,
+      officialForecastSource: {
+        siteCode: officialWeather.siteCode,
+        siteName: beach.weather.site_name,
+        distanceKm: officialWeatherDistanceKm,
+        issuedAt: officialWeather.issuedAtUtc,
+        fetchedAt: officialWeather.fetchedAt,
+        kind: "official-forecast",
+      },
+      warnings: officialWeather.warnings,
       advisories: beachOverrides,
-      outlook: weather.daily,
+      outlook: officialWeather.daily,
     };
 
     beachOutputSchema.parse(output);
@@ -284,63 +322,82 @@ async function main() {
       join(dataDir, "beach", `${beach.id}.json`),
       JSON.stringify(output, null, 2),
     );
-    console.log(
-      `${beach.name}: ${verdict}${window ? ` (${window.start} - ${window.end}, avg ${window.avgScore})` : ""}`,
-    );
 
-    const daylightScores = scored
-      .filter((h) => h.daylight && !h.gated)
-      .map((h) => h.score);
-    const firstUpcoming =
-      scored.find((h) => Date.parse(h.time) >= now.getTime()) ?? null;
-    indexEntries.push({
-      id: beach.id,
-      name: beach.name,
-      region: beach.region,
-      municipality: beach.municipality,
-      latitude: beach.location.latitude,
-      longitude: beach.location.longitude,
-      washrooms: beach.amenities?.washrooms ?? null,
-      surf: beach.classification.surf ?? false,
-      verdict,
-      bestWindow: window,
-      reasons,
-      confidence,
-      peakScore: daylightScores.length > 0 ? Math.max(...daylightScores) : 0,
-      firstHour: firstUpcoming,
-      hourly: scored,
-      // The client picks the first event after its own clock; baking a single
-      // "next tide" here would go wrong as soon as it passes.
-      tideEvents: tides.events.filter(
-        (e) => Date.parse(e.time) > now.getTime() - 2 * HOUR_MS,
-      ),
-      water,
-    });
+    for (const day of days) {
+      const daylightScores = day.hourly
+        .filter((hour) => hour.daylight && !hour.gated)
+        .map((hour) => hour.score);
+      const tideEvents = tides.events.filter(
+        (event) => localDate(event.time, beach.location.timezone) === day.date,
+      );
+      indexEntriesByDate.get(day.date)!.push({
+        id: beach.id,
+        name: beach.name,
+        region: beach.region,
+        municipality: beach.municipality,
+        latitude: beach.location.latitude,
+        longitude: beach.location.longitude,
+        washrooms: beach.amenities?.washrooms ?? null,
+        surf: beach.classification.surf ?? false,
+        verdict: day.summary.verdict,
+        bestWindow: day.summary.bestWindow,
+        reasons: day.summary.reasons,
+        confidence: day.summary.confidence,
+        precisionHours: day.precisionHours,
+        peakScore: daylightScores.length > 0 ? Math.max(...daylightScores) : 0,
+        firstHour: day.hourly[0] ?? null,
+        hourly: day.hourly,
+        tideEvents,
+        water,
+      });
+    }
+
+    const firstDay = days[0];
+    console.log(
+      `${beach.name}: ${firstDay.summary.verdict}${
+        firstDay.summary.bestWindow
+          ? ` (${firstDay.summary.bestWindow.start} - ${firstDay.summary.bestWindow.end})`
+          : ""
+      }`,
+    );
   }
 
-  const index = {
-    schemaVersion: 1 as const,
-    generatedAt: now.toISOString(),
-    validUntil,
-    timezone: "America/Halifax" as const,
-    beaches: indexEntries,
-  };
-  beachIndexSchema.parse(index);
-  writeFileSync(join(dataDir, "beaches.json"), JSON.stringify(index, null, 2));
+  for (const [dayOffset, date] of dates.entries()) {
+    const index = {
+      schemaVersion: 2 as const,
+      generatedAt: now.toISOString(),
+      validUntil,
+      timezone: TIMEZONE,
+      date,
+      dayOffset,
+      beaches: indexEntriesByDate.get(date),
+    };
+    beachIndexSchema.parse(index);
+    writeFileSync(
+      join(dataDir, "day", `${date}.json`),
+      JSON.stringify(index, null, 2),
+    );
+    if (dayOffset === 0) {
+      writeFileSync(join(dataDir, "beaches.json"), JSON.stringify(index, null, 2));
+    }
+  }
 
   const manifest = {
-    schemaVersion: 1 as const,
+    schemaVersion: 2 as const,
     generatedAt: now.toISOString(),
     validUntil,
-    beachIds: beaches.map((b) => b.id),
+    beachIds: beaches.map((beach) => beach.id),
+    dates,
   };
   manifestSchema.parse(manifest);
   writeFileSync(join(dataDir, "manifest.json"), JSON.stringify(manifest, null, 2));
 
-  console.log(`Wrote data for ${beaches.length} beaches to ${dataDir}`);
+  console.log(
+    `Wrote ${dates.length} forecast days for ${beaches.length} beaches to ${dataDir}`,
+  );
 }
 
 main().catch((error) => {
-  console.error("Data build failed:", error);
+  console.error(error);
   process.exit(1);
 });

@@ -15,14 +15,32 @@ function readJson(path: string): unknown {
 
 try {
   const manifest = manifestSchema.parse(readJson(join(dataDir, "manifest.json")));
-  const index = beachIndexSchema.parse(readJson(join(dataDir, "beaches.json")));
+  const todayIndex = beachIndexSchema.parse(readJson(join(dataDir, "beaches.json")));
+  if (todayIndex.date !== manifest.dates[0]) {
+    throw new Error("beaches.json does not contain the first selectable date");
+  }
 
-  const indexIds = new Set(index.beaches.map((b) => b.id));
-  for (const id of manifest.beachIds) {
-    if (!indexIds.has(id)) {
-      throw new Error(`Beach ${id} in manifest but missing from beaches.json`);
+  for (const date of manifest.dates) {
+    const index = beachIndexSchema.parse(
+      readJson(join(dataDir, "day", `${date}.json`)),
+    );
+    if (index.date !== date) throw new Error(`Day index date mismatch for ${date}`);
+    const indexIds = new Set(index.beaches.map((beach) => beach.id));
+    for (const id of manifest.beachIds) {
+      if (!indexIds.has(id)) {
+        throw new Error(`Beach ${id} missing from day index ${date}`);
+      }
     }
-    beachOutputSchema.parse(readJson(join(dataDir, "beach", `${id}.json`)));
+  }
+
+  for (const id of manifest.beachIds) {
+    const beach = beachOutputSchema.parse(
+      readJson(join(dataDir, "beach", `${id}.json`)),
+    );
+    const beachDates = beach.days.map((day) => day.date);
+    if (beachDates.join(",") !== manifest.dates.join(",")) {
+      throw new Error(`Beach ${id} does not contain every selectable date`);
+    }
   }
 
   const ageMinutes = (Date.now() - Date.parse(manifest.generatedAt)) / 60_000;
@@ -32,7 +50,9 @@ try {
     );
   }
 
-  console.log(`Validated data for ${manifest.beachIds.length} beaches`);
+  console.log(
+    `Validated ${manifest.dates.length} days for ${manifest.beachIds.length} beaches`,
+  );
 } catch (error) {
   console.error("Validation failed:", error instanceof Error ? error.message : error);
   process.exit(1);

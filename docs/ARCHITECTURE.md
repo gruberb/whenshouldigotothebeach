@@ -3,9 +3,10 @@
 ## Overview
 
 whenshouldigotothebeach.ca answers one question: is it a good time to go to a
-Nova Scotia beach? It covers 75 saltwater beaches across the province's seven
-tourism regions. Every beach gets a verdict, a best window, an hourly strip
-for the next 24 hours, and tide context, all computed ahead of time.
+Nova Scotia beach? It covers 76 saltwater beaches across the province's seven
+tourism regions. A visitor can choose any of the next seven local calendar
+days. Every beach gets a verdict, a best window, a forecast strip, tide
+context, and an explicit confidence level, all computed ahead of time.
 
 The system has no backend. A scheduled GitHub Action fetches public
 government and community data, scores every beach, and publishes the result
@@ -53,7 +54,8 @@ collect anything beyond privacy-preserving page analytics.
 ```mermaid
 flowchart LR
     subgraph sources["Data sources"]
-        ECCC["ECCC MSC Datamart<br/>citypage XML + warnings"]
+        GEM["Open-Meteo<br/>Canadian GEM forecast"]
+        ECCC["ECCC MSC Datamart<br/>warnings + outlook"]
         CHS["CHS IWLS API<br/>tide predictions"]
         SWOB["ECCC SWOB-ML<br/>buoy water temperature"]
         OSM["OpenStreetMap<br/>Overpass + Valhalla"]
@@ -71,10 +73,11 @@ flowchart LR
     end
 
     subgraph site["GitHub Pages artifact"]
-        JSON["public/data/*.json<br/>verdicts, hourly, tides"]
+        JSON["public/data/*.json<br/>7 days of verdicts, weather, tides"]
         SPA["React SPA (Vite)"]
     end
 
+    GEM --> BUILD
     ECCC --> BUILD
     CHS --> BUILD
     SWOB --> BUILD
@@ -109,13 +112,23 @@ flowchart LR
 
 ### Pipeline (`scripts/`)
 
-- [build-data.ts](../scripts/build-data.ts): the orchestrator. Fetches each
-  unique weather site once, each unique tide station once, each buoy once,
-  merges in the food snapshot, scores every beach, and writes
-  `public/data/beach/<id>.json`, `public/data/beaches.json` (the index), and
+- [build-data.ts](../scripts/build-data.ts): the orchestrator. Fetches one
+  batched seven-day GEM forecast for all beach coordinates, each unique ECCC
+  warning site once, each unique tide station once, and each buoy once. It
+  merges in the food snapshot, scores every beach per local calendar day, and
+  writes `public/data/day/<date>.json`, `public/data/beach/<id>.json`,
+  `public/data/beaches.json` (today's fallback index), and
   `public/data/manifest.json`.
+- [lib/open-meteo.ts](../scripts/lib/open-meteo.ts): fetches and normalizes the
+  Canadian GEM seamless model. The request is batched across all beach
+  coordinates and returned in America/Halifax time.
+- [lib/forecast-days.ts](../scripts/lib/forecast-days.ts): owns local-day
+  grouping, forecast precision, and confidence. Days zero through two retain
+  hourly values; days three through six use three-hour samples. Days four
+  through six are marked low confidence.
 - [lib/eccc.ts](../scripts/lib/eccc.ts): parses ECCC citypage XML from the
-  MSC Datamart's dated directory trees. Two quirks it defends against: the
+  MSC Datamart's dated directory trees for official warnings and the outlook.
+  Two quirks it defends against: the
   `/today/` alias flips at 00:00 UTC mid-run (so it is never used), and the
   Datamart intermittently stamps `forecastIssue` with a future date (rolled
   back against `xmlCreation`).
@@ -142,7 +155,11 @@ flowchart LR
 
 A Vite + React SPA styled with Tailwind on the Nocturne design system (dark
 ground, one blurple accent whose brightness encodes score). It fetches the
-generated JSON, renders the ranked list, region grouping, search,
+generated JSON and places a seven-day selector directly below the region
+selector on the home page and below the beach name on detail pages. The
+selected date lives in the `?date=YYYY-MM-DD` query parameter, so rankings,
+map links, detail navigation, refreshes, and shared URLs retain the choice.
+The app renders the ranked list, region grouping, search,
 favourites (localStorage), an optional Leaflet map with Carto dark tiles,
 and per-beach detail pages. Geolocation for "Near me" runs entirely
 client-side on explicit tap and never leaves the browser. All times render
@@ -172,13 +189,15 @@ imported directly so Vite can tree-shake.
 ```mermaid
 sequenceDiagram
     participant GH as GitHub Actions (cron 17,47 * * * *)
+    participant GEM as Open-Meteo GEM API
     participant DM as ECCC Datamart
     participant IWLS as CHS IWLS API
     participant Pages as GitHub Pages
 
     GH->>GH: npm ci, npm test
-    GH->>DM: citypage XML per unique weather site
-    GH->>IWLS: tide predictions per unique station (36 h ahead, 12 h back)
+    GH->>GEM: seven-day model forecast for all beach coordinates
+    GH->>DM: warnings and outlook per unique weather site
+    GH->>IWLS: tide predictions per unique station (seven days)
     GH->>DM: SWOB-ML latest observation per buoy
     GH->>GH: score all beaches (npm run data)
     GH->>GH: schema-validate output (npm run validate)
@@ -187,9 +206,10 @@ sequenceDiagram
     Note over Pages: On any failure the workflow stops and<br/>the previous deployment stays online
 ```
 
-The browser then loads `manifest.json` (freshness), `beaches.json` (the
-ranked index used by the list and the map), and `beach/<id>.json` on detail
-pages.
+The browser loads `manifest.json` (freshness and available dates), then
+`day/<date>.json` for the selected day's ranked list and map, and
+`beach/<id>.json` on detail pages. `beaches.json` remains today's fallback
+index.
 
 ## CI workflows
 
@@ -215,7 +235,8 @@ Services queried by the CI pipeline (no keys, all public endpoints):
 
 | Service | Endpoint | Data | Frequency |
 |---|---|---|---|
-| ECCC MSC Datamart | `https://dd.weather.gc.ca/<date>/WXO-DD/citypage_weather/...` | Hourly forecasts, daily outlook, watches and warnings per weather site | Every 30 min |
+| Open-Meteo GEM | `https://api.open-meteo.com/v1/gem` | Canadian GEM seamless weather forecast per beach coordinate | Every 30 min |
+| ECCC MSC Datamart | `https://dd.weather.gc.ca/<date>/WXO-DD/citypage_weather/...` | Official outlook, watches and warnings per weather site | Every 30 min |
 | CHS IWLS (DFO) | `https://api-iwls.dfo-mpo.gc.ca/api/v1` | Tide predictions: high/low events (`wlp-hilo`) and curve points (`wlp`) per station | Every 30 min |
 | ECCC SWOB-ML marine | `https://dd.weather.gc.ca/observations/swob-ml/marine/` | Buoy sea-surface temperature (`avg_sea_sfc_temp_pst10mts`) | Every 30 min |
 | Overpass (OSM) | `https://overpass-api.de/api/interpreter` (fallback `overpass.kumi.systems`) | Named restaurants, cafes, bakeries, stores near beaches | Weekly |

@@ -74,7 +74,7 @@ export function windScore(
 
 export function temperatureScore(
   temperatureC: number | null,
-  humidexC: number | null,
+  feelsLikeC: number | null,
   t: Thresholds,
 ): number {
   if (temperatureC === null) return 0.6;
@@ -99,7 +99,7 @@ export function temperatureScore(
       score = Math.max(0.1, lerp(temperatureC, c.poor_max, c.poor_max + 6, 0.4, 0.1));
     }
   }
-  if (humidexC !== null && humidexC >= 35) {
+  if (feelsLikeC !== null && feelsLikeC >= 35) {
     score = Math.max(0.1, score - 0.15);
   }
   return score;
@@ -210,7 +210,7 @@ export function scoreHour(hour: HourlyWeather, ctx: ScoreContext): ScoredHour {
   const components = {
     precipitation: precipitationScore(hour.popPercent, hour.condition, t),
     wind: windScore(hour.windKmh, hour.gustKmh, t),
-    temperature: temperatureScore(hour.temperatureC, hour.humidexC, t),
+    temperature: temperatureScore(hour.temperatureC, hour.feelsLikeC, t),
     fog: fogScore(hour.condition),
     sky: skyScore(hour.condition),
     tide: tideScore(phase, beach.classification.tide_effect),
@@ -243,7 +243,7 @@ export function scoreHour(hour: HourlyWeather, ctx: ScoreContext): ScoredHour {
     daylight,
     gated,
     temperatureC: hour.temperatureC,
-    humidexC: hour.humidexC,
+    feelsLikeC: hour.feelsLikeC,
     condition: hour.condition,
     iconCode: hour.iconCode,
     popPercent: hour.popPercent,
@@ -261,6 +261,7 @@ export function scoreHour(hour: HourlyWeather, ctx: ScoreContext): ScoredHour {
 function contiguousRuns(
   hours: ScoredHour[],
   predicate: (h: ScoredHour) => boolean,
+  intervalHours = 1,
 ): ScoredHour[][] {
   const runs: ScoredHour[][] = [];
   let current: ScoredHour[] = [];
@@ -269,7 +270,7 @@ function contiguousRuns(
       if (
         current.length > 0 &&
         Date.parse(hour.time) - Date.parse(current[current.length - 1].time) !==
-          HOUR_MS
+          HOUR_MS * intervalHours
       ) {
         runs.push(current);
         current = [];
@@ -287,13 +288,17 @@ function contiguousRuns(
 export function findBestWindow(
   hours: ScoredHour[],
   t: Thresholds,
+  precisionHours: 1 | 3 = 1,
 ): BestWindow | null {
   const usable = (h: ScoredHour) => h.daylight && !h.gated;
 
   for (const quality of ["good", "ok"] as const) {
     const minScore = quality === "good" ? t.ratings.good_min : t.ratings.ok_min;
-    const runs = contiguousRuns(hours, (h) => usable(h) && h.score >= minScore)
-      .filter((run) => run.length >= t.window.min_hours);
+    const runs = contiguousRuns(
+      hours,
+      (h) => usable(h) && h.score >= minScore,
+      precisionHours,
+    ).filter((run) => run.length * precisionHours >= t.window.min_hours);
     if (runs.length === 0) continue;
     // Every run in this tier is already good enough to go, so the soonest
     // one answers "when should I go". Picking the highest average instead
@@ -306,7 +311,9 @@ export function findBestWindow(
     );
     return {
       start: best[0].time,
-      end: new Date(Date.parse(best[best.length - 1].time) + HOUR_MS).toISOString(),
+      end: new Date(
+        Date.parse(best[best.length - 1].time) + HOUR_MS * precisionHours,
+      ).toISOString(),
       quality,
       avgScore,
     };

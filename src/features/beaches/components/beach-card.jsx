@@ -30,6 +30,7 @@ function BeachCard({
   favourite = false,
   onToggleFavourite,
   distanceKm = null,
+  selectedDate,
 }) {
   const windowLabel = stale ? null : formatWindow(beach.bestWindow, generatedAt);
   const nextTide = (beach.tideEvents ?? []).find(
@@ -38,7 +39,7 @@ function BeachCard({
 
   return (
     <Link
-      to={`/beach/${beach.id}`}
+      to={`/beach/${beach.id}?date=${encodeURIComponent(selectedDate)}`}
       style={{ viewTransitionName: `beach-${beach.id}` }}
       className="card relative block no-underline text-noct-text p-4 md:p-5 grid md:grid-cols-[250px_1fr] gap-3 md:gap-7 items-start"
     >
@@ -97,6 +98,7 @@ function BeachCard({
         </div>
         {hourly && <HourStrip hours={hourly} compact />}
         <div className="flex gap-4 text-[11px] uppercase tracking-[0.06em] text-neutral-500">
+          {beach.precisionHours === 3 && <span>Planning forecast</span>}
           <span>
             {nextTide
               ? `${nextTide.type === "high" ? "High" : "Low"} tide ${formatTime(nextTide.time)}`

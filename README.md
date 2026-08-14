@@ -1,22 +1,27 @@
 # When should I go to the beach?
 
-A no-nonsense dashboard for good beach times on Nova Scotia's coast: 75
+A no-nonsense dashboard for good beach times on Nova Scotia's coast: 76
 saltwater beaches across all seven tourism regions, from Yarmouth to Cape
 Breton. Sibling site of [isthelclcpoolopen.ca](https://isthelclcpoolopen.ca).
 
-Each beach gets a plain verdict (GO NOW, GOOD LATER, MIXED, NOT GREAT), the
-best continuous window, two or three reasons, an hourly strip for the next 24
-hours, and tide context. Data provenance is always visible: forecasts are
-labelled as forecasts, tide predictions as astronomical predictions, and
-stations show their distance from the sand.
+Choose any of the next seven days and each beach gets a plain verdict (GO NOW,
+GOOD LATER, MIXED, NOT GREAT), the best continuous window, two or three
+reasons, an hourly strip, and tide context. Days four through seven are shown
+as lower-confidence planning forecasts with three-hour precision. Data
+provenance is always visible: forecasts are labelled as forecasts, tide
+predictions as astronomical predictions, and stations show their distance
+from the sand.
 
 For how the pieces fit together, see
 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Data sources
 
-- Weather: Environment and Climate Change Canada citypage XML (hourly
-  forecasts, warnings, outlook) from the MSC Datamart.
+- Weather used for scoring: Open-Meteo's Canadian GEM seamless model forecast.
+  The first three days use hourly values; later days are presented at
+  three-hour planning precision.
+- Official warnings and outlook: Environment and Climate Change Canada
+  citypage XML from the MSC Datamart.
 - Tides: Canadian Hydrographic Service IWLS API predictions (`wlp-hilo` and
   `wlp`). Not for navigation.
 - Water temperature: ECCC moored-buoy observations (SWOB-ML,
@@ -33,10 +38,11 @@ For how the pieces fit together, see
 ## How it works
 
 ```
-ECCC citypage XML ──┐
+Open-Meteo GEM ─────┐
+ECCC warnings ──────┤
 CHS IWLS tides ─────┤   scripts/build-data.ts        public/data/*.json
-manual overrides ───┼─> normalize -> score -> ────>  (verdict, window,
-config/beaches.yml ─┘   validate                      hourly, tides)
+manual overrides ───┼─> normalize -> score -> ────>  (7 daily verdicts,
+config/beaches.yml ─┘   validate                      windows, hours, tides)
                                                           │
                                                           ▼
                                                  React frontend (Vite)
@@ -51,7 +57,7 @@ the frontend flags stale data once `validUntil` passes.
 
 ```
 npm install
-npm run data       # fetch live ECCC + CHS data, score, write public/data
+npm run data       # fetch live GEM + ECCC + CHS data, write 7-day forecasts
 npm run dev        # vite dev server
 npm test           # scoring invariants, parsers, registry checks
 npm run validate   # schema-check generated data

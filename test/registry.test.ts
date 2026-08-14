@@ -110,6 +110,30 @@ describe("manual overrides", () => {
     expect(active[0].title).toBe("Active");
   });
 
+  it("keeps scheduled overrides that overlap the requested horizon", () => {
+    const dir = mkdtempSync(join(tmpdir(), "overrides-"));
+    const path = join(dir, "overrides.yml");
+    writeFileSync(
+      path,
+      `
+- beach_id: test
+  type: closure
+  title: Tuesday closure
+  message: m
+  source: s
+  starts_at: 2026-08-11T10:00:00Z
+  expires_at: 2026-08-11T20:00:00Z
+`,
+    );
+    const scheduled = loadOverrides(
+      path,
+      new Date("2026-08-08T12:00:00Z"),
+      new Date("2026-08-14T00:00:00Z"),
+    );
+    expect(scheduled).toHaveLength(1);
+    expect(scheduled[0].title).toBe("Tuesday closure");
+  });
+
   it("rejects timestamps without an explicit UTC offset", () => {
     const dir = mkdtempSync(join(tmpdir(), "overrides-"));
     const path = join(dir, "overrides.yml");

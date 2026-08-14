@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { classifyExtrema } from "../scripts/lib/chs.js";
+import { classifyExtrema, downsampleCurve } from "../scripts/lib/chs.js";
 
 const readings = JSON.parse(
   readFileSync(join(__dirname, "fixtures", "chs", "lunenburg-hilo.json"), "utf8"),
@@ -37,5 +37,20 @@ describe("classifyExtrema", () => {
       { eventDate: "2026-08-08T00:00:00Z", value: 2.0 },
     ]);
     expect(Date.parse(events[0].time)).toBeLessThan(Date.parse(events[1].time));
+  });
+});
+
+describe("downsampleCurve", () => {
+  it("keeps no more than one curve point every 15 minutes", () => {
+    const curve = Array.from({ length: 31 }, (_, minute) => ({
+      eventDate: new Date(Date.UTC(2026, 7, 8, 12, minute)).toISOString(),
+      value: minute / 10,
+    }));
+    const samples = downsampleCurve(curve);
+    expect(samples.map((sample) => sample.eventDate)).toEqual([
+      "2026-08-08T12:00:00.000Z",
+      "2026-08-08T12:15:00.000Z",
+      "2026-08-08T12:30:00.000Z",
+    ]);
   });
 });

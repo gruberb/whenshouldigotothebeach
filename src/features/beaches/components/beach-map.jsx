@@ -33,7 +33,13 @@ function savedView(storageKey) {
 // Markers reuse the hour-strip language: brighter accent = better peak score.
 // Names are permanent labels, a click goes straight to the beach page, and
 // the last map position is kept for the session so Back lands where you were.
-function BeachMap({ beaches, stale, storageKey = "beach-map-view", userLocation = null }) {
+function BeachMap({
+  beaches,
+  stale,
+  storageKey = "beach-map-view",
+  userLocation = null,
+  selectedDate,
+}) {
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const mapRef = useRef(null);
@@ -96,7 +102,9 @@ function BeachMap({ beaches, stale, storageKey = "beach-map-view", userLocation 
         interactive: true,
         className: "beach-label",
       });
-      marker.on("click", () => navigate(`/beach/${beach.id}`));
+      marker.on("click", () =>
+        navigate(`/beach/${beach.id}?date=${encodeURIComponent(selectedDate)}`),
+      );
       group.addLayer(marker);
     }
     if (userLocation) {
@@ -140,7 +148,7 @@ function BeachMap({ beaches, stale, storageKey = "beach-map-view", userLocation 
     });
     fitObserverRef.current = observer;
     observer.observe(containerRef.current);
-  }, [beaches, stale, navigate, storageKey, userLocation]);
+  }, [beaches, stale, navigate, storageKey, userLocation, selectedDate]);
 
   useEffect(
     () => () => {

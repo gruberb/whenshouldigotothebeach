@@ -23,7 +23,16 @@ function hourTitle(hour) {
 // blocks and thunder-gated hours get a pale top marker.
 function HourStrip({ hours, compact = false }) {
   const barMax = compact ? 40 : 60;
-  const labelEvery = compact ? 6 : 3;
+  const stepHours =
+    hours.length > 1
+      ? Math.max(
+          1,
+          Math.round(
+            (Date.parse(hours[1].time) - Date.parse(hours[0].time)) / 3_600_000,
+          ),
+        )
+      : 1;
+  const labelEvery = Math.max(1, Math.round((compact ? 6 : 3) / stepHours));
 
   return (
     <div>

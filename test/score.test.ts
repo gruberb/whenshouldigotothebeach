@@ -77,7 +77,7 @@ function hourAt(isoTime: string, overrides: Partial<HourlyWeather> = {}): Hourly
   return {
     time: isoTime,
     temperatureC: 22,
-    humidexC: null,
+    feelsLikeC: null,
     condition: "Sunny",
     iconCode: 0,
     popPercent: 0,
@@ -231,7 +231,7 @@ describe("findBestWindow", () => {
       daylight: true,
       gated: false,
       temperatureC: 22,
-      humidexC: null,
+      feelsLikeC: null,
       condition: "Sunny",
       iconCode: 0,
       popPercent: 0,
@@ -303,6 +303,19 @@ describe("findBestWindow", () => {
     ];
     const window = findBestWindow(hours, thresholds);
     expect(window!.quality).toBe("ok");
+  });
+
+  it("finds planning windows in three-hour samples", () => {
+    const hours = [
+      syntheticHour("2026-08-08T12:00:00Z", 80),
+      syntheticHour("2026-08-08T15:00:00Z", 82),
+    ];
+    const window = findBestWindow(hours, thresholds, 3);
+    expect(window).toMatchObject({
+      start: "2026-08-08T12:00:00Z",
+      end: "2026-08-08T18:00:00.000Z",
+      quality: "good",
+    });
   });
 });
 

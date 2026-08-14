@@ -46,13 +46,22 @@ export function localHourOf(time) {
   );
 }
 
-function localDateOf(iso) {
+export function localDateOf(iso) {
   return new Intl.DateTimeFormat("en-CA", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
     timeZone: TIMEZONE,
   }).format(new Date(iso));
+}
+
+export function formatSelectedDay(date, weekday = "long") {
+  return new Intl.DateTimeFormat("en-CA", {
+    weekday,
+    month: "short",
+    day: "numeric",
+    timeZone: TIMEZONE,
+  }).format(new Date(`${date}T12:00:00Z`));
 }
 
 // "Today 6:00-12:00", or "Monday 6:00-12:00" once the window is on another

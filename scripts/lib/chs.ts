@@ -8,6 +8,21 @@ interface IwlsReading {
   value: number;
 }
 
+const CURVE_INTERVAL_MS = 15 * 60_000;
+
+export function downsampleCurve(readings: IwlsReading[]): IwlsReading[] {
+  const sorted = [...readings].sort(
+    (a, b) => Date.parse(a.eventDate) - Date.parse(b.eventDate),
+  );
+  let lastKept = -Infinity;
+  return sorted.filter((reading) => {
+    const time = Date.parse(reading.eventDate);
+    if (time - lastKept < CURVE_INTERVAL_MS) return false;
+    lastKept = time;
+    return true;
+  });
+}
+
 // wlp-hilo returns alternating extrema without labelling them; classify each
 // event against its neighbours.
 export function classifyExtrema(
@@ -55,9 +70,7 @@ export async function fetchTides(
     `${IWLS}/stations/${stationId}/data?time-series-code=wlp&${range}`,
   );
 
-  const samples: TideSample[] = curve
-    .sort((a, b) => Date.parse(a.eventDate) - Date.parse(b.eventDate))
-    .filter((_, i) => i % 2 === 0)
+  const samples: TideSample[] = downsampleCurve(curve)
     .map((reading) => ({
       time: new Date(reading.eventDate).toISOString(),
       heightM: Math.round(reading.value * 100) / 100,

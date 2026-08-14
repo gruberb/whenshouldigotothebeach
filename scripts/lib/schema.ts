@@ -70,7 +70,7 @@ const scoredHour = z.object({
   daylight: z.boolean(),
   gated: z.boolean(),
   temperatureC: z.number().nullable(),
-  humidexC: z.number().nullable(),
+  feelsLikeC: z.number().nullable(),
   condition: z.string(),
   iconCode: z.number().nullable(),
   popPercent: z.number().min(0).max(100),
@@ -81,8 +81,34 @@ const scoredHour = z.object({
   tidePhase: z.enum(["low", "rising", "high", "falling"]).nullable(),
 });
 
+const advisory = z.object({
+  beach_id: z.string(),
+  type: z.string(),
+  title: z.string(),
+  message: z.string(),
+  source: z.string(),
+  starts_at: z.string(),
+  expires_at: z.string(),
+});
+
+const summary = z.object({
+  verdict,
+  bestWindow: bestWindow.nullable(),
+  reasons: z.array(reason).min(1).max(3),
+  confidence: z.enum(["high", "medium", "low"]),
+});
+
+const forecastDay = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  dayOffset: z.number().int().min(0).max(6),
+  precisionHours: z.union([z.literal(1), z.literal(3)]),
+  summary,
+  hourly: z.array(scoredHour).min(1),
+  advisories: z.array(advisory),
+});
+
 export const beachOutputSchema = z.object({
-  schemaVersion: z.literal(1),
+  schemaVersion: z.literal(2),
   beach: z.object({
     id: z.string(),
     name: z.string(),
@@ -104,13 +130,7 @@ export const beachOutputSchema = z.object({
   generatedAt: isoDate,
   validUntil: isoDate,
   timezone: z.literal("America/Halifax"),
-  summary: z.object({
-    verdict,
-    bestWindow: bestWindow.nullable(),
-    reasons: z.array(reason).min(1).max(3),
-    confidence: z.enum(["high", "medium", "low"]),
-  }),
-  hourly: z.array(scoredHour).min(12),
+  days: z.array(forecastDay).min(1).max(7),
   sun: z.array(
     z.object({
       date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
@@ -143,12 +163,21 @@ export const beachOutputSchema = z.object({
     )
     .max(3),
   weatherSource: z.object({
+    provider: z.literal("Open-Meteo"),
+    model: z.literal("Canadian GEM seamless"),
+    latitude: z.number(),
+    longitude: z.number(),
+    distanceKm: z.number().min(0),
+    fetchedAt: isoDate,
+    kind: z.literal("model-forecast"),
+  }),
+  officialForecastSource: z.object({
     siteCode: z.string(),
     siteName: z.string(),
     distanceKm: z.number().min(0),
     issuedAt: isoDate,
     fetchedAt: isoDate,
-    kind: z.literal("forecast"),
+    kind: z.literal("official-forecast"),
   }),
   warnings: z.array(
     z.object({
@@ -158,17 +187,7 @@ export const beachOutputSchema = z.object({
       url: z.string().nullable(),
     }),
   ),
-  advisories: z.array(
-    z.object({
-      beach_id: z.string(),
-      type: z.string(),
-      title: z.string(),
-      message: z.string(),
-      source: z.string(),
-      starts_at: z.string(),
-      expires_at: z.string(),
-    }),
-  ),
+  advisories: z.array(advisory),
   outlook: z.array(
     z.object({
       name: z.string(),
@@ -179,10 +198,12 @@ export const beachOutputSchema = z.object({
 });
 
 export const beachIndexSchema = z.object({
-  schemaVersion: z.literal(1),
+  schemaVersion: z.literal(2),
   generatedAt: isoDate,
   validUntil: isoDate,
   timezone: z.literal("America/Halifax"),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  dayOffset: z.number().int().min(0).max(6),
   beaches: z
     .array(
       z.object({
@@ -198,9 +219,10 @@ export const beachIndexSchema = z.object({
         bestWindow: bestWindow.nullable(),
         reasons: z.array(reason),
         confidence: z.enum(["high", "medium", "low"]),
+        precisionHours: z.union([z.literal(1), z.literal(3)]),
         peakScore: z.number().min(0).max(100),
         firstHour: scoredHour.nullable(),
-        hourly: z.array(scoredHour).min(12),
+        hourly: z.array(scoredHour).min(1),
         tideEvents: z.array(
           z.object({
             time: isoDate,
@@ -215,8 +237,12 @@ export const beachIndexSchema = z.object({
 });
 
 export const manifestSchema = z.object({
-  schemaVersion: z.literal(1),
+  schemaVersion: z.literal(2),
   generatedAt: isoDate,
   validUntil: isoDate,
   beachIds: z.array(z.string()).min(1),
+  dates: z
+    .array(z.string().regex(/^\d{4}-\d{2}-\d{2}$/))
+    .min(1)
+    .max(7),
 });

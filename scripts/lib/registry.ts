@@ -169,7 +169,11 @@ export function loadThresholds(path: string): Thresholds {
   return schema.parse(raw);
 }
 
-export function loadOverrides(path: string, now: Date): ManualOverride[] {
+export function loadOverrides(
+  path: string,
+  now: Date,
+  horizonEnd: Date = now,
+): ManualOverride[] {
   const raw = parse(readFileSync(path, "utf8"));
   if (raw === null || (Array.isArray(raw) && raw.length === 0)) return [];
   const overrides = z.array(overrideSchema).parse(raw);
@@ -179,6 +183,6 @@ export function loadOverrides(path: string, now: Date): ManualOverride[] {
     if (Number.isNaN(starts.getTime()) || Number.isNaN(expires.getTime())) {
       throw new Error(`Override "${entry.title}" has invalid timestamps`);
     }
-    return starts <= now && now <= expires;
+    return starts <= horizonEnd && now <= expires;
   });
 }

@@ -180,7 +180,7 @@ export function parseCitypage(
     (entry) => ({
       time: compactUtcToIso(String(entry["@_dateTimeUTC"])),
       temperatureC: toNumber(entry.temperature),
-      humidexC: toNumber(entry.humidex),
+      feelsLikeC: toNumber(entry.humidex),
       condition: toText(entry.condition),
       iconCode: toNumber(entry.iconCode),
       popPercent: toNumber(entry.lop) ?? 0,

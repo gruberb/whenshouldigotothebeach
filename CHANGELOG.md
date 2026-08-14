@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.5.0 - 2026-08-14
+
+### Added
+
+- A URL-backed seven-day picker on both the beach rankings and each beach
+  detail page. Choosing a date re-ranks every beach and preserves the date
+  through map and detail navigation.
+- Seven-day Canadian GEM weather forecasts via Open-Meteo and seven-day CHS
+  tide predictions. Days four through seven are explicitly labelled as
+  lower-confidence planning forecasts and use three-hour precision.
+- Per-date static data shards and per-day confidence metadata, while retaining
+  ECCC as the source of official warnings and outlook text.
+
 ## 1.4.3 - 2026-08-10
 
 ### Fixed

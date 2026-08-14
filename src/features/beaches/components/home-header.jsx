@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DayPicker from "@/features/beaches/components/day-picker";
 
 // Homepage header: full-width title, region picker, search + locate +
 // List/Map segmented control, filter chips. Replaces Layout's compact nav on
@@ -86,6 +87,9 @@ function HomeHeader({
   regions,
   region,
   onRegionChange,
+  dates,
+  selectedDate,
+  onDateChange,
   query,
   onQueryChange,
   view,
@@ -105,6 +109,11 @@ function HomeHeader({
         regions={regions}
         region={region}
         onRegionChange={onRegionChange}
+      />
+      <DayPicker
+        dates={dates}
+        selectedDate={selectedDate}
+        onChange={onDateChange}
       />
 
       <div className="rule my-6" />

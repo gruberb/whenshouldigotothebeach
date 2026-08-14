@@ -58,7 +58,7 @@ function hour(isoTime: string, overrides: Partial<ScoredHour> = {}): ScoredHour 
     daylight: true,
     gated: false,
     temperatureC: 22,
-    humidexC: null,
+    feelsLikeC: null,
     condition: "Sunny",
     iconCode: 0,
     popPercent: 0,

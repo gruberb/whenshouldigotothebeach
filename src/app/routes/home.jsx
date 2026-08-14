@@ -57,7 +57,9 @@ function SectionHeading({ children }) {
 }
 
 function Home() {
-  const { data, error, loading } = useBeaches();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedDate = searchParams.get("date");
+  const { data, manifest, selectedDate, error, loading } = useBeaches(requestedDate);
   const now = useNow();
   const location = useLocation();
   const navigationType = useNavigationType();
@@ -101,7 +103,6 @@ function Home() {
 
   // View, query, region, and category filters live in the URL so Back
   // restores them; the last region choice is also remembered across visits.
-  const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const view = searchParams.get("view") === "map" ? "map" : "list";
   const urlRegion = searchParams.get("region");
@@ -231,6 +232,7 @@ function Home() {
       favourite={favourites.has(beach.id)}
       onToggleFavourite={toggleFavourite}
       distanceKm={userLocation ? distanceOf(beach) : null}
+      selectedDate={selectedDate}
     />
   );
 
@@ -249,6 +251,9 @@ function Home() {
           regions={regionOptions}
           region={region}
           onRegionChange={chooseRegion}
+          dates={manifest.dates}
+          selectedDate={selectedDate}
+          onDateChange={(value) => update("date", value, manifest.dates[0])}
           query={query}
           onQueryChange={(value) => update("q", value, "")}
           view={view}
@@ -297,6 +302,7 @@ function Home() {
             stale={stale}
             storageKey={`beach-map-view:${region}`}
             userLocation={userLocation}
+            selectedDate={selectedDate}
           />
         </Suspense>
       )}
@@ -316,6 +322,7 @@ function Home() {
         ))}
 
       <p className="text-[11px] text-neutral-600 mt-7 tracking-[0.04em]">
+        {data.dayOffset >= 3 && "Planning forecast · approximately 3-hour precision · "}
         Brighter bars = better hours · low grey bars = dark out · pale top mark
         = thunder risk · times in Atlantic time · updated{" "}
         {formatTime(data.generatedAt)}

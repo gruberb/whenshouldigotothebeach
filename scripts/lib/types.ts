@@ -127,7 +127,7 @@ export interface ManualOverride {
 export interface HourlyWeather {
   time: string;
   temperatureC: number | null;
-  humidexC: number | null;
+  feelsLikeC: number | null;
   condition: string;
   iconCode: number | null;
   popPercent: number;
@@ -157,6 +157,13 @@ export interface CitypageData {
   hourly: HourlyWeather[];
   warnings: EcccWarning[];
   daily: DailyForecast[];
+}
+
+export interface GemForecast {
+  latitude: number;
+  longitude: number;
+  fetchedAt: string;
+  hourly: HourlyWeather[];
 }
 
 export interface TideEvent {
@@ -205,7 +212,7 @@ export interface ScoredHour {
   daylight: boolean;
   gated: boolean;
   temperatureC: number | null;
-  humidexC: number | null;
+  feelsLikeC: number | null;
   condition: string;
   iconCode: number | null;
   popPercent: number;
@@ -256,11 +263,22 @@ export interface Reason {
   short: string;
 }
 
-interface BeachSummary {
+export type Confidence = "high" | "medium" | "low";
+
+export interface BeachSummary {
   verdict: Verdict;
   bestWindow: BestWindow | null;
   reasons: Reason[];
-  confidence: "high" | "medium" | "low";
+  confidence: Confidence;
+}
+
+export interface ForecastDay {
+  date: string;
+  dayOffset: number;
+  precisionHours: 1 | 3;
+  summary: BeachSummary;
+  hourly: ScoredHour[];
+  advisories: ManualOverride[];
 }
 
 export interface BeachOutput {
@@ -286,8 +304,7 @@ export interface BeachOutput {
   generatedAt: string;
   validUntil: string;
   timezone: string;
-  summary: BeachSummary;
-  hourly: ScoredHour[];
+  days: ForecastDay[];
   sun: SunTimes[];
   tides: {
     stationCode: string;
@@ -300,12 +317,21 @@ export interface BeachOutput {
   water: WaterTemperature;
   nearbyFood: NearbyFood[];
   weatherSource: {
+    provider: "Open-Meteo";
+    model: "Canadian GEM seamless";
+    latitude: number;
+    longitude: number;
+    distanceKm: number;
+    fetchedAt: string;
+    kind: "model-forecast";
+  };
+  officialForecastSource: {
     siteCode: string;
     siteName: string;
     distanceKm: number;
     issuedAt: string;
     fetchedAt: string;
-    kind: "forecast";
+    kind: "official-forecast";
   };
   warnings: EcccWarning[];
   advisories: ManualOverride[];

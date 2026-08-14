@@ -1,5 +1,11 @@
 import { Fragment } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import DayPicker from "@/features/beaches/components/day-picker";
 import HourStrip from "@/features/beaches/components/hour-strip";
 import TideCurve from "@/features/beaches/components/tide-curve";
 import Layout from "@/components/layout";
@@ -8,7 +14,29 @@ import StaleBanner from "@/features/beaches/components/stale-banner";
 import { useBeach } from "@/features/beaches/api/get-beach";
 import { useNow } from "@/hooks/use-now";
 import { STALE_META, TIDE_EFFECT_META, VERDICT_META, regionLabel } from "@/features/beaches/utils/meta";
-import { formatTime, formatUpdatedAgo, formatWindow, isStale } from "@/utils/format";
+import {
+  formatSelectedDay,
+  formatTime,
+  formatUpdatedAgo,
+  formatWindow,
+  isStale,
+  localDateOf,
+} from "@/utils/format";
+
+function roundedRange(values, suffix) {
+  if (values.length === 0) return "–";
+  const low = Math.round(Math.min(...values));
+  const high = Math.round(Math.max(...values));
+  return low === high ? `${low}${suffix}` : `${low}–${high}${suffix}`;
+}
+
+function mostCommon(values) {
+  const counts = new Map();
+  for (const value of values.filter(Boolean)) {
+    counts.set(value, (counts.get(value) ?? 0) + 1);
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+}
 
 function SectionLabel({ children, className = "" }) {
   return (
@@ -156,6 +184,8 @@ function Notice({ kind, children, url }) {
 
 function BeachDetail() {
   const { beachId } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedDate = searchParams.get("date");
   const { data, error, loading } = useBeach(beachId);
   const now = useNow();
   const navigate = useNavigate();
@@ -165,7 +195,7 @@ function BeachDetail() {
   // history) still fall back to the homepage.
   const backLink = (
     <Link
-      to="/"
+      to={requestedDate ? `/?date=${encodeURIComponent(requestedDate)}` : "/"}
       onClick={(event) => {
         if (window.history.state?.idx > 0) {
           event.preventDefault();
@@ -180,7 +210,7 @@ function BeachDetail() {
 
   if (loading) {
     return (
-      <Layout right={backLink}>
+      <Layout right={backLink} homeTo={requestedDate ? `/?date=${requestedDate}` : "/"}>
         <Loading />
       </Layout>
     );
@@ -188,13 +218,16 @@ function BeachDetail() {
 
   if (error || !data) {
     return (
-      <Layout right={backLink}>
+      <Layout right={backLink} homeTo={requestedDate ? `/?date=${requestedDate}` : "/"}>
         <div className="card p-4">
           <span className="tag tag-outline mb-2">Error</span>
           <p className="text-sm text-neutral-300">
             Could not load this beach: {error}
           </p>
-          <Link to="/" className="text-sm text-accent-300 block mt-2">
+          <Link
+            to={requestedDate ? `/?date=${encodeURIComponent(requestedDate)}` : "/"}
+            className="text-sm text-accent-300 block mt-2"
+          >
             Back to all beaches
           </Link>
         </div>
@@ -202,14 +235,50 @@ function BeachDetail() {
     );
   }
 
+  const dates = data.days.map((entry) => entry.date);
+  const day =
+    data.days.find((entry) => entry.date === requestedDate) ?? data.days[0];
+  const selectedDate = day.date;
+  const selectDate = (date) => {
+    const next = new URLSearchParams(searchParams);
+    if (date === dates[0]) next.delete("date");
+    else next.set("date", date);
+    setSearchParams(next, { replace: true });
+  };
   const stale = isStale(data.validUntil, now);
-  const meta = stale ? STALE_META : VERDICT_META[data.summary.verdict];
-  const windowLabel = formatWindow(data.summary.bestWindow, data.generatedAt);
-  const currentHour =
-    data.hourly.find((h) => Date.parse(h.time) >= now.getTime() - 3600_000) ??
-    data.hourly[0];
-  const nextTide = data.tides.events.find(
-    (e) => Date.parse(e.time) > now.getTime(),
+  const meta = stale ? STALE_META : VERDICT_META[day.summary.verdict];
+  const windowLabel = formatWindow(day.summary.bestWindow, data.generatedAt);
+  const windowHours = day.summary.bestWindow
+    ? day.hourly.filter(
+        (hour) =>
+          Date.parse(hour.time) >= Date.parse(day.summary.bestWindow.start) &&
+          Date.parse(hour.time) < Date.parse(day.summary.bestWindow.end),
+      )
+    : [];
+  const daylightHours = day.hourly.filter((hour) => hour.daylight);
+  const focusHours = windowHours.length > 0 ? windowHours : daylightHours;
+  const temperatures = focusHours
+    .map((hour) => hour.temperatureC)
+    .filter((value) => value !== null);
+  const winds = focusHours
+    .map((hour) => hour.windKmh)
+    .filter((value) => value !== null);
+  const commonWindDirection = mostCommon(
+    focusHours.map((hour) => hour.windDirection),
+  );
+  const commonCondition = mostCommon(focusHours.map((hour) => hour.condition));
+  const selectedTideEvents = data.tides.events.filter(
+    (event) => localDateOf(event.time) === selectedDate,
+  );
+  const selectedTides = {
+    ...data.tides,
+    events: selectedTideEvents,
+    samples: data.tides.samples.filter(
+      (sample) => localDateOf(sample.time) === selectedDate,
+    ),
+  };
+  const nextTide = selectedTideEvents.find(
+    (event) => day.dayOffset > 0 || Date.parse(event.time) > now.getTime(),
   );
   const amenities = data.beach.amenities ?? {};
   const nearby = (data.nearbyFood ?? []).map((place) => ({
@@ -233,14 +302,11 @@ function BeachDetail() {
   const conditionTiles = [
     {
       label: "Air",
-      value:
-        currentHour && currentHour.temperatureC !== null
-          ? `${Math.round(currentHour.temperatureC)}°C`
-          : "–",
-      detail: currentHour?.condition,
+      value: roundedRange(temperatures, "°C"),
+      detail: commonCondition,
     },
     {
-      label: "Water",
+      label: day.dayOffset === 0 ? "Water" : "Latest water",
       value:
         data.water.sourceKind === "observed-buoy"
           ? `~${Math.round(data.water.valueC)}°C`
@@ -253,13 +319,15 @@ function BeachDetail() {
     {
       label: "Wind",
       value:
-        currentHour && currentHour.windKmh !== null
-          ? `${currentHour.windDirection ?? ""} ${Math.round(currentHour.windKmh)} km/h`.trim()
+        winds.length > 0
+          ? `${commonWindDirection ?? ""} ~${Math.round(
+              winds.reduce((sum, value) => sum + value, 0) / winds.length,
+            )} km/h`.trim()
           : "–",
-      detail: currentHour?.windRelation ?? undefined,
+      detail: windowHours.length > 0 ? "during the best window" : undefined,
     },
     {
-      label: "Next tide",
+      label: day.dayOffset === 0 ? "Next tide" : "First tide",
       value: nextTide
         ? `${nextTide.type === "high" ? "High" : "Low"} ${formatTime(nextTide.time)}`
         : "–",
@@ -270,25 +338,29 @@ function BeachDetail() {
     {
       label: "Confidence",
       value:
-        data.summary.confidence.charAt(0).toUpperCase() +
-        data.summary.confidence.slice(1),
-      detail: `Weather ${data.weatherSource.distanceKm} km away`,
+        day.summary.confidence.charAt(0).toUpperCase() +
+        day.summary.confidence.slice(1),
+      detail:
+        day.precisionHours === 3
+          ? "Planning forecast · check again closer to the day"
+          : `GEM forecast grid ${data.weatherSource.distanceKm} km away`,
     },
   ].filter((tile) => tile.value !== "–");
 
   // Warnings the reason line already spells out (heat, active thunderstorms)
   // link inline instead of getting their own row; anything else still shows
   // as a notice beneath the title, so no warning is ever hidden.
-  const heatWarning = data.warnings.find((warning) =>
+  const applicableWarnings = day.dayOffset === 0 ? data.warnings : [];
+  const heatWarning = applicableWarnings.find((warning) =>
     /heat/i.test(warning.description),
   );
-  const thunderWarning = data.warnings.find(
+  const thunderWarning = applicableWarnings.find(
     (warning) =>
       /thunder/i.test(warning.description) &&
       !/ended/i.test(warning.description),
   );
   const inlineWarnings = new Set(
-    data.summary.reasons
+    day.summary.reasons
       .map((reason) =>
         reason.kind === "heat"
           ? heatWarning
@@ -299,13 +371,18 @@ function BeachDetail() {
       .filter(Boolean),
   );
   // Ended bulletins are all-clear notices, not active safety information.
-  const noticeWarnings = data.warnings.filter(
+  const noticeWarnings = applicableWarnings.filter(
     (warning) => warning.type !== "ended" && !inlineWarnings.has(warning),
   );
 
   return (
     <Layout
       right={backLink}
+      homeTo={
+        selectedDate === dates[0]
+          ? "/"
+          : `/?date=${encodeURIComponent(selectedDate)}`
+      }
       subtitle={`${regionLabel(data.beach.region)} · ${data.beach.municipality}`}
     >
       {stale && <StaleBanner generatedAt={data.generatedAt} />}
@@ -319,6 +396,18 @@ function BeachDetail() {
         <h1 className="font-display font-medium text-3xl md:text-[38px] leading-tight m-0 mb-1.5">
           {data.beach.name}
         </h1>
+        <DayPicker
+          dates={dates}
+          selectedDate={selectedDate}
+          onChange={selectDate}
+          compact
+        />
+        {day.precisionHours === 3 && (
+          <p className="text-[11.5px] text-neutral-500 mt-2.5 mb-0 tracking-[0.03em]">
+            Planning forecast · shown in three-hour steps as uncertainty
+            increases · check again closer to {formatSelectedDay(selectedDate, "long").split(",")[0]}
+          </p>
+        )}
         <p
           className={`font-display font-medium text-5xl md:text-[56px] leading-none tracking-[0.01em] my-3 ${
             !stale && windowLabel ? "text-accent-300" : "text-neutral-600"
@@ -327,7 +416,7 @@ function BeachDetail() {
           {stale ? "—" : (windowLabel ?? "No good window")}
         </p>
         <p className="text-[15px] text-neutral-400 m-0 mb-4 max-w-[560px]">
-          {data.summary.reasons.map((reason, index) => {
+          {day.summary.reasons.map((reason, index) => {
             const warningUrl =
               reason.kind === "heat"
                 ? heatWarning?.url
@@ -363,7 +452,7 @@ function BeachDetail() {
             {warning.description}
           </Notice>
         ))}
-        {data.advisories.map((advisory) => (
+        {day.advisories.map((advisory) => (
           <Notice key={advisory.title} kind="Advisory">
             {advisory.title} — {advisory.message}{" "}
             <span className="text-neutral-500">({advisory.source})</span>
@@ -419,9 +508,9 @@ function BeachDetail() {
 
       <section className="mb-7">
         <h3 className="font-display font-medium text-[15px] m-0 mb-3">
-          Next 24 hours
+          {formatSelectedDay(selectedDate)} {day.precisionHours === 1 ? "hourly" : "3-hour"} forecast
         </h3>
-        <HourStrip hours={data.hourly} />
+        <HourStrip hours={day.hourly} />
       </section>
 
       <section className="mb-7">
@@ -429,7 +518,11 @@ function BeachDetail() {
           Tide · {data.tides.stationName} station
         </h3>
         <div className="overflow-x-auto">
-          <TideCurve tides={data.tides} now={now} bestTide={tideMeta.bestTide} />
+          <TideCurve
+            tides={selectedTides}
+            now={now}
+            bestTide={tideMeta.bestTide}
+          />
         </div>
         {tideMeta.bestTide && (
           <p className="text-[11px] text-neutral-600 mt-1.5 m-0 tracking-[0.04em]">
@@ -441,7 +534,7 @@ function BeachDetail() {
       {data.outlook.length > 0 && (
         <section className="mb-7">
           <h3 className="font-display font-medium text-[15px] m-0 mb-3">
-            Outlook
+            Official ECCC outlook
           </h3>
           <dl className="grid gap-3 m-0 max-w-[640px]">
             {data.outlook.map((period) => (
@@ -464,9 +557,23 @@ function BeachDetail() {
         </summary>
         <div className="mt-3 text-[13.5px] text-neutral-400 grid gap-2 max-w-[640px]">
           <p className="m-0">
-            Weather: Environment and Climate Change Canada forecast for{" "}
-            {data.weatherSource.siteName} ({data.weatherSource.distanceKm} km
-            away), issued {formatTime(data.weatherSource.issuedAt)}.
+            Weather scoring: Canadian GEM model data via{" "}
+            <a
+              href="https://open-meteo.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-accent-300 hover:text-accent-200 underline underline-offset-2"
+            >
+              Open-Meteo
+            </a>{" "}
+            ({data.weatherSource.distanceKm} km from the selected model grid
+            point), retrieved {formatTime(data.weatherSource.fetchedAt)}.
+          </p>
+          <p className="m-0">
+            Warnings and written outlook: Environment and Climate Change Canada
+            forecast for {data.officialForecastSource.siteName} ({
+              data.officialForecastSource.distanceKm
+            } km away), issued {formatTime(data.officialForecastSource.issuedAt)}.
           </p>
           <p className="m-0">
             Tides: Canadian Hydrographic Service prediction, station{" "}
