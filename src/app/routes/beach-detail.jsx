@@ -182,35 +182,29 @@ function Notice({ kind, children, url }) {
   );
 }
 
-function SafetyNotice({ advisory, stale, now, selectedDate, today }) {
+function SafetyDetails({ advisory, stale, now, selectedDate, today }) {
   const futureDate = selectedDate !== today;
   return (
-    <div className="card p-4 my-5 flex items-start gap-3" role="status">
-      <i
-        className="ph ph-warning text-accent-300 text-xl mt-0.5"
-        aria-hidden="true"
-      />
-      <div className="min-w-0">
-        <p className="text-sm text-neutral-200 m-0">{advisory.message}</p>
-        {futureDate && (
-          <p className="text-[12px] text-neutral-400 mt-1.5 mb-0">
-            This advisory is active now and may be lifted before{" "}
-            {formatSelectedDay(selectedDate)}. Check again before leaving.
-          </p>
-        )}
-        <p className="text-[11.5px] text-neutral-500 mt-1.5 mb-0">
-          {stale ? "Last confirmed" : "Official status checked"}{" "}
-          {formatUpdatedAgo(advisory.checked_at, now)} ·{" "}
-          <a
-            href={advisory.source_url}
-            target="_blank"
-            rel="noreferrer"
-            className="text-accent-300 hover:text-accent-200 underline underline-offset-2"
-          >
-            Nova Scotia Parks details
-          </a>
+    <div className="max-w-[640px] mb-5" role="status">
+      <p className="text-sm text-neutral-300 m-0">{advisory.message}</p>
+      {futureDate && (
+        <p className="text-[12px] text-neutral-400 mt-1.5 mb-0">
+          This advisory is active now and may be lifted before{" "}
+          {formatSelectedDay(selectedDate)}. Check again before leaving.
         </p>
-      </div>
+      )}
+      <p className="text-[11.5px] text-neutral-500 mt-1.5 mb-0">
+        {stale ? "Last confirmed" : "Official status checked"}{" "}
+        {formatUpdatedAgo(advisory.checked_at, now)} ·{" "}
+        <a
+          href={advisory.source_url}
+          target="_blank"
+          rel="noreferrer"
+          className="text-accent-300 hover:text-accent-200 underline underline-offset-2"
+        >
+          Nova Scotia Parks details
+        </a>
+      </p>
     </div>
   );
 }
@@ -436,7 +430,7 @@ function BeachDetail() {
       {stale && <StaleBanner generatedAt={data.generatedAt} />}
 
       <header className="mb-9">
-        {!meta.quiet && (
+        {!meta.quiet && !waterAdvisory && (
           <p className="text-[11px] uppercase tracking-[0.14em] text-accent mb-2.5 m-0">
             {meta.label}
           </p>
@@ -450,15 +444,6 @@ function BeachDetail() {
           onChange={selectDate}
           compact
         />
-        {waterAdvisory && (
-          <SafetyNotice
-            advisory={waterAdvisory}
-            stale={safetyStale}
-            now={now}
-            selectedDate={selectedDate}
-            today={dates[0]}
-          />
-        )}
         {day.precisionHours === 3 && (
           <p className="text-[11.5px] text-neutral-500 mt-2.5 mb-0 tracking-[0.03em]">
             Planning forecast · shown in three-hour steps as uncertainty
@@ -474,6 +459,15 @@ function BeachDetail() {
         >
           {headline}
         </p>
+        {waterAdvisory && (
+          <SafetyDetails
+            advisory={waterAdvisory}
+            stale={safetyStale}
+            now={now}
+            selectedDate={selectedDate}
+            today={dates[0]}
+          />
+        )}
         {!stale && (
           <p className="text-[15px] text-neutral-400 m-0 mb-4 max-w-[560px]">
             {waterAdvisory && (

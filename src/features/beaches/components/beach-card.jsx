@@ -108,10 +108,9 @@ function BeachCard({
         </button>
       )}
       <div className="flex flex-col gap-1.5 items-start">
-        <VerdictBadge
-          verdict={beach.verdict}
-          stale={stale && !waterAdvisory}
-        />
+        {!waterAdvisory && (
+          <VerdictBadge verdict={beach.verdict} stale={stale} />
+        )}
         <h2 className="font-display font-medium text-xl mt-1.5 mb-0">
           {beach.name}
         </h2>
@@ -126,49 +125,40 @@ function BeachCard({
       </div>
 
       <div className="flex flex-col gap-2.5 min-w-0">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-          {waterAdvisory ? (
-            <span className="inline-flex items-start gap-1.5 text-[12px] leading-relaxed text-neutral-300 max-w-[620px]">
-              <i
-                className="ph ph-warning text-accent-400 text-[15px] mt-px"
-                aria-hidden="true"
-              />
-              {waterAdvisory.message}
-            </span>
-          ) : (
-            <>
-              {reasons.map((reason) => (
-                <span
-                  key={reason.text}
-                  title={reason.text}
-                  className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
-                >
-                  <span className="text-accent-400">
-                    <ReasonIcon kind={reason.kind} />
-                  </span>
-                  {reason.short}
+        {!waterAdvisory && (
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+            {reasons.map((reason) => (
+              <span
+                key={reason.text}
+                title={reason.text}
+                className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
+              >
+                <span className="text-accent-400">
+                  <ReasonIcon kind={reason.kind} />
                 </span>
-              ))}
-              {temperature && (
-                <span
-                  title={temperature.title}
-                  className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
-                >
-                  <span className="text-accent-400">
-                    <ReasonIcon kind="temperature" />
-                  </span>
-                  {temperature.label}
+                {reason.short}
+              </span>
+            ))}
+            {temperature && (
+              <span
+                title={temperature.title}
+                className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
+              >
+                <span className="text-accent-400">
+                  <ReasonIcon kind="temperature" />
                 </span>
-              )}
-            </>
-          )}
-        </div>
+                {temperature.label}
+              </span>
+            )}
+          </div>
+        )}
         {hourly && <HourStrip hours={hourly} compact />}
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.06em] text-neutral-500">
           {beach.precisionHours === 3 && <span>Planning forecast</span>}
           {waterAdvisory && (
             <span>
-              Advisory checked {formatUpdatedAgo(waterAdvisory.checked_at, now)}
+              Nova Scotia Parks · checked{" "}
+              {formatUpdatedAgo(waterAdvisory.checked_at, now)}
             </span>
           )}
           <span>

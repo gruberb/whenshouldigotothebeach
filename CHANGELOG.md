@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.6.1 - 2026-08-15
+
+### Fixed
+
+- Swimming advisories no longer repeat as a page-wide banner, verdict badge,
+  card headline and full message. Affected beach cards now use one clear
+  "Avoid swimming" recommendation with quiet source and freshness metadata.
+- Beach detail pages keep the official advisory explanation and link, but
+  present them inline instead of adding another alert box and status label.
+
 ## 1.6.0 - 2026-08-15
 
 ### Added
