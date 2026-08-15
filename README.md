@@ -22,6 +22,9 @@ For how the pieces fit together, see
   three-hour planning precision.
 - Official warnings and outlook: Environment and Climate Change Canada
   citypage XML from the MSC Datamart.
+- Current swimming advisories: Nova Scotia Parks' active advisory pages.
+  Advisories override every comfort verdict until the official listing is
+  removed; their status has a shorter 75-minute freshness limit.
 - Tides: Canadian Hydrographic Service IWLS API predictions (`wlp-hilo` and
   `wlp`). Not for navigation.
 - Water temperature: ECCC moored-buoy observations (SWOB-ML,
@@ -40,6 +43,7 @@ For how the pieces fit together, see
 ```
 Open-Meteo GEM ─────┐
 ECCC warnings ──────┤
+NS Parks advisories ┤
 CHS IWLS tides ─────┤   scripts/build-data.ts        public/data/*.json
 manual overrides ───┼─> normalize -> score -> ────>  (7 daily verdicts,
 config/beaches.yml ─┘   validate                      windows, hours, tides)

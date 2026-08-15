@@ -37,3 +37,4 @@ window:
 
 staleness:
   valid_minutes: 150
+  safety_valid_minutes: 75

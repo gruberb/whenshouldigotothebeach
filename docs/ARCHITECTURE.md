@@ -14,9 +14,10 @@ as static JSON alongside a React single-page app on GitHub Pages. The browser
 only ever downloads pre-computed files; it never talks to a weather or tide
 API directly.
 
-Out of scope: surf forecasting, water quality sampling, live webcams, and
-user accounts. The site reads public data and renders judgment; it does not
-collect anything beyond privacy-preserving page analytics.
+Out of scope: surf forecasting, interpreting raw water-quality samples, live
+webcams, and user accounts. The site does ingest official active swimming
+advisories, but never infers that unlisted or unmonitored water is safe. It
+does not collect anything beyond privacy-preserving page analytics.
 
 ## Key design decisions
 
@@ -48,6 +49,8 @@ collect anything beyond privacy-preserving page analytics.
    and the previous deployment stays online. Each dataset carries a
    `validUntil` timestamp (150 minutes after generation); once it passes, the
    frontend flags the data as stale instead of presenting it as current.
+   Safety-advisory status has a shorter 75-minute limit, so two missed refresh
+   cycles suppress recommendations even while the weather data remains valid.
 
 ## System diagram
 
@@ -56,6 +59,7 @@ flowchart LR
     subgraph sources["Data sources"]
         GEM["Open-Meteo<br/>Canadian GEM forecast"]
         ECCC["ECCC MSC Datamart<br/>warnings + outlook"]
+        NSP["Nova Scotia Parks<br/>active swimming advisories"]
         CHS["CHS IWLS API<br/>tide predictions"]
         SWOB["ECCC SWOB-ML<br/>buoy water temperature"]
         OSM["OpenStreetMap<br/>Overpass + Valhalla"]
@@ -79,6 +83,7 @@ flowchart LR
 
     GEM --> BUILD
     ECCC --> BUILD
+    NSP --> BUILD
     CHS --> BUILD
     SWOB --> BUILD
     OSM -. "weekly workflow" .-> FOOD
@@ -132,6 +137,11 @@ flowchart LR
   `/today/` alias flips at 00:00 UTC mid-run (so it is never used), and the
   Datamart intermittently stamps `forecastIssue` with a future date (rolled
   back against `xmlCreation`).
+- [lib/ns-parks-advisories.ts](../scripts/lib/ns-parks-advisories.ts): parses
+  the official active-advisories page and the linked advisory detail pages,
+  matches full beach names, and emits current water advisories. Its strict
+  markup checks fail the build rather than interpreting parser drift as an
+  all-clear.
 - [lib/chs.ts](../scripts/lib/chs.ts): fetches `wlp-hilo` (high/low events)
   and `wlp` (curve points) predictions from the CHS IWLS API.
 - [lib/water.ts](../scripts/lib/water.ts): parses SWOB-ML buoy observations
@@ -191,12 +201,14 @@ sequenceDiagram
     participant GH as GitHub Actions (cron 17,47 * * * *)
     participant GEM as Open-Meteo GEM API
     participant DM as ECCC Datamart
+    participant NSP as Nova Scotia Parks
     participant IWLS as CHS IWLS API
     participant Pages as GitHub Pages
 
     GH->>GH: npm ci, npm test
     GH->>GEM: seven-day model forecast for all beach coordinates
     GH->>DM: warnings and outlook per unique weather site
+    GH->>NSP: active advisories + matched detail pages
     GH->>IWLS: tide predictions per unique station (seven days)
     GH->>DM: SWOB-ML latest observation per buoy
     GH->>GH: score all beaches (npm run data)
@@ -237,6 +249,7 @@ Services queried by the CI pipeline (no keys, all public endpoints):
 |---|---|---|---|
 | Open-Meteo GEM | `https://api.open-meteo.com/v1/gem` | Canadian GEM seamless weather forecast per beach coordinate | Every 30 min |
 | ECCC MSC Datamart | `https://dd.weather.gc.ca/<date>/WXO-DD/citypage_weather/...` | Official outlook, watches and warnings per weather site | Every 30 min |
+| Nova Scotia Parks | `https://parks.novascotia.ca/advisories` | Active swimming advisories and official detail text | Every 30 min |
 | CHS IWLS (DFO) | `https://api-iwls.dfo-mpo.gc.ca/api/v1` | Tide predictions: high/low events (`wlp-hilo`) and curve points (`wlp`) per station | Every 30 min |
 | ECCC SWOB-ML marine | `https://dd.weather.gc.ca/observations/swob-ml/marine/` | Buoy sea-surface temperature (`avg_sea_sfc_temp_pst10mts`) | Every 30 min |
 | Overpass (OSM) | `https://overpass-api.de/api/interpreter` (fallback `overpass.kumi.systems`) | Named restaurants, cafes, bakeries, stores near beaches | Weekly |

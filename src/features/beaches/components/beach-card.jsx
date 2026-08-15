@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { formatTime, formatWindow } from "@/utils/format";
+import { formatTime, formatUpdatedAgo, formatWindow } from "@/utils/format";
 import HourStrip from "@/features/beaches/components/hour-strip";
 import ReasonIcon from "@/features/beaches/components/reason-icon";
 import VerdictBadge from "@/features/beaches/components/verdict-badge";
@@ -55,7 +55,23 @@ function BeachCard({
   distanceKm = null,
   selectedDate,
 }) {
-  const windowLabel = stale ? null : formatWindow(beach.bestWindow, generatedAt);
+  const waterAdvisory = beach.advisories?.find(
+    (entry) => entry.type === "water-advisory" && entry.status === "active",
+  );
+  const safetyVerdict = ["WATER_ADVISORY", "HAZARDOUS", "CLOSED"].includes(
+    beach.verdict,
+  );
+  const windowLabel =
+    stale || safetyVerdict ? null : formatWindow(beach.bestWindow, generatedAt);
+  const headline = waterAdvisory
+    ? "Avoid swimming"
+    : stale
+      ? "—"
+      : beach.verdict === "CLOSED"
+        ? "Beach closed"
+        : beach.verdict === "HAZARDOUS"
+          ? "Hazardous conditions"
+          : (windowLabel ?? "No good window");
   const nextTide = (beach.tideEvents ?? []).find(
     (event) => Date.parse(event.time) > now.getTime(),
   );
@@ -92,49 +108,69 @@ function BeachCard({
         </button>
       )}
       <div className="flex flex-col gap-1.5 items-start">
-        <VerdictBadge verdict={beach.verdict} stale={stale} />
+        <VerdictBadge
+          verdict={beach.verdict}
+          stale={stale && !waterAdvisory}
+        />
         <h2 className="font-display font-medium text-xl mt-1.5 mb-0">
           {beach.name}
         </h2>
         <p className="text-xs text-neutral-500 m-0">{beach.municipality}</p>
         <p
           className={`font-display font-medium text-[26px] tracking-[0.01em] mt-2 mb-0 ${
-            windowLabel ? "text-accent-300" : "text-neutral-600"
+            waterAdvisory || windowLabel ? "text-accent-300" : "text-neutral-600"
           }`}
         >
-          {stale ? "—" : (windowLabel ?? "No good window")}
+          {headline}
         </p>
       </div>
 
       <div className="flex flex-col gap-2.5 min-w-0">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-          {reasons.map((reason) => (
-            <span
-              key={reason.text}
-              title={reason.text}
-              className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
-            >
-              <span className="text-accent-400">
-                <ReasonIcon kind={reason.kind} />
-              </span>
-              {reason.short}
+          {waterAdvisory ? (
+            <span className="inline-flex items-start gap-1.5 text-[12px] leading-relaxed text-neutral-300 max-w-[620px]">
+              <i
+                className="ph ph-warning text-accent-400 text-[15px] mt-px"
+                aria-hidden="true"
+              />
+              {waterAdvisory.message}
             </span>
-          ))}
-          {temperature && (
-            <span
-              title={temperature.title}
-              className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
-            >
-              <span className="text-accent-400">
-                <ReasonIcon kind="temperature" />
-              </span>
-              {temperature.label}
-            </span>
+          ) : (
+            <>
+              {reasons.map((reason) => (
+                <span
+                  key={reason.text}
+                  title={reason.text}
+                  className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
+                >
+                  <span className="text-accent-400">
+                    <ReasonIcon kind={reason.kind} />
+                  </span>
+                  {reason.short}
+                </span>
+              ))}
+              {temperature && (
+                <span
+                  title={temperature.title}
+                  className="inline-flex items-center gap-1.5 text-[12px] text-neutral-300"
+                >
+                  <span className="text-accent-400">
+                    <ReasonIcon kind="temperature" />
+                  </span>
+                  {temperature.label}
+                </span>
+              )}
+            </>
           )}
         </div>
         {hourly && <HourStrip hours={hourly} compact />}
-        <div className="flex gap-4 text-[11px] uppercase tracking-[0.06em] text-neutral-500">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.06em] text-neutral-500">
           {beach.precisionHours === 3 && <span>Planning forecast</span>}
+          {waterAdvisory && (
+            <span>
+              Advisory checked {formatUpdatedAgo(waterAdvisory.checked_at, now)}
+            </span>
+          )}
           <span>
             {nextTide
               ? `${nextTide.type === "high" ? "High" : "Low"} tide ${formatTime(nextTide.time)}`

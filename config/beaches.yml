@@ -41,6 +41,7 @@
     note: Supervised swimming July-August
   source_urls:
     official_page: https://parks.novascotia.ca/park/queensland-beach
+    nsbeaches_page: https://nsbeaches.com/beach/queensland-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-07
@@ -79,6 +80,7 @@
     buoy_longitude: -63.403
   source_urls:
     official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+    nsbeaches_page: https://nsbeaches.com/beach/hirtles-beach/
     surf_page: https://www.surf-forecast.com/breaks/Hirdles
   coverage:
     status: full
@@ -120,6 +122,7 @@
     note: Flush toilets, showers and change house; supervised swimming at Little Rissers July-August
   source_urls:
     official_page: https://parks.novascotia.ca/park/rissers-beach
+    nsbeaches_page: https://nsbeaches.com/beach/rissers-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-07
@@ -153,6 +156,7 @@
     confidence: nearby
   source_urls:
     official_page: https://parks.novascotia.ca/park/summerville-beach
+    nsbeaches_page: https://nsbeaches.com/beach/summerville-beach/
     surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
@@ -188,6 +192,7 @@
     note: Boardwalk access over the dunes
   source_urls:
     official_page: https://parks.novascotia.ca/park/sand-hills-beach
+    nsbeaches_page: https://nsbeaches.com/beach/sand-hills-beach-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-07
@@ -227,6 +232,7 @@
     note: Unsupervised; limited parking
   source_urls:
     official_page: https://parks.novascotia.ca/park/cleveland-beach
+    nsbeaches_page: https://nsbeaches.com/beach/cleveland-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -267,6 +273,7 @@
     note: Change rooms and toilets; barbecue grills; supervised July-August
   source_urls:
     official_page: https://parks.novascotia.ca/park/bayswater-beach
+    nsbeaches_page: https://nsbeaches.com/beach/bayswater/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -304,6 +311,7 @@
     buoy_longitude: -63.403
   source_urls:
     official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+    nsbeaches_page: https://nsbeaches.com/beach/cresent-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -373,6 +381,7 @@
     note: Playground, picnic area and change rooms; wheelchair accessible
   source_urls:
     official_page: https://www.regionofqueens.com/parks-trails-recreation/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/beach-meadows/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -405,6 +414,7 @@
     confidence: nearby
   source_urls:
     official_page: https://parks.novascotia.ca/park/carters-beach
+    nsbeaches_page: https://nsbeaches.com/beach/carters-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -444,6 +454,7 @@
     note: Boardwalk to the beach; very limited parking (roughly seven cars)
   source_urls:
     official_page: https://www.ehcanadatravel.com/nova-scotia/lunenburg/parks-places/6159-sand-dollar-beach.html
+    nsbeaches_page: https://nsbeaches.com/beach/sand-dollar-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -481,6 +492,7 @@
     buoy_longitude: -63.403
   source_urls:
     official_page: https://www.modl.ca/en/explore-and-play/beaches.aspx
+    nsbeaches_page: https://nsbeaches.com/beach/green-bay-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -588,6 +600,7 @@
     note: No facilities; limited parking
   source_urls:
     official_page: https://www.regionofqueens.com/parks-trails-recreation/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/hunts-point-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -627,6 +640,7 @@
     note: Resort-controlled access; paid day pass required for non-guests
   source_urls:
     official_page: https://novascotia.com/listing/white-point-beach-resort/
+    nsbeaches_page: https://nsbeaches.com/beach/white-point-beach/
     surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
@@ -663,6 +677,7 @@
     note: Thomas Raddall Provincial Park; vault toilets, showers, change house and picnic areas
   source_urls:
     official_page: https://parks.novascotia.ca/park/thomas-raddall
+    nsbeaches_page: https://nsbeaches.com/beach/thomas-raddall-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -695,6 +710,7 @@
     confidence: nearby
   source_urls:
     official_page: https://visitshelburnecounty.ca/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/louis-head-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -730,6 +746,7 @@
     note: Crescent Beach Centre with washrooms, change rooms and showers
   source_urls:
     official_page: https://www.lockeport.ns.ca/index.php/tourism-recreation/crescent-beach-vic
+    nsbeaches_page: https://nsbeaches.com/beach/crescent-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -762,6 +779,7 @@
     confidence: nearby
   source_urls:
     official_page: https://visitshelburnecounty.ca/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/roseway-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -794,6 +812,7 @@
     confidence: nearby
   source_urls:
     official_page: https://visitshelburnecounty.ca/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/sandy-point-lighthouse-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -861,6 +880,7 @@
     note: Washroom on site during summer months
   source_urls:
     official_page: https://barringtonmunicipality.com/Visiting-Us/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/the-hawk-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -896,6 +916,7 @@
     note: Change houses and vault toilets; grassy picnic area; supervised swimming July-August
   source_urls:
     official_page: https://parks.novascotia.ca/park/port-maitland-beach
+    nsbeaches_page: https://nsbeaches.com/beach/port-maitland-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -931,6 +952,7 @@
     note: Change rooms; supervised swimming July-August; boardwalk access over the dunes; no picnic tables
   source_urls:
     official_page: https://parks.novascotia.ca/park/mavillette-beach
+    nsbeaches_page: https://nsbeaches.com/beach/mavillette-beach/
     surf_page: https://surfns.com/contests
   coverage:
     status: full
@@ -996,6 +1018,7 @@
     confidence: nearby
   source_urls:
     official_page: https://www.yarmouthandacadianshores.com/en/things-to-do/johns-cove-beach/
+    nsbeaches_page: https://nsbeaches.com/beach/johns-cove/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1028,6 +1051,7 @@
     confidence: nearby
   source_urls:
     official_page: https://nsbeaches.com/beach/bartletts-beach/
+    nsbeaches_page: https://nsbeaches.com/beach/bartletts-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1095,6 +1119,7 @@
     confidence: nearby
   source_urls:
     official_page: https://www.countyofkings.ca/visitors/todo/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/evangeline-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1127,6 +1152,7 @@
     confidence: nearby
   source_urls:
     official_page: https://www.countyofkings.ca/visitors/todo/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/blue-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1161,6 +1187,7 @@
     note: "Boat launch, boardwalk, seasonal canteen run by the Kingsport Community Association"
   source_urls:
     official_page: https://kingsport.ca/visit-kingsport/kingsport-beach
+    nsbeaches_page: https://nsbeaches.com/beach/kingsport-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1196,6 +1223,7 @@
     note: "Change house, picnic tables and water taps at the day-use beach area; campground washrooms with showers"
   source_urls:
     official_page: https://parks.novascotia.ca/park/blomidon
+    nsbeaches_page: https://nsbeaches.com/beach/blomidon-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1228,6 +1256,7 @@
     confidence: nearby
   source_urls:
     official_page: https://www.countyofkings.ca/visitors/todo/beaches
+    nsbeaches_page: https://nsbeaches.com/beach/scotts-bay/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1260,6 +1289,7 @@
     confidence: nearby
   source_urls:
     official_page: https://annapoliscounty.ca/community-development/parks-trails/367-outdoor-recreation-map
+    nsbeaches_page: https://nsbeaches.com/beach/margaretsville-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1292,6 +1322,7 @@
     confidence: nearby
   source_urls:
     official_page: https://digbyarea.ca/plan-your-visit/digby-neck-and-islands/
+    nsbeaches_page: https://nsbeaches.com/beach/sandy-cove-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1458,6 +1489,7 @@
     note: Supervised swimming July-August; limited parking
   source_urls:
     official_page: https://parks.novascotia.ca/park/heather-beach
+    nsbeaches_page: https://nsbeaches.com/beach/heathers-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1493,6 +1525,7 @@
     note: Vault toilets, change house and covered picnic tables; beach access by stairs
   source_urls:
     official_page: https://parks.novascotia.ca/park/northport-beach
+    nsbeaches_page: https://nsbeaches.com/beach/northport-beach-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1527,6 +1560,7 @@
     note: Picnic park overlooking the strait
   source_urls:
     official_page: https://parks.novascotia.ca/park/gulf-shore
+    nsbeaches_page: https://nsbeaches.com/beach/gulf-shore-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1559,6 +1593,7 @@
     confidence: nearby
   source_urls:
     official_page: https://parks.novascotia.ca/park/blue-sea-beach
+    nsbeaches_page: https://nsbeaches.com/beach/blue-sea-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1628,6 +1663,7 @@
     note: Day-use area with parking, change house and unsupervised swimming; campground washrooms with showers
   source_urls:
     official_page: https://parks.novascotia.ca/park/caribou-munroes-island
+    nsbeaches_page: https://nsbeaches.com/beach/caribou-munroes-island-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1662,6 +1698,7 @@
     note: Boardwalk access to the beach
   source_urls:
     official_page: https://parks.novascotia.ca/park/waterside-beach
+    nsbeaches_page: https://nsbeaches.com/beach/waterside-park-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1696,6 +1733,7 @@
     note: Supervised swimming July-August; abundant parking
   source_urls:
     official_page: https://parks.novascotia.ca/park/melmerby-beach
+    nsbeaches_page: https://nsbeaches.com/beach/melmerby-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1763,6 +1801,7 @@
     note: Change house and vault toilet; boardwalk with beach access mat; supervised swimming July-August
   source_urls:
     official_page: https://parks.novascotia.ca/park/pomquet-beach
+    nsbeaches_page: https://nsbeaches.com/beach/pomquet-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1831,6 +1870,7 @@
     note: Boardwalks to the first two beaches
   source_urls:
     official_page: https://parks.novascotia.ca/park/crystal-crescent-beach
+    nsbeaches_page: https://nsbeaches.com/beach/crystal-crescent-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1866,6 +1906,7 @@
     note: Supervised swimming July-August (NS Lifesaving Society); change house and flush toilets during serviced season
   source_urls:
     official_page: https://parks.novascotia.ca/park/rainbow-haven-beach
+    nsbeaches_page: https://nsbeaches.com/beach/rainbow-haven/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1935,6 +1976,7 @@
     note: Extensive boardwalk along the shore, adjacent to Fisherman's Cove
   source_urls:
     official_page: https://parks.novascotia.ca/park/maccormacks-beach
+    nsbeaches_page: https://nsbeaches.com/beach/maccormacks-beach-and-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -1967,6 +2009,7 @@
     confidence: nearby
   source_urls:
     official_page: https://nsbeaches.com/beach/point-pleasant-park-beach/
+    nsbeaches_page: https://nsbeaches.com/beach/point-pleasant-park-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2036,6 +2079,7 @@
     note: Supervised swimming July-August; strong rip currents are common
   source_urls:
     official_page: https://parks.novascotia.ca/park/lawrencetown-beach
+    nsbeaches_page: https://nsbeaches.com/beach/lawrencetown-beach/
     surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
@@ -2072,6 +2116,7 @@
     note: Supervised swimming July-August; boardwalks and picnic areas behind the dunes
   source_urls:
     official_page: https://parks.novascotia.ca/park/martinique-beach
+    nsbeaches_page: https://nsbeaches.com/beach/martinique-beach/
     surf_page: https://novascotia.com/travel-media/story-ideas/surfs-up/
   coverage:
     status: full
@@ -2107,6 +2152,7 @@
     note: Picnic area in a field on the bluff above the beach
   source_urls:
     official_page: https://parks.novascotia.ca/park/clam-harbour-beach
+    nsbeaches_page: https://nsbeaches.com/beach/clam-harbour-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2141,6 +2187,7 @@
     note: Hiking trails and secluded beaches along 16 km of undeveloped coastline
   source_urls:
     official_page: https://parks.novascotia.ca/park/taylor-head
+    nsbeaches_page: https://nsbeaches.com/beach/taylors-head-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2175,6 +2222,7 @@
     note: Picnic area, boardwalks and interpretive displays
   source_urls:
     official_page: https://parks.novascotia.ca/park/tor-bay
+    nsbeaches_page: https://nsbeaches.com/beach/tor-bay/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2213,6 +2261,7 @@
     note: Community-managed day-use park with a 3.5 km shoreline walking trail
   source_urls:
     official_page: https://parks.novascotia.ca/park/black-duck-cove
+    nsbeaches_page: https://nsbeaches.com/beach/black-duck-cove/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2285,6 +2334,7 @@
     note: "Change house, toilets, parking, boardwalk and canteen; supervised July-August 10am-6pm; beach wheelchairs and access mats bookable via the Inverness Visitor Centre."
   source_urls:
     official_page: https://novascotia.com/listing/inverness-beach/
+    nsbeaches_page: https://nsbeaches.com/beach/inverness/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2319,6 +2369,7 @@
     note: "Popular picnic spot; cobble beach adjacent to white sand beach."
   source_urls:
     official_page: https://parks.novascotia.ca/park/port-hood-station
+    nsbeaches_page: https://nsbeaches.com/beach/port-hood-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2383,6 +2434,7 @@
     confidence: nearby
   source_urls:
     official_page: https://parks.novascotia.ca/park/cabots-landing
+    nsbeaches_page: https://nsbeaches.com/beach/cabots-landing-provincial-park/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2419,6 +2471,7 @@
     note: "Public washrooms with accessible stalls, picnic area, playground and tennis courts; surf guards on duty July-August; beach wheelchair and access mat reservable through Parks Canada."
   source_urls:
     official_page: https://parks.canada.ca/pn-np/ns/cbreton/activ/baignade-swimming
+    nsbeaches_page: https://nsbeaches.com/beach/ingonish-beach-1/
     surf_page: https://www.surf-forecast.com/breaks/Ingonish-Beach
   coverage:
     status: full
@@ -2455,6 +2508,7 @@
     note: "Washrooms, change rooms, kitchen shelter, playground and picnic area; no surf guards on duty."
   source_urls:
     official_page: https://parks.canada.ca/pn-np/ns/cbreton/activ/baignade-swimming
+    nsbeaches_page: https://nsbeaches.com/beach/black-brook/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2489,6 +2543,7 @@
     note: "Supervised swimming July-August (STC); boardwalks provide beach access and protect the dunes."
   source_urls:
     official_page: https://parks.novascotia.ca/park/dominion-beach
+    nsbeaches_page: https://nsbeaches.com/beach/dominion-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2523,6 +2578,7 @@
     note: "Municipal beach park with change houses and boardwalk; supervised July-August 10am-6pm (STC)."
   source_urls:
     official_page: https://novascotia.com/listing/mira-gut-beach/
+    nsbeaches_page: https://nsbeaches.com/beach/mira-gut/
   coverage:
     status: full
     reviewed_at: 2026-08-08
@@ -2592,6 +2648,7 @@
     note: "Supervised swimming July-August (STC); some surfing opportunities."
   source_urls:
     official_page: https://parks.novascotia.ca/park/point-michaud-beach
+    nsbeaches_page: https://nsbeaches.com/beach/pt-michaud/
     surf_page: https://novascotia.com/listing/point-michaud-beach-provincial-park/
   coverage:
     status: full
@@ -2630,6 +2687,7 @@
     buoy_longitude: -60.9538
   source_urls:
     official_page: https://parks.novascotia.ca/park/pondville-beach
+    nsbeaches_page: https://nsbeaches.com/beach/pondville-beach/
   coverage:
     status: full
     reviewed_at: 2026-08-08

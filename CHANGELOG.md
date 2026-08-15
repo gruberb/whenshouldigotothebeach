@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.6.0 - 2026-08-15
+
+### Added
+
+- Live swimming advisories from Nova Scotia Parks. The data build reads the
+  official active-advisories listing and detail pages, matches notices to the
+  beach registry, and shows them across the homepage banner, cards, map and
+  detail pages. An active advisory overrides the weather-only recommendation
+  with "Avoid swimming" and links back to the official notice.
+- Beach detail pages link to the corresponding `nsbeaches.com` guide when one
+  is recorded in the registry.
+
+### Changed
+
+- Safety status has its own 75-minute freshness window and is carried in data
+  schema v3. Advisory parsing fails the build on unexpected official markup so
+  a source change cannot be mistaken for an all-clear.
+
 ## 1.5.2 - 2026-08-14
 
 ### Fixed

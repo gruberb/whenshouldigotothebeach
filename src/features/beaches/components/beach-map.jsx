@@ -88,20 +88,28 @@ function BeachMap({
     }
     const group = L.featureGroup();
     for (const beach of beaches) {
+      const safetyAdvisory = ["WATER_ADVISORY", "HAZARDOUS", "CLOSED"].includes(
+        beach.verdict,
+      );
       const marker = L.circleMarker([beach.latitude, beach.longitude], {
-        radius: 9,
-        color: "#161826",
-        weight: 1.5,
-        fillColor: stale ? "#595d6c" : scoreColor(beach.peakScore),
-        fillOpacity: 0.95,
+        radius: safetyAdvisory ? 11 : 9,
+        color: safetyAdvisory ? "#b5abfc" : "#161826",
+        weight: safetyAdvisory ? 3 : 1.5,
+        dashArray: safetyAdvisory ? "3 2" : undefined,
+        fillColor:
+          stale || safetyAdvisory ? "#595d6c" : scoreColor(beach.peakScore),
+        fillOpacity: safetyAdvisory ? 0.45 : 0.95,
       });
-      marker.bindTooltip(beach.name, {
+      marker.bindTooltip(
+        `${safetyAdvisory ? "Warning: " : ""}${beach.name}`,
+        {
         permanent: true,
         direction: "auto",
         offset: [10, 0],
         interactive: true,
         className: "beach-label",
-      });
+        },
+      );
       marker.on("click", () =>
         navigate(`/beach/${beach.id}?date=${encodeURIComponent(selectedDate)}`),
       );
@@ -165,7 +173,7 @@ function BeachMap({
       ref={containerRef}
       className="card h-[55vh] md:h-[62vh] w-full overflow-hidden"
       role="region"
-      aria-label="Map of Nova Scotia beaches colored by conditions"
+      aria-label="Map of Nova Scotia beaches colored by conditions, with outlined warning markers for safety advisories"
     />
   );
 }

@@ -7,7 +7,7 @@ export const VERDICT_META = {
   GOOD_LATER: { label: "Good later", rank: 1, quiet: true },
   MIXED: { label: "Mixed", rank: 2, tag: "tag-neutral" },
   NOT_GREAT: { label: "Not great", rank: 3, tag: "tag-neutral" },
-  WATER_ADVISORY: { label: "Water advisory", rank: 4, tag: "tag-outline" },
+  WATER_ADVISORY: { label: "Swimming not advised", rank: 4, tag: "tag-outline" },
   HAZARDOUS: { label: "Hazardous", rank: 5, tag: "tag-outline" },
   CLOSED: { label: "Closed", rank: 6, tag: "tag-outline" },
 };

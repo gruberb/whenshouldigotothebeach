@@ -104,6 +104,21 @@
         background: color-mix(in srgb, var(--color-accent) 22%, transparent);
     }
 
+    .btn-secondary {
+        color: #cfd3e5;
+        border-color: #75798c;
+    }
+
+    .btn-secondary:hover {
+        color: var(--color-text);
+        border-color: #9397ab;
+        background: color-mix(in srgb, #9397ab 12%, transparent);
+    }
+
+    .btn-secondary:active {
+        background: color-mix(in srgb, #9397ab 20%, transparent);
+    }
+
     /* Card reordering (favourites) rides the View Transitions API. */
     ::view-transition-group(*) {
         animation-duration: 320ms;

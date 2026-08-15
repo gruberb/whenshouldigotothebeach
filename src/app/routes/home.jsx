@@ -15,7 +15,7 @@ import { useFavourites } from "@/features/beaches/hooks/use-favourites";
 import { useNow } from "@/hooks/use-now";
 import { useUserLocation } from "@/hooks/use-user-location";
 import { REGION_META, REGION_ORDER, compareBeaches, regionLabel } from "@/features/beaches/utils/meta";
-import { formatTime, isStale } from "@/utils/format";
+import { formatTime, formatUpdatedAgo, isStale } from "@/utils/format";
 import { haversineKm } from "@/utils/geo";
 
 // Leaflet only loads when someone opens the map view.
@@ -171,7 +171,14 @@ function Home() {
     );
   }
 
-  const stale = isStale(data.validUntil, now);
+  const weatherStale = isStale(data.validUntil, now);
+  const safetyStale = isStale(data.safetySource.validUntil, now);
+  const stale = weatherStale || safetyStale;
+  const beachesWithAdvisories = data.beaches.filter((beach) =>
+    beach.advisories?.some(
+      (entry) => entry.type === "water-advisory" && entry.status === "active",
+    ),
+  );
   const presentRegions = REGION_ORDER.filter((id) =>
     data.beaches.some((beach) => beach.region === id),
   );
@@ -272,6 +279,33 @@ function Home() {
       }
     >
       {stale && <StaleBanner generatedAt={data.generatedAt} />}
+
+      {beachesWithAdvisories.length > 0 && (
+        <div className="card p-4 mb-5 flex items-start gap-3" role="status">
+          <i
+            className="ph ph-warning text-accent-300 text-xl mt-0.5"
+            aria-hidden="true"
+          />
+          <div>
+            <p className="text-sm text-neutral-200 m-0">
+              Swimming is not advised at{" "}
+              {beachesWithAdvisories.map((beach) => beach.name).join(" and ")}.
+            </p>
+            <p className="text-[11.5px] text-neutral-500 mt-1 mb-0">
+              {safetyStale ? "Last confirmed" : "Official status checked"}{" "}
+              {formatUpdatedAgo(data.safetySource.checkedAt, now)} ·{" "}
+              <a
+                href={data.safetySource.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-accent-300 hover:text-accent-200 underline underline-offset-2"
+              >
+                Nova Scotia Parks advisories
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
 
       {locationStatus === "denied" && (
         <p className="text-[12px] text-neutral-500 -mt-2 mb-3">

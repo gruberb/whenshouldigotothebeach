@@ -78,6 +78,7 @@ const beachSchema = z.object({
     .optional(),
   source_urls: z.object({
     official_page: z.string().url(),
+    nsbeaches_page: z.string().url().optional(),
     // Required when classification.surf is set (enforced below): the public
     // source that names the beach as a surf spot.
     surf_page: z.string().url().optional(),
@@ -164,6 +165,7 @@ export function loadThresholds(path: string): Thresholds {
     }),
     staleness: z.object({
       valid_minutes: z.number().int().positive(),
+      safety_valid_minutes: z.number().int().positive(),
     }),
   });
   return schema.parse(raw);

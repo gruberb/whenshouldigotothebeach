@@ -15,6 +15,7 @@ import {
 } from "./lib/forecast-days.js";
 import { haversineKm } from "./lib/geo.js";
 import { loadFoodSnapshot } from "./lib/nearby.js";
+import { fetchNovaScotiaParksSwimmingAdvisories } from "./lib/ns-parks-advisories.js";
 import { fetchGemForecasts } from "./lib/open-meteo.js";
 import { fetchBuoySeaSurfaceTemp, unavailableWater } from "./lib/water.js";
 import { buildReasons } from "./lib/reasons.js";
@@ -56,6 +57,16 @@ async function main() {
   const now = new Date();
   const beaches = loadBeaches(join(root, "config", "beaches.yml"));
   const thresholds = loadThresholds(join(root, "config", "thresholds.yml"));
+
+  console.log("Fetching current Nova Scotia Parks advisories");
+  const safety = await fetchNovaScotiaParksSwimmingAdvisories(
+    beaches,
+    now,
+    thresholds.staleness.safety_valid_minutes,
+  );
+  console.log(
+    `Matched ${safety.advisories.length} active swimming advisories to covered beaches`,
+  );
 
   // The official city forecast remains the source for active warnings and the
   // written outlook. The seven-day score uses a consistent hourly GEM series.
@@ -194,6 +205,9 @@ async function main() {
     const ctx = { beach, thresholds, tides, sun };
     const scored: ScoredHour[] = gem.hourly.map((hour) => scoreHour(hour, ctx));
     const beachOverrides = overrides.filter((entry) => entry.beach_id === beach.id);
+    const beachSafetyAdvisories = safety.advisories.filter(
+      (entry) => entry.beach_id === beach.id,
+    );
 
     const days = dates.map((date, dayOffset) => {
       const completeDay = hoursForDate(scored, date, beach.location.timezone);
@@ -206,6 +220,10 @@ async function main() {
         throw new Error(`${beach.name} has no forecast hours for ${date}`);
       }
       const dayOverrides = overridesForDate(beachOverrides, completeDay);
+      // Official Parks notices remain active until they disappear from a
+      // successfully parsed active-advisories page. Apply that current status
+      // to every planning day, while the UI explains that it may be lifted.
+      const dayAdvisories = [...dayOverrides, ...beachSafetyAdvisories];
       const applicableWarnings = dayOffset === 0 ? officialWeather.warnings : [];
       const window = findBestWindow(hourly, thresholds, precisionHours);
       const reference = dayOffset === 0 ? now : new Date(hourly[0].time);
@@ -220,7 +238,7 @@ async function main() {
       const summary = {
         verdict: verdictFor({
           window,
-          overrides: dayOverrides,
+          overrides: dayAdvisories,
           warnings: applicableWarnings,
           generatedAt: now,
         }),
@@ -239,7 +257,7 @@ async function main() {
         precisionHours,
         summary,
         hourly,
-        advisories: dayOverrides,
+        advisories: dayAdvisories,
       };
     });
 
@@ -261,7 +279,7 @@ async function main() {
     }
 
     const output: BeachOutput = {
-      schemaVersion: 2,
+      schemaVersion: 3,
       beach: {
         id: beach.id,
         name: beach.name,
@@ -274,6 +292,7 @@ async function main() {
         latitude: beach.location.latitude,
         longitude: beach.location.longitude,
         officialPage: beach.source_urls.official_page,
+        nsBeachesPage: beach.source_urls.nsbeaches_page ?? null,
         amenities: {
           washrooms: beach.amenities?.washrooms ?? null,
           food: beach.amenities?.food ?? null,
@@ -282,6 +301,7 @@ async function main() {
       },
       generatedAt: now.toISOString(),
       validUntil,
+      safetySource: safety.source,
       timezone: TIMEZONE,
       days,
       sun,
@@ -313,7 +333,7 @@ async function main() {
         kind: "official-forecast",
       },
       warnings: officialWeather.warnings,
-      advisories: beachOverrides,
+      advisories: [...beachOverrides, ...beachSafetyAdvisories],
       outlook: officialWeather.daily,
     };
 
@@ -347,6 +367,7 @@ async function main() {
         peakScore: daylightScores.length > 0 ? Math.max(...daylightScores) : 0,
         firstHour: day.hourly[0] ?? null,
         hourly: day.hourly,
+        advisories: day.advisories,
         tideEvents,
         water,
       });
@@ -364,9 +385,10 @@ async function main() {
 
   for (const [dayOffset, date] of dates.entries()) {
     const index = {
-      schemaVersion: 2 as const,
+      schemaVersion: 3 as const,
       generatedAt: now.toISOString(),
       validUntil,
+      safetySource: safety.source,
       timezone: TIMEZONE,
       date,
       dayOffset,
@@ -383,7 +405,7 @@ async function main() {
   }
 
   const manifest = {
-    schemaVersion: 2 as const,
+    schemaVersion: 3 as const,
     generatedAt: now.toISOString(),
     validUntil,
     beachIds: beaches.map((beach) => beach.id),

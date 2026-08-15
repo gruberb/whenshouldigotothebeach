@@ -66,6 +66,7 @@ export interface BeachConfig {
   };
   source_urls: {
     official_page: string;
+    nsbeaches_page?: string;
     surf_page?: string;
   };
   coverage: {
@@ -111,6 +112,7 @@ export interface Thresholds {
   };
   staleness: {
     valid_minutes: number;
+    safety_valid_minutes: number;
   };
 }
 
@@ -122,6 +124,27 @@ export interface ManualOverride {
   source: string;
   starts_at: string;
   expires_at: string;
+}
+
+export interface SafetyAdvisory {
+  beach_id: string;
+  type: "water-advisory";
+  title: string;
+  message: string;
+  source: "Nova Scotia Parks";
+  source_url: string;
+  checked_at: string;
+  status: "active";
+}
+
+export type Advisory = ManualOverride | SafetyAdvisory;
+
+export interface SafetySource {
+  provider: "Nova Scotia Parks";
+  sourceUrl: string;
+  checkedAt: string;
+  validUntil: string;
+  kind: "current-advisories";
 }
 
 export interface HourlyWeather {
@@ -278,7 +301,7 @@ export interface ForecastDay {
   precisionHours: 1 | 3;
   summary: BeachSummary;
   hourly: ScoredHour[];
-  advisories: ManualOverride[];
+  advisories: Advisory[];
 }
 
 export interface BeachOutput {
@@ -295,6 +318,7 @@ export interface BeachOutput {
     latitude: number;
     longitude: number;
     officialPage: string;
+    nsBeachesPage: string | null;
     amenities: {
       washrooms: boolean | null;
       food: boolean | null;
@@ -303,6 +327,7 @@ export interface BeachOutput {
   };
   generatedAt: string;
   validUntil: string;
+  safetySource: SafetySource;
   timezone: string;
   days: ForecastDay[];
   sun: SunTimes[];
@@ -334,7 +359,7 @@ export interface BeachOutput {
     kind: "official-forecast";
   };
   warnings: EcccWarning[];
-  advisories: ManualOverride[];
+  advisories: Advisory[];
   outlook: DailyForecast[];
 }
 

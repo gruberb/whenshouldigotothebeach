@@ -81,7 +81,7 @@ const scoredHour = z.object({
   tidePhase: z.enum(["low", "rising", "high", "falling"]).nullable(),
 });
 
-const advisory = z.object({
+const manualAdvisory = z.object({
   beach_id: z.string(),
   type: z.string(),
   title: z.string(),
@@ -89,6 +89,27 @@ const advisory = z.object({
   source: z.string(),
   starts_at: z.string(),
   expires_at: z.string(),
+});
+
+const safetyAdvisory = z.object({
+  beach_id: z.string(),
+  type: z.literal("water-advisory"),
+  title: z.string().min(1),
+  message: z.string().min(1),
+  source: z.literal("Nova Scotia Parks"),
+  source_url: z.string().url(),
+  checked_at: isoDate,
+  status: z.literal("active"),
+});
+
+const advisory = z.union([manualAdvisory, safetyAdvisory]);
+
+const safetySource = z.object({
+  provider: z.literal("Nova Scotia Parks"),
+  sourceUrl: z.string().url(),
+  checkedAt: isoDate,
+  validUntil: isoDate,
+  kind: z.literal("current-advisories"),
 });
 
 const summary = z.object({
@@ -108,7 +129,7 @@ const forecastDay = z.object({
 });
 
 export const beachOutputSchema = z.object({
-  schemaVersion: z.literal(2),
+  schemaVersion: z.literal(3),
   beach: z.object({
     id: z.string(),
     name: z.string(),
@@ -121,6 +142,7 @@ export const beachOutputSchema = z.object({
     latitude: z.number(),
     longitude: z.number(),
     officialPage: z.string().url(),
+    nsBeachesPage: z.string().url().nullable(),
     amenities: z.object({
       washrooms: z.boolean().nullable(),
       food: z.boolean().nullable(),
@@ -129,6 +151,7 @@ export const beachOutputSchema = z.object({
   }),
   generatedAt: isoDate,
   validUntil: isoDate,
+  safetySource,
   timezone: z.literal("America/Halifax"),
   days: z.array(forecastDay).min(1).max(7),
   sun: z.array(
@@ -198,9 +221,10 @@ export const beachOutputSchema = z.object({
 });
 
 export const beachIndexSchema = z.object({
-  schemaVersion: z.literal(2),
+  schemaVersion: z.literal(3),
   generatedAt: isoDate,
   validUntil: isoDate,
+  safetySource,
   timezone: z.literal("America/Halifax"),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   dayOffset: z.number().int().min(0).max(6),
@@ -223,6 +247,7 @@ export const beachIndexSchema = z.object({
         peakScore: z.number().min(0).max(100),
         firstHour: scoredHour.nullable(),
         hourly: z.array(scoredHour).min(1),
+        advisories: z.array(advisory),
         tideEvents: z.array(
           z.object({
             time: isoDate,
@@ -237,7 +262,7 @@ export const beachIndexSchema = z.object({
 });
 
 export const manifestSchema = z.object({
-  schemaVersion: z.literal(2),
+  schemaVersion: z.literal(3),
   generatedAt: isoDate,
   validUntil: isoDate,
   beachIds: z.array(z.string()).min(1),

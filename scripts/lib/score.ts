@@ -323,7 +323,7 @@ export function findBestWindow(
 
 interface VerdictInput {
   window: BestWindow | null;
-  overrides: ManualOverride[];
+  overrides: Array<Pick<ManualOverride, "type">>;
   warnings: EcccWarning[];
   generatedAt: Date;
 }

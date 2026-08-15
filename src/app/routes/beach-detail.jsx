@@ -182,6 +182,39 @@ function Notice({ kind, children, url }) {
   );
 }
 
+function SafetyNotice({ advisory, stale, now, selectedDate, today }) {
+  const futureDate = selectedDate !== today;
+  return (
+    <div className="card p-4 my-5 flex items-start gap-3" role="status">
+      <i
+        className="ph ph-warning text-accent-300 text-xl mt-0.5"
+        aria-hidden="true"
+      />
+      <div className="min-w-0">
+        <p className="text-sm text-neutral-200 m-0">{advisory.message}</p>
+        {futureDate && (
+          <p className="text-[12px] text-neutral-400 mt-1.5 mb-0">
+            This advisory is active now and may be lifted before{" "}
+            {formatSelectedDay(selectedDate)}. Check again before leaving.
+          </p>
+        )}
+        <p className="text-[11.5px] text-neutral-500 mt-1.5 mb-0">
+          {stale ? "Last confirmed" : "Official status checked"}{" "}
+          {formatUpdatedAgo(advisory.checked_at, now)} ·{" "}
+          <a
+            href={advisory.source_url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent-300 hover:text-accent-200 underline underline-offset-2"
+          >
+            Nova Scotia Parks details
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function BeachDetail() {
   const { beachId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -245,9 +278,24 @@ function BeachDetail() {
     else next.set("date", date);
     setSearchParams(next, { replace: true });
   };
-  const stale = isStale(data.validUntil, now);
-  const meta = stale ? STALE_META : VERDICT_META[day.summary.verdict];
+  const weatherStale = isStale(data.validUntil, now);
+  const safetyStale = isStale(data.safetySource.validUntil, now);
+  const stale = weatherStale || safetyStale;
+  const waterAdvisory = day.advisories.find(
+    (entry) => entry.type === "water-advisory" && entry.status === "active",
+  );
+  const meta =
+    stale && !waterAdvisory ? STALE_META : VERDICT_META[day.summary.verdict];
   const windowLabel = formatWindow(day.summary.bestWindow, data.generatedAt);
+  const headline = waterAdvisory
+    ? "Avoid swimming"
+    : stale
+      ? "—"
+      : day.summary.verdict === "CLOSED"
+        ? "Beach closed"
+        : day.summary.verdict === "HAZARDOUS"
+          ? "Hazardous conditions"
+          : (windowLabel ?? "No good window");
   const windowHours = day.summary.bestWindow
     ? day.hourly.filter(
         (hour) =>
@@ -402,6 +450,15 @@ function BeachDetail() {
           onChange={selectDate}
           compact
         />
+        {waterAdvisory && (
+          <SafetyNotice
+            advisory={waterAdvisory}
+            stale={safetyStale}
+            now={now}
+            selectedDate={selectedDate}
+            today={dates[0]}
+          />
+        )}
         {day.precisionHours === 3 && (
           <p className="text-[11.5px] text-neutral-500 mt-2.5 mb-0 tracking-[0.03em]">
             Planning forecast · shown in three-hour steps as uncertainty
@@ -410,13 +467,21 @@ function BeachDetail() {
         )}
         <p
           className={`font-display font-medium text-5xl md:text-[56px] leading-none tracking-[0.01em] my-3 ${
-            !stale && windowLabel ? "text-accent-300" : "text-neutral-600"
+            waterAdvisory || (!stale && windowLabel)
+              ? "text-accent-300"
+              : "text-neutral-600"
           }`}
         >
-          {stale ? "—" : (windowLabel ?? "No good window")}
+          {headline}
         </p>
-        <p className="text-[15px] text-neutral-400 m-0 mb-4 max-w-[560px]">
-          {day.summary.reasons.map((reason, index) => {
+        {!stale && (
+          <p className="text-[15px] text-neutral-400 m-0 mb-4 max-w-[560px]">
+            {waterAdvisory && (
+              <>
+                Weather-only outlook{windowLabel ? `: ${windowLabel}` : ""} ·{" "}
+              </>
+            )}
+            {day.summary.reasons.map((reason, index) => {
             const warningUrl =
               reason.kind === "heat"
                 ? heatWarning?.url
@@ -440,8 +505,9 @@ function BeachDetail() {
                 )}
               </Fragment>
             );
-          })}
-        </p>
+            })}
+          </p>
+        )}
 
         {noticeWarnings.map((warning) => (
           <Notice
@@ -452,12 +518,14 @@ function BeachDetail() {
             {warning.description}
           </Notice>
         ))}
-        {day.advisories.map((advisory) => (
+        {day.advisories
+          .filter((advisory) => advisory.status !== "active")
+          .map((advisory) => (
           <Notice key={advisory.title} kind="Advisory">
             {advisory.title} — {advisory.message}{" "}
             <span className="text-neutral-500">({advisory.source})</span>
           </Notice>
-        ))}
+          ))}
         <div className="flex gap-2.5 items-center flex-wrap mb-6">
           <a
             className="btn btn-primary"
@@ -467,6 +535,17 @@ function BeachDetail() {
           >
             Directions →
           </a>
+          {data.beach.nsBeachesPage && (
+            <a
+              className="btn btn-secondary"
+              href={data.beach.nsBeachesPage}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View ${data.beach.name} on nsbeaches.com`}
+            >
+              Beach guide ↗
+            </a>
+          )}
         </div>
 
         <SectionLabel>The beach</SectionLabel>

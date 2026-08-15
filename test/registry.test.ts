@@ -60,6 +60,18 @@ describe("beach registry", () => {
     }
   });
 
+  it("keeps nsbeaches.com links direct, unique, and optional", () => {
+    const links = beaches
+      .map((beach) => beach.source_urls.nsbeaches_page)
+      .filter((link): link is string => Boolean(link));
+
+    expect(links.length).toBeGreaterThanOrEqual(50);
+    expect(new Set(links).size).toBe(links.length);
+    for (const link of links) {
+      expect(link).toMatch(/^https:\/\/nsbeaches\.com\/beach\/[a-z0-9-]+\/$/);
+    }
+  });
+
   it("keeps water buoy assignments optional and well-formed", () => {
     const withWater = beaches.filter((b) => b.water);
     expect(withWater.length).toBeGreaterThanOrEqual(1);
