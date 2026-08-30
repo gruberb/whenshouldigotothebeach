@@ -35,6 +35,10 @@ ratings:
 window:
   min_hours: 2
 
+# Sized to GitHub's best-effort scheduled-run cadence (median ~1h, tail to
+# several hours), not the cron interval. ECCC re-issues hourly forecasts only
+# ~4x/day, so a 4-hour-old fetch usually still carries the current issue.
+# Safety stays tighter: advisories and closures must not sit unflagged.
 staleness:
-  valid_minutes: 150
-  safety_valid_minutes: 75
+  valid_minutes: 240
+  safety_valid_minutes: 180

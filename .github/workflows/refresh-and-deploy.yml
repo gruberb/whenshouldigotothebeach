@@ -2,14 +2,16 @@
 # GitHub Pages artifact. Generated JSON is never committed to the repository;
 # a failed fetch or validation leaves the previous deployment online.
 #
-# The cron runs off the top of the hour on purpose: GitHub delays or drops
-# scheduled runs queued at busy times, and the site carries its own
-# generatedAt/validUntil stamps so the frontend can flag stale data.
+# GitHub schedules are best-effort: it delays or drops runs queued at busy
+# times, delivering a median gap of ~1h with a tail of several hours. The
+# cron is denser than the freshness we need so enough attempts survive, it
+# avoids the top of the hour where drops cluster, and the site carries its
+# own generatedAt/validUntil stamps so the frontend can flag stale data.
 name: Refresh Data and Deploy
 
 on:
   schedule:
-    - cron: "17,47 * * * *"
+    - cron: "3,18,33,48 * * * *"
   push:
     branches: [main]
   workflow_dispatch:
@@ -28,10 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "20"
           cache: "npm"
@@ -52,10 +54,10 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
@@ -68,4 +70,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

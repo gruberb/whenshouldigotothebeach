@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.7.0 - 2026-08-30
+
+### Changed
+
+- Freshness windows now match GitHub's actual scheduled-run cadence instead
+  of the nominal cron interval: weather data is valid for 4 hours (was 2.5)
+  and safety status for 3 hours (was 75 minutes). GitHub delivers scheduled
+  runs best-effort with a median gap around an hour and a tail of several
+  hours, so the old windows kept the DATA STALE banner up almost half the
+  time even though every run succeeded. ECCC re-issues hourly forecasts only
+  about four times a day, so a 4-hour-old fetch usually still carries the
+  current issue; safety stays tighter so advisories cannot sit unflagged.
+- The refresh cron fires every 15 minutes instead of every 30. Runs are
+  dropped roughly at random, so more attempts shorten the gaps between the
+  ones that survive.
+- Workflow actions bumped to their current majors (checkout v7, setup-node
+  v7, configure-pages v6, upload-pages-artifact v5, deploy-pages v5),
+  clearing the Node 20 runner deprecation warning.
+
 ## 1.6.1 - 2026-08-15
 
 ### Fixed
