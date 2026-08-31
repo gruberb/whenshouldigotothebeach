@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-10T10:50:30.109Z",
+ "fetchedAt": "2026-08-31T17:17:49.155Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -556,7 +556,7 @@
    {
     "name": "Baba's Pizzeria",
     "kind": "restaurant",
-    "distanceKm": 16.2
+    "distanceKm": 16.4
    }
   ],
   "rainbow-haven": [
