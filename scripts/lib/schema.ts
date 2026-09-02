@@ -151,6 +151,7 @@ export const beachOutputSchema = z.object({
   }),
   generatedAt: isoDate,
   validUntil: isoDate,
+  expiresAt: isoDate,
   safetySource,
   timezone: z.literal("America/Halifax"),
   days: z.array(forecastDay).min(1).max(7),
@@ -224,6 +225,7 @@ export const beachIndexSchema = z.object({
   schemaVersion: z.literal(3),
   generatedAt: isoDate,
   validUntil: isoDate,
+  expiresAt: isoDate,
   safetySource,
   timezone: z.literal("America/Halifax"),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
@@ -265,6 +267,7 @@ export const manifestSchema = z.object({
   schemaVersion: z.literal(3),
   generatedAt: isoDate,
   validUntil: isoDate,
+  expiresAt: isoDate,
   beachIds: z.array(z.string()).min(1),
   dates: z
     .array(z.string().regex(/^\d{4}-\d{2}-\d{2}$/))

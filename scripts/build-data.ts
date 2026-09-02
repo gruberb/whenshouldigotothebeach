@@ -177,6 +177,9 @@ async function main() {
   const validUntil = new Date(
     now.getTime() + thresholds.staleness.valid_minutes * 60_000,
   ).toISOString();
+  const expiresAt = new Date(
+    now.getTime() + thresholds.staleness.expires_minutes * 60_000,
+  ).toISOString();
   const indexEntriesByDate = new Map<string, unknown[]>(
     dates.map((date) => [date, []]),
   );
@@ -301,6 +304,7 @@ async function main() {
       },
       generatedAt: now.toISOString(),
       validUntil,
+      expiresAt,
       safetySource: safety.source,
       timezone: TIMEZONE,
       days,
@@ -388,6 +392,7 @@ async function main() {
       schemaVersion: 3 as const,
       generatedAt: now.toISOString(),
       validUntil,
+      expiresAt,
       safetySource: safety.source,
       timezone: TIMEZONE,
       date,
@@ -408,6 +413,7 @@ async function main() {
     schemaVersion: 3 as const,
     generatedAt: now.toISOString(),
     validUntil,
+    expiresAt,
     beachIds: beaches.map((beach) => beach.id),
     dates,
   };

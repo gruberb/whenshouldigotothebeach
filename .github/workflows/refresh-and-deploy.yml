@@ -2,16 +2,19 @@
 # GitHub Pages artifact. Generated JSON is never committed to the repository;
 # a failed fetch or validation leaves the previous deployment online.
 #
-# GitHub schedules are best-effort: it delays or drops runs queued at busy
-# times, delivering a median gap of ~1h with a tail of several hours. The
-# cron is denser than the freshness we need so enough attempts survive, it
-# avoids the top of the hour where drops cluster, and the site carries its
-# own generatedAt/validUntil stamps so the frontend can flag stale data.
+# Triggering: GitHub's schedule is best-effort. Observed delivery is a
+# handful of runs a day with gaps of many hours, and cron density makes no
+# difference to the drop rate. The primary trigger is therefore an external
+# scheduler calling workflow_dispatch every 30 minutes (setup in
+# docs/ARCHITECTURE.md under "Refresh trigger"); the hourly cron below is
+# the fallback for when that scheduler is down, kept off the top of the hour
+# where drops cluster. The site carries generatedAt, validUntil and
+# expiresAt so the frontend degrades honestly however the runs arrive.
 name: Refresh Data and Deploy
 
 on:
   schedule:
-    - cron: "3,18,33,48 * * * *"
+    - cron: "21 * * * *"
   push:
     branches: [main]
   workflow_dispatch:

@@ -22,7 +22,7 @@ does not collect anything beyond privacy-preserving page analytics.
 ## Key design decisions
 
 1. **Static pipeline instead of a server.** All fetching, parsing, and
-   scoring happens in CI every 30 minutes. The deployed site is a Pages
+   scoring happens in CI, nominally every 30 minutes. The deployed site is a Pages
    artifact: no runtime dependencies, no keys, nothing to operate. The cost
    is freshness, which is bounded and displayed (see staleness below).
 
@@ -46,11 +46,13 @@ does not collect anything beyond privacy-preserving page analytics.
 
 5. **Failure keeps the last good deployment.** Generated JSON is never
    committed. If a fetch, test, or validation step fails, the workflow stops
-   and the previous deployment stays online. Each dataset carries a
-   `validUntil` timestamp (150 minutes after generation); once it passes, the
-   frontend flags the data as stale instead of presenting it as current.
-   Safety-advisory status has a shorter 75-minute limit, so two missed refresh
-   cycles suppress recommendations even while the weather data remains valid.
+   and the previous deployment stays online. Freshness is then tiered rather
+   than a cliff. Each dataset carries `validUntil` (six hours after
+   generation, one forecast issue cycle), `safetySource.validUntil` (four
+   hours, the advisory recheck window) and `expiresAt` (eight hours). Past
+   either valid window the verdicts stay up and a notice names what has
+   aged; past `expiresAt` the verdicts are hidden, because by then the day's
+   best window is likely already behind the reader.
 
 ## System diagram
 
@@ -174,7 +176,8 @@ favourites (localStorage), an optional Leaflet map with Carto dark tiles,
 and per-beach detail pages. Geolocation for "Near me" runs entirely
 client-side on explicit tap and never leaves the browser. All times render
 in America/Halifax regardless of viewer timezone. Past `validUntil`, every
-page shows a DATA STALE banner.
+page shows an update-delayed notice while the verdicts stay; past
+`expiresAt` the verdicts are hidden behind a DATA STALE banner.
 
 The tree follows the layering from
 [bulletproof-react](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md):
@@ -228,11 +231,11 @@ index.
 Two workflows feed the site, both in
 [.github/workflows](../.github/workflows):
 
-- **Refresh Data and Deploy** (`refresh-and-deploy.yml`), every 30 minutes
-  at :17 and :47 (offset from the top of the hour because GitHub delays
-  on-the-hour crons). Sequence: `npm ci`, `npm test`, `npm run data`,
-  `npm run validate`, `npm run build`, deploy to Pages. Pushing to `main`
-  triggers the same workflow, which is how releases ship.
+- **Refresh Data and Deploy** (`refresh-and-deploy.yml`). Sequence:
+  `npm ci`, `npm test`, `npm run data`, `npm run validate`, `npm run build`,
+  deploy to Pages. Pushing to `main` triggers the same workflow, which is
+  how releases ship. How the scheduled runs arrive is covered under
+  "Refresh trigger" below.
 - **Refresh Food Snapshot** (`refresh-food.yml`), Mondays 09:23 UTC. Runs
   `npm run refresh:food` (one province-wide Overpass query, then one
   Valhalla route per beach-place candidate), and commits the updated
@@ -240,6 +243,40 @@ Two workflows feed the site, both in
   fast and keeps the site immune to Overpass rate limits and outages: a
   failed weekly refresh means week-old restaurant listings, not a failed
   deploy.
+
+### Refresh trigger
+
+GitHub's `schedule` event is best-effort. Runs that do fire start within
+seconds, but most events are dropped outright: from late August 2026 the
+repository saw four to seven scheduled runs a day with gaps of up to eleven
+hours, and moving from two crons an hour to four changed nothing. The
+workflow therefore has two triggers.
+
+- **External scheduler (primary).** A cron service calls the
+  `workflow_dispatch` endpoint every 30 minutes. Dispatched runs queue like
+  pushes and are not subject to schedule dropping. Setup: create a
+  fine-grained personal access token restricted to this repository with the
+  single permission "Actions: read and write", then have the scheduler POST
+  every 30 minutes:
+
+  ```
+  curl -X POST \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer <token>" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    https://api.github.com/repos/gruberb/whenshouldigotothebeach/actions/workflows/refresh-and-deploy.yml/dispatches \
+    -d '{"ref":"main"}'
+  ```
+
+  cron-job.org does this on its free tier and emails on failures; a
+  Cloudflare Worker cron trigger is the self-hosted equivalent. The token
+  expires (one year at most) and has to be rotated in the scheduler.
+- **GitHub schedule (fallback).** Hourly at :21, off the top of the hour
+  where drops cluster. It exists so an outage of the external scheduler
+  degrades to GitHub's own cadence instead of to nothing.
+
+The `pages` concurrency group serialises overlapping runs, so a dispatch
+landing next to a cron run costs one extra build, not a race.
 
 ## External services
 
@@ -269,10 +306,12 @@ Google API.
 
 ## Key tradeoffs
 
-- **Freshness is bounded by the cron.** Conditions can change inside the
-  30-minute window. Accepted: the alternative is a server, and ECCC re-issues
-  hourly forecasts only about four times a day anyway, so most cycles carry
-  no new forecast (confidence scoring accounts for issue age).
+- **Freshness is bounded by the refresh trigger.** Conditions can change
+  inside a 30-minute cycle, and GitHub's schedule on its own delivers far
+  fewer cycles than that. Accepted: the alternative is a server, ECCC
+  re-issues hourly forecasts only about four times a day anyway (confidence
+  scoring accounts for issue age), and the tiered freshness stamps keep the
+  page honest about its age instead of blanking it.
 - **Everything rebuilds every cycle.** Tests, data, and the SPA build run on
   each refresh even when only data changed. Accepted: the build is fast, and
   a single artifact guarantees the frontend and data schema always match.

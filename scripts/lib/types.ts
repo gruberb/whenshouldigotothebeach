@@ -113,6 +113,7 @@ export interface Thresholds {
   staleness: {
     valid_minutes: number;
     safety_valid_minutes: number;
+    expires_minutes: number;
   };
 }
 
@@ -327,6 +328,7 @@ export interface BeachOutput {
   };
   generatedAt: string;
   validUntil: string;
+  expiresAt: string;
   safetySource: SafetySource;
   timezone: string;
   days: ForecastDay[];

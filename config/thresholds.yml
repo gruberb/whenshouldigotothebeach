@@ -35,10 +35,15 @@ ratings:
 window:
   min_hours: 2
 
-# Sized to GitHub's best-effort scheduled-run cadence (median ~1h, tail to
-# several hours), not the cron interval. ECCC re-issues hourly forecasts only
-# ~4x/day, so a 4-hour-old fetch usually still carries the current issue.
-# Safety stays tighter: advisories and closures must not sit unflagged.
+# Freshness is tiered. Past a valid window the frontend keeps the verdicts
+# and shows a notice naming what has aged; past expires_minutes it hides
+# them. The windows follow the sources, not the refresh cadence: forecasts
+# are re-issued on a six-hour cycle, so a fetch older than that has missed at
+# least one issue. Nova Scotia Parks posts advisories during business hours
+# after lab results, so a four-hour recheck gap is still tighter than the
+# source itself. Eight hours is where the day's best window is likely behind
+# the reader and a verdict stops meaning anything.
 staleness:
-  valid_minutes: 240
-  safety_valid_minutes: 180
+  valid_minutes: 360
+  safety_valid_minutes: 240
+  expires_minutes: 480

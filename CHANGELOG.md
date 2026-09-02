@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.8.0 - 2026-09-02
+
+### Changed
+
+- Freshness is tiered instead of a cliff. Past the forecast window (6 hours,
+  one forecast issue cycle) or the advisory recheck window (4 hours) the
+  verdicts stay on the page and a quiet "Update delayed" notice names what
+  has aged. Only past the new `expiresAt` stamp (8 hours) are verdicts
+  hidden behind the DATA STALE banner, because by then the day's best window
+  is likely already behind the reader. Every dataset carries `expiresAt`
+  next to `validUntil`.
+- The GitHub cron is an hourly fallback rather than the primary trigger.
+  GitHub has been dropping most scheduled events since late August
+  regardless of cron density (four to seven survivors a day, gaps of up to
+  eleven hours), so the intended primary trigger is an external scheduler
+  calling `workflow_dispatch` every 30 minutes. Setup is documented in
+  docs/ARCHITECTURE.md under "Refresh trigger".
+
 ## 1.7.0 - 2026-08-30
 
 ### Changed

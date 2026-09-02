@@ -13,13 +13,13 @@ import Loading from "@/components/loading";
 import StaleBanner from "@/features/beaches/components/stale-banner";
 import { useBeach } from "@/features/beaches/api/get-beach";
 import { useNow } from "@/hooks/use-now";
+import { freshnessOf } from "@/features/beaches/utils/freshness";
 import { STALE_META, TIDE_EFFECT_META, VERDICT_META, regionLabel } from "@/features/beaches/utils/meta";
 import {
   formatSelectedDay,
   formatTime,
   formatUpdatedAgo,
   formatWindow,
-  isStale,
   localDateOf,
 } from "@/utils/format";
 
@@ -272,9 +272,11 @@ function BeachDetail() {
     else next.set("date", date);
     setSearchParams(next, { replace: true });
   };
-  const weatherStale = isStale(data.validUntil, now);
-  const safetyStale = isStale(data.safetySource.validUntil, now);
-  const stale = weatherStale || safetyStale;
+  const freshness = freshnessOf(data, now);
+  // The headline and verdict label only go once the data has expired; the
+  // advisory line keeps its own, tighter recheck window.
+  const stale = freshness.expired;
+  const safetyStale = freshness.safetyStale;
   const waterAdvisory = day.advisories.find(
     (entry) => entry.type === "water-advisory" && entry.status === "active",
   );
@@ -427,7 +429,9 @@ function BeachDetail() {
       }
       subtitle={`${regionLabel(data.beach.region)} · ${data.beach.municipality}`}
     >
-      {stale && <StaleBanner generatedAt={data.generatedAt} />}
+      {freshness.stale && (
+        <StaleBanner generatedAt={data.generatedAt} freshness={freshness} now={now} />
+      )}
 
       <header className="mb-9">
         {!meta.quiet && !waterAdvisory && (

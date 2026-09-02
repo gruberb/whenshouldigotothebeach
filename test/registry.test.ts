@@ -88,6 +88,16 @@ describe("thresholds", () => {
     expect(t.ratings.good_min).toBeGreaterThan(t.ratings.ok_min);
     expect(t.ratings.ok_min).toBeGreaterThan(t.ratings.meh_min);
   });
+
+  it("keeps the freshness tiers in order", () => {
+    const t = loadThresholds(join(configDir, "thresholds.yml"));
+    expect(t.staleness.safety_valid_minutes).toBeLessThanOrEqual(
+      t.staleness.valid_minutes,
+    );
+    expect(t.staleness.expires_minutes).toBeGreaterThanOrEqual(
+      t.staleness.valid_minutes,
+    );
+  });
 });
 
 describe("manual overrides", () => {

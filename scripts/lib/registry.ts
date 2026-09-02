@@ -163,10 +163,18 @@ export function loadThresholds(path: string): Thresholds {
     window: z.object({
       min_hours: z.number().int().positive(),
     }),
-    staleness: z.object({
-      valid_minutes: z.number().int().positive(),
-      safety_valid_minutes: z.number().int().positive(),
-    }),
+    staleness: z
+      .object({
+        valid_minutes: z.number().int().positive(),
+        safety_valid_minutes: z.number().int().positive(),
+        expires_minutes: z.number().int().positive(),
+      })
+      .refine(
+        (s) =>
+          s.expires_minutes >=
+          Math.max(s.valid_minutes, s.safety_valid_minutes),
+        { message: "expires_minutes must cover both valid windows" },
+      ),
   });
   return schema.parse(raw);
 }

@@ -14,8 +14,9 @@ import { useBeaches } from "@/features/beaches/api/get-beaches";
 import { useFavourites } from "@/features/beaches/hooks/use-favourites";
 import { useNow } from "@/hooks/use-now";
 import { useUserLocation } from "@/hooks/use-user-location";
+import { freshnessOf } from "@/features/beaches/utils/freshness";
 import { REGION_META, REGION_ORDER, compareBeaches, regionLabel } from "@/features/beaches/utils/meta";
-import { formatTime, isStale } from "@/utils/format";
+import { formatTime } from "@/utils/format";
 import { haversineKm } from "@/utils/geo";
 
 // Leaflet only loads when someone opens the map view.
@@ -171,9 +172,10 @@ function Home() {
     );
   }
 
-  const weatherStale = isStale(data.validUntil, now);
-  const safetyStale = isStale(data.safetySource.validUntil, now);
-  const stale = weatherStale || safetyStale;
+  const freshness = freshnessOf(data, now);
+  // Cards and markers only lose their verdicts once the data has expired;
+  // an aging refresh is announced by the banner alone.
+  const stale = freshness.expired;
   const presentRegions = REGION_ORDER.filter((id) =>
     data.beaches.some((beach) => beach.region === id),
   );
@@ -273,7 +275,9 @@ function Home() {
         />
       }
     >
-      {stale && <StaleBanner generatedAt={data.generatedAt} />}
+      {freshness.stale && (
+        <StaleBanner generatedAt={data.generatedAt} freshness={freshness} now={now} />
+      )}
 
       {locationStatus === "denied" && (
         <p className="text-[12px] text-neutral-500 -mt-2 mb-3">
