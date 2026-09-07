@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-08-31T17:17:49.155Z",
+ "fetchedAt": "2026-09-07T15:17:35.769Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -575,12 +575,12 @@
    {
     "name": "Subway",
     "kind": "restaurant",
-    "distanceKm": 5.9
+    "distanceKm": 5.8
    },
    {
     "name": "Circle K",
     "kind": "store",
-    "distanceKm": 5.9
+    "distanceKm": 5.8
    }
   ],
   "maccormacks": [
@@ -805,9 +805,9 @@
     "distanceKm": 5.8
    },
    {
-    "name": "The Island Nest",
+    "name": "Scratch Eats Market",
     "kind": "restaurant",
-    "distanceKm": 6.1
+    "distanceKm": 5.8
    }
   ]
  }
