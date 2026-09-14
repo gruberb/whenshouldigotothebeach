@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-07T15:17:35.769Z",
+ "fetchedAt": "2026-09-14T16:08:25.871Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -805,9 +805,9 @@
     "distanceKm": 5.8
    },
    {
-    "name": "Scratch Eats Market",
+    "name": "The Island Nest",
     "kind": "restaurant",
-    "distanceKm": 5.8
+    "distanceKm": 6.1
    }
   ]
  }
