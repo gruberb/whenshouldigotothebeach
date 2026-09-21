@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-14T16:08:25.871Z",
+ "fetchedAt": "2026-09-21T16:08:02.083Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -556,7 +556,7 @@
    {
     "name": "Baba's Pizzeria",
     "kind": "restaurant",
-    "distanceKm": 16.4
+    "distanceKm": 16.3
    }
   ],
   "rainbow-haven": [
@@ -805,9 +805,9 @@
     "distanceKm": 5.8
    },
    {
-    "name": "The Island Nest",
+    "name": "Scratch Eats Market",
     "kind": "restaurant",
-    "distanceKm": 6.1
+    "distanceKm": 5.8
    }
   ]
  }
