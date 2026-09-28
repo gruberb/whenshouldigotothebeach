@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-21T16:08:02.083Z",
+ "fetchedAt": "2026-09-28T17:54:14.774Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -602,9 +602,9 @@
     "distanceKm": 1.2
    },
    {
-    "name": "Jerry's Kwik Way",
-    "kind": "store",
-    "distanceKm": 2.1
+    "name": "Peter's Pizzeria",
+    "kind": "takeout",
+    "distanceKm": 2.2
    }
   ],
   "dingle": [
