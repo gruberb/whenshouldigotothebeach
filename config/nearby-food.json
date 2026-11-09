@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-11-02T19:49:08.251Z",
+ "fetchedAt": "2026-11-09T20:08:26.507Z",
  "source": "OpenStreetMap via Overpass API (ODbL); road distances via Valhalla, ferries avoided",
  "beaches": {
   "queensland": [
@@ -793,8 +793,8 @@
     "distanceKm": 19.1
    },
    {
-    "name": "New Orleans Pizza",
-    "kind": "takeout",
+    "name": "The Farmer‘s Pantry",
+    "kind": "restaurant",
     "distanceKm": 19.7
    }
   ],
@@ -805,9 +805,9 @@
     "distanceKm": 5.8
    },
    {
-    "name": "Scratch Eats Market",
+    "name": "The Island Nest",
     "kind": "restaurant",
-    "distanceKm": 5.8
+    "distanceKm": 6.1
    }
   ]
  }
